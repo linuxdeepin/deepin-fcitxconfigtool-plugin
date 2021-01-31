@@ -25,7 +25,6 @@
 #include <fcitxqtinputmethodproxy.h>
 #include <fcitxqtkeyboardproxy.h>
 #include <fcitxqtconnection.h>
-
 #include "fcitxqthelper.h"
 
 Q_GLOBAL_STATIC(FcitxQtHelper, staticFcitxQtHelper)

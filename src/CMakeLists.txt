@@ -48,17 +48,16 @@ qt5_create_translation(DTNG_QM_FILES
      ${DTNG_TS_FILES}
      ${DTNG_QM_FILES})
 
-#加载源文件
-file(GLOB ALL_SOURCES "./*.cpp" )
-file(GLOB ALL_HEADERS "./*.h")
-set(ALL_SRCS
-    ${ALL_SOURCES}
-    ${ALL_HEADERS})
+FILE(GLOB_RECURSE HEAD_FILES  ${CMAKE_CURRENT_SOURCE_DIR}/*.h)
+FILE(GLOB_RECURSE SOURCE_FILES  ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp)
 
-add_executable(${BIN_NAME}
-        ${ALL_SRCS}
-        ${DTNG_QM_FILES}
-        )
+set(ALL_SRCS
+    ${HEAD_FILES}
+    ${SOURCE_FILES}
+    ${APP_QRC}
+    ${DTNG_QM_FILES})
+
+add_executable(${BIN_NAME} ${ALL_SRCS})
 
 #add_library(${BIN_NAME}
 #        MODULE

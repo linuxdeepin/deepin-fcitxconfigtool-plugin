@@ -1,21 +1,22 @@
 #ifndef FcitxConfigPlugin_H
 #define FcitxConfigPlugin_H
 
-#include "namespace.h"
-#include "moduleinterface.h"
-#include "frameproxyinterface.h"
+#include "ddeInterface/namespace.h"
+#include "ddeInterface/moduleinterface.h"
+#include "ddeInterface/frameproxyinterface.h"
 #include <QObject>
 #include <QMessageBox>
 #include <QWidget>
 #include <QGridLayout>
-#include "mainwindow.h"
+#include <QMainWindow>
+
 
 namespace DCC_NAMESPACE {
 class FcitxConfigPlugin :public QObject, public DCC_NAMESPACE::ModuleInterface
 {
     Q_OBJECT
     Q_INTERFACES(DCC_NAMESPACE::ModuleInterface)
-    Q_PLUGIN_METADATA(IID ModuleInterface_iid FILE "fcitxconfigplugin.json")
+    Q_PLUGIN_METADATA(IID ModuleInterface_iid FILE "ddeInterface/fcitxconfigplugin.json")
 public:
     FcitxConfigPlugin();
     FcitxConfigPlugin(FrameProxyInterface *frameProxy) : ModuleInterface(frameProxy) {
@@ -111,7 +112,7 @@ public Q_SLOTS:
     /// \brief active
     /// 当模块第一次被点击进入时，active会被调用,如果是插件,重载的时候必须声明为slots,否则加载不了
     virtual void active() {
-        mainwindow =new MainWindow;
+        mainwindow =new QMainWindow;
         m_frameProxy->pushWidget(this, mainwindow, dccV20::FrameProxyInterface::PushType::Normal);
     }
 
@@ -123,7 +124,7 @@ public Q_SLOTS:
     }
 
 public:
-    MainWindow* mainwindow;
+    QMainWindow* mainwindow;
 
 };
 }

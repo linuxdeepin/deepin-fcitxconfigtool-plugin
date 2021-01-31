@@ -1,5 +1,10 @@
 <RCC>
-    <qresource>
+    <qresource prefix="/">
         <file>icons/fcitx.svg</file>
+        <file>icons/add_hover.png</file>
+        <file>icons/add_normal.png</file>
+        <file>icons/arrow_up.svg</file>
+        <file>icons/arrow_down.svg</file>
+        <file>icons/setting.svg</file>
     </qresource>
 </RCC>
