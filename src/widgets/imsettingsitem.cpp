@@ -33,11 +33,27 @@ IMSettingsItem::IMSettingsItem(QString str,QFrame *parent)
     this->setFixedHeight(40);
 }
 
+IMSettingsItem::~IMSettingsItem()
+{
+
+}
+
 void IMSettingsItem::setFcitxItem(FcitxQtInputMethodItem item)
 {
     m_item = item;
     m_labelText->setText(item.name());
     m_labelText->adjustSize();
+}
+
+void IMSettingsItem::setFilterStr(QString str)
+{
+    if(!(m_item.name().indexOf(str,Qt::CaseInsensitive)!=-1
+         || m_item.uniqueName().indexOf(str,Qt::CaseInsensitive) !=-1
+         || m_item.langCode().indexOf(str,Qt::CaseInsensitive) !=-1)) {
+        this->hide();
+    }else {
+        this->show();
+    }
 }
 
 void IMSettingsItem::addBackground()
@@ -56,9 +72,15 @@ void IMSettingsItem::addBackground()
     m_bgGroup->setFixedSize(size());
 }
 
-void IMSettingsItem::clearItemSelected()
+void IMSettingsItem::setItemSelected(bool status)
 {
-   m_labelIcon->clear();
+    if (status) {
+        QIcon icon = DStyle::standardIcon(QApplication::style(), DStyle::SP_IndicatorChecked);
+        m_labelIcon->setPixmap(icon.pixmap(QSize(20,20)));
+    }else {
+        m_labelIcon->clear();
+    }
+
 }
 
 void IMSettingsItem::resizeEvent(QResizeEvent *event)
@@ -72,8 +94,7 @@ void IMSettingsItem::resizeEvent(QResizeEvent *event)
 
 void IMSettingsItem::mousePressEvent(QMouseEvent *event)
 {
-    QIcon icon = DStyle::standardIcon(QApplication::style(), DStyle::SP_IndicatorChecked);
-    m_labelIcon->setPixmap(icon.pixmap(QSize(20,20)));
+    setItemSelected(true);
     emit   sig_itemClicked(this);
 }
 

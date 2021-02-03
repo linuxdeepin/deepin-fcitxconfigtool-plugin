@@ -37,30 +37,15 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 */
-#ifndef IMWIDOW_H
-#define IMWIDOW_H
+#ifndef PUBLISHERDEF_H
+#define PUBLISHERDEF_H
 
-#include <QWidget>
+#define deleteObject_Null(obj) \
+    if (obj) \
+        delete obj; \
+    obj = nullptr;
 
-class IMAddWindow;
-class IMSettingWindow;
-class QStackedWidget;
+#define for_int(count) for (int i = 0; i < count; ++i)
+#define Debug 1
 
-class IMWindow : public QWidget
-{
-    Q_OBJECT
-public:
-    explicit IMWindow(QWidget *parent = nullptr);
-    virtual ~IMWindow();
-
-private:
-    void initUI(); //初始化界面
-    void initConnect(); //初始化信号槽
-    void initFcitxInterface(); //初始化fcitx接口
-private:
-    QStackedWidget *m_stackedWidget {nullptr}; //栈窗口
-    IMSettingWindow *m_settingWindow {nullptr}; //输入法编辑窗口
-    IMAddWindow *m_addWindow {nullptr}; //输入法添加窗口
-};
-
-#endif // IMWIDOW_H
+#endif // PUBLISHERDEF_H

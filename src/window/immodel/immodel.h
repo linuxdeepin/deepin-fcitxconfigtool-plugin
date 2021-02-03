@@ -1,40 +1,96 @@
+/*
+
+* Copyright (C) 2019 ~ 2019 Deepin Technology Co., Ltd.
+
+*
+
+* Author:     lwh <liuwenhao@uniontech.com>
+
+*
+
+* Maintainer: lwh <liuwenhao@uniontech.com>
+
+*
+
+* This program is free software: you can redistribute it and/or modify
+
+* it under the terms of the GNU General Public License as published by
+
+* the Free Software Foundation, either version 3 of the License, or
+
+* any later version.
+
+*
+
+* This program is distributed in the hope that it will be useful,
+
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+
+* GNU General Public License for more details.
+
+*
+
+* You should have received a copy of the GNU General Public License
+
+* along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+*/
 #ifndef IMMODEL_H
 #define IMMODEL_H
 
+#include <QTimer>
 #include <QMimeData>
 #include <QStandardItemModel>
 #include <DStandardItem>
 #include <DStyle>
 #include <fcitxqtinputmethoditem.h>
 
+const int IMchangedTime = 1000; //输入法设置改变间隔
+const int IMConTime = 1500; //输入法断开连接等待间隔
 using namespace Dtk::Widget;
 class IMModel : public QStandardItemModel
 {
     Q_OBJECT
 public:
-    explicit IMModel(QObject* parent = nullptr);
-    virtual ~IMModel();
-    Qt::DropActions supportedDropActions()const override;
-    QStringList mimeTypes()const override;
-    QMimeData *mimeData(const QModelIndexList&index)const override;
-    bool dropMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent)override;
+    static IMModel *instance();
+    static void deleteIMModel();
+    //重载
+    Qt::DropActions supportedDropActions() const override;
+    QStringList mimeTypes() const override;
+    QMimeData *mimeData(const QModelIndexList &index) const override;
+    bool dropMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent) override;
     Qt::ItemFlags flags(const QModelIndex &index) const override;
-    void setEdit(bool flag);
-    bool isEdit(){return m_isDeleteEdit;}
-public Q_SLOTS:
-    void slot_filterIMEntryList(const FcitxQtInputMethodItemList &imEntryList);
+    //self
+    void setEdit(bool flag); //设置编辑状态
+    bool isEdit() { return m_isEdit; } //获取编辑状态
+    void addIMItem(FcitxQtInputMethodItem item); //添加输入法
+    const FcitxQtInputMethodItemList &availIMList() const;
 signals:
-    void sig_curIMchanged(FcitxQtInputMethodItemList);
+    void sig_availIMList(FcitxQtInputMethodItemList);
+public slots:
+    void slot_updateIMList(); //更新输入法列表
 private:
-    void loadItem();
-    void deleteItem(DStandardItem*item);
-    void itemUp(DStandardItem*item);
-    void itemDown(DStandardItem*item);
-    void itemSawp(int index,int index2);
-    void configShow(DStandardItem*item);
+    explicit IMModel();
+    IMModel(const IMModel &tmp) = delete;
+    IMModel operator=(const IMModel &tmp) = delete;
+    virtual ~IMModel() override;
+
+    void loadItem(); //加载显示item
+    void deleteItem(DStandardItem *item); //删除item
+    void itemUp(DStandardItem *item); //item上移
+    void itemDown(DStandardItem *item); //item下移
+    void itemSawp(int index, int index2); //交换item
+    void configShow(DStandardItem *item); //显示输入法设置界面
+    void IMListSvae(); //保存输入法列表至fcitx
+    void addActionList(DStandardItem *item); //添加action至item
 private:
-    FcitxQtInputMethodItemList m_curIMList;
-    bool m_isDeleteEdit{false};
+    static IMModel *m_ins;
+    FcitxQtInputMethodItemList m_curIMList; //当前使用输入法
+    FcitxQtInputMethodItemList m_availeIMList; //当前未使用输入法
+    bool m_isEdit {false}; //编辑状态
+    QTimer m_timer; //输入法修改定时器  当输入法界面作出修改后触发
 };
 
 #endif // IMMODEL_H

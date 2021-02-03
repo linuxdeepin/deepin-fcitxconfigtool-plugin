@@ -4,27 +4,27 @@
 <context>
     <name>IMAddWindow</name>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="27"/>
+        <location filename="../src/window/imaddwindow.cpp" line="32"/>
         <source>添加输入法</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="36"/>
+        <location filename="../src/window/imaddwindow.cpp" line="41"/>
         <source>搜索</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="45"/>
+        <location filename="../src/window/imaddwindow.cpp" line="49"/>
         <source>前往商店下载</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="51"/>
+        <location filename="../src/window/imaddwindow.cpp" line="55"/>
         <source>添加</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="54"/>
+        <location filename="../src/window/imaddwindow.cpp" line="58"/>
         <source>取消</source>
         <translation type="unfinished"></translation>
     </message>
@@ -32,48 +32,48 @@
 <context>
     <name>IMSettingWindow</name>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="67"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="68"/>
         <source>输入法</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="78"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="77"/>
         <source>输入法管理</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="79"/>
-        <location filename="../src/window/imsettingwindow.cpp" line="177"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="78"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="161"/>
         <source>编辑</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="96"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="97"/>
         <source>快捷键</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="111"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="113"/>
         <source>切换输入法</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="114"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="116"/>
         <source>切换至默认输入法</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="115"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="117"/>
         <source>切换虚拟键盘</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="117"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="119"/>
         <source>切换方式</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="174"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="158"/>
         <source>完成</source>
         <translation type="unfinished"></translation>
     </message>
@@ -81,7 +81,7 @@
 <context>
     <name>Main</name>
     <message>
-        <location filename="../src/main.cpp" line="30"/>
+        <location filename="../src/main.cpp" line="22"/>
         <source>deepin-fcitxconfigtool-plugin</source>
         <translation type="unfinished"></translation>
     </message>

@@ -110,7 +110,7 @@ void SettingsGroup::insertItem(const int index, SettingsItem *item)
                 if(this->getItem(j)!=myItem){
                     IMSettingsItem *Titem = dynamic_cast<IMSettingsItem*>(this->getItem(j));
                     if(Titem)
-                        Titem->clearItemSelected();
+                        Titem->setItemSelected(false);
                 }
             }
         });
@@ -130,6 +130,19 @@ void SettingsGroup::appendItem(SettingsItem *item, BackgroundStyle bgStyle)
 
     m_layout->insertWidget(m_layout->count(), item);
     item->installEventFilter(this);
+
+    IMSettingsItem *mItem = dynamic_cast<IMSettingsItem*>(item);
+    if(mItem)
+        connect(mItem,&IMSettingsItem::sig_itemClicked,[=](IMSettingsItem *myItem){
+            int i =itemCount();
+            for(int j =0;j<i;++j){
+                if(this->getItem(j)!=myItem){
+                    IMSettingsItem *Titem = dynamic_cast<IMSettingsItem*>(this->getItem(j));
+                    if(Titem)
+                        Titem->setItemSelected(false);
+                }
+            }
+        });
 }
 
 void SettingsGroup::removeItem(SettingsItem *item)

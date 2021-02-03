@@ -1,13 +1,22 @@
 #include "availwidget.h"
+#include "widgets/titlelabel.h"
+#include "publisherdef.h"
+#include "immodel/immodel.h"
 #include <QScrollArea>
 #include <QVBoxLayout>
+#include <QVBoxLayout>
+#include <QList>
+#include <fcitxInterface/global.h>
 
-static QString languageName(const QString& langCode)
+using namespace Fcitx;
+using namespace Dtk::Widget;
+bool operator==(const FcitxQtInputMethodItem &item, const FcitxQtInputMethodItem &item2);
+// kcm代码 获取语言名称 简体中文 繁体中文 英文等 需要优化
+static QString languageName(const QString &langCode)
 {
     if (langCode.isEmpty()) {
         return QString("Unknown");
-    }
-    else if (langCode == "*")
+    } else if (langCode == "*")
         return QString("Multilingual");
     else {
         QLocale locale(langCode);
@@ -45,112 +54,178 @@ static QString languageName(const QString& langCode)
     }
 }
 
-
-AvailWidget::AvailWidget(QWidget* parent)
-    :QWidget(parent)
+AvailWidget::AvailWidget(QWidget *parent)
+    : QWidget(parent)
 {
-    QVBoxLayout*vlayout = new QVBoxLayout(this);
+    initUI();
+    initConnect();
+    slot_updateUI(IMModel::instance()->availIMList());
+}
+
+AvailWidget::~AvailWidget()
+{
+    m_allIMGroup->clear();
+    m_searchIMGroup->clear();
+    deleteObject_Null(m_allIMGroup);
+    deleteObject_Null(m_searchIMGroup);
+}
+
+void AvailWidget::initUI()
+{
+    QVBoxLayout *vlayout = new QVBoxLayout(this);
+
     QScrollArea *scrollArea = new QScrollArea(this);
     scrollArea->setWidgetResizable(true);
     scrollArea->setFrameShape(QFrame::NoFrame);
-    QWidget * scrollAreaWidgetContents = new QWidget(scrollArea);
-    QGridLayout * gridLayout_2 = new QGridLayout(scrollAreaWidgetContents);
+
+    QWidget *scrollAreaWidgetContents = new QWidget(scrollArea);
+    QGridLayout *gridLayout_2 = new QGridLayout(scrollAreaWidgetContents);
     gridLayout_2->setContentsMargins(11, 11, 11, 11);
-    QVBoxLayout* scrollAreaLayout = new QVBoxLayout();
+    QVBoxLayout *scrollAreaLayout = new QVBoxLayout();
     scrollAreaLayout->setSpacing(6);
     gridLayout_2->addLayout(scrollAreaLayout, 0, 0, 1, 1);
     scrollArea->setWidget(scrollAreaWidgetContents);
     vlayout->addWidget(scrollArea);
-    m_group = new SettingsGroup();
-    scrollAreaLayout->addWidget(m_group);
+
+    m_allIMGroup = new SettingsGroup();
+    m_allIMGroup->getLayout()->setMargin(0);
+    scrollAreaLayout->addWidget(m_allIMGroup);
+    m_searchIMGroup = new SettingsGroup();
+    m_searchIMGroup->getLayout()->setMargin(0);
+    scrollAreaLayout->addWidget(m_searchIMGroup);
     scrollAreaLayout->addStretch();
 
     this->setLayout(vlayout);
 }
 
-AvailWidget::~AvailWidget()
+void AvailWidget::initConnect()
 {
-
+    connect(IMModel::instance(), &IMModel::sig_availIMList, this, &AvailWidget::slot_updateUI);
 }
 
-void AvailWidget::updateUI(const FcitxQtInputMethodItemList &IMlist)
+void AvailWidget::clearItemStatus()
 {
-    m_imlist = IMlist;
+    m_selectItem = FcitxQtInputMethodItem();
+    cleareItemStatusAndFilter(m_allIMGroup, true);
+    //cleareFcitxItemAndFilter(m_searchIMGroup);  //不需要清除搜索m_searchIMGroup 搜索框信号会触发清除
+}
+
+void AvailWidget::cleareItemStatusAndFilter(SettingsGroup *group, bool flag)
+{
+    if (!group) {
+        return;
+    }
+
+    for (int i = 0; i < group->itemCount(); ++i) {
+        IMSettingsItem *item = dynamic_cast<IMSettingsItem *>(group->getItem(i));
+        if (item) {
+            item->setItemSelected(false);
+            if (flag)
+                item->setFilterStr(m_searchStr);
+        }
+    }
+}
+
+void AvailWidget::slot_updateUI(FcitxQtInputMethodItemList IMlist)
+{
+    if (!Global::instance()->inputMethodProxy()) {
+        m_allIMGroup->hide();
+        m_searchIMGroup->hide();
+        emit sig_seleteIM(false);
+        return;
+    }
+
+    if (m_searchStr.isEmpty()) {
+        m_allIMGroup->show();
+        m_searchIMGroup->hide();
+    } else {
+        m_searchIMGroup->show();
+        m_allIMGroup->hide();
+    }
+
+    if (m_allAvaiIMlList == IMlist) {
+        return;
+    }
+    m_allAvaiIMlList = IMlist;
+
     QMap<QString, int> languageMap;
-    m_filteredIMEntryList.clear();
-    Q_FOREACH(const FcitxQtInputMethodItem & im, IMlist) {
+    QList<QPair<QString, FcitxQtInputMethodItemList>> filteredIMEntryList;
+    Q_FOREACH (const FcitxQtInputMethodItem &im, m_allAvaiIMlList) {
         if (!im.enabled()) {
             int idx;
             if (!languageMap.contains(im.langCode())) {
-                idx = m_filteredIMEntryList.count();
+                idx = filteredIMEntryList.count();
                 languageMap[im.langCode()] = idx;
-                m_filteredIMEntryList.append(QPair<QString, FcitxQtInputMethodItemList>(im.langCode(), FcitxQtInputMethodItemList()));
+                filteredIMEntryList.append(QPair<QString, FcitxQtInputMethodItemList>(im.langCode(), FcitxQtInputMethodItemList()));
             } else {
                 idx = languageMap[im.langCode()];
             }
-            m_filteredIMEntryList[idx].second.append(im);
+            filteredIMEntryList[idx].second.append(im);
         }
     }
 
-
-
-    m_group->clear();
-
-    QMap<QString,FcitxQtInputMethodItemList>t2;
-    for(auto it = m_filteredIMEntryList.begin();it!=m_filteredIMEntryList.end();++it) {
-         for(auto it2 = it->second.begin();it2 != it->second.end();++it2) {
-             QString imcodeName = languageName(it2->langCode());
-             if( t2.find(imcodeName)==t2.end()) {
-                 t2.insert(imcodeName,FcitxQtInputMethodItemList());
-             }
-             t2[imcodeName].push_back(*it2);
-         }
+    std::map<QString, FcitxQtInputMethodItemList> tmpIM;
+    for (auto it = filteredIMEntryList.begin(); it != filteredIMEntryList.end(); ++it) {
+        for (auto it2 = it->second.begin(); it2 != it->second.end(); ++it2) {
+            QString imcodeName = languageName(it2->langCode());
+            if (tmpIM.find(imcodeName) == tmpIM.end()) {
+                tmpIM.insert(std::pair<QString, FcitxQtInputMethodItemList>(imcodeName, FcitxQtInputMethodItemList()));
+            }
+            tmpIM[imcodeName].push_back(*it2);
+        }
     }
-    bool flag = m_search.isEmpty();
-    for(auto it = t2.begin();it!=t2.end();++it) {
+
+    auto createIMSttings = [=](SettingsGroup *group, FcitxQtInputMethodItem imItem) {
+        IMSettingsItem *item = new IMSettingsItem();
+        connect(item, &IMSettingsItem::sig_itemClicked, [=](IMSettingsItem *item) {
+            m_selectItem = item->m_item;
+            emit sig_seleteIM(true);
+        });
+        item->setParent(m_allIMGroup);
+        item->setFcitxItem(imItem);
+        group->appendItem(item);
+        if (group == m_searchIMGroup) {
+            item->setFilterStr(m_searchStr);
+        }
+        if (imItem.name() == m_selectItem.name()
+            && imItem.langCode() == m_selectItem.langCode()
+            && imItem.uniqueName() == m_selectItem.uniqueName()) {
+            item->setItemSelected(true);
+            emit sig_seleteIM(true);
+        }
+    };
+
+    //清空group
+    m_allIMGroup->clear();
+    m_searchIMGroup->clear();
+    //添加item
+    for (auto it = tmpIM.rbegin(); it != tmpIM.rend(); ++it) {
         SettingsHead *head = new SettingsHead();
         head->setEditEnable(false);
-        head->setTitle(it.key());
-        QHBoxLayout *headLayout = new QHBoxLayout();
-        headLayout->addWidget(head);
-        headLayout->setContentsMargins(15,0,0,0);
-        m_group->getLayout()->setMargin(0);
-        m_group->appendItem(head, SettingsGroup::NoneBackground);
-        if(flag) {
-            head->hide();
-        }else {
-            head->show();
-        }
-        for(auto it2 = it->begin();it2!=it->end();++it2) {
-            IMSettingsItem*item = new IMSettingsItem();
-            item->setParent(m_group);
-            item->setFcitxItem(*it2);
-            m_group->appendItem(item);
-            if(it2->name().indexOf(m_search)!=-1 || it2->uniqueName().indexOf(m_search) !=-1 || it2->langCode().indexOf(m_search) !=-1) {
-                item->show();
-            }else {
-                item->hide();
-            }
+        head->setTitle(it->first);
+        m_allIMGroup->appendItem(head, SettingsGroup::NoneBackground);
+        for (auto it2 = it->second.begin(); it2 != it->second.end(); ++it2) {
+            createIMSttings(m_allIMGroup, *it2);
+            createIMSttings(m_searchIMGroup, *it2);
         }
     }
 }
 
 void AvailWidget::slot_searchIM(const QString &str)
 {
-    m_search = str;
+    m_searchStr = str;
+    m_allIMGroup->hide();
+    m_searchIMGroup->hide();
+    m_selectItem = FcitxQtInputMethodItem();
+    emit sig_seleteIM(false);
 
-    for (int i=0;i<m_group->itemCount();++i) {
-        IMSettingsItem*item  = dynamic_cast<IMSettingsItem*>(m_group->getItem(i));
-        if(item) {
-            auto it = item->m_item;
-            if(!(it.name().indexOf(m_search)!=-1 || it.uniqueName().indexOf(m_search) !=-1 || it.langCode().indexOf(m_search) !=-1)) {
-                item->hide();
-            }else {
-                item->show();
-            }
+    if (Global::instance()->inputMethodProxy()) {
+        if (m_searchStr.isEmpty()) {
+            m_allIMGroup->show();
+            cleareItemStatusAndFilter(m_allIMGroup, false);
+        } else {
+            m_searchIMGroup->show();
+            cleareItemStatusAndFilter(m_searchIMGroup, true);
         }
     }
 }
-
-
-
