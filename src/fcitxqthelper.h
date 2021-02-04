@@ -57,10 +57,10 @@ private slots:
 private:
     Q_DISABLE_COPY(FcitxQtHelper)
 
-    QHash<QString, FcitxConfigFileDesc *>   configFileDescHash;
-    FcitxQtConnection                       *connection = nullptr;
-    FcitxQtInputMethodProxy                 *inputMethodProxy = nullptr;
-    FcitxQtKeyboardProxy                    *keyboardProxy = nullptr;
+    QHash<QString, FcitxConfigFileDesc *> configFileDescHash;
+    FcitxQtConnection *connection = nullptr;
+    FcitxQtInputMethodProxy *inputMethodProxy = nullptr;
+    FcitxQtKeyboardProxy *keyboardProxy = nullptr;
 };
 
 #endif // FCITXQTHELPER_H

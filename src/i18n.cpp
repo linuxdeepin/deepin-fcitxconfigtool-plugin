@@ -94,7 +94,7 @@ translateDomainCtx(const char *domain, const char *ctx, const char *s)
 {
     gettextManager.addDomain(domain);
     std::string str = nullptr;
-    str.append(str);
+    str.append(ctx);
     str.append("\004");
     str.append(s);
     const auto *p = str.c_str();

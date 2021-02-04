@@ -29,7 +29,8 @@
 
 Q_GLOBAL_STATIC(FcitxQtHelper, staticFcitxQtHelper)
 
-FcitxQtHelper::FcitxQtHelper(QObject *parent) : QObject(parent)
+FcitxQtHelper::FcitxQtHelper(QObject *parent)
+    : QObject(parent)
 {
     connection = new FcitxQtConnection(this);
 
@@ -42,7 +43,7 @@ FcitxQtHelper::FcitxQtHelper(QObject *parent) : QObject(parent)
 FcitxQtHelper::~FcitxQtHelper()
 {
     QHash<QString, FcitxConfigFileDesc *>::iterator iter;
-    for (iter = configFileDescHash.begin(); iter != configFileDescHash.end(); iter ++) {
+    for (iter = configFileDescHash.begin(); iter != configFileDescHash.end(); iter++) {
         FcitxConfigFreeConfigFileDesc(iter.value());
     }
 }
@@ -116,7 +117,7 @@ FcitxConfigFileDesc *FcitxQtHelper::getConfigDesc(const QString &name)
 {
     if (configFileDescHash.count(name) <= 0) {
         FILE *fp = FcitxXDGGetFileWithPrefix("configdesc", name.toLatin1().constData(), "r", nullptr);
-        FcitxConfigFileDesc *cfdesc =  FcitxConfigParseConfigFileDescFp(fp);
+        FcitxConfigFileDesc *cfdesc = FcitxConfigParseConfigFileDescFp(fp);
         if (nullptr != cfdesc) {
             configFileDescHash.insert(name, cfdesc);
         }
