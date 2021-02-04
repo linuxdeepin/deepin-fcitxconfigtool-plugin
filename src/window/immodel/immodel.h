@@ -45,15 +45,23 @@
 #include <QStandardItemModel>
 #include <DStandardItem>
 #include <DStyle>
+#include <DListView>
 #include <fcitxqtinputmethoditem.h>
+#include "publisherdef.h"
+#include <QProcess>
+#include <QThread>
 
-const int IMchangedTime = 1000; //输入法设置改变间隔
-const int IMConTime = 1500; //输入法断开连接等待间隔
+const int IMchangedTime = 200; //输入法设置改变间隔
+const int IMConTime = 5000; //输入法断开连接等待间隔
 using namespace Dtk::Widget;
+
+class TestIMModel;
+
 class IMModel : public QStandardItemModel
 {
     Q_OBJECT
 public:
+    friend TestIMModel;
     static IMModel *instance();
     static void deleteIMModel();
     //重载
@@ -91,6 +99,49 @@ private:
     FcitxQtInputMethodItemList m_availeIMList; //当前未使用输入法
     bool m_isEdit {false}; //编辑状态
     QTimer m_timer; //输入法修改定时器  当输入法界面作出修改后触发
+    QTimer m_timer2; //输入法修改定时器  当输入法界面作出修改后触发
+};
+
+class TestIMModel
+{
+public:
+    static void testUpdate()
+    {
+        auto func = [=] {
+            for_int(1000)
+            {
+                qDebug() << i;
+                QProcess::startDetached("fcitx -r");
+                QThread::msleep(3000);
+            }
+        };
+
+        std::thread t(func);
+        t.detach();
+    }
+
+    static void testItemSwap()
+    {
+        for_int(1000)
+        {
+            IMModel *model = IMModel::instance();
+
+            int a = model->m_curIMList.count();
+
+            int b = rand() % a - 1;
+            int c = rand() % b;
+            qDebug() << i << a << b << c;
+            if (b > 0 && c > 0)
+                IMModel::instance()->itemSawp(c, b);
+            QThread::msleep(800);
+        }
+    }
+
+    static void testIMModel()
+    {
+        TestIMModel::testUpdate();
+        //TestIMModel::testItemSwap();
+    }
 };
 
 #endif // IMMODEL_H

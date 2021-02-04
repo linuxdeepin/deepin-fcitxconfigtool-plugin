@@ -6,15 +6,15 @@ project(deepin-fcitxconfigtool-plugin)
 #编译设置
 if (CMAKE_BUILD_TYPE MATCHES Debug)
   set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -g -Wall -Wextra")
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -Wall -Wextra")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -Wall -Wextra -pthread")
   # Enable Qt builtin debug mode
-  add_definitions("-DQT_MESSAGELOGCONTEXT")
+  add_definitions("-DQT_MESSAGELOGCONTEXT -std=c++11")
 else()
   # -Wl, -O2 Enable linker optimizations
   # -Wl, --gc-sections Remove unused code resulting from -fdsta-sections and
   # -ffunction-sections
   set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -O2 -Wl,--gc-sections")
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -O2 -Wl,--gc-sections")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -O2 -Wl,--gc-sections -pthread")
 endif()
 
 #加载子目录

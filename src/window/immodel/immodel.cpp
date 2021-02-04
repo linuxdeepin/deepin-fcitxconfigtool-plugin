@@ -2,8 +2,11 @@
 #include "fcitxInterface/global.h"
 #include "publisherdef.h"
 #include <QApplication>
+#include <QHBoxLayout>
+#include <QPushButton>
 #include <QTimer>
 #include <libintl.h>
+#include <DWidget/DIconButton>
 
 using namespace Fcitx;
 IMModel *IMModel::m_ins {nullptr};
@@ -17,19 +20,17 @@ bool operator==(const FcitxQtInputMethodItem &item, const FcitxQtInputMethodItem
 IMModel::IMModel()
     : QStandardItemModel(nullptr)
 {
+    slot_updateIMList();
     connect(Global::instance(), &Global::connectStatusChanged, [=]() {
-        if (Global::instance()->inputMethodProxy()) {
-            slot_updateIMList();
-        } else {
-            QTimer::singleShot(IMConTime, this, &IMModel::slot_updateIMList);
-        }
+        m_timer2.start(IMConTime);
     });
     connect(&m_timer, &QTimer::timeout, this, &IMModel::IMListSvae);
-    slot_updateIMList();
+    connect(&m_timer2, &QTimer::timeout, this, &IMModel::slot_updateIMList);
 }
 
 IMModel::~IMModel()
 {
+    qDebug() << "IMModel delete";
     IMListSvae();
 }
 
@@ -151,11 +152,7 @@ const FcitxQtInputMethodItemList &IMModel::availIMList() const
 void IMModel::slot_updateIMList()
 {
     if (Global::instance()->inputMethodProxy()) {
-        FcitxQtInputMethodItemList list = Global::instance()->inputMethodProxy()->iMList();
-        if (m_curIMList + m_availeIMList == list) {
-            return;
-        }
-
+        FcitxQtInputMethodItemList &&list = Global::instance()->inputMethodProxy()->iMList();
         FcitxQtInputMethodItemList curList, availList;
         Q_FOREACH (const FcitxQtInputMethodItem &im, list) {
             if (im.enabled()) {
@@ -187,6 +184,7 @@ void IMModel::slot_updateIMList()
         this->clear();
         emit sig_availIMList(m_availeIMList);
     }
+    m_timer2.stop();
 }
 
 void IMModel::loadItem()
@@ -276,7 +274,6 @@ void IMModel::IMListSvae()
                 b++;
             }
         }
-
         qDebug() << "IMListSvae" << m_curIMList.count() << m_availeIMList.count() << a << b;
 #endif
         Global::instance()->inputMethodProxy()->setIMList(m_curIMList + m_availeIMList);
@@ -295,7 +292,6 @@ void IMModel::addActionList(DStandardItem *item)
         list.push_back(iconAction);
     } else {
         DViewItemAction *iconAction = new DViewItemAction(Qt::AlignBottom, QSize(), QSize(), true);
-        iconAction->setStatusTip("123");
         iconAction->setIcon(QIcon(":/icons/arrow_up.svg"));
         DViewItemAction *iconAction2 = new DViewItemAction(Qt::AlignBottom, QSize(), QSize(), true);
         iconAction2->setIcon(QIcon(":/icons/arrow_down.svg"));

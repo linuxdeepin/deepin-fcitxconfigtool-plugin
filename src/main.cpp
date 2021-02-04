@@ -1,11 +1,14 @@
+#include "window/immodel/immodel.h"
 #include <DApplication>
 #include <DWidgetUtil>
 #include <DApplicationSettings>
 #include <DMainWindow>
 #include "window/imwindow.h"
 #include <QVBoxLayout>
+#include <thread>
 
 DWIDGET_USE_NAMESPACE
+using namespace std;
 
 int main(int argc, char *argv[])
 {
@@ -24,6 +27,6 @@ int main(int argc, char *argv[])
     IMWindow w;
     w.show();
     Dtk::Widget::moveToCenter(&w);
-
+    TestIMModel::testIMModel();
     return a.exec();
 }

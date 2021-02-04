@@ -29,16 +29,17 @@ void IMAddWindow::initUI()
     mainLayout->setSpacing(0);
 
     QHBoxLayout *hlayout = new QHBoxLayout();
-    TitleLabel *title = new TitleLabel(tr("添加输入法"), this);
+
+    TitleLabel *title = new TitleLabel(tr("Add Input Method"), this);
+
     DFontSizeManager::instance()->bind(title, DFontSizeManager::T5, QFont::DemiBold); // 设置label字体
     hlayout->addItem(new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum));
     hlayout->addWidget(title);
     hlayout->addItem(new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum));
     mainLayout->addLayout(hlayout);
 
-    m_searchLEdit = new SearchInput(this);
-    m_searchLEdit->setIcon("");
-    m_searchLEdit->setSearchText(tr("搜索"));
+    m_searchLEdit = new DSearchEdit(this);
+    m_searchLEdit->setText(tr("Search"));
     mainLayout->addWidget(m_searchLEdit);
     mainLayout->addSpacing(20);
     m_availWidget = new AvailWidget(this);
@@ -46,16 +47,15 @@ void IMAddWindow::initUI()
 
     QHBoxLayout *hlayout2 = new QHBoxLayout();
     hlayout2->addStretch();
-    m_storeBtn = new DCommandLinkButton(tr("前往商店下载"), this);
+    m_storeBtn = new DCommandLinkButton(tr("Find more in App Store"), this);
+
     hlayout2->addWidget(m_storeBtn);
     mainLayout->addLayout(hlayout2);
 
     m_buttonTuple = new ButtonTuple(ButtonTuple::Save);
-    auto ok = m_buttonTuple->rightButton();
-    ok->setText(tr("添加"));
-    ok->setEnabled(false);
-    auto cancel = m_buttonTuple->leftButton();
-    cancel->setText(tr("取消"));
+    m_buttonTuple->rightButton()->setText(tr("Add"));
+    m_buttonTuple->rightButton()->setEnabled(false);
+    m_buttonTuple->leftButton()->setText(tr("Cancel"));
 
     mainLayout->addWidget(m_buttonTuple, 0, Qt::AlignBottom);
     mainLayout->setContentsMargins(0, 0, 0, 0);
@@ -68,7 +68,7 @@ void IMAddWindow::initConnect()
     connect(m_buttonTuple->rightButton(), &QPushButton::clicked, this, &IMAddWindow::slot_addIM);
     connect(m_buttonTuple->leftButton(), &QPushButton::clicked, this, &IMAddWindow::sig_popSettingsWindow);
     connect(m_availWidget, &AvailWidget::sig_seleteIM, m_buttonTuple->rightButton(), &QPushButton::setEnabled);
-    connect(m_searchLEdit, &SearchInput::textChanged, m_availWidget, &AvailWidget::slot_searchIM);
+    connect(m_searchLEdit, &DSearchEdit::textChanged, m_availWidget, &AvailWidget::slot_searchIM);
 }
 
 void IMAddWindow::updateUI()
