@@ -65,17 +65,18 @@ void IMSettingWindow::initUI()
     //界面布局
     //输入法标签
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
-    mainLayout->addWidget(createTitle(tr("输入法")));
+    mainLayout->addWidget(createTitle(tr("Input Method")));
     //默认输入法
-    m_defualtIMCbox = new ComboxWidget("默认");
+    m_defualtIMCbox = new ComboxWidget(tr("Default"));
     m_defualtIMCbox->comboBox()->setModel(IMModel::instance());
     mainLayout->addWidget(createGroup(m_defualtIMCbox));
     mainLayout->addSpacing(20);
     //输入法管理标签 编辑按钮
     QHBoxLayout *headLayout = new QHBoxLayout(this);
     headLayout->setContentsMargins(0, 0, 0, 0);
-    headLayout->addWidget(createTitle(tr("输入法管理")));
-    m_editBtn = new DCommandLinkButton(tr("编辑"));
+    headLayout->addWidget(createTitle(tr("Manage Input Methods")));
+    m_editBtn = new DCommandLinkButton(tr("Edit"));
+
     headLayout->addStretch();
     headLayout->addWidget(m_editBtn);
     mainLayout->addLayout(headLayout);
@@ -94,7 +95,7 @@ void IMSettingWindow::initUI()
     mainLayout->addWidget(m_IMCurrentView);
     mainLayout->addSpacing(20);
     //快捷键标签
-    mainLayout->addWidget(createTitle(tr("快捷键")));
+    mainLayout->addWidget(createTitle(tr("Shortcuts")));
     QScrollArea *scrollArea = new QScrollArea(this);
     scrollArea->setWidgetResizable(true);
     scrollArea->setFrameShape(QFrame::NoFrame);
@@ -110,11 +111,11 @@ void IMSettingWindow::initUI()
     scrollArea->setWidget(scrollAreaWidgetContents);
     mainLayout->addWidget(scrollArea);
     //快捷键设置 切换输入法 切换虚拟键盘 切换至默认输入法
-    m_imSwitchCbox = new ComboxWidget(tr("切换输入法"));
+    m_imSwitchCbox = new ComboxWidget(tr("Switch input methods"));
     m_imSwitchCbox->comboBox()->addItems({"Ctrl+Shift", "Alt+Shift", "Ctrl+Super", "Alt+Super"});
     vLayout->addWidget(createGroup(m_imSwitchCbox));
-    vLayout->addWidget(createKeyEditWidget(m_defualtIMKey, tr("切换至默认输入法")));
-    vLayout->addWidget(createKeyEditWidget(m_virtualKey, tr("切换虚拟键盘")));
+    vLayout->addWidget(createKeyEditWidget(m_defualtIMKey, tr("Switch to default input method")));
+    vLayout->addWidget(createKeyEditWidget(m_virtualKey, tr("Call out Onboard")));
     //切换方式
     m_systemAppCbox = new ComboxWidget(tr("切换方式"));
     m_systemAppCbox->comboBox()->addItems({"系统", "应用"});
@@ -158,7 +159,7 @@ void IMSettingWindow::slot_editBtnClicked()
         m_editBtn->setText(tr("完成"));
         m_IMCurrentView->setSelectionMode(QAbstractItemView::NoSelection);
     } else {
-        m_editBtn->setText(tr("编辑"));
+        m_editBtn->setText(tr("Edit"));
         m_IMCurrentView->setSelectionMode(QAbstractItemView::SingleSelection);
     }
 
