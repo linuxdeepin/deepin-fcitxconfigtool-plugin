@@ -2,11 +2,19 @@
 #include "widgets/titlelabel.h"
 #include "publisherdef.h"
 #include "immodel/immodel.h"
+<<<<<<< HEAD
+=======
+#include "fcitxInterface/global.h"
+#include "../i18n.h"
+>>>>>>> cdc386b... feat: 添加输入法界面完成
 #include <QScrollArea>
 #include <QVBoxLayout>
 #include <QVBoxLayout>
 #include <QList>
+<<<<<<< HEAD
 #include <fcitxInterface/global.h>
+=======
+>>>>>>> cdc386b... feat: 添加输入法界面完成
 
 using namespace Fcitx;
 using namespace Dtk::Widget;
@@ -14,6 +22,12 @@ bool operator==(const FcitxQtInputMethodItem &item, const FcitxQtInputMethodItem
 // kcm代码 获取语言名称 简体中文 繁体中文 英文等 需要优化
 static QString languageName(const QString &langCode)
 {
+<<<<<<< HEAD
+=======
+    //QLocale locale("es_PE");
+    // fcitx::translateDomain("iso_638", QLocale::languageToString(locale.language()).toUtf8());
+
+>>>>>>> cdc386b... feat: 添加输入法界面完成
     if (langCode.isEmpty()) {
         return QString("Unknown");
     } else if (langCode == "*")
@@ -29,8 +43,12 @@ static QString languageName(const QString &langCode)
             languageName = locale.nativeLanguageName();
         }
         if (languageName.isEmpty()) {
+<<<<<<< HEAD
             //languageName = i18nd("iso_639", QLocale::languageToString(locale.language()).toUtf8());
             languageName = "iso_639";
+=======
+            languageName = fcitx::translateDomain("iso_639", QLocale::languageToString(locale.language()).toUtf8());
+>>>>>>> cdc386b... feat: 添加输入法界面完成
         }
         if (languageName.isEmpty()) {
             languageName = QString("Other");
@@ -48,8 +66,12 @@ static QString languageName(const QString &langCode)
         if (countryName.isEmpty()) {
             return languageName;
         } else {
+<<<<<<< HEAD
             return languageName;
             //return i18nc("%1 is language name, %2 is country name", "%1 (%2)", languageName, countryName);
+=======
+            return languageName + " (" + countryName + ")";
+>>>>>>> cdc386b... feat: 添加输入法界面完成
         }
     }
 }
@@ -103,6 +125,7 @@ void AvailWidget::initConnect()
     connect(IMModel::instance(), &IMModel::sig_availIMList, this, &AvailWidget::slot_updateUI);
 }
 
+<<<<<<< HEAD
 void AvailWidget::clearItemStatus()
 {
     m_selectItem = FcitxQtInputMethodItem();
@@ -135,6 +158,10 @@ void AvailWidget::slot_updateUI(FcitxQtInputMethodItemList IMlist)
         return;
     }
 
+=======
+void AvailWidget::slot_updateUI(FcitxQtInputMethodItemList IMlist)
+{
+>>>>>>> cdc386b... feat: 添加输入法界面完成
     if (m_searchStr.isEmpty()) {
         m_allIMGroup->show();
         m_searchIMGroup->hide();
@@ -144,6 +171,10 @@ void AvailWidget::slot_updateUI(FcitxQtInputMethodItemList IMlist)
     }
 
     if (m_allAvaiIMlList == IMlist) {
+<<<<<<< HEAD
+=======
+        emit sig_seleteIM(!(m_selectItem.name().isEmpty()));
+>>>>>>> cdc386b... feat: 添加输入法界面完成
         return;
     }
     m_allAvaiIMlList = IMlist;
@@ -211,6 +242,32 @@ void AvailWidget::slot_updateUI(FcitxQtInputMethodItemList IMlist)
     }
 }
 
+<<<<<<< HEAD
+=======
+void AvailWidget::clearItemStatus()
+{
+    m_selectItem = FcitxQtInputMethodItem();
+    cleareItemStatusAndFilter(m_allIMGroup, true);
+    //cleareFcitxItemAndFilter(m_searchIMGroup);  //不需要清除搜索m_searchIMGroup 搜索框信号会触发清除
+}
+
+void AvailWidget::cleareItemStatusAndFilter(SettingsGroup *group, bool flag)
+{
+    if (!group) {
+        return;
+    }
+
+    for (int i = 0; i < group->itemCount(); ++i) {
+        IMSettingsItem *item = dynamic_cast<IMSettingsItem *>(group->getItem(i));
+        if (item) {
+            item->setItemSelected(false);
+            if (flag)
+                item->setFilterStr(m_searchStr);
+        }
+    }
+}
+
+>>>>>>> cdc386b... feat: 添加输入法界面完成
 void AvailWidget::slot_searchIM(const QString &str)
 {
     m_searchStr = str;
@@ -219,6 +276,7 @@ void AvailWidget::slot_searchIM(const QString &str)
     m_selectItem = FcitxQtInputMethodItem();
     emit sig_seleteIM(false);
 
+<<<<<<< HEAD
     if (Global::instance()->inputMethodProxy()) {
         if (m_searchStr.isEmpty()) {
             m_allIMGroup->show();
@@ -227,5 +285,15 @@ void AvailWidget::slot_searchIM(const QString &str)
             m_searchIMGroup->show();
             cleareItemStatusAndFilter(m_searchIMGroup, true);
         }
+=======
+    if (m_searchStr.isEmpty()) {
+        m_allIMGroup->show();
+        m_searchIMGroup->hide();
+        cleareItemStatusAndFilter(m_allIMGroup, false);
+    } else {
+        m_searchIMGroup->show();
+        m_allIMGroup->hide();
+        cleareItemStatusAndFilter(m_searchIMGroup, true);
+>>>>>>> cdc386b... feat: 添加输入法界面完成
     }
 }

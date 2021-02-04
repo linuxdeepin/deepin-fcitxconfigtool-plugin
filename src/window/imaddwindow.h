@@ -40,12 +40,19 @@
 #ifndef IMADDWINDOW_H
 #define IMADDWINDOW_H
 
+<<<<<<< HEAD
 #include "widgets/searchinput.h"
+=======
+>>>>>>> cdc386b... feat: 添加输入法界面完成
 #include "widgets/buttontuple.h"
 #include <QWidget>
 #include <DCommandLinkButton>
 #include <DFloatingButton>
 #include <DListView>
+<<<<<<< HEAD
+=======
+#include <DSearchEdit>
+>>>>>>> cdc386b... feat: 添加输入法界面完成
 
 using namespace dcc::widgets;
 using namespace Dtk::Widget;
@@ -68,7 +75,11 @@ private slots:
     void slot_addIM(); //添加输入法
     void slot_openStore(); //打开应用商店
 private:
+<<<<<<< HEAD
     SearchInput *m_searchLEdit {nullptr}; //搜索框
+=======
+    DSearchEdit *m_searchLEdit {nullptr}; //搜索框
+>>>>>>> cdc386b... feat: 添加输入法界面完成
     AvailWidget *m_availWidget {nullptr}; //可用输入法列表窗口
     DCommandLinkButton *m_storeBtn {nullptr}; //应用商店按钮
     ButtonTuple *m_buttonTuple {nullptr}; //取消/添加按钮
