@@ -2,11 +2,12 @@
 #include "widgets/titlelabel.h"
 #include "publisherdef.h"
 #include "immodel/immodel.h"
+#include "fcitxInterface/global.h"
+#include "../i18n.h"
 #include <QScrollArea>
 #include <QVBoxLayout>
 #include <QVBoxLayout>
 #include <QList>
-#include <fcitxInterface/global.h>
 
 using namespace Fcitx;
 using namespace Dtk::Widget;
@@ -29,8 +30,7 @@ static QString languageName(const QString &langCode)
             languageName = locale.nativeLanguageName();
         }
         if (languageName.isEmpty()) {
-            //languageName = i18nd("iso_639", QLocale::languageToString(locale.language()).toUtf8());
-            languageName = "iso_639";
+            languageName = fcitx::translateDomain("iso_639", QLocale::languageToString(locale.language()).toUtf8());
         }
         if (languageName.isEmpty()) {
             languageName = QString("Other");
@@ -48,8 +48,7 @@ static QString languageName(const QString &langCode)
         if (countryName.isEmpty()) {
             return languageName;
         } else {
-            return languageName;
-            //return i18nc("%1 is language name, %2 is country name", "%1 (%2)", languageName, countryName);
+            return languageName + " (" + countryName + ")";
         }
     }
 }
@@ -103,38 +102,8 @@ void AvailWidget::initConnect()
     connect(IMModel::instance(), &IMModel::sig_availIMList, this, &AvailWidget::slot_updateUI);
 }
 
-void AvailWidget::clearItemStatus()
-{
-    m_selectItem = FcitxQtInputMethodItem();
-    cleareItemStatusAndFilter(m_allIMGroup, true);
-    //cleareFcitxItemAndFilter(m_searchIMGroup);  //不需要清除搜索m_searchIMGroup 搜索框信号会触发清除
-}
-
-void AvailWidget::cleareItemStatusAndFilter(SettingsGroup *group, bool flag)
-{
-    if (!group) {
-        return;
-    }
-
-    for (int i = 0; i < group->itemCount(); ++i) {
-        IMSettingsItem *item = dynamic_cast<IMSettingsItem *>(group->getItem(i));
-        if (item) {
-            item->setItemSelected(false);
-            if (flag)
-                item->setFilterStr(m_searchStr);
-        }
-    }
-}
-
 void AvailWidget::slot_updateUI(FcitxQtInputMethodItemList IMlist)
 {
-    if (!Global::instance()->inputMethodProxy()) {
-        m_allIMGroup->hide();
-        m_searchIMGroup->hide();
-        emit sig_seleteIM(false);
-        return;
-    }
-
     if (m_searchStr.isEmpty()) {
         m_allIMGroup->show();
         m_searchIMGroup->hide();
@@ -144,6 +113,7 @@ void AvailWidget::slot_updateUI(FcitxQtInputMethodItemList IMlist)
     }
 
     if (m_allAvaiIMlList == IMlist) {
+        emit sig_seleteIM(!(m_selectItem.name().isEmpty()));
         return;
     }
     m_allAvaiIMlList = IMlist;
@@ -211,21 +181,42 @@ void AvailWidget::slot_updateUI(FcitxQtInputMethodItemList IMlist)
     }
 }
 
+void AvailWidget::clearItemStatus()
+{
+    m_selectItem = FcitxQtInputMethodItem();
+    cleareItemStatusAndFilter(m_allIMGroup, true);
+    //cleareFcitxItemAndFilter(m_searchIMGroup);  //不需要清除搜索m_searchIMGroup 搜索框信号会触发清除
+}
+
+void AvailWidget::cleareItemStatusAndFilter(SettingsGroup *group, bool flag)
+{
+    if (!group) {
+        return;
+    }
+
+    for (int i = 0; i < group->itemCount(); ++i) {
+        IMSettingsItem *item = dynamic_cast<IMSettingsItem *>(group->getItem(i));
+        if (item) {
+            item->setItemSelected(false);
+            if (flag)
+                item->setFilterStr(m_searchStr);
+        }
+    }
+}
+
 void AvailWidget::slot_searchIM(const QString &str)
 {
     m_searchStr = str;
-    m_allIMGroup->hide();
-    m_searchIMGroup->hide();
     m_selectItem = FcitxQtInputMethodItem();
     emit sig_seleteIM(false);
 
-    if (Global::instance()->inputMethodProxy()) {
-        if (m_searchStr.isEmpty()) {
-            m_allIMGroup->show();
-            cleareItemStatusAndFilter(m_allIMGroup, false);
-        } else {
-            m_searchIMGroup->show();
-            cleareItemStatusAndFilter(m_searchIMGroup, true);
-        }
+    if (m_searchStr.isEmpty()) {
+        m_allIMGroup->show();
+        m_searchIMGroup->hide();
+        cleareItemStatusAndFilter(m_allIMGroup, false);
+    } else {
+        m_searchIMGroup->show();
+        m_allIMGroup->hide();
+        cleareItemStatusAndFilter(m_searchIMGroup, true);
     }
 }

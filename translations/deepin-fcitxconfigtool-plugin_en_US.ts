@@ -4,28 +4,28 @@
 <context>
     <name>IMAddWindow</name>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="32"/>
-        <source>添加输入法</source>
+        <location filename="../src/window/imaddwindow.cpp" line="33"/>
+        <source>Add Input Method</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="41"/>
-        <source>搜索</source>
+        <location filename="../src/window/imaddwindow.cpp" line="42"/>
+        <source>Search</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="49"/>
-        <source>前往商店下载</source>
+        <location filename="../src/window/imaddwindow.cpp" line="50"/>
+        <source>Find more in App Store</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="55"/>
-        <source>添加</source>
+        <location filename="../src/window/imaddwindow.cpp" line="56"/>
+        <source>Add</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="58"/>
-        <source>取消</source>
+        <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -33,47 +33,52 @@
     <name>IMSettingWindow</name>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="68"/>
-        <source>输入法</source>
+        <source>Input Method</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/window/imsettingwindow.cpp" line="70"/>
+        <source>Default</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="77"/>
-        <source>输入法管理</source>
+        <source>Manage Input Methods</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="78"/>
-        <location filename="../src/window/imsettingwindow.cpp" line="161"/>
-        <source>编辑</source>
+        <location filename="../src/window/imsettingwindow.cpp" line="162"/>
+        <source>Edit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="97"/>
-        <source>快捷键</source>
+        <location filename="../src/window/imsettingwindow.cpp" line="98"/>
+        <source>Shortcuts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="113"/>
-        <source>切换输入法</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="116"/>
-        <source>切换至默认输入法</source>
+        <location filename="../src/window/imsettingwindow.cpp" line="114"/>
+        <source>Switch input methods</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="117"/>
-        <source>切换虚拟键盘</source>
+        <source>Switch to default input method</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="119"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="118"/>
+        <source>Call out Onboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/window/imsettingwindow.cpp" line="120"/>
         <source>切换方式</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="158"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="159"/>
         <source>完成</source>
         <translation type="unfinished"></translation>
     </message>
@@ -81,16 +86,8 @@
 <context>
     <name>Main</name>
     <message>
-        <location filename="../src/main.cpp" line="22"/>
+        <location filename="../src/main.cpp" line="25"/>
         <source>deepin-fcitxconfigtool-plugin</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>SearchInput</name>
-    <message>
-        <location filename="../src/widgets/searchinput.cpp" line="42"/>
-        <source>Search</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
