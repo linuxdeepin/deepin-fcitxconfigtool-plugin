@@ -23,7 +23,7 @@
 #include "publisherdef.h"
 #include "immodel/immodel.h"
 #include "fcitxInterface/global.h"
-#include "../i18n.h"
+#include "fcitxInterface/i18n.h"
 #include <QScrollArea>
 #include <QVBoxLayout>
 #include <QVBoxLayout>
