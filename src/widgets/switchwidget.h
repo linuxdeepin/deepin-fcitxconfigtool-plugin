@@ -44,7 +44,7 @@ class SwitchWidget : public SettingsItem
     Q_OBJECT
 
 public:
-//    explicit SwitchWidget(QWidget *parent = nullptr);
+    //    explicit SwitchWidget(QWidget *parent = nullptr);
     explicit SwitchWidget(const QString &title, QWidget *parent = nullptr);
     explicit SwitchWidget(QWidget *parent = nullptr, QWidget *widget = nullptr);
 
@@ -54,7 +54,7 @@ public:
     bool checked() const;
 
     QWidget *leftWidget() const { return m_leftWidget; }
-    QHBoxLayout* getMainLayout() { return m_mainLayout; }
+    QHBoxLayout *getMainLayout() { return m_mainLayout; }
 
 public:
     inline DTK_WIDGET_NAMESPACE::DSwitchButton *switchButton() const { return m_switchBtn; }
@@ -72,7 +72,7 @@ private:
     QHBoxLayout *m_mainLayout;
 };
 
-}
-}
+} // namespace widgets
+} // namespace dcc
 
 #endif // SWITCHWIDGET_H

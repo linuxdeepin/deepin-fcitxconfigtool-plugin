@@ -20,7 +20,7 @@
 */
 #include "immodel.h"
 #include "fcitxInterface/global.h"
-#include "publisherdef.h"
+#include "publisher/publisherdef.h"
 #include <QApplication>
 #include <QHBoxLayout>
 #include <QPushButton>
@@ -129,6 +129,7 @@ bool IMModel::dropMimeData(const QMimeData *data, Qt::DropAction action, int row
     }
     loadItem();
     m_timer.start(IMchangedTime);
+    emit sig_curIMList(m_curIMList);
     return true;
 }
 
@@ -161,11 +162,33 @@ void IMModel::addIMItem(FcitxQtInputMethodItem item)
     insertRow(1, tmp);
     IMListSvae();
     emit sig_availIMList(m_availeIMList);
+
+    emit sig_curIMList(m_curIMList);
 }
 
 const FcitxQtInputMethodItemList &IMModel::availIMList() const
 {
     return m_availeIMList;
+}
+
+const FcitxQtInputMethodItemList &IMModel::curIMList() const
+{
+    return m_curIMList;
+}
+
+int IMModel::getIMIndex(const QString &IM) const
+{
+    qDebug() << IM;
+    for (int i = 0; i < m_curIMList.count(); ++i) {
+        qDebug() << m_curIMList[i].name() << m_curIMList[i].uniqueName() << m_curIMList[i].langCode();
+        if (m_curIMList[i].name().indexOf(IM, Qt::CaseInsensitive) != -1
+            || m_curIMList[i].uniqueName().indexOf(IM, Qt::CaseInsensitive) != -1
+            || m_curIMList[i].langCode().indexOf(IM, Qt::CaseInsensitive) != -1) {
+            return i;
+        }
+    }
+
+    return -1;
 }
 
 void IMModel::slot_updateIMList()
@@ -204,6 +227,7 @@ void IMModel::slot_updateIMList()
         emit sig_availIMList(m_availeIMList);
     }
     m_timer2.stop();
+    emit sig_curIMList(m_curIMList);
 }
 
 void IMModel::loadItem()
@@ -244,6 +268,7 @@ void IMModel::deleteItem(DStandardItem *item)
     m_availeIMList.rbegin()->setEnabled(false);
     m_curIMList.removeAt(item->row());
     this->removeRow(item->row());
+    emit sig_curIMList(m_curIMList);
 }
 
 void IMModel::itemUp(DStandardItem *item)
@@ -267,6 +292,7 @@ void IMModel::itemSawp(int index, int index2)
     m_curIMList.swap(index, index2);
     loadItem();
     m_timer.start(IMchangedTime);
+    emit sig_curIMList(m_curIMList);
 }
 
 void IMModel::configShow(DStandardItem *item)

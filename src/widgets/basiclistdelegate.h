@@ -48,8 +48,8 @@ public:
     QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const;
 };
 
-}
+} // namespace widgets
 
-}
+} // namespace dcc
 
 #endif // BASICLISTDELEGATE_H

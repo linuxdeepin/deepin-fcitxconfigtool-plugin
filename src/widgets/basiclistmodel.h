@@ -37,9 +37,7 @@ class BasicListModel : public QAbstractListModel
     Q_OBJECT
 
 public:
-
-    enum ItemRole
-    {
+    enum ItemRole {
         ItemSizeRole = Qt::SizeHintRole,
         ItemTextRole = Qt::DisplayRole,
         ReservedRole = Qt::UserRole,
@@ -68,8 +66,8 @@ private:
     QModelIndex m_hoveredIndex;
 };
 
-}
+} // namespace widgets
 
-}
+} // namespace dcc
 
 #endif // BASICLISTMODEL_H

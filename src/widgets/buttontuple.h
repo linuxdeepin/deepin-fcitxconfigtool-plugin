@@ -53,7 +53,6 @@ public:
     virtual ~RightButton() {}
 };
 
-
 class ButtonTuple : public QWidget
 {
     Q_OBJECT

@@ -39,7 +39,7 @@ public:
     using QLabel::QLabel; // using default inheritance constructor
 };
 
-}
-}
+} // namespace widgets
+} // namespace dcc
 
 #endif // SMALLLABEL_H

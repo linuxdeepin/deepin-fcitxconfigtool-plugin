@@ -28,11 +28,10 @@
 namespace dcc {
 namespace widgets {
 
-TranslucentFrame::TranslucentFrame(QWidget *parent) :
-    QFrame(parent)
+TranslucentFrame::TranslucentFrame(QWidget *parent)
+    : QFrame(parent)
 {
-
 }
 
-}
+} // namespace widgets
 } // namespace dcc

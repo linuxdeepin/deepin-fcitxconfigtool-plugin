@@ -31,20 +31,19 @@
 class FcitxQtKeyboardProxy;
 class FcitxQtInputMethodProxy;
 class FcitxQtConnection;
-namespace Fcitx
-{
+namespace Fcitx {
 
 class Global : public QObject
 {
     Q_OBJECT
 public:
-    static Global* instance();
+    static Global *instance();
     static void deInit();
     virtual ~Global();
-    FcitxConfigFileDesc* GetConfigDesc(const QString& name);
-    FcitxQtConnection* connection() { return m_connection; }
-    FcitxQtInputMethodProxy* inputMethodProxy() { return  (m_inputmethod && m_inputmethod->isValid()) ? m_inputmethod : 0; }
-    FcitxQtKeyboardProxy* keyboardProxy() { return  (m_keyboard && m_keyboard->isValid()) ? m_keyboard : 0; }
+    FcitxConfigFileDesc *GetConfigDesc(const QString &name);
+    FcitxQtConnection *connection() { return m_connection; }
+    FcitxQtInputMethodProxy *inputMethodProxy() { return (m_inputmethod && m_inputmethod->isValid()) ? m_inputmethod : 0; }
+    FcitxQtKeyboardProxy *keyboardProxy() { return (m_keyboard && m_keyboard->isValid()) ? m_keyboard : 0; }
     QString testWrapper(const QString &path) const;
 
 signals:
@@ -56,13 +55,13 @@ private slots:
 
 private:
     Global();
-    QHash<QString, FcitxConfigFileDesc*>* m_hash;
-    FcitxQtConnection* m_connection;
-    FcitxQtInputMethodProxy* m_inputmethod;
-    FcitxQtKeyboardProxy* m_keyboard;
-    static Global* inst;
+    QHash<QString, FcitxConfigFileDesc *> *m_hash;
+    FcitxQtConnection *m_connection;
+    FcitxQtInputMethodProxy *m_inputmethod;
+    FcitxQtKeyboardProxy *m_keyboard;
+    static Global *inst;
 };
 
-}
+} // namespace Fcitx
 
 #endif

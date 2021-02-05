@@ -36,13 +36,11 @@ namespace widgets {
 ComboxWidget::ComboxWidget(QFrame *parent)
     : ComboxWidget(new QLabel, parent)
 {
-
 }
 
 ComboxWidget::ComboxWidget(const QString &title, QFrame *parent)
     : ComboxWidget(new QLabel(title), parent)
 {
-
 }
 
 ComboxWidget::ComboxWidget(QWidget *widget, QFrame *parent)
@@ -58,11 +56,12 @@ ComboxWidget::ComboxWidget(QWidget *widget, QFrame *parent)
     }
 
     mainLayout->addWidget(m_leftWidget, 0, Qt::AlignVCenter);
-    mainLayout->setStretchFactor(m_leftWidget,3);
+    mainLayout->setStretchFactor(m_leftWidget, 3);
+    mainLayout->addStretch();
     mainLayout->addWidget(m_switchComboBox, 0, Qt::AlignVCenter);
-    mainLayout->setStretchFactor(m_switchComboBox,7);
+    mainLayout->setStretchFactor(m_switchComboBox, 7);
 
-    m_leftWidget->setFixedWidth(ComboxTitleWidth);
+    //m_leftWidget->setFixedWidth(ComboxTitleWidth);
     m_leftWidget->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
     setLayout(mainLayout);
 
@@ -135,5 +134,5 @@ void ComboxWidget::resizeEvent(QResizeEvent *event)
     SettingsItem::resizeEvent(event);
 }
 
-}
-}
+} // namespace widgets
+} // namespace dcc

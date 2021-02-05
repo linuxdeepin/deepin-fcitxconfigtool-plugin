@@ -58,7 +58,6 @@ namespace widgets {
 BasicListDelegate::BasicListDelegate(QObject *parent)
     : QAbstractItemDelegate(parent)
 {
-
 }
 
 void BasicListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
@@ -77,8 +76,7 @@ void BasicListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
 
     painter->drawText(option.rect.marginsRemoved(QMargins(30, 0, 0, 0)), Qt::AlignVCenter | Qt::AlignLeft, index.data(Qt::DisplayRole).toString());
 
-    if (index.data(BasicListModel::ItemSelectedRole).toBool())
-    {
+    if (index.data(BasicListModel::ItemSelectedRole).toBool()) {
         const int x = option.rect.right() - 16 - 14;
         const int y = option.rect.top() + (option.rect.height() - 16) / 2;
 
@@ -93,6 +91,6 @@ QSize BasicListDelegate::sizeHint(const QStyleOptionViewItem &option, const QMod
     return index.data(Qt::SizeHintRole).toSize();
 }
 
-}
+} // namespace widgets
 
-}
+} // namespace dcc

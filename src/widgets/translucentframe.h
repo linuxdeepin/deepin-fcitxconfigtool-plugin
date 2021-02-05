@@ -38,7 +38,7 @@ public:
     explicit TranslucentFrame(QWidget *parent = 0);
 };
 
-}
+} // namespace widgets
 } // namespace dcc
 
 #endif // DCC_TRANSLUCENTFRAME_H

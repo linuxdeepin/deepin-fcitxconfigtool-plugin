@@ -72,7 +72,7 @@ private:
     State m_state;
 };
 
-}
-}
+} // namespace widgets
+} // namespace dcc
 
 #endif // SETTINGSHEAD_H

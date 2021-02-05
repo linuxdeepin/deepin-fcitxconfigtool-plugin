@@ -20,8 +20,10 @@
 */
 #include "imsettingwindow.h"
 #include "immodel/immodel.h"
+#include "immodel/imconfig.h"
 #include "widgets/utils.h"
 #include "widgets/titlelabel.h"
+
 #include <QComboBox>
 #include <QGroupBox>
 #include <QScrollArea>
@@ -60,6 +62,7 @@ void IMSettingWindow::initUI()
 
     auto createGroup = [this](QWidget *widget) {
         QGroupBox *groupBox = new QGroupBox(this);
+        groupBox->setFixedHeight(60);
         QVBoxLayout *layout = new QVBoxLayout(this);
         layout->setContentsMargins(0, 0, 0, 0);
         layout->addWidget(widget);
@@ -76,7 +79,6 @@ void IMSettingWindow::initUI()
         layout->addStretch();
         layout->addWidget(keyEdit);
         widget->setLayout(layout);
-        keyEdit->setKeySequence(QKeySequence::FindNext);
         keyEdit->setFixedSize(200, 30);
         keyEdit->setFrame(false);
         return createGroup(widget);
@@ -132,7 +134,8 @@ void IMSettingWindow::initUI()
     mainLayout->addWidget(scrollArea);
     //快捷键设置 切换输入法 切换虚拟键盘 切换至默认输入法
     m_imSwitchCbox = new ComboxWidget(tr("Switch input methods"));
-    m_imSwitchCbox->comboBox()->addItems({"Ctrl+Shift", "Alt+Shift", "Ctrl+Super", "Alt+Super"});
+    m_imSwitchCbox->comboBox()->setFixedWidth(200);
+    m_imSwitchCbox->comboBox()->addItems({"CTRL_SHIFT", "ALT_SHIFT", "CTRL_SUPER", "ALT_SUPER"});
     vLayout->addWidget(createGroup(m_imSwitchCbox));
     vLayout->addWidget(createKeyEditWidget(m_defualtIMKey, tr("Switch to default input method")));
     vLayout->addWidget(createKeyEditWidget(m_virtualKey, tr("Call out Onboard")));
@@ -149,27 +152,55 @@ void IMSettingWindow::initUI()
     headLayout2->addItem(new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum));
     mainLayout->addLayout(headLayout2);
     this->setLayout(mainLayout);
+    readConfig();
 }
 
 void IMSettingWindow::initConnect()
 {
+    connect(IMModel::instance(), &IMModel::sig_curIMList, [=]() {
+        int index = IMModel::instance()->getIMIndex(IMConfig::defualtIM());
+        if (index < 0) {
+            index = 0;
+        }
+        qDebug() << index;
+        m_defualtIMCbox->comboBox()->setCurrentIndex(index);
+    });
     connect(m_addIMBtn, &DFloatingButton::clicked, this, &IMSettingWindow::sig_popIMAddWindow);
-    connect(m_defualtIMCbox, &ComboxWidget::onSelectChanged, this, &IMSettingWindow::slot_defualtIMChanged);
     connect(m_editBtn, &DCommandLinkButton::clicked, this, &IMSettingWindow::slot_editBtnClicked);
-    connect(m_systemAppCbox, &ComboxWidget::onSelectChanged, this, &IMSettingWindow::slot_defualtIMChanged);
+    //connect(m_systemAppCbox, &ComboxWidget::onSelectChanged, this, &IMSettingWindow::writeConfig);
+    connect(m_defualtIMCbox->comboBox(), &QComboBox::currentTextChanged, this, &IMSettingWindow::writeConfig);
+    connect(m_imSwitchCbox->comboBox(), &QComboBox::currentTextChanged, this, &IMSettingWindow::writeConfig);
+    connect(m_defualtIMKey, &DKeySequenceEdit::keySequenceChanged, this, &IMSettingWindow::writeConfig);
+    connect(m_virtualKey, &DKeySequenceEdit::keySequenceChanged, this, &IMSettingWindow::writeConfig);
 }
 
 void IMSettingWindow::readConfig()
 {
+    int index = m_imSwitchCbox->comboBox()->findText(IMConfig::IMSwitch());
+    if (index < 0) {
+        index = 0;
+    }
+    m_imSwitchCbox->comboBox()->setCurrentIndex(index);
+
+    index = IMModel::instance()->getIMIndex(IMConfig::defualtIM());
+    if (index < 0) {
+        index = 0;
+    }
+    qDebug() << index;
+    m_defualtIMCbox->comboBox()->setCurrentIndex(index);
+
+    m_defualtIMKey->setKeySequence(IMConfig::defualtIMKey());
+    m_virtualKey->setKeySequence(IMConfig::virtualKey());
 }
 
 void IMSettingWindow::writeConfig()
 {
-}
-
-void IMSettingWindow::slot_defualtIMChanged(const QString &selected)
-{
-    qDebug() << selected;
+    IMConfig::setIMSwitch(m_imSwitchCbox->comboBox()->currentText());
+    FcitxQtInputMethodItem item = IMModel::instance()->getIM(m_defualtIMCbox->comboBox()->currentIndex());
+    IMConfig::setDefualtIM(item.uniqueName());
+    IMConfig::setVirtualKey(m_virtualKey->keySequence().toString());
+    IMConfig::setDefualtIMKey(m_defualtIMKey->keySequence().toString());
+    Global::instance()->inputMethodProxy()->ReloadConfig();
 }
 
 void IMSettingWindow::slot_editBtnClicked()
@@ -187,8 +218,4 @@ void IMSettingWindow::slot_editBtnClicked()
     m_IMCurrentView->setAcceptDrops(flag);
     m_IMCurrentView->setDropIndicatorShown(flag);
     IMModel::instance()->setEdit(!flag);
-}
-
-void IMSettingWindow::slot_systemAppChanged(const QString &selected)
-{
 }

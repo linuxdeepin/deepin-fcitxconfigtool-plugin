@@ -41,6 +41,9 @@ signals:
 public slots:
     void slot_searchIM(const QString &str); //搜索输入法
     void slot_updateUI(FcitxQtInputMethodItemList); //更新界面
+protected:
+    void resizeEvent(QResizeEvent *event) override;
+
 private:
     void initUI(); //初始化界面
     void initConnect(); //初始化信号槽

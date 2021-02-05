@@ -45,15 +45,15 @@ const int ComboxWidgetHeight = 56;
 const int SwitchWidgetHeight = 36;
 const int ComboxTitleWidth = 110;
 
-const QSize ListViweItemIconSize(84,84);
-const QSize ListViweItemSize(170,168);
-const QSize ListViweItemIconSize_ListMode(42,42);
-const QSize ListViweItemSize_ListMode(168,48);
-const QSize ListViweIconSize(32,32);
-const QSize ListViweSysItemSize(168,58);
+const QSize ListViweItemIconSize(84, 84);
+const QSize ListViweItemSize(170, 168);
+const QSize ListViweItemIconSize_ListMode(42, 42);
+const QSize ListViweItemSize_ListMode(168, 48);
+const QSize ListViweIconSize(32, 32);
+const QSize ListViweSysItemSize(168, 58);
 
-const qint32 ActionIconSize=30;//大图标角标大小
-const qint32 ActionListSize=26;//list图标角标大小
+const qint32 ActionIconSize = 30; //大图标角标大小
+const qint32 ActionListSize = 26; //list图标角标大小
 
 const int List_Interval = 10;
 const QMargins ArrowEnterClickMargin(8, 8, 8, 8);
@@ -62,11 +62,11 @@ const QString SystemTypeName = DSysInfo::uosEditionName(QLocale::c());
 
 const DSysInfo::UosType UosType = DSysInfo::uosType();
 const DSysInfo::UosEdition UosEdition = DSysInfo::uosEditionType();
-const bool IsServerSystem = (DSysInfo::UosServer == UosType);//是否是服务器版
-const bool IsCommunitySystem = (DSysInfo::UosCommunity == UosEdition);//是否是社区版
-const bool IsProfessionalSystem = (DSysInfo::UosProfessional == UosEdition);//是否是专业版
-const bool IsHomeSystem = (DSysInfo::UosHome == UosEdition);//是否是个人版
-const bool IsDeepinDesktop = (DSysInfo::DeepinDesktop == DSysInfo::deepinType());//是否是Deepin桌面
+const bool IsServerSystem = (DSysInfo::UosServer == UosType); //是否是服务器版
+const bool IsCommunitySystem = (DSysInfo::UosCommunity == UosEdition); //是否是社区版
+const bool IsProfessionalSystem = (DSysInfo::UosProfessional == UosEdition); //是否是专业版
+const bool IsHomeSystem = (DSysInfo::UosHome == UosEdition); //是否是个人版
+const bool IsDeepinDesktop = (DSysInfo::DeepinDesktop == DSysInfo::deepinType()); //是否是Deepin桌面
 struct ListSubItem {
     QString itemIcon;
     QString itemText;
@@ -98,6 +98,6 @@ inline bool compareVersion(const QString &targetVersion, const QString &baseVers
 
     return true;
 }
-}
+} // namespace DCC_NAMESPACE
 
 #endif // V20_DISPLAY_UTILS_H

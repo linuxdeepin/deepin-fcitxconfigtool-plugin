@@ -34,7 +34,6 @@
 #include <QEvent>
 #include <QDebug>
 
-
 DWIDGET_USE_NAMESPACE
 
 namespace dcc {
@@ -102,14 +101,14 @@ void SettingsGroup::insertItem(const int index, SettingsItem *item)
     m_layout->insertWidget(index, item);
     item->installEventFilter(this);
 
-    IMSettingsItem *mItem = dynamic_cast<IMSettingsItem*>(item);
-    if(mItem)
-        connect(mItem,&IMSettingsItem::sig_itemClicked,[=](IMSettingsItem *myItem){
-            int i =itemCount();
-            for(int j =0;j<i;++j){
-                if(this->getItem(j)!=myItem){
-                    IMSettingsItem *Titem = dynamic_cast<IMSettingsItem*>(this->getItem(j));
-                    if(Titem)
+    IMSettingsItem *mItem = dynamic_cast<IMSettingsItem *>(item);
+    if (mItem)
+        connect(mItem, &IMSettingsItem::sig_itemClicked, [=](IMSettingsItem *myItem) {
+            int i = itemCount();
+            for (int j = 0; j < i; ++j) {
+                if (this->getItem(j) != myItem) {
+                    IMSettingsItem *Titem = dynamic_cast<IMSettingsItem *>(this->getItem(j));
+                    if (Titem)
                         Titem->setItemSelected(false);
                 }
             }
@@ -131,14 +130,14 @@ void SettingsGroup::appendItem(SettingsItem *item, BackgroundStyle bgStyle)
     m_layout->insertWidget(m_layout->count(), item);
     item->installEventFilter(this);
 
-    IMSettingsItem *mItem = dynamic_cast<IMSettingsItem*>(item);
-    if(mItem)
-        connect(mItem,&IMSettingsItem::sig_itemClicked,[=](IMSettingsItem *myItem){
-            int i =itemCount();
-            for(int j =0;j<i;++j){
-                if(this->getItem(j)!=myItem){
-                    IMSettingsItem *Titem = dynamic_cast<IMSettingsItem*>(this->getItem(j));
-                    if(Titem)
+    IMSettingsItem *mItem = dynamic_cast<IMSettingsItem *>(item);
+    if (mItem)
+        connect(mItem, &IMSettingsItem::sig_itemClicked, [=](IMSettingsItem *myItem) {
+            int i = itemCount();
+            for (int j = 0; j < i; ++j) {
+                if (this->getItem(j) != myItem) {
+                    IMSettingsItem *Titem = dynamic_cast<IMSettingsItem *>(this->getItem(j));
+                    if (Titem)
                         Titem->setItemSelected(false);
                 }
             }
@@ -204,5 +203,5 @@ void SettingsGroup::insertWidget(QWidget *widget)
 {
     m_layout->insertWidget(m_layout->count(), widget);
 }
-}
-}
+} // namespace widgets
+} // namespace dcc

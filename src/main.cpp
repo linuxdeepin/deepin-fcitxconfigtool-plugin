@@ -20,16 +20,20 @@
 */
 
 #include "window/immodel/immodel.h"
+#include "publisher/publisherdef.h"
+#include "window/imwindow.h"
 #include <DApplication>
 #include <DWidgetUtil>
 #include <DApplicationSettings>
 #include <DMainWindow>
-#include "window/imwindow.h"
 #include <QVBoxLayout>
 #include <thread>
-
+#include <QObject>
+#include "widgets/settingsgroup.h"
+#include "widgets/settingsitem.h"
 DWIDGET_USE_NAMESPACE
 using namespace std;
+using namespace dcc::widgets;
 
 int main(int argc, char *argv[])
 {
@@ -47,6 +51,21 @@ int main(int argc, char *argv[])
     IMWindow w;
     w.show();
     Dtk::Widget::moveToCenter(&w);
-    //TestIMModel::testIMModel();
+
+    QWidget *wiget = new QWidget;
+
+    SettingsGroup *group = new SettingsGroup();
+    QVBoxLayout *box = new QVBoxLayout(wiget);
+    box->addWidget(group);
+    for_int(10)
+    {
+        SettingsItem *item = new SettingsItem();
+
+        group->appendItem(item);
+    }
+
+    wiget->setFixedSize(800, 600);
+    wiget->show();
+
     return a.exec();
 }

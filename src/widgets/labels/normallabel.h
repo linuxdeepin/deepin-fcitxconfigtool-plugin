@@ -38,7 +38,7 @@ public:
     using QLabel::QLabel; // using default inheritance constructor
 };
 
-}
-}
+} // namespace widgets
+} // namespace dcc
 
 #endif // NORMALLABEL_H

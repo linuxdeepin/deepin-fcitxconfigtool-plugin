@@ -51,17 +51,13 @@ public:
 protected:
     void resizeEvent(QResizeEvent *event) override;
 
-
 protected:
     bool m_isErr;
 
-    DTK_WIDGET_NAMESPACE::DFrame *m_bgGroup{nullptr};
-
-
-
+    DTK_WIDGET_NAMESPACE::DFrame *m_bgGroup {nullptr};
 };
 
-}
-}
+} // namespace widgets
+} // namespace dcc
 
 #endif // SETTINGSITEM_H

@@ -53,7 +53,7 @@ private:
     TitleLabel *m_headerText;
 };
 
-}
-}
+} // namespace widgets
+} // namespace dcc
 
 #endif // SETTINGSHEADERITEM_H

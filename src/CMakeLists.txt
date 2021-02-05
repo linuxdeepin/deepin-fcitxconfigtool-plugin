@@ -35,7 +35,7 @@ find_package(FcitxQt5DBusAddons REQUIRED)
 find_package(FcitxQt5WidgetsAddons REQUIRED)
 
 #设置资源目录 加载资源文件 翻译文件 源码
-set(APP_RES_DIR "../res")
+set(APP_RES_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../res")
 set(APP_QRC "${APP_RES_DIR}/fcitxconfig.qrc")
 #创建翻译文件 
 set(TS_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../translations")
@@ -61,7 +61,7 @@ FILE(GLOB_RECURSE HEAD_FILES
     ${CMAKE_CURRENT_SOURCE_DIR}/i18n.h
     ${CMAKE_CURRENT_SOURCE_DIR}/fcitxconfigplugin.h
     ${CMAKE_CURRENT_SOURCE_DIR}/fcitxqthelper.h
-    ${CMAKE_CURRENT_SOURCE_DIR}/publisherdef.h)
+    ${CMAKE_CURRENT_SOURCE_DIR}/publisher/*.h)
 
 FILE(GLOB_RECURSE SOURCE_FILES
     ${CMAKE_CURRENT_SOURCE_DIR}/ddeInterface/*.cpp
@@ -70,8 +70,8 @@ FILE(GLOB_RECURSE SOURCE_FILES
     ${CMAKE_CURRENT_SOURCE_DIR}/window/*.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/i18n.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/fcitxconfigplugin.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/fcitxqthelper.cpp)
-
+    ${CMAKE_CURRENT_SOURCE_DIR}/fcitxqthelper.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/publisher/*.cpp)
 
 FILE(GLOB_RECURSE TEST_HEAD_FILES
     ${CMAKE_CURRENT_SOURCE_DIR}/../unittest/*.h)

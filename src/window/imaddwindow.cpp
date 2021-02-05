@@ -44,23 +44,30 @@ IMAddWindow::~IMAddWindow()
 
 void IMAddWindow::initUI()
 {
-    QVBoxLayout *mainLayout = new QVBoxLayout();
-    mainLayout->setMargin(0);
+    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    mainLayout->setContentsMargins(10, 0, 10, 0);
     mainLayout->setSpacing(0);
-
-    QHBoxLayout *hlayout = new QHBoxLayout();
-
-    TitleLabel *title = new TitleLabel(tr("Add Input Method"), this);
-
-    DFontSizeManager::instance()->bind(title, DFontSizeManager::T5, QFont::DemiBold); // 设置label字体
-    hlayout->addItem(new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum));
-    hlayout->addWidget(title);
-    hlayout->addItem(new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum));
-    mainLayout->addLayout(hlayout);
-
+    {
+        QHBoxLayout *hlayout = new QHBoxLayout();
+        TitleLabel *title = new TitleLabel(tr("Add Input Method"), this);
+        DFontSizeManager::instance()->bind(title, DFontSizeManager::T5, QFont::DemiBold); // 设置label字体
+        hlayout->addItem(new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum));
+        hlayout->addWidget(title);
+        hlayout->addItem(new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum));
+        mainLayout->addLayout(hlayout);
+    }
     m_searchLEdit = new DSearchEdit(this);
     m_searchLEdit->setText(tr("Search"));
-    mainLayout->addWidget(m_searchLEdit);
+
+    {
+        QHBoxLayout *hlayout = new QHBoxLayout();
+        hlayout->addItem(new QSpacerItem(10, 20, QSizePolicy::Fixed, QSizePolicy::Maximum));
+        hlayout->addWidget(m_searchLEdit);
+        hlayout->addItem(new QSpacerItem(5, 20, QSizePolicy::Fixed, QSizePolicy::Maximum));
+
+        mainLayout->addLayout(hlayout);
+    }
+
     mainLayout->addSpacing(20);
     m_availWidget = new AvailWidget(this);
     mainLayout->addWidget(m_availWidget);
@@ -78,8 +85,6 @@ void IMAddWindow::initUI()
     m_buttonTuple->leftButton()->setText(tr("Cancel"));
 
     mainLayout->addWidget(m_buttonTuple, 0, Qt::AlignBottom);
-    mainLayout->setContentsMargins(0, 0, 0, 0);
-    setLayout(mainLayout);
 }
 
 void IMAddWindow::initConnect()

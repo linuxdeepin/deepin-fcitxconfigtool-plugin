@@ -31,8 +31,6 @@
 using namespace dcc::widgets;
 using namespace Dtk::Widget;
 
-class IMModel;
-
 class IMSettingWindow : public QWidget
 {
     Q_OBJECT
@@ -48,9 +46,7 @@ private:
     void readConfig(); //读取配置文件
     void writeConfig(); //写入配置文件
 private slots:
-    void slot_defualtIMChanged(const QString &selected); //修改默认输入法
     void slot_editBtnClicked(); //启用编辑
-    void slot_systemAppChanged(const QString &selected); //切换系统/应用
 private:
     ComboxWidget *m_defualtIMCbox {nullptr}; //选择默认输入法
     DCommandLinkButton *m_editBtn {nullptr}; //编辑

@@ -65,7 +65,7 @@ private:
     QString m_str;
 };
 
-}
-}
+} // namespace widgets
+} // namespace dcc
 
 #endif // COMBOXWIDGET_H

@@ -20,7 +20,7 @@
 */
 #include "availwidget.h"
 #include "widgets/titlelabel.h"
-#include "publisherdef.h"
+#include "publisher/publisherdef.h"
 #include "immodel/immodel.h"
 #include "fcitxInterface/global.h"
 #include "fcitxInterface/i18n.h"
@@ -92,25 +92,26 @@ AvailWidget::~AvailWidget()
 void AvailWidget::initUI()
 {
     QVBoxLayout *vlayout = new QVBoxLayout(this);
-
+    vlayout->setContentsMargins(0, 0, 0, 0);
     QScrollArea *scrollArea = new QScrollArea(this);
     scrollArea->setWidgetResizable(true);
     scrollArea->setFrameShape(QFrame::NoFrame);
+    scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff); //隐藏横向滚动条
+    scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff); //隐藏竖向滚动条
 
     QWidget *scrollAreaWidgetContents = new QWidget(scrollArea);
-    QGridLayout *gridLayout_2 = new QGridLayout(scrollAreaWidgetContents);
-    gridLayout_2->setContentsMargins(11, 11, 11, 11);
-    QVBoxLayout *scrollAreaLayout = new QVBoxLayout();
+    QVBoxLayout *scrollAreaLayout = new QVBoxLayout(scrollAreaWidgetContents);
+
+    scrollAreaLayout->setContentsMargins(0, 0, 0, 0);
     scrollAreaLayout->setSpacing(6);
-    gridLayout_2->addLayout(scrollAreaLayout, 0, 0, 1, 1);
     scrollArea->setWidget(scrollAreaWidgetContents);
     vlayout->addWidget(scrollArea);
 
     m_allIMGroup = new SettingsGroup();
-    m_allIMGroup->getLayout()->setMargin(0);
+    m_allIMGroup->getLayout()->setContentsMargins(10, 0, 0, 0);
     scrollAreaLayout->addWidget(m_allIMGroup);
     m_searchIMGroup = new SettingsGroup();
-    m_searchIMGroup->getLayout()->setMargin(0);
+    m_searchIMGroup->getLayout()->setContentsMargins(10, 0, 0, 0);
     scrollAreaLayout->addWidget(m_searchIMGroup);
     scrollAreaLayout->addStretch();
 
@@ -171,7 +172,7 @@ void AvailWidget::slot_updateUI(FcitxQtInputMethodItemList IMlist)
             m_selectItem = item->m_item;
             emit sig_seleteIM(true);
         });
-        item->setParent(m_allIMGroup);
+        item->setParent(group);
         item->setFcitxItem(imItem);
         group->appendItem(item);
         if (group == m_searchIMGroup) {
@@ -198,6 +199,18 @@ void AvailWidget::slot_updateUI(FcitxQtInputMethodItemList IMlist)
             createIMSttings(m_allIMGroup, *it2);
             createIMSttings(m_searchIMGroup, *it2);
         }
+    }
+}
+
+void AvailWidget::resizeEvent(QResizeEvent *event)
+{
+    QWidget::resizeEvent(event);
+    int w = size().width();
+    if (m_allIMGroup) {
+        m_allIMGroup->setFixedWidth(w - 15);
+    }
+    if (m_searchIMGroup) {
+        m_searchIMGroup->setFixedWidth(w - 20);
     }
 }
 

@@ -75,13 +75,13 @@ public:
     QVBoxLayout *getLayout() const { return m_layout; }
 
 private:
-    BackgroundStyle m_bgStyle{ItemBackground};
+    BackgroundStyle m_bgStyle {ItemBackground};
     QVBoxLayout *m_layout;
     SettingsHeaderItem *m_headerItem;
-    DTK_WIDGET_NAMESPACE::DBackgroundGroup *m_bggroup{nullptr};
+    DTK_WIDGET_NAMESPACE::DBackgroundGroup *m_bggroup {nullptr};
 };
 
-}
-}
+} // namespace widgets
+} // namespace dcc
 
 #endif // SETTINGSGROUP_H

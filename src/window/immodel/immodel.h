@@ -28,21 +28,18 @@
 #include <DStyle>
 #include <DListView>
 #include <fcitxqtinputmethoditem.h>
-#include "publisherdef.h"
+#include "publisher/publisherdef.h"
 #include <QProcess>
 #include <QThread>
 
-const int IMchangedTime = 200; //输入法设置改变间隔
+const int IMchangedTime = 1000; //输入法设置改变间隔
 const int IMConTime = 5000; //输入法断开连接等待间隔
 using namespace Dtk::Widget;
-
-class TestIMModel;
 
 class IMModel : public QStandardItemModel
 {
     Q_OBJECT
 public:
-    friend TestIMModel;
     static IMModel *instance();
     static void deleteIMModel();
     //重载
@@ -56,15 +53,24 @@ public:
     bool isEdit() { return m_isEdit; } //获取编辑状态
     void addIMItem(FcitxQtInputMethodItem item); //添加输入法
     const FcitxQtInputMethodItemList &availIMList() const;
+    const FcitxQtInputMethodItemList &curIMList() const;
+    int getIMIndex(const QString &IM) const;
+    FcitxQtInputMethodItem getIM(int index) const
+    {
+        if (index > m_curIMList.count() || index < 0)
+            return FcitxQtInputMethodItem();
+        return m_curIMList[index];
+    };
 signals:
     void sig_availIMList(FcitxQtInputMethodItemList);
+    void sig_curIMList(FcitxQtInputMethodItemList);
 public slots:
     void slot_updateIMList(); //更新输入法列表
 private:
     explicit IMModel();
     IMModel(const IMModel &tmp) = delete;
     IMModel operator=(const IMModel &tmp) = delete;
-    virtual ~IMModel() override;
+    virtual ~IMModel();
 
     void loadItem(); //加载显示item
     void deleteItem(DStandardItem *item); //删除item
@@ -81,48 +87,6 @@ private:
     bool m_isEdit {false}; //编辑状态
     QTimer m_timer; //输入法修改定时器  当输入法界面作出修改后触发
     QTimer m_timer2; //输入法修改定时器  当输入法界面作出修改后触发
-};
-
-class TestIMModel
-{
-public:
-    static void testUpdate()
-    {
-        auto func = [=] {
-            for_int(1000)
-            {
-                qDebug() << i;
-                QProcess::startDetached("fcitx -r");
-                QThread::msleep(3000);
-            }
-        };
-
-        std::thread t(func);
-        t.detach();
-    }
-
-    static void testItemSwap()
-    {
-        for_int(1000)
-        {
-            IMModel *model = IMModel::instance();
-
-            int a = model->m_curIMList.count();
-
-            int b = rand() % a - 1;
-            int c = rand() % b;
-            qDebug() << i << a << b << c;
-            if (b > 0 && c > 0)
-                IMModel::instance()->itemSawp(c, b);
-            QThread::msleep(800);
-        }
-    }
-
-    static void testIMModel()
-    {
-        TestIMModel::testUpdate();
-        //TestIMModel::testItemSwap();
-    }
 };
 
 #endif // IMMODEL_H

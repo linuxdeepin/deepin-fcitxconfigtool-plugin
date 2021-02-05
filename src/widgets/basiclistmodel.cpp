@@ -35,7 +35,6 @@ namespace widgets {
 BasicListModel::BasicListModel(QObject *parent)
     : QAbstractListModel(parent)
 {
-
 }
 
 int BasicListModel::rowCount(const QModelIndex &parent) const
@@ -51,10 +50,14 @@ QVariant BasicListModel::data(const QModelIndex &index, int role) const
         return QVariant();
 
     switch (role) {
-    case ItemTextRole:      return m_options[index.row()];
-    case ItemSizeRole:      return QSize(0, 36);
-    case ItemSelectedRole:  return m_selectedIndex == index;
-    case ItemHoverRole:     return m_hoveredIndex == index;
+    case ItemTextRole:
+        return m_options[index.row()];
+    case ItemSizeRole:
+        return QSize(0, 36);
+    case ItemSelectedRole:
+        return m_selectedIndex == index;
+    case ItemHoverRole:
+        return m_hoveredIndex == index;
     default:;
     }
 
@@ -96,6 +99,6 @@ void BasicListModel::setHoveredIndex(const QModelIndex &index)
     Q_EMIT dataChanged(index, index);
 }
 
-}
+} // namespace widgets
 
-}
+} // namespace dcc
