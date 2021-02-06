@@ -48,7 +48,7 @@ void IMAddWindow::initUI()
     mainLayout->setContentsMargins(10, 0, 10, 0);
     mainLayout->setSpacing(0);
     {
-        QHBoxLayout *hlayout = new QHBoxLayout();
+        QHBoxLayout *hlayout = new QHBoxLayout(this);
         TitleLabel *title = new TitleLabel(tr("Add Input Method"), this);
         DFontSizeManager::instance()->bind(title, DFontSizeManager::T5, QFont::DemiBold); // 设置label字体
         hlayout->addItem(new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum));
@@ -56,11 +56,11 @@ void IMAddWindow::initUI()
         hlayout->addItem(new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum));
         mainLayout->addLayout(hlayout);
     }
+
     m_searchLEdit = new DSearchEdit(this);
     m_searchLEdit->setText(tr("Search"));
-
     {
-        QHBoxLayout *hlayout = new QHBoxLayout();
+        QHBoxLayout *hlayout = new QHBoxLayout(this);
         hlayout->addItem(new QSpacerItem(10, 20, QSizePolicy::Fixed, QSizePolicy::Maximum));
         hlayout->addWidget(m_searchLEdit);
         hlayout->addItem(new QSpacerItem(5, 20, QSizePolicy::Fixed, QSizePolicy::Maximum));

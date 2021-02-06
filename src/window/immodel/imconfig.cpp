@@ -1,6 +1,5 @@
 #include "imconfig.h"
 #include "publisher/publisherfunc.h"
-#include <QDebug>
 QString IMConfig::prefix {QDir::homePath()};
 QString IMConfig::defualtIM()
 {
@@ -24,7 +23,7 @@ bool IMConfig::setIMSwitch(QString str)
 
 QString IMConfig::virtualKey()
 {
-    return configFile(prefix + "/.config/fcitx/conf/fcitx-onboard.config", QString("HOTKEY")).replace("_", "+");
+    return configFile(prefix + "/.config/fcitx/conf/fcitx-onboard.config", QString("HOTKEY"));
 }
 
 bool IMConfig::setVirtualKey(QString str)
@@ -34,7 +33,7 @@ bool IMConfig::setVirtualKey(QString str)
 
 QString IMConfig::defualtIMKey()
 {
-    return configFile(prefix + "/.config/fcitx/conf/fcitx-defaultim.config", QString("HOTKEY")).replace("_", "+");
+    return configFile(prefix + "/.config/fcitx/conf/fcitx-defaultim.config", QString("HOTKEY"));
 }
 
 bool IMConfig::setDefualtIMKey(QString str)
@@ -58,7 +57,6 @@ QString IMConfig::configFile(QString filePath, QString key)
             if (list.count() != 2) {
                 return QString();
             } else {
-                qDebug() << list;
                 return list[1];
             }
         }

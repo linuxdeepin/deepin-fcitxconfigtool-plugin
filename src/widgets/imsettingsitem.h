@@ -45,9 +45,6 @@
 #include <fcitxqtinputmethoditem.h>
 using namespace dcc::widgets;
 
-namespace dcc {
-namespace widgets {
-
 class IMSettingsItem : public SettingsItem
 {
     Q_OBJECT
@@ -57,13 +54,11 @@ public:
     ~IMSettingsItem();
     void setFcitxItem(FcitxQtInputMethodItem item);
     void setFilterStr(QString str);
-    void addBackground();
     void setItemSelected(bool status);
 signals:
     void sig_itemClicked(IMSettingsItem *item);
 
 protected:
-    void resizeEvent(QResizeEvent *event) override;
     void mousePressEvent(QMouseEvent *event) override;
     void enterEvent(QEvent *event) override;
     void leaveEvent(QEvent *event) override;
@@ -75,6 +70,4 @@ public:
     FcitxQtInputMethodItem m_item;
 };
 
-} // namespace widgets
-} // namespace dcc
 #endif // IMSETTINGSITEM_H

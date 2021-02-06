@@ -52,20 +52,5 @@ int main(int argc, char *argv[])
     w.show();
     Dtk::Widget::moveToCenter(&w);
 
-    QWidget *wiget = new QWidget;
-
-    SettingsGroup *group = new SettingsGroup();
-    QVBoxLayout *box = new QVBoxLayout(wiget);
-    box->addWidget(group);
-    for_int(10)
-    {
-        SettingsItem *item = new SettingsItem();
-
-        group->appendItem(item);
-    }
-
-    wiget->setFixedSize(800, 600);
-    wiget->show();
-
     return a.exec();
 }

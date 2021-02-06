@@ -23,6 +23,9 @@
 
 #include "widgets/comboxwidget.h"
 #include "widgets/switchwidget.h"
+#include "widgets/keysettingsitem.h"
+#include "widgets/settingsgroup.h"
+#include "fcitxInterface/global.h"
 #include <DListView>
 #include <DFloatingButton>
 #include <DKeySequenceEdit>
@@ -47,13 +50,17 @@ private:
     void writeConfig(); //写入配置文件
 private slots:
     void slot_editBtnClicked(); //启用编辑
+    void slot_defualtIMChanged();
+    void slot_curIMChanged(FcitxQtInputMethodItemList list);
+
 private:
     ComboxWidget *m_defualtIMCbox {nullptr}; //选择默认输入法
     DCommandLinkButton *m_editBtn {nullptr}; //编辑
     DListView *m_IMCurrentView {nullptr}; //当前输入法列表
-    ComboxWidget *m_imSwitchCbox {nullptr}; //切换输入法（快捷键）
-    DKeySequenceEdit *m_virtualKey {nullptr}; //虚拟键盘 （快捷键）
-    DKeySequenceEdit *m_defualtIMKey {nullptr}; //默认输入法 （快捷键）
+    SettingsGroup *m_shortGroup {nullptr};
+    ComBoboxSettingsItem *m_imSwitchCbox {nullptr}; //切换输入法（快捷键）
+    KeySettingsItem *m_virtualKey {nullptr}; //虚拟键盘 （快捷键）
+    KeySettingsItem *m_defualtIMKey {nullptr}; //默认输入法 （快捷键）
     ComboxWidget *m_systemAppCbox {nullptr}; //切换系统/应用
     DFloatingButton *m_addIMBtn {nullptr}; //添加输入法
 };

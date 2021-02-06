@@ -46,6 +46,6 @@
     obj = nullptr;
 
 #define for_int(count) for (int i = 0; i < count; ++i)
-#define Debug 1
+#define Debug 0
 
 #endif // PUBLISHERDEF_H

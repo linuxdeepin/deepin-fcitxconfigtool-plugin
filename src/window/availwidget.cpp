@@ -97,7 +97,7 @@ void AvailWidget::initUI()
     scrollArea->setWidgetResizable(true);
     scrollArea->setFrameShape(QFrame::NoFrame);
     scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff); //隐藏横向滚动条
-    scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff); //隐藏竖向滚动条
+    //scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff); //隐藏竖向滚动条
 
     QWidget *scrollAreaWidgetContents = new QWidget(scrollArea);
     QVBoxLayout *scrollAreaLayout = new QVBoxLayout(scrollAreaWidgetContents);
@@ -125,6 +125,13 @@ void AvailWidget::initConnect()
 
 void AvailWidget::slot_updateUI(FcitxQtInputMethodItemList IMlist)
 {
+    if (!Global::instance()->inputMethodProxy()) {
+        //清空group
+        m_allIMGroup->clear();
+        m_searchIMGroup->clear();
+        emit sig_seleteIM(false);
+        return;
+    }
     if (m_searchStr.isEmpty()) {
         m_allIMGroup->show();
         m_searchIMGroup->hide();

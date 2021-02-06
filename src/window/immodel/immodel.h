@@ -33,7 +33,7 @@
 #include <QThread>
 
 const int IMchangedTime = 1000; //输入法设置改变间隔
-const int IMConTime = 5000; //输入法断开连接等待间隔
+const int IMConTime = 1500; //输入法断开连接等待间隔
 using namespace Dtk::Widget;
 
 class IMModel : public QStandardItemModel
@@ -52,6 +52,7 @@ public:
     void setEdit(bool flag); //设置编辑状态
     bool isEdit() { return m_isEdit; } //获取编辑状态
     void addIMItem(FcitxQtInputMethodItem item); //添加输入法
+
     const FcitxQtInputMethodItemList &availIMList() const;
     const FcitxQtInputMethodItemList &curIMList() const;
     int getIMIndex(const QString &IM) const;
@@ -60,7 +61,7 @@ public:
         if (index > m_curIMList.count() || index < 0)
             return FcitxQtInputMethodItem();
         return m_curIMList[index];
-    };
+    }
 signals:
     void sig_availIMList(FcitxQtInputMethodItemList);
     void sig_curIMList(FcitxQtInputMethodItemList);

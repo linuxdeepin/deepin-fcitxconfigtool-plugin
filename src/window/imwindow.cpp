@@ -49,6 +49,9 @@ void IMWindow::initFcitxInterface()
     FcitxLogSetLevel(FCITX_NONE);
     FcitxQtInputMethodItem::registerMetaType();
     FcitxQtKeyboardLayout::registerMetaType();
+    if (!Global::instance()->inputMethodProxy()) {
+        QProcess::startDetached("fcitx -r");
+    }
 }
 
 void IMWindow::initUI()

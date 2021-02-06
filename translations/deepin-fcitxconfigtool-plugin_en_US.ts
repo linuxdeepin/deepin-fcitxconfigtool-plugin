@@ -9,7 +9,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="60"/>
+        <location filename="../src/window/imaddwindow.cpp" line="61"/>
         <source>Search</source>
         <translation type="unfinished"></translation>
     </message>
@@ -32,43 +32,43 @@
 <context>
     <name>IMSettingWindow</name>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="90"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="79"/>
         <source>Input Method</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="92"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="81"/>
         <source>Default</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="99"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="90"/>
         <source>Manage Input Methods</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="100"/>
-        <location filename="../src/window/imsettingwindow.cpp" line="213"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="91"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="224"/>
         <source>Edit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="120"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="111"/>
         <source>Shortcuts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="136"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="131"/>
         <source>Switch input methods</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="140"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="133"/>
         <source>Switch to default input method</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="141"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="135"/>
         <source>Call out Onboard</source>
         <translation type="unfinished"></translation>
     </message>
@@ -78,8 +78,26 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="210"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="145"/>
+        <source>系统</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/window/imsettingwindow.cpp" line="145"/>
+        <source>应用</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/window/imsettingwindow.cpp" line="221"/>
         <source>完成</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>KeyLabel</name>
+    <message>
+        <location filename="../src/widgets/keylabel.cpp" line="44"/>
+        <source>None</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

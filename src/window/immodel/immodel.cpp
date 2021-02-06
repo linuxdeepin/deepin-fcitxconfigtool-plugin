@@ -49,7 +49,6 @@ IMModel::IMModel()
 
 IMModel::~IMModel()
 {
-    qDebug() << "IMModel delete";
     IMListSvae();
 }
 
@@ -162,7 +161,6 @@ void IMModel::addIMItem(FcitxQtInputMethodItem item)
     insertRow(1, tmp);
     IMListSvae();
     emit sig_availIMList(m_availeIMList);
-
     emit sig_curIMList(m_curIMList);
 }
 
