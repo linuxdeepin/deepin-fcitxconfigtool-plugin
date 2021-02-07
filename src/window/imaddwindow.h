@@ -24,8 +24,6 @@
 #include "widgets/buttontuple.h"
 #include <QWidget>
 #include <DCommandLinkButton>
-#include <DFloatingButton>
-#include <DListView>
 #include <DSearchEdit>
 
 using namespace dcc::widgets;
@@ -41,13 +39,13 @@ public:
     virtual ~IMAddWindow();
     void updateUI(); //刷新界面
 signals:
-    void sig_popSettingsWindow(); //弹出设置窗口
+    void popSettingsWindow(); //弹出设置窗口
 private:
     void initUI(); //初始化界面
     void initConnect(); //初始化信号槽
 private slots:
-    void slot_addIM(); //添加输入法
-    void slot_openStore(); //打开应用商店
+    void onAddIM(); //添加输入法
+    void onOpenStore(); //打开应用商店
 private:
     DSearchEdit *m_searchLEdit {nullptr}; //搜索框
     AvailWidget *m_availWidget {nullptr}; //可用输入法列表窗口

@@ -21,13 +21,8 @@
 #include "imaddwindow.h"
 #include "availwidget.h"
 #include "immodel/immodel.h"
+#include "fcitxInterface/global.h"
 #include "widgets/titlelabel.h"
-#include <QGroupBox>
-#include <QProcess>
-#include <QScrollArea>
-#include <QVBoxLayout>
-#include <QApplication>
-#include <fcitxInterface/global.h>
 
 using namespace Fcitx;
 
@@ -44,56 +39,62 @@ IMAddWindow::~IMAddWindow()
 
 void IMAddWindow::initUI()
 {
+    //界面布局
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
-    mainLayout->setContentsMargins(10, 0, 10, 0);
+    mainLayout->setContentsMargins(10, 10, 0, 10);
     mainLayout->setSpacing(0);
-    {
-        QHBoxLayout *hlayout = new QHBoxLayout(this);
-        TitleLabel *title = new TitleLabel(tr("Add Input Method"), this);
-        DFontSizeManager::instance()->bind(title, DFontSizeManager::T5, QFont::DemiBold); // 设置label字体
-        hlayout->addItem(new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum));
-        hlayout->addWidget(title);
-        hlayout->addItem(new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum));
-        mainLayout->addLayout(hlayout);
-    }
+    mainLayout->addSpacing(10);
 
+    //添加输入法标题
+    QHBoxLayout *hlayout = new QHBoxLayout(this);
+    TitleLabel *title = new TitleLabel(tr("Add Input Method"), this);
+    DFontSizeManager::instance()->bind(title, DFontSizeManager::T3, QFont::DemiBold); // 设置label字体
+    hlayout->addItem(new QSpacerItem(20, 20, QSizePolicy::Expanding, QSizePolicy::Minimum));
+    hlayout->addWidget(title);
+    hlayout->addItem(new QSpacerItem(20, 20, QSizePolicy::Expanding, QSizePolicy::Minimum));
+    mainLayout->addLayout(hlayout);
+
+    //搜索框
+    QHBoxLayout *hlayout2 = new QHBoxLayout(this);
     m_searchLEdit = new DSearchEdit(this);
     m_searchLEdit->setText(tr("Search"));
-    {
-        QHBoxLayout *hlayout = new QHBoxLayout(this);
-        hlayout->addItem(new QSpacerItem(10, 20, QSizePolicy::Fixed, QSizePolicy::Maximum));
-        hlayout->addWidget(m_searchLEdit);
-        hlayout->addItem(new QSpacerItem(5, 20, QSizePolicy::Fixed, QSizePolicy::Maximum));
+    hlayout2->addWidget(m_searchLEdit);
+    hlayout2->addSpacing(10);
+    mainLayout->addLayout(hlayout2);
+    mainLayout->addSpacing(10);
 
-        mainLayout->addLayout(hlayout);
-    }
-
-    mainLayout->addSpacing(20);
+    //可用输入法列表
     m_availWidget = new AvailWidget(this);
     mainLayout->addWidget(m_availWidget);
+    mainLayout->addSpacing(6);
 
-    QHBoxLayout *hlayout2 = new QHBoxLayout();
-    hlayout2->addStretch();
+    //应用商店按钮
+    QHBoxLayout *hlayout3 = new QHBoxLayout(this);
+    hlayout3->addStretch();
     m_storeBtn = new DCommandLinkButton(tr("Find more in App Store"), this);
+    hlayout3->addWidget(m_storeBtn);
+    hlayout3->addSpacing(10);
+    mainLayout->addLayout(hlayout3);
+    mainLayout->addSpacing(7);
 
-    hlayout2->addWidget(m_storeBtn);
-    mainLayout->addLayout(hlayout2);
-
+    //添加 取消按钮
     m_buttonTuple = new ButtonTuple(ButtonTuple::Save);
     m_buttonTuple->rightButton()->setText(tr("Add"));
     m_buttonTuple->rightButton()->setEnabled(false);
     m_buttonTuple->leftButton()->setText(tr("Cancel"));
-
-    mainLayout->addWidget(m_buttonTuple, 0, Qt::AlignBottom);
+    QHBoxLayout *hlayout4 = new QHBoxLayout(this);
+    hlayout4->addWidget(m_buttonTuple, 0, Qt::AlignBottom);
+    hlayout4->addSpacing(10);
+    mainLayout->addLayout(hlayout4);
 }
 
 void IMAddWindow::initConnect()
 {
-    connect(m_storeBtn, &DCommandLinkButton::clicked, this, &IMAddWindow::slot_openStore);
-    connect(m_buttonTuple->rightButton(), &QPushButton::clicked, this, &IMAddWindow::slot_addIM);
-    connect(m_buttonTuple->leftButton(), &QPushButton::clicked, this, &IMAddWindow::sig_popSettingsWindow);
-    connect(m_availWidget, &AvailWidget::sig_seleteIM, m_buttonTuple->rightButton(), &QPushButton::setEnabled);
-    connect(m_searchLEdit, &DSearchEdit::textChanged, m_availWidget, &AvailWidget::slot_searchIM);
+    connect(m_storeBtn, &DCommandLinkButton::clicked, this, &IMAddWindow::onOpenStore);
+    connect(m_buttonTuple->rightButton(), &QPushButton::clicked, this, &IMAddWindow::onAddIM);
+    connect(m_buttonTuple->leftButton(), &QPushButton::clicked, this, &IMAddWindow::popSettingsWindow);
+    connect(m_availWidget, &AvailWidget::seleteIM, m_buttonTuple->rightButton(), &QPushButton::setEnabled);
+    connect(m_searchLEdit, &DSearchEdit::textChanged, m_availWidget, &AvailWidget::onSearchIM);
 }
 
 void IMAddWindow::updateUI()
@@ -105,13 +106,13 @@ void IMAddWindow::updateUI()
     m_availWidget->clearItemStatus();
 }
 
-void IMAddWindow::slot_addIM()
+void IMAddWindow::onAddIM()
 {
     IMModel::instance()->addIMItem(m_availWidget->getSeleteIm());
-    emit sig_popSettingsWindow();
+    emit popSettingsWindow();
 }
 
-void IMAddWindow::slot_openStore()
+void IMAddWindow::onOpenStore()
 {
     QProcess::startDetached("deepin-app-store");
 }

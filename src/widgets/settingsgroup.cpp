@@ -103,7 +103,7 @@ void SettingsGroup::insertItem(const int index, SettingsItem *item)
 
     IMSettingsItem *mItem = dynamic_cast<IMSettingsItem *>(item);
     if (mItem)
-        connect(mItem, &IMSettingsItem::sig_itemClicked, [=](IMSettingsItem *myItem) {
+        connect(mItem, &IMSettingsItem::itemClicked, [=](IMSettingsItem *myItem) {
             int i = itemCount();
             for (int j = 0; j < i; ++j) {
                 if (this->getItem(j) != myItem) {
@@ -132,7 +132,7 @@ void SettingsGroup::appendItem(SettingsItem *item, BackgroundStyle bgStyle)
 
     IMSettingsItem *mItem = dynamic_cast<IMSettingsItem *>(item);
     if (mItem)
-        connect(mItem, &IMSettingsItem::sig_itemClicked, [=](IMSettingsItem *myItem) {
+        connect(mItem, &IMSettingsItem::itemClicked, [=](IMSettingsItem *myItem) {
             int i = itemCount();
             for (int j = 0; j < i; ++j) {
                 if (this->getItem(j) != myItem) {

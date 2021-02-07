@@ -1,12 +1,31 @@
+/*
+* Copyright (C) 2021 ~ 2021 Deepin Technology Co., Ltd.
+*
+* Author:     liuwenhao <liuwenhao@uniontech.com>
+*
+* Maintainer: liuwenhao <liuwenhao@uniontech.com>
+*
+* This program is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* any later version.
+*
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU General Public License for more details.
+*
+* You should have received a copy of the GNU General Public License
+* along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
 #include "imsettingsitem.h"
 #include "settingsitem.h"
-#include <DPalette>
 #include <QVBoxLayout>
 #include <QResizeEvent>
 #include <QLabel>
 #include <QApplication>
 #include <QFrame>
-#include <DKeySequenceEdit>
+#include <DPalette>
 
 DWIDGET_USE_NAMESPACE
 
@@ -17,6 +36,10 @@ IMSettingsItem::IMSettingsItem(QString str, QFrame *parent)
     m_layout->setContentsMargins(20, 0, 10, 0);
     this->setLayout(m_layout);
     m_labelText = new QLabel(this);
+    QFont ft;
+    ft.setPointSize(12);
+    m_labelText->setFont(ft);
+
     m_labelText->setText(str);
     m_labelIcon = new QLabel(this);
     m_layout->addWidget(m_labelText);
@@ -29,10 +52,10 @@ IMSettingsItem::~IMSettingsItem()
 {
 }
 
-void IMSettingsItem::setFcitxItem(FcitxQtInputMethodItem item)
+void IMSettingsItem::setFcitxItem(const FcitxQtInputMethodItem &item)
 {
     m_item = item;
-    m_labelText->setText(item.name());
+    m_labelText->setText(m_item.name());
     m_labelText->adjustSize();
 }
 
@@ -60,7 +83,7 @@ void IMSettingsItem::setItemSelected(bool status)
 void IMSettingsItem::mousePressEvent(QMouseEvent *event)
 {
     setItemSelected(true);
-    emit sig_itemClicked(this);
+    emit itemClicked(this);
 }
 
 void IMSettingsItem::enterEvent(QEvent *event)

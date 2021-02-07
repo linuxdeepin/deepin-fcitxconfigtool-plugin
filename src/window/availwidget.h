@@ -22,7 +22,6 @@
 #define AVAILWIDGET_H
 
 #include "widgets/settingsgroup.h"
-#include "widgets/settingshead.h"
 #include "widgets/imsettingsitem.h"
 #include <QWidget>
 
@@ -37,10 +36,10 @@ public:
     void clearItemStatus(); //清除item选中状态
     const FcitxQtInputMethodItem &getSeleteIm() const { return m_selectItem; } //获取选中item
 signals:
-    void sig_seleteIM(bool); //选中状态信号 true 选中 false 未选中
+    void seleteIM(bool); //选中状态信号 true 选中 false 未选中
 public slots:
-    void slot_searchIM(const QString &str); //搜索输入法
-    void slot_updateUI(FcitxQtInputMethodItemList); //更新界面
+    void onSearchIM(const QString &str); //搜索输入法
+    void onUpdateUI(FcitxQtInputMethodItemList); //更新界面
 protected:
     void resizeEvent(QResizeEvent *event) override;
 

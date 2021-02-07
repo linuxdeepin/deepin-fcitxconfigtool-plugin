@@ -22,7 +22,6 @@
 #define IMSETTINGWINDOW_H
 
 #include "widgets/comboxwidget.h"
-#include "widgets/switchwidget.h"
 #include "widgets/keysettingsitem.h"
 #include "widgets/settingsgroup.h"
 #include "fcitxInterface/global.h"
@@ -42,22 +41,22 @@ public:
     virtual ~IMSettingWindow();
     void updateUI(); //刷新界面
 signals:
-    void sig_popIMAddWindow(); //弹出添加输入法界面
+    void popIMAddWindow(); //弹出添加输入法界面
 private:
     void initUI(); //初始化界面
     void initConnect(); //初始化信号槽
     void readConfig(); //读取配置文件
-    void writeConfig(); //写入配置文件
 private slots:
-    void slot_editBtnClicked(); //启用编辑
-    void slot_defualtIMChanged();
-    void slot_curIMChanged(FcitxQtInputMethodItemList list);
+    void onEditBtnClicked(); //启用编辑
+    void onDefualtIMChanged();
+    void onCurIMChanged(FcitxQtInputMethodItemList list);
+    void onAddBtnCilcked(); //
 
 private:
     ComboxWidget *m_defualtIMCbox {nullptr}; //选择默认输入法
     DCommandLinkButton *m_editBtn {nullptr}; //编辑
     DListView *m_IMCurrentView {nullptr}; //当前输入法列表
-    SettingsGroup *m_shortGroup {nullptr};
+    SettingsGroup *m_shortcutGroup {nullptr}; //快捷键容器
     ComBoboxSettingsItem *m_imSwitchCbox {nullptr}; //切换输入法（快捷键）
     KeySettingsItem *m_virtualKey {nullptr}; //虚拟键盘 （快捷键）
     KeySettingsItem *m_defualtIMKey {nullptr}; //默认输入法 （快捷键）

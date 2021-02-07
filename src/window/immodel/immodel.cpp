@@ -22,10 +22,6 @@
 #include "fcitxInterface/global.h"
 #include "publisher/publisherdef.h"
 #include <QApplication>
-#include <QHBoxLayout>
-#include <QPushButton>
-#include <QTimer>
-#include <libintl.h>
 
 using namespace Fcitx;
 IMModel *IMModel::m_ins {nullptr};
@@ -39,12 +35,8 @@ bool operator==(const FcitxQtInputMethodItem &item, const FcitxQtInputMethodItem
 IMModel::IMModel()
     : QStandardItemModel(nullptr)
 {
-    slot_updateIMList();
-    connect(Global::instance(), &Global::connectStatusChanged, [=]() {
-        m_timer2.start(IMConTime);
-    });
-    connect(&m_timer, &QTimer::timeout, this, &IMModel::IMListSvae);
-    connect(&m_timer2, &QTimer::timeout, this, &IMModel::slot_updateIMList);
+    onUpdateIMList();
+    connect(Global::instance(), &Global::connectStatusChanged, this, &IMModel::onUpdateIMList);
 }
 
 IMModel::~IMModel()
@@ -81,9 +73,9 @@ QMimeData *IMModel::mimeData(const QModelIndexList &index) const
     QByteArray encodeData;
 
     QDataStream stream(&encodeData, QIODevice::WriteOnly);
-    foreach (const QModelIndex &ind, index) {
-        if (ind.isValid()) {
-            stream << ind.row();
+    foreach (const QModelIndex &index, index) {
+        if (index.isValid()) {
+            stream << index.row();
         }
     }
     mimeData->setData("InputMethod", encodeData);
@@ -100,35 +92,36 @@ bool IMModel::dropMimeData(const QMimeData *data, Qt::DropAction action, int row
 
     QByteArray encodeData = data->data("InputMethod");
     QDataStream stream(&encodeData, QIODevice::ReadOnly);
-    int rows = 0;
+    int swapRow = 0;
     if (!stream.atEnd()) {
-        stream >> rows;
+        stream >> swapRow;
     }
 
     if (row == 0 || parent.row() == 0)
         return false;
 
     int insRow;
-    if (row != -1)
+    if (row != -1) {
         insRow = row;
-    else if (parent.isValid())
+    } else if (parent.isValid()) {
         insRow = parent.row();
-    else
-        insRow = rowCount() - 1;
-
-    if (rows == insRow)
-        return false;
-    else if (rows > insRow) {
-        m_curIMList.insert(insRow, m_curIMList[rows]);
-        m_curIMList.removeAt(rows + 1);
     } else {
-        FcitxQtInputMethodItem it = m_curIMList[rows];
-        m_curIMList.removeAt(rows);
+        insRow = rowCount() - 1;
+    }
+
+    if (swapRow == insRow)
+        return false;
+    else if (swapRow > insRow) {
+        m_curIMList.insert(insRow, m_curIMList[swapRow]);
+        m_curIMList.removeAt(swapRow + 1);
+    } else {
+        FcitxQtInputMethodItem it = m_curIMList[swapRow];
+        m_curIMList.removeAt(swapRow);
         m_curIMList.insert(insRow, it);
     }
     loadItem();
-    m_timer.start(IMchangedTime);
-    emit sig_curIMList(m_curIMList);
+    IMListSvae();
+    emit curIMListChanaged(m_curIMList);
     return true;
 }
 
@@ -146,7 +139,7 @@ void IMModel::setEdit(bool flag)
     loadItem();
     if (!m_isEdit) {
         IMListSvae();
-        emit sig_availIMList(m_availeIMList);
+        emit availIMListChanged(m_availeIMList);
     }
 }
 
@@ -160,36 +153,30 @@ void IMModel::addIMItem(FcitxQtInputMethodItem item)
     addActionList(tmp);
     insertRow(1, tmp);
     IMListSvae();
-    emit sig_availIMList(m_availeIMList);
-    emit sig_curIMList(m_curIMList);
-}
-
-const FcitxQtInputMethodItemList &IMModel::availIMList() const
-{
-    return m_availeIMList;
-}
-
-const FcitxQtInputMethodItemList &IMModel::curIMList() const
-{
-    return m_curIMList;
+    emit availIMListChanged(m_availeIMList);
+    emit curIMListChanaged(m_curIMList);
 }
 
 int IMModel::getIMIndex(const QString &IM) const
 {
-    qDebug() << IM;
     for (int i = 0; i < m_curIMList.count(); ++i) {
-        qDebug() << m_curIMList[i].name() << m_curIMList[i].uniqueName() << m_curIMList[i].langCode();
         if (m_curIMList[i].name().indexOf(IM, Qt::CaseInsensitive) != -1
             || m_curIMList[i].uniqueName().indexOf(IM, Qt::CaseInsensitive) != -1
             || m_curIMList[i].langCode().indexOf(IM, Qt::CaseInsensitive) != -1) {
             return i;
         }
     }
-
     return -1;
 }
 
-void IMModel::slot_updateIMList()
+FcitxQtInputMethodItem IMModel::getIM(int index) const
+{
+    if (index > m_curIMList.count() || index < 0)
+        return FcitxQtInputMethodItem();
+    return m_curIMList[index];
+}
+
+void IMModel::onUpdateIMList()
 {
     if (Global::instance()->inputMethodProxy()) {
         FcitxQtInputMethodItemList &&list = Global::instance()->inputMethodProxy()->iMList();
@@ -205,27 +192,21 @@ void IMModel::slot_updateIMList()
         if (curList != m_curIMList) {
             m_curIMList.swap(curList);
             loadItem();
+            emit curIMListChanaged(m_curIMList);
         }
 
         if (availList != m_availeIMList) {
             m_availeIMList.swap(availList);
-            emit sig_availIMList(m_availeIMList);
-        }
-#if Debug
-        foreach (FcitxQtInputMethodItem item, m_curIMList) {
-            qDebug() << item.name();
+            emit availIMListChanged(m_availeIMList);
         }
 
-        qDebug() << m_curIMList.count() << m_availeIMList.count();
-#endif
     } else {
         m_availeIMList.clear();
         m_curIMList.clear();
         this->clear();
-        emit sig_availIMList(m_availeIMList);
+        emit curIMListChanaged(m_curIMList);
+        emit availIMListChanged(m_availeIMList);
     }
-    m_timer2.stop();
-    emit sig_curIMList(m_curIMList);
 }
 
 void IMModel::loadItem()
@@ -266,7 +247,7 @@ void IMModel::deleteItem(DStandardItem *item)
     m_availeIMList.rbegin()->setEnabled(false);
     m_curIMList.removeAt(item->row());
     this->removeRow(item->row());
-    emit sig_curIMList(m_curIMList);
+    emit curIMListChanaged(m_curIMList);
 }
 
 void IMModel::itemUp(DStandardItem *item)
@@ -289,8 +270,9 @@ void IMModel::itemSawp(int index, int index2)
         return;
     m_curIMList.swap(index, index2);
     loadItem();
-    m_timer.start(IMchangedTime);
-    emit sig_curIMList(m_curIMList);
+    IMListSvae();
+
+    emit curIMListChanaged(m_curIMList);
 }
 
 void IMModel::configShow(DStandardItem *item)
@@ -307,21 +289,10 @@ void IMModel::IMListSvae()
         FcitxQtInputMethodItemList &&list = (m_curIMList + m_availeIMList);
         if (list == Global::instance()->inputMethodProxy()->iMList())
             return;
-#if Debug
-        int a = 0, b = 0;
-        foreach (FcitxQtInputMethodItem item, list) {
-            if (item.enabled()) {
-                qDebug() << "IMListSvae" << item.name();
-                a++;
-            } else {
-                b++;
-            }
+        if (Global::instance()->inputMethodProxy()) {
+            Global::instance()->inputMethodProxy()->setIMList(m_curIMList + m_availeIMList);
+            Global::instance()->inputMethodProxy()->ReloadConfig();
         }
-        qDebug() << "IMListSvae" << m_curIMList.count() << m_availeIMList.count() << a << b;
-#endif
-        Global::instance()->inputMethodProxy()->setIMList(m_curIMList + m_availeIMList);
-        QProcess::startDetached("fcitx -r");
-        m_timer.stop();
     }
 }
 
@@ -341,9 +312,6 @@ void IMModel::addActionList(DStandardItem *item)
         DViewItemAction *iconAction3 = new DViewItemAction(Qt::AlignBottom, QSize(), QSize(), true);
         iconAction3->setIcon(QIcon(":/icons/setting.svg"));
         connect(iconAction, &DViewItemAction::triggered, [=]() { itemUp(item); });
-        connect(iconAction, &DViewItemAction::hovered, [=]() {
-            qDebug() << "hover";
-        });
         connect(iconAction2, &DViewItemAction::triggered, [=]() { itemDown(item); });
         connect(iconAction3, &DViewItemAction::triggered, [=]() { configShow(item); });
         list.push_back(iconAction);

@@ -21,19 +21,12 @@
 #ifndef IMMODEL_H
 #define IMMODEL_H
 
-#include <QTimer>
+#include "fcitxqtinputmethoditem.h"
 #include <QMimeData>
 #include <QStandardItemModel>
 #include <DStandardItem>
 #include <DStyle>
-#include <DListView>
-#include <fcitxqtinputmethoditem.h>
-#include "publisher/publisherdef.h"
-#include <QProcess>
-#include <QThread>
 
-const int IMchangedTime = 1000; //输入法设置改变间隔
-const int IMConTime = 1500; //输入法断开连接等待间隔
 using namespace Dtk::Widget;
 
 class IMModel : public QStandardItemModel
@@ -51,22 +44,19 @@ public:
     //self
     void setEdit(bool flag); //设置编辑状态
     bool isEdit() { return m_isEdit; } //获取编辑状态
-    void addIMItem(FcitxQtInputMethodItem item); //添加输入法
 
-    const FcitxQtInputMethodItemList &availIMList() const;
-    const FcitxQtInputMethodItemList &curIMList() const;
     int getIMIndex(const QString &IM) const;
-    FcitxQtInputMethodItem getIM(int index) const
-    {
-        if (index > m_curIMList.count() || index < 0)
-            return FcitxQtInputMethodItem();
-        return m_curIMList[index];
-    }
+    FcitxQtInputMethodItem getIM(int index) const;
+
+    void addIMItem(FcitxQtInputMethodItem item); //添加输入法
+    const FcitxQtInputMethodItemList &getAvailIMList() const { return m_availeIMList; }
+    const FcitxQtInputMethodItemList &getCurIMList() const { return m_curIMList; }
+
 signals:
-    void sig_availIMList(FcitxQtInputMethodItemList);
-    void sig_curIMList(FcitxQtInputMethodItemList);
+    void availIMListChanged(FcitxQtInputMethodItemList);
+    void curIMListChanaged(FcitxQtInputMethodItemList);
 public slots:
-    void slot_updateIMList(); //更新输入法列表
+    void onUpdateIMList(); //更新输入法列表
 private:
     explicit IMModel();
     IMModel(const IMModel &tmp) = delete;
@@ -86,8 +76,6 @@ private:
     FcitxQtInputMethodItemList m_curIMList; //当前使用输入法
     FcitxQtInputMethodItemList m_availeIMList; //当前未使用输入法
     bool m_isEdit {false}; //编辑状态
-    QTimer m_timer; //输入法修改定时器  当输入法界面作出修改后触发
-    QTimer m_timer2; //输入法修改定时器  当输入法界面作出修改后触发
 };
 
 #endif // IMMODEL_H

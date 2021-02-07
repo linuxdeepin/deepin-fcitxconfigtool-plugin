@@ -23,7 +23,6 @@
 #include "imsettingwindow.h"
 #include "immodel/immodel.h"
 #include "fcitxInterface/config.h"
-#include "fcitxInterface/global.h"
 #include <QStackedWidget>
 #include <QGridLayout>
 #include <libintl.h>
@@ -65,18 +64,19 @@ void IMWindow::initUI()
     //界面布局
     QVBoxLayout *pLayout = new QVBoxLayout();
     pLayout->addWidget(m_stackedWidget);
-    pLayout->setContentsMargins(0, 10, 0, 10);
+    pLayout->setMargin(0);
+    pLayout->setSpacing(0);
     setLayout(pLayout);
 }
 
 void IMWindow::initConnect()
 {
-    connect(m_settingWindow, &IMSettingWindow::sig_popIMAddWindow, [=]() {
+    connect(m_settingWindow, &IMSettingWindow::popIMAddWindow, [=]() {
         m_stackedWidget->setCurrentIndex(1);
         m_addWindow->updateUI();
     });
 
-    connect(m_addWindow, &IMAddWindow::sig_popSettingsWindow, [=]() {
+    connect(m_addWindow, &IMAddWindow::popSettingsWindow, [=]() {
         m_stackedWidget->setCurrentIndex(0);
         m_settingWindow->updateUI();
     });
