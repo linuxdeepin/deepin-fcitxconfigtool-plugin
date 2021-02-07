@@ -30,6 +30,8 @@
 #include <QGridLayout>
 #include <QMainWindow>
 
+#include "window/imwindow.h"
+
 namespace DCC_NAMESPACE {
 class FcitxConfigPlugin : public QObject
     , public DCC_NAMESPACE::ModuleInterface
@@ -152,8 +154,8 @@ public Q_SLOTS:
     */
     virtual void active()
     {
-        mainwindow = new QMainWindow;
-        m_frameProxy->pushWidget(this, mainwindow, dccV20::FrameProxyInterface::PushType::Normal);
+        imwindow = new IMWindow;
+        m_frameProxy->pushWidget(this, imwindow, dccV20::FrameProxyInterface::PushType::Normal);
     }
 
     /**
@@ -165,7 +167,7 @@ public Q_SLOTS:
     }
 
 public:
-    QMainWindow *mainwindow;
+    IMWindow *imwindow;
 };
 } // namespace DCC_NAMESPACE
 #endif // FcitxConfigPlugin_H

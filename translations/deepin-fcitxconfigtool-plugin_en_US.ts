@@ -42,53 +42,53 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="90"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="93"/>
         <source>Manage Input Methods</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="91"/>
-        <location filename="../src/window/imsettingwindow.cpp" line="224"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="94"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="227"/>
         <source>Edit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="111"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="114"/>
         <source>Shortcuts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="131"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="134"/>
         <source>Switch input methods</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="133"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="136"/>
         <source>Switch to default input method</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="135"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="138"/>
         <source>Call out Onboard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="143"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="146"/>
         <source>切换方式</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="145"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="148"/>
         <source>系统</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="145"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="148"/>
         <source>应用</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="221"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="224"/>
         <source>完成</source>
         <translation type="unfinished"></translation>
     </message>
