@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f4394cb7_2cb0566c",
+        "filename": "src/window/availwidget.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-02-08T06:47:58Z",
+      "side": 1,
+      "message": "注释行数: 0; 改动行数(修改和新增): 5; 注释率: 0.0%",
+      "revId": "59e128f931c3f8458878c758fefa075c4ef07844",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5a771131_433af770",
+        "filename": "tests/ut_imsettingwindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-02-08T06:47:58Z",
+      "side": 1,
+      "message": "注释行数: 21; 改动行数(修改和新增): 45; 注释率: 46.7%",
+      "revId": "59e128f931c3f8458878c758fefa075c4ef07844",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "96a8a786_da7dfdc8",
+        "filename": "tests/ut_imwndow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-02-08T06:47:58Z",
+      "side": 1,
+      "message": "注释行数: 21; 改动行数(修改和新增): 44; 注释率: 47.7%",
+      "revId": "59e128f931c3f8458878c758fefa075c4ef07844",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    }
+  ]
+}
