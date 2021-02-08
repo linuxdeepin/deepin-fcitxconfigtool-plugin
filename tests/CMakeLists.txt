@@ -49,10 +49,10 @@ find_package(FcitxQt5WidgetsAddons REQUIRED)
 #设置资源目录 加载资源文件 翻译文件 源码
 set(APP_RES_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../res")
 #创建翻译文件 
-set(TS_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../translations")
-set(TS_FILES "${TS_DIR}/${PROJECT_NAME}_en_US.ts")
+#set(TS_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../translations")
+#set(TS_FILES "${TS_DIR}/${PROJECT_NAME}_en_US.ts")
 #更新翻译
-find_program(LUPDATE_EXECUTABLE lupdate)
+#find_program(LUPDATE_EXECUTABLE lupdate)
 foreach(_ts_file ${TS_FILES})
     execute_process(
         COMMAND ${LUPDATE_EXECUTABLE} -recursive ${CMAKE_SOURCE_DIR} -ts ${_ts_file})  #递归扫描源码 输出ts文件

@@ -22,7 +22,6 @@
 #include <iostream>
 #include "gtest/gtest.h"
 #include "window/imsettingwindow.h"
-//#include <QObject>
 class ut_imsettingwindow : public ::testing::Test
 {
 protected:
@@ -47,4 +46,5 @@ TEST_F(ut_imsettingwindow, updateUI)
 {
     IMSettingWindow iMSettingWindow;
     iMSettingWindow.updateUI();
+    EXPECT_TRUE(true);
 }
