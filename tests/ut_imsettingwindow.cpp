@@ -19,14 +19,32 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "deepinfcitxunittest.h"
-
-/*!
- * \brief testTranslateDomain
- */
-TEST_F(DeepinFcitxUnitTest, testTranslateDomain)
+#include <iostream>
+#include "gtest/gtest.h"
+#include "window/imsettingwindow.h"
+//#include <QObject>
+class ut_imsettingwindow : public ::testing::Test
 {
-    EXPECT_EQ("chinese", "chinese");
-}
+protected:
+    ut_imsettingwindow()
+    {
+    }
 
-//#include "deepinfcitxunittest.moc"
+    virtual ~ut_imsettingwindow()
+    {
+    }
+
+    virtual void SetUp()
+    {
+    }
+
+    virtual void TearDown()
+    {
+    }
+};
+
+TEST_F(ut_imsettingwindow, updateUI)
+{
+    IMSettingWindow iMSettingWindow;
+    iMSettingWindow.updateUI();
+}

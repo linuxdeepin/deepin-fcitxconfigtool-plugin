@@ -18,19 +18,32 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-#ifndef DEEPINFCITX_UNIT_TEST_H
-#define DEEPINFCITX_UNIT_TEST_H
-#include <QObject>
-#include <gtest/gtest.h>
 
-class DeepinFcitxUnitTest : public QObject
-    , public ::testing::Test
+#include <iostream>
+#include "gtest/gtest.h"
+#include "window/imwindow.h"
+//#include <QObject>
+class ut_imwindow : public ::testing::Test
 {
-    Q_OBJECT
+protected:
+    ut_imwindow()
+    {
+    }
 
-public:
-    DeepinFcitxUnitTest() {}
-    virtual ~DeepinFcitxUnitTest() {}
+    virtual ~ut_imwindow()
+    {
+    }
+
+    virtual void SetUp()
+    {
+    }
+
+    virtual void TearDown()
+    {
+    }
 };
 
-#endif // DEEPINFCITX_UNIT_TEST_H
+TEST_F(ut_imwindow, init)
+{
+    IMWindow imwindow;
+}

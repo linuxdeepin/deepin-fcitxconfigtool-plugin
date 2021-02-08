@@ -1,9 +1,8 @@
 #版本设置
 set(VERSION 0.1)
 #二进制名称
-set(BIN_NAME deepin-fcitxconfigtool-plugin)
-#项目名称设置
-project(${BIN_NAME})
+set(PROJECT_NAME_TEST
+    ${PROJECT_NAME}_test)#项目名称设置
 
 if (CMAKE_BUILD_TYPE MATCHES Debug)
   set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -g -Wall -Wextra -fprofile-arcs -ftest-coverage -lgcov")
@@ -24,6 +23,8 @@ set(CMAKE_AUTOMOC ON)#moc 预编译包含QObject文件，生成xx_moc.h cpp
 set(CMAKE_AUTORCC ON)#开启rcc 编译资源文件qrc
 set(CMAKE_AUTOUIC ON)#开启uic 编译转换*.ui文件生存设计界面对应的.h .cpp文件
 set(CMAKE_CXX_STANDARD 14)
+
+set(DOTEST ON)
 
 # 查找库
 enable_testing()
@@ -69,7 +70,27 @@ FILE(GLOB_RECURSE TEST_HEAD_FILES
 FILE(GLOB_RECURSE TEST_SOURCE_FILES
     ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp)
 
+FILE(GLOB_RECURSE HEAD_FILES
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src/ddeInterface/*.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src/fcitxInterface/*.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src/widgets/*.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src/window/*.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src/i18n.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src/fcitxconfigplugin.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src/publisher/*.h)
+
+FILE(GLOB_RECURSE SOURCE_FILES
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src/ddeInterface/*.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src/fcitxInterface/*.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src/widgets/*.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src/window/*.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src/i18n.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src/fcitxconfigplugin.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src/publisher/*.cpp)
+
 set(ALL_SRCS
+    ${HEAD_FILES}
+    ${SOURCE_FILES}
     ${APP_QRC}
     ${DTNG_QM_FILES}
     )
@@ -79,13 +100,16 @@ set(TEST_SRCS
     ${TEST_SOURCE_FILES}
     )
 
-add_executable(${PROJECT_NAME}_test
+add_executable(${PROJECT_NAME_TEST}
     ${ALL_SRCS}
     ${DTNG_QM_FILES}
     ${TEST_SRCS}
     )
 
-target_include_directories(${PROJECT_NAME}_test PUBLIC
+include_directories(${PROJECT_NAME_TEST} PUBLIC
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src)
+
+target_include_directories(${PROJECT_NAME_TEST} PUBLIC
         ${DdeControlCenter_INCLUDE_DIR}
         ${DtkCore_INCLUDE_DIRS}
         ${DtkWidget_INCLUDE_DIRS}
@@ -94,7 +118,7 @@ target_include_directories(${PROJECT_NAME}_test PUBLIC
         ${GTEST_INCLUDE_DIR}
         )
 
-target_link_libraries(${PROJECT_NAME}_test PRIVATE
+target_link_libraries(${PROJECT_NAME_TEST} PRIVATE
         ${DdeControlCenter_LIBRARIES}
         ${DFrameworkDBus_LIBRARIES}
         ${DtkWidget_LIBRARIES}
@@ -146,4 +170,4 @@ add_custom_target(test
 #    )
 #
 #'make test'命令依赖与我们的测试程序
-add_dependencies(test ${PROJECT_NAME}_test)
+add_dependencies(test ${PROJECT_NAME_TEST})

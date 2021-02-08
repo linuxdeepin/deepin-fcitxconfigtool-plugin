@@ -2,9 +2,6 @@
 cmake_minimum_required(VERSION 3.7)
 project(deepin-fcitxconfigtool-plugin)
 
-set(DOTEST OFF)
-
-
 #加载子目录
 add_subdirectory(src)
 add_subdirectory(tests)

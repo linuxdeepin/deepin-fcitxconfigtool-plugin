@@ -21,8 +21,13 @@
 #ifndef AVAILWIDGET_H
 #define AVAILWIDGET_H
 
+#ifdef DOTEST
 #include "widgets/settingsgroup.h"
 #include "widgets/imsettingsitem.h"
+#else
+#include "../src/widgets/settingsgroup.h"
+#include "../src/widgets/imsettingsitem.h"
+#endif
 #include <QWidget>
 
 using namespace dcc::widgets;
