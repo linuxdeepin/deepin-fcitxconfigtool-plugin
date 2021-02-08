@@ -1,10 +1,12 @@
 <RCC>
     <qresource prefix="/">
-        <file>icons/fcitx.svg</file>
         <file>icons/add_hover.png</file>
         <file>icons/add_normal.png</file>
         <file>icons/arrow_up.svg</file>
         <file>icons/arrow_down.svg</file>
         <file>icons/setting.svg</file>
+    </qresource>
+    <qresource prefix="/icons/deepin/builtin">
+        <file>actions/input-method_normal_32px.svg</file>
     </qresource>
 </RCC>

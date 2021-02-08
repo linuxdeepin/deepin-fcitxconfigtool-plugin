@@ -91,10 +91,7 @@ public:
     * get module icon path
     * @return
     */
-    virtual QIcon icon() const
-    {
-        return QIcon("://icons/fcitx.svg");
-    }
+    virtual QIcon icon() const = 0;
 
     /**
     * @brief translationPath

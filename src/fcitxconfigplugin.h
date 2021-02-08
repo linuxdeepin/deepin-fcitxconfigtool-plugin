@@ -72,6 +72,7 @@ public:
     */
     virtual void reset()
     {
+        this->icon();
     }
 
     /**
@@ -81,7 +82,7 @@ public:
     */
     virtual const QString name() const
     {
-        return QString("testPlugin");
+        return QString("Manage Input Methods");
     };
 
     /**
@@ -91,7 +92,7 @@ public:
     */
     virtual const QString displayName() const
     {
-        return QString("输入法配置");
+        return QString(tr("Manage Input Methods"));
     }
 
     /**
@@ -101,7 +102,7 @@ public:
     */
     virtual QIcon icon() const
     {
-        return QIcon::fromTheme("fcitx");
+        return QIcon::fromTheme("input-method_normal");
     }
 
     /**
@@ -154,8 +155,8 @@ public Q_SLOTS:
     */
     virtual void active()
     {
-        imwindow = new IMWindow;
-        m_frameProxy->pushWidget(this, imwindow, dccV20::FrameProxyInterface::PushType::Normal);
+        imWindow = new IMWindow;
+        m_frameProxy->pushWidget(this, imWindow, dccV20::FrameProxyInterface::PushType::Normal);
     }
 
     /**
@@ -164,10 +165,11 @@ public Q_SLOTS:
     */
     virtual void deactive()
     {
+        delete imWindow;
     }
 
 public:
-    IMWindow *imwindow;
+    IMWindow *imWindow;
 };
 } // namespace DCC_NAMESPACE
 #endif // FcitxConfigPlugin_H
