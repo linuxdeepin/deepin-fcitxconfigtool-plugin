@@ -7,7 +7,7 @@ dpkg-buildpackage -b -d -uc -us
 
 project_path=$(cd `dirname $0`; pwd)
 
-cd "${project_path}/obj-x86_64-linux-gnu"
+cd "${project_path}/obj-"*"-linux-gnu"
 
 make test
 
@@ -22,7 +22,7 @@ test_path="$(cd `dirname $0`; pwd)/tests"
 
 cd $project_path/../
 
-dpkg -i *.deb
+dpkg -i deepin-fcitxconfigtool-plugin*.deb
 
 cd $test_path
 
