@@ -5,23 +5,26 @@ cd $workspace
 
 dpkg-buildpackage -b -d -uc -us
 
-make test
-
 project_path=$(cd `dirname $0`; pwd)
+
+cd "${project_path}/obj-x86_64-linux-gnu"
+
+make test
 
 #获取工程名
 
 project_name="${project_path##*/}"
 
-echo $project_name
-
 #获取打包生成文件夹路径
 pathname=$(find . -name obj*)
 
-echo $pathname
+test_path="$(cd `dirname $0`; pwd)/tests"
 
+cd $project_path/../
 
-cd $pathname/tests
+dpkg -i *.deb
+
+cd $test_path
 
 ./deepin-fcitxconfigtool-plugin_test
 
