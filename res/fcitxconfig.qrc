@@ -7,6 +7,6 @@
         <file>icons/setting.svg</file>
     </qresource>
     <qresource prefix="/icons/deepin/builtin">
-        <file>actions/input-method_normal_32px.svg</file>
+        <file>actions/input_method_32px.svg</file>
     </qresource>
 </RCC>

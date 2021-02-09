@@ -102,7 +102,7 @@ public:
     */
     virtual QIcon icon() const
     {
-        return QIcon::fromTheme("input-method_normal");
+        return QIcon::fromTheme("input_method");
     }
 
     /**
