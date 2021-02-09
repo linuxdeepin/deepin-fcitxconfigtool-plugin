@@ -20,23 +20,25 @@
 */
 #include "imconfig.h"
 #include "publisher/publisherfunc.h"
+
 QString IMConfig::prefix {QDir::homePath()};
-QString IMConfig::defualtIM()
+
+QString IMConfig::defaultIM()
 {
     return configFile(prefix + "/.config/fcitx/conf/fcitx-defaultim.config", QString("IMNAME"));
 }
 
-bool IMConfig::setDefualtIM(QString str)
+bool IMConfig::setDefaultIM(QString str)
 {
     return setConfigFile(prefix + "/.config/fcitx/conf/fcitx-defaultim.config", "IMNAME", str, false);
 }
 
-QString IMConfig::IMSwitch()
+QString IMConfig::IMSwitchKey()
 {
     return configFile(prefix + "/.config/fcitx/config", QString("IMSwitchHotkey"));
 }
 
-bool IMConfig::setIMSwitch(QString str)
+bool IMConfig::setIMSwitchKey(QString str)
 {
     return setConfigFile(prefix + "/.config/fcitx/config", "IMSwitchHotkey", str, false);
 }
@@ -51,26 +53,27 @@ bool IMConfig::setVirtualKey(QString str)
     return setConfigFile(prefix + "/.config/fcitx/conf/fcitx-onboard.config", "HOTKEY", str, true);
 }
 
-QString IMConfig::defualtIMKey()
+QString IMConfig::defaultIMKey()
 {
     return configFile(prefix + "/.config/fcitx/conf/fcitx-defaultim.config", QString("HOTKEY"));
 }
 
-bool IMConfig::setDefualtIMKey(QString str)
+bool IMConfig::setDefaultIMKey(QString str)
 {
     return setConfigFile(prefix + "/.config/fcitx/conf/fcitx-defaultim.config", "HOTKEY", str, true);
 }
 
-QString IMConfig::IMConfigCmd(FcitxQtInputMethodItem item)
+QString IMConfig::callIMConfigWindow(FcitxQtInputMethodItem item)
 {
     return QString();
 }
 
 QString IMConfig::configFile(QString filePath, QString key)
 {
-    if (prefix.isEmpty())
-        return QString();
     QString read = publisherFunc::readFile(filePath);
+    if (read.isEmpty() || key.isEmpty())
+        return QString();
+
     foreach (QString str, read.split("\n")) {
         if (str.indexOf(key) != -1) {
             auto list = str.split("=");
@@ -86,15 +89,16 @@ QString IMConfig::configFile(QString filePath, QString key)
 
 bool IMConfig::setConfigFile(QString filePath, QString key, QString value, bool isHotKey)
 {
-    if (prefix.isEmpty())
-        return false;
     QString read = publisherFunc::readFile(filePath);
+    if (read.isEmpty() || key.isEmpty() || value.isEmpty())
+        return false;
+
     QString file;
     foreach (QString tmp, read.split("\n")) {
         if (tmp.indexOf(key) != -1) {
-            if (isHotKey)
+            if (isHotKey) {
                 file += QString(key + "=" + value + "\n").replace("+", "_").toUpper();
-            else {
+            } else {
                 file += QString(key + "=" + value + "\n");
             }
         } else {

@@ -21,17 +21,26 @@
 #ifndef IMSETTINGWINDOW_H
 #define IMSETTINGWINDOW_H
 
-#include "widgets/comboxwidget.h"
-#include "widgets/keysettingsitem.h"
-#include "widgets/settingsgroup.h"
 #include "fcitxInterface/global.h"
-#include <DListView>
-#include <DFloatingButton>
-#include <DKeySequenceEdit>
-#include <DCommandLinkButton>
+#include <QWidget>
 
-using namespace dcc::widgets;
-using namespace Dtk::Widget;
+namespace dcc {
+namespace widgets {
+class SettingsGroup;
+class ComboxWidget;
+} // namespace widgets
+} // namespace dcc
+
+namespace Dtk {
+namespace Widget {
+class DListView;
+class DCommandLinkButton;
+class DFloatingButton;
+} // namespace Widget
+} // namespace Dtk
+
+class ComBoboxSettingsItem;
+class KeySettingsItem;
 
 class IMSettingWindow : public QWidget
 {
@@ -48,20 +57,20 @@ private:
     void readConfig(); //读取配置文件
 private slots:
     void onEditBtnClicked(); //启用编辑
-    void onDefualtIMChanged();
+    void onDefaultIMChanged();
     void onCurIMChanged(FcitxQtInputMethodItemList list);
     void onAddBtnCilcked(); //
 
 private:
-    ComboxWidget *m_defualtIMCbox {nullptr}; //选择默认输入法
-    DCommandLinkButton *m_editBtn {nullptr}; //编辑
-    DListView *m_IMCurrentView {nullptr}; //当前输入法列表
-    SettingsGroup *m_shortcutGroup {nullptr}; //快捷键容器
+    dcc::widgets::ComboxWidget *m_defaultIMCbox {nullptr}; //选择默认输入法
+    Dtk::Widget::DCommandLinkButton *m_editBtn {nullptr}; //编辑
+    Dtk::Widget::DListView *m_IMCurrentView {nullptr}; //当前输入法列表
+    dcc::widgets::SettingsGroup *m_shortcutGroup {nullptr}; //快捷键容器
     ComBoboxSettingsItem *m_imSwitchCbox {nullptr}; //切换输入法（快捷键）
     KeySettingsItem *m_virtualKey {nullptr}; //虚拟键盘 （快捷键）
-    KeySettingsItem *m_defualtIMKey {nullptr}; //默认输入法 （快捷键）
-    ComboxWidget *m_systemAppCbox {nullptr}; //切换系统/应用
-    DFloatingButton *m_addIMBtn {nullptr}; //添加输入法
+    KeySettingsItem *m_defaultIMKey {nullptr}; //默认输入法 （快捷键）
+    dcc::widgets::ComboxWidget *m_systemAppCbox {nullptr}; //切换系统/应用
+    Dtk::Widget::DFloatingButton *m_addIMBtn {nullptr}; //添加输入法
 };
 
 #endif // IMSETTINGWINDOW_H

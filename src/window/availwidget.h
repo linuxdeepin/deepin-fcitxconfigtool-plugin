@@ -21,16 +21,13 @@
 #ifndef AVAILWIDGET_H
 #define AVAILWIDGET_H
 
-#ifdef DOTEST
-#include "widgets/settingsgroup.h"
-#include "widgets/imsettingsitem.h"
-#else
-#include "../src/widgets/settingsgroup.h"
-#include "../src/widgets/imsettingsitem.h"
-#endif
 #include <QWidget>
-
-using namespace dcc::widgets;
+#include <fcitxqtinputmethoditem.h>
+namespace dcc {
+namespace widgets {
+class SettingsGroup;
+} // namespace widgets
+} // namespace dcc
 
 class AvailWidget : public QWidget
 {
@@ -40,21 +37,21 @@ public:
     ~AvailWidget();
     void clearItemStatus(); //清除item选中状态
     const FcitxQtInputMethodItem &getSeleteIm() const { return m_selectItem; } //获取选中item
-signals:
-    void seleteIM(bool); //选中状态信号 true 选中 false 未选中
 public slots:
     void onSearchIM(const QString &str); //搜索输入法
     void onUpdateUI(FcitxQtInputMethodItemList); //更新界面
+signals:
+    void seleteIM(bool); //选中状态信号 true 选中 false 未选中
 protected:
     void resizeEvent(QResizeEvent *event) override;
 
 private:
     void initUI(); //初始化界面
     void initConnect(); //初始化信号槽
-    void cleareItemStatusAndFilter(SettingsGroup *group, bool falg = false); //清除选中 清除过滤
+    void clearItemStatusAndFilter(dcc::widgets::SettingsGroup *group, bool falg = false); //清除选中 清除过滤
 private:
-    SettingsGroup *m_allIMGroup {nullptr}; //可用输入法列表界面
-    SettingsGroup *m_searchIMGroup {nullptr}; //搜索输入法列表界面
+    dcc::widgets::SettingsGroup *m_allIMGroup {nullptr}; //可用输入法列表界面
+    dcc::widgets::SettingsGroup *m_searchIMGroup {nullptr}; //搜索输入法列表界面
     FcitxQtInputMethodItem m_selectItem; //选中输入法
     FcitxQtInputMethodItemList m_allAvaiIMlList; //可用输入法列表
     QString m_searchStr; //当前搜索字符串

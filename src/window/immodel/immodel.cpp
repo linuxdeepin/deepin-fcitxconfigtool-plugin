@@ -22,9 +22,14 @@
 #include "fcitxInterface/global.h"
 #include "publisher/publisherdef.h"
 #include <QApplication>
+#include <DStyle>
+#include <DStandardItem>
 
 using namespace Fcitx;
+using namespace Dtk::Widget;
+
 IMModel *IMModel::m_ins {nullptr};
+
 bool operator==(const FcitxQtInputMethodItem &item, const FcitxQtInputMethodItem &item2)
 {
     return item.name() == item2.name()
@@ -41,15 +46,11 @@ IMModel::IMModel()
 
 IMModel::~IMModel()
 {
-    IMListSvae();
 }
 
 IMModel *IMModel::instance()
 {
-    if (nullptr == m_ins) {
-        m_ins = new IMModel();
-    }
-    return m_ins;
+    return m_ins == nullptr ? (m_ins = new IMModel()) : m_ins;
 }
 
 void IMModel::deleteIMModel()
@@ -121,7 +122,6 @@ bool IMModel::dropMimeData(const QMimeData *data, Qt::DropAction action, int row
     }
     loadItem();
     IMListSvae();
-    emit curIMListChanaged(m_curIMList);
     return true;
 }
 
@@ -139,26 +139,15 @@ void IMModel::setEdit(bool flag)
     loadItem();
     if (!m_isEdit) {
         IMListSvae();
-        emit availIMListChanged(m_availeIMList);
     }
-}
-
-void IMModel::addIMItem(FcitxQtInputMethodItem item)
-{
-    m_availeIMList.removeAll(item);
-    item.setEnabled(true);
-    m_curIMList.insert(1, item);
-    DStandardItem *tmp = new DStandardItem();
-    tmp->setText(item.name());
-    addActionList(tmp);
-    insertRow(1, tmp);
-    IMListSvae();
-    emit availIMListChanged(m_availeIMList);
-    emit curIMListChanaged(m_curIMList);
 }
 
 int IMModel::getIMIndex(const QString &IM) const
 {
+    if (IM.isEmpty()) {
+        return -1;
+    }
+
     for (int i = 0; i < m_curIMList.count(); ++i) {
         if (m_curIMList[i].name().indexOf(IM, Qt::CaseInsensitive) != -1
             || m_curIMList[i].uniqueName().indexOf(IM, Qt::CaseInsensitive) != -1
@@ -239,10 +228,27 @@ void IMModel::loadItem()
     }
 }
 
+void IMModel::addIMItem(FcitxQtInputMethodItem item)
+{
+    if (item.name().isEmpty() || item.uniqueName().isEmpty())
+        return;
+
+    m_availeIMList.removeAll(item);
+    item.setEnabled(true);
+    m_curIMList.insert(1, item);
+    DStandardItem *tmp = new DStandardItem();
+    tmp->setText(item.name());
+    addActionList(tmp);
+    insertRow(1, tmp);
+    IMListSvae();
+    emit availIMListChanged(m_availeIMList);
+}
+
 void IMModel::deleteItem(DStandardItem *item)
 {
     if (!item || !item->index().isValid())
         return;
+
     m_availeIMList.append(m_curIMList[item->row()]);
     m_availeIMList.rbegin()->setEnabled(false);
     m_curIMList.removeAt(item->row());
@@ -252,15 +258,17 @@ void IMModel::deleteItem(DStandardItem *item)
 
 void IMModel::itemUp(DStandardItem *item)
 {
-    if (item->row() < 2)
+    if (!item || !item->index().isValid() || item->row() < 2)
         return;
+
     itemSawp(item->row(), item->row() - 1);
 }
 
 void IMModel::itemDown(DStandardItem *item)
 {
-    if (item->row() == m_curIMList.count() - 1)
+    if (!item || !item->index().isValid() || item->row() == m_curIMList.count() - 1)
         return;
+
     itemSawp(item->row(), item->row() + 1);
 }
 
@@ -268,15 +276,17 @@ void IMModel::itemSawp(int index, int index2)
 {
     if (index < 0 || index > m_curIMList.count() - 1 || index2 < 0 || index2 > m_curIMList.count() - 1)
         return;
+
     m_curIMList.swap(index, index2);
     loadItem();
     IMListSvae();
-
-    emit curIMListChanaged(m_curIMList);
 }
 
 void IMModel::configShow(DStandardItem *item)
 {
+    if (!item || !item->index().isValid())
+        return;
+
     qDebug() << m_curIMList[item->row()].name();
     qDebug() << m_curIMList[item->row()].langCode();
     qDebug() << m_curIMList[item->row()].uniqueName();
@@ -293,11 +303,15 @@ void IMModel::IMListSvae()
             Global::instance()->inputMethodProxy()->setIMList(m_curIMList + m_availeIMList);
             Global::instance()->inputMethodProxy()->ReloadConfig();
         }
+        emit curIMListChanaged(m_curIMList);
     }
 }
 
 void IMModel::addActionList(DStandardItem *item)
 {
+    if (!item || !item->index().isValid())
+        return;
+
     DViewItemActionList list;
     if (m_isEdit) {
         DViewItemAction *iconAction = new DViewItemAction(Qt::AlignBottom, QSize(), QSize(), true);

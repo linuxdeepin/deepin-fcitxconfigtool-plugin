@@ -55,9 +55,6 @@ ComboxWidget::ComboxWidget(QWidget *widget, QFrame *parent)
         m_str = m_titleLabel->text();
     }
 
-    m_switchComboBox->setFixedHeight(36);
-    mainLayout->setContentsMargins(10, 0, 10, 0);
-
     mainLayout->addWidget(m_leftWidget, 0, Qt::AlignVCenter);
     mainLayout->setStretchFactor(m_leftWidget, 3);
     mainLayout->addWidget(m_switchComboBox, 0, Qt::AlignVCenter);

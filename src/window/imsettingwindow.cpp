@@ -22,10 +22,16 @@
 #include "immodel/immodel.h"
 #include "immodel/imconfig.h"
 #include "widgets/titlelabel.h"
+#include "widgets/settingsgroup.h"
+#include "widgets/comboxwidget.h"
+#include "widgets/keysettingsitem.h"
 
 #include <QComboBox>
 #include <QGroupBox>
-#include <QScrollArea>
+
+#include <DListView>
+#include <DFloatingButton>
+#include <DCommandLinkButton>
 #include <libintl.h>
 
 using namespace Fcitx;
@@ -61,16 +67,6 @@ void IMSettingWindow::initUI()
         return headLayout;
     };
 
-    auto createGroup = [this](QWidget *widget) {
-        QGroupBox *groupBox = new QGroupBox(this);
-        QVBoxLayout *layout = new QVBoxLayout(this);
-        layout->setMargin(0);
-        layout->addWidget(widget);
-        groupBox->setLayout(layout);
-        groupBox->setFixedHeight(48);
-        return groupBox;
-    };
-
     //界面布局
 
     //输入法标签
@@ -80,12 +76,14 @@ void IMSettingWindow::initUI()
     mainLayout->addLayout(createTitleLayout(tr("Input Method")));
 
     //默认输入法
-    m_defualtIMCbox = new ComboxWidget(tr("Default"));
-    m_defualtIMCbox->setParent(this);
+    m_defaultIMCbox = new ComboxWidget(tr("Default"));
+    m_defaultIMCbox->addBackground();
+    m_defaultIMCbox->comboBox()->setFixedHeight(36);
+    m_defaultIMCbox->setParent(this);
     foreach (auto it, IMModel::instance()->getCurIMList()) {
-        m_defualtIMCbox->comboBox()->addItem(it.name());
+        m_defaultIMCbox->comboBox()->addItem(it.name());
     }
-    mainLayout->addWidget(createGroup(m_defualtIMCbox));
+    mainLayout->addWidget(m_defaultIMCbox);
     mainLayout->addSpacing(20);
 
     //输入法管理标签 编辑按钮
@@ -114,14 +112,14 @@ void IMSettingWindow::initUI()
     mainLayout->addLayout(createTitleLayout(tr("Shortcuts")));
     m_shortcutGroup = new SettingsGroup;
     m_imSwitchCbox = new ComBoboxSettingsItem(tr("Switch input methods"), {"CTRL_SHIFT", "ALT_SHIFT", "CTRL_SUPER", "ALT_SUPER"});
-    m_defualtIMKey = new KeySettingsItem(tr("Switch to default input method"));
+    m_defaultIMKey = new KeySettingsItem(tr("Switch to default input method"));
     m_virtualKey = new KeySettingsItem(tr("Call out Onboard"));
     m_shortcutGroup->setParent(this);
     m_imSwitchCbox->setParent(this);
-    m_defualtIMKey->setParent(this);
+    m_defaultIMKey->setParent(this);
     m_virtualKey->setParent(this);
     m_shortcutGroup->appendItem(m_imSwitchCbox);
-    m_shortcutGroup->appendItem(m_defualtIMKey);
+    m_shortcutGroup->appendItem(m_defaultIMKey);
     m_shortcutGroup->appendItem(m_virtualKey);
     mainLayout->addWidget(m_shortcutGroup);
 
@@ -133,6 +131,7 @@ void IMSettingWindow::initUI()
     mainLayout->addSpacing(10);
     mainLayout->addWidget(m_systemAppCbox);
     mainLayout->addStretch();
+    mainLayout->addSpacing(10);
 
     //添加界面按钮
     QHBoxLayout *headLayout2 = new QHBoxLayout(this);
@@ -150,42 +149,40 @@ void IMSettingWindow::initConnect()
 {
     connect(m_addIMBtn, &DFloatingButton::clicked, this, &IMSettingWindow::onAddBtnCilcked);
     connect(m_editBtn, &DCommandLinkButton::clicked, this, &IMSettingWindow::onEditBtnClicked);
-    connect(m_defualtIMCbox, &ComboxWidget::onSelectChanged, this, &IMSettingWindow::onDefualtIMChanged);
+    connect(m_defaultIMCbox, &ComboxWidget::onSelectChanged, this, &IMSettingWindow::onDefaultIMChanged);
     connect(IMModel::instance(), &IMModel::curIMListChanaged, this, &IMSettingWindow::onCurIMChanged);
 
-    auto reload = [=]() {
-        if (Global::instance()->inputMethodProxy())
+    auto reload = [=](bool flag) {
+        if (Global::instance()->inputMethodProxy() && flag)
             Global::instance()->inputMethodProxy()->ReloadConfig();
     };
-    connect(m_defualtIMKey, &KeySettingsItem::editedFinish, [=]() {
-        IMConfig::setDefualtIMKey(m_defualtIMKey->getKeyToStr());
-        reload();
+
+    connect(m_defaultIMKey, &KeySettingsItem::editedFinish, [=]() {
+        reload(IMConfig::setDefaultIMKey(m_defaultIMKey->getKeyToStr()));
     });
     connect(m_virtualKey, &KeySettingsItem::editedFinish, [=]() {
-        IMConfig::setVirtualKey(m_virtualKey->getKeyToStr());
-        reload();
+        reload(IMConfig::setVirtualKey(m_virtualKey->getKeyToStr()));
     });
     connect(m_imSwitchCbox->comboBox(), &QComboBox::currentTextChanged, [=]() {
-        IMConfig::setIMSwitch(m_imSwitchCbox->comboBox()->currentText());
-        reload();
+        reload(IMConfig::setIMSwitchKey(m_imSwitchCbox->comboBox()->currentText()));
     });
 }
 
 void IMSettingWindow::readConfig()
 {
-    int index = m_imSwitchCbox->comboBox()->findText(IMConfig::IMSwitch());
+    int index = m_imSwitchCbox->comboBox()->findText(IMConfig::IMSwitchKey());
     if (index < 0) {
         index = 0;
     }
     m_imSwitchCbox->comboBox()->setCurrentIndex(index);
 
-    index = IMModel::instance()->getIMIndex(IMConfig::defualtIM());
+    index = IMModel::instance()->getIMIndex(IMConfig::defaultIM());
     if (index < 0) {
         index = 0;
     }
-    m_defualtIMCbox->comboBox()->setCurrentIndex(index);
+    m_defaultIMCbox->comboBox()->setCurrentIndex(index);
 
-    m_defualtIMKey->setList(IMConfig::defualtIMKey().split("_"));
+    m_defaultIMKey->setList(IMConfig::defaultIMKey().split("_"));
     m_virtualKey->setList(IMConfig::virtualKey().split("_"));
 }
 
@@ -206,11 +203,11 @@ void IMSettingWindow::onEditBtnClicked()
     IMModel::instance()->setEdit(!flag);
 }
 
-void IMSettingWindow::onDefualtIMChanged()
+void IMSettingWindow::onDefaultIMChanged()
 {
-    FcitxQtInputMethodItem item = IMModel::instance()->getIM(m_defualtIMCbox->comboBox()->currentIndex());
+    FcitxQtInputMethodItem item = IMModel::instance()->getIM(m_defaultIMCbox->comboBox()->currentIndex());
     if (!item.uniqueName().isEmpty()) {
-        IMConfig::setDefualtIM(item.uniqueName());
+        IMConfig::setDefaultIM(item.uniqueName());
         return;
     }
     if (Global::instance()->inputMethodProxy())
@@ -219,21 +216,20 @@ void IMSettingWindow::onDefualtIMChanged()
 
 void IMSettingWindow::onCurIMChanged(FcitxQtInputMethodItemList list)
 {
-    disconnect(m_defualtIMCbox, &ComboxWidget::onSelectChanged, this, &IMSettingWindow::onDefualtIMChanged);
-
-    m_defualtIMCbox->comboBox()->clear();
+    disconnect(m_defaultIMCbox, &ComboxWidget::onSelectChanged, this, &IMSettingWindow::onDefaultIMChanged);
+    m_defaultIMCbox->comboBox()->clear();
     foreach (auto it, list) {
-        m_defualtIMCbox->comboBox()->addItem(it.name());
+        m_defaultIMCbox->comboBox()->addItem(it.name());
     }
-    int index = IMModel::instance()->getIMIndex(IMConfig::defualtIM());
+    int index = IMModel::instance()->getIMIndex(IMConfig::defaultIM());
     if (index < 0) {
         index = 0;
-        m_defualtIMCbox->comboBox()->setCurrentIndex(index);
-        onDefualtIMChanged();
+        m_defaultIMCbox->comboBox()->setCurrentIndex(index);
+        onDefaultIMChanged();
     } else {
-        m_defualtIMCbox->comboBox()->setCurrentIndex(index);
+        m_defaultIMCbox->comboBox()->setCurrentIndex(index);
     }
-    connect(m_defualtIMCbox, &ComboxWidget::onSelectChanged, this, &IMSettingWindow::onDefualtIMChanged);
+    connect(m_defaultIMCbox, &ComboxWidget::onSelectChanged, this, &IMSettingWindow::onDefaultIMChanged);
 }
 
 void IMSettingWindow::onAddBtnCilcked()

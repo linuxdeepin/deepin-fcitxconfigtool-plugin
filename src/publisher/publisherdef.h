@@ -21,6 +21,11 @@
 #ifndef PUBLISHERDEF_H
 #define PUBLISHERDEF_H
 
+#define newSingleObj(objName, Object) \
+    if (nullptr == objName) { \
+        objName = new Object(); \
+    }
+
 #define deleteObject_Null(obj) \
     if (obj) \
         delete obj; \

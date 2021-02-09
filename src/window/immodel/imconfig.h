@@ -27,15 +27,15 @@
 class IMConfig
 {
 public:
-    static QString defualtIM();
-    static bool setDefualtIM(QString);
-    static QString IMSwitch();
-    static bool setIMSwitch(QString);
+    static QString defaultIM();
+    static bool setDefaultIM(QString);
+    static QString IMSwitchKey();
+    static bool setIMSwitchKey(QString);
     static QString virtualKey();
     static bool setVirtualKey(QString);
-    static QString defualtIMKey();
-    static bool setDefualtIMKey(QString);
-    static QString IMConfigCmd(FcitxQtInputMethodItem item);
+    static QString defaultIMKey();
+    static bool setDefaultIMKey(QString);
+    static QString callIMConfigWindow(FcitxQtInputMethodItem item);
     static QString prefix;
 
 private:

@@ -21,10 +21,13 @@
 #include "availwidget.h"
 #include "widgets/titlelabel.h"
 #include "widgets/settingshead.h"
+#include "widgets/settingsgroup.h"
+#include "widgets/imsettingsitem.h"
 #include "publisher/publisherdef.h"
 #include "immodel/immodel.h"
 #include "fcitxInterface/global.h"
 #include "fcitxInterface/i18n.h"
+
 #include <QScrollArea>
 #include <QVBoxLayout>
 
@@ -108,11 +111,9 @@ void AvailWidget::initUI()
     scrollAreaWidgetContents->setLayout(scrollAreaLayout);
     //搜索输入法列表 可用输入法列表
     m_allIMGroup = new SettingsGroup;
-    m_allIMGroup->getLayout()->setMargin(0);
     scrollAreaLayout->addWidget(m_allIMGroup);
     scrollAreaLayout->addSpacing(10);
     m_searchIMGroup = new SettingsGroup;
-    m_searchIMGroup->getLayout()->setMargin(0);
     scrollAreaLayout->addWidget(m_searchIMGroup);
     scrollAreaLayout->addStretch();
 
@@ -228,11 +229,11 @@ void AvailWidget::resizeEvent(QResizeEvent *event)
 void AvailWidget::clearItemStatus()
 {
     m_selectItem = FcitxQtInputMethodItem();
-    cleareItemStatusAndFilter(m_allIMGroup, true);
+    clearItemStatusAndFilter(m_allIMGroup, true);
     //cleareFcitxItemAndFilter(m_searchIMGroup);  //不需要清除搜索m_searchIMGroup 搜索框信号会触发清除
 }
 
-void AvailWidget::cleareItemStatusAndFilter(SettingsGroup *group, bool flag)
+void AvailWidget::clearItemStatusAndFilter(SettingsGroup *group, bool flag)
 {
     if (!group) {
         return;
@@ -257,10 +258,10 @@ void AvailWidget::onSearchIM(const QString &str)
     if (m_searchStr.isEmpty()) {
         m_allIMGroup->show();
         m_searchIMGroup->hide();
-        cleareItemStatusAndFilter(m_allIMGroup, false);
+        clearItemStatusAndFilter(m_allIMGroup, false);
     } else {
         m_searchIMGroup->show();
         m_allIMGroup->hide();
-        cleareItemStatusAndFilter(m_searchIMGroup, true);
+        clearItemStatusAndFilter(m_searchIMGroup, true);
     }
 }

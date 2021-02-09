@@ -23,7 +23,7 @@
 
 #include "keylabel.h"
 #include "settingsitem.h"
-#include "comboxwidget.h"
+#include <QComboBox>
 #include <DKeySequenceEdit>
 
 using namespace Dtk::Widget;

@@ -24,10 +24,9 @@
 #include "immodel/immodel.h"
 #include "fcitxInterface/config.h"
 #include <QStackedWidget>
-#include <QGridLayout>
+#include <QVBoxLayout>
 #include <libintl.h>
 
-using namespace Fcitx;
 IMWindow::IMWindow(QWidget *parent)
     : QWidget(parent)
 {
@@ -48,7 +47,7 @@ void IMWindow::initFcitxInterface()
     FcitxLogSetLevel(FCITX_NONE);
     FcitxQtInputMethodItem::registerMetaType();
     FcitxQtKeyboardLayout::registerMetaType();
-    if (!Global::instance()->inputMethodProxy()) {
+    if (!Fcitx::Global::instance()->inputMethodProxy()) {
         QProcess::startDetached("fcitx -r");
     }
 }

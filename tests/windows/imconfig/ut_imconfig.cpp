@@ -45,15 +45,15 @@ protected:
 TEST_F(ut_imconfig, defualtIM)
 {
     IMConfig imconfig;
-    QString defaultIm = imconfig.defualtIM();
-    imconfig.setDefualtIM(defaultIm);
+    QString defaultIm = imconfig.defaultIM();
+    imconfig.setDefaultIM(defaultIm);
 }
 
 TEST_F(ut_imconfig, IMSwitch)
 {
     IMConfig imconfig;
-    QString imSwitch = imconfig.IMSwitch();
-    imconfig.setIMSwitch(imSwitch);
+    QString imSwitch = imconfig.IMSwitchKey();
+    imconfig.setIMSwitchKey(imSwitch);
 }
 
 TEST_F(ut_imconfig, virtualKey)
@@ -66,6 +66,6 @@ TEST_F(ut_imconfig, virtualKey)
 TEST_F(ut_imconfig, defualtIMKey)
 {
     IMConfig imconfig;
-    QString defualtIMKey = imconfig.defualtIMKey();
-    imconfig.setDefualtIMKey(defualtIMKey);
+    QString defualtIMKey = imconfig.defaultIMKey();
+    imconfig.setDefaultIMKey(defualtIMKey);
 }

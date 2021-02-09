@@ -23,8 +23,11 @@
 #include "immodel/immodel.h"
 #include "fcitxInterface/global.h"
 #include "widgets/titlelabel.h"
-
-using namespace Fcitx;
+#include "widgets/buttontuple.h"
+#include <DCommandLinkButton>
+#include <DSearchEdit>
+#include <DFontSizeManager>
+using namespace dcc::widgets;
 
 IMAddWindow::IMAddWindow(QWidget *parent)
     : QWidget(parent)
