@@ -1,0 +1,140 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "904b5da2_837081b7",
+        "filename": "src/publisher/publisherdef.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-02-09T07:05:51Z",
+      "side": 1,
+      "message": "注释行数: 0; 改动行数(修改和新增): 4; 注释率: 0.0%",
+      "revId": "ee56e593e00bdcee4d3717985a307771bffb0b5a",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3aee7062_284d8c11",
+        "filename": "src/widgets/comboxwidget.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-02-09T07:05:51Z",
+      "side": 1,
+      "message": "改动行数(修改和新增): 0; 删除代码行数: 2; 注释率: 不计算",
+      "revId": "ee56e593e00bdcee4d3717985a307771bffb0b5a",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1261cace_30002476",
+        "filename": "src/widgets/keysettingsitem.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-02-09T07:05:51Z",
+      "side": 1,
+      "message": "注释行数: 0; 改动行数(修改和新增): 1; 注释率: 0.0%",
+      "revId": "ee56e593e00bdcee4d3717985a307771bffb0b5a",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1bc963ae_f41f69fc",
+        "filename": "src/window/availwidget.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-02-09T07:05:51Z",
+      "side": 1,
+      "message": "注释行数: 0; 改动行数(修改和新增): 6; 注释率: 0.0%",
+      "revId": "ee56e593e00bdcee4d3717985a307771bffb0b5a",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff593ea6_9a4a1066",
+        "filename": "src/window/availwidget.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-02-09T07:05:51Z",
+      "side": 1,
+      "message": "注释行数: 6; 改动行数(修改和新增): 11; 注释率: 54.5%",
+      "revId": "ee56e593e00bdcee4d3717985a307771bffb0b5a",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e4848eae_21f84276",
+        "filename": "src/window/imaddwindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-02-09T07:05:51Z",
+      "side": 1,
+      "message": "注释行数: 0; 改动行数(修改和新增): 5; 注释率: 0.0%",
+      "revId": "ee56e593e00bdcee4d3717985a307771bffb0b5a",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "19056e73_640243c6",
+        "filename": "src/window/imaddwindow.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-02-09T07:05:51Z",
+      "side": 1,
+      "message": "注释行数: 7; 改动行数(修改和新增): 14; 注释率: 50.0%",
+      "revId": "ee56e593e00bdcee4d3717985a307771bffb0b5a",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "905b72bb_ee3918a8",
+        "filename": "src/window/immodel/imconfig.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-02-09T07:05:51Z",
+      "side": 1,
+      "message": "注释行数: 26; 改动行数(修改和新增): 181; 注释率: 14.4%",
+      "revId": "ee56e593e00bdcee4d3717985a307771bffb0b5a",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    }
+  ]
+}
