@@ -30,7 +30,7 @@ class QStringList;
 class QLabel;
 QT_END_NAMESPACE
 
-namespace dcc {
+namespace dcc_fcitx_configtool {
 namespace widgets {
 
 class ComboxWidget : public SettingsItem

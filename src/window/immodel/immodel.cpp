@@ -238,9 +238,9 @@ void IMModel::addIMItem(FcitxQtInputMethodItem item)
     item.setEnabled(true);
     m_curIMList.insert(1, item);
     DStandardItem *tmp = new DStandardItem();
+    insertRow(1, tmp);
     tmp->setText(item.name());
     addActionList(tmp);
-    insertRow(1, tmp);
     IMListSave();
     emit availIMListChanged(m_availeIMList);
 }

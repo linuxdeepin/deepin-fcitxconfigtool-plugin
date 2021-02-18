@@ -28,7 +28,7 @@
 
 #include <QAbstractListModel>
 
-namespace dcc {
+namespace dcc_fcitx_configtool {
 
 namespace widgets {
 

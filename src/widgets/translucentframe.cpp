@@ -25,7 +25,7 @@
 
 #include "translucentframe.h"
 
-namespace dcc {
+namespace dcc_fcitx_configtool {
 namespace widgets {
 
 TranslucentFrame::TranslucentFrame(QWidget *parent)

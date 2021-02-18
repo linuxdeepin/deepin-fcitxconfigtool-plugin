@@ -102,14 +102,6 @@
     </message>
 </context>
 <context>
-    <name>KeyLabel</name>
-    <message>
-        <location filename="../src/widgets/keylabel.cpp" line="40"/>
-        <source>None</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>Main</name>
     <message>
         <location filename="../src/main.cpp" line="49"/>
@@ -128,6 +120,14 @@
     <message>
         <location filename="../src/widgets/settingshead.cpp" line="104"/>
         <source>Done</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>dcc_2::widgets::KeyLabel</name>
+    <message>
+        <location filename="../src/widgets/keylabel.cpp" line="41"/>
+        <source>None</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -23,7 +23,7 @@
 
 #include <QWidget>
 
-namespace dcc {
+namespace dcc_fcitx_configtool {
 namespace widgets {
 class ButtonTuple;
 } // namespace widgets
@@ -57,7 +57,7 @@ private:
     Dtk::Widget::DSearchEdit *m_searchLEdit {nullptr}; //搜索框
     AvailWidget *m_availWidget {nullptr}; //可用输入法列表窗口
     Dtk::Widget::DCommandLinkButton *m_storeBtn {nullptr}; //应用商店按钮
-    dcc::widgets::ButtonTuple *m_buttonTuple {nullptr}; //取消/添加按钮
+    dcc_fcitx_configtool::widgets::ButtonTuple *m_buttonTuple {nullptr}; //取消/添加按钮
 };
 
 #endif // IMADDWINDOW_H

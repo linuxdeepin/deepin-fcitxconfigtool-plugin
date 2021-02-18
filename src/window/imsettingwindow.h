@@ -24,10 +24,12 @@
 #include "fcitxInterface/global.h"
 #include <QWidget>
 
-namespace dcc {
+namespace dcc_fcitx_configtool {
 namespace widgets {
 class SettingsGroup;
 class ComboxWidget;
+class ComBoboxSettingsItem;
+class KeySettingsItem;
 } // namespace widgets
 } // namespace dcc
 
@@ -39,8 +41,7 @@ class DFloatingButton;
 } // namespace Widget
 } // namespace Dtk
 
-class ComBoboxSettingsItem;
-class KeySettingsItem;
+
 
 class IMSettingWindow : public QWidget
 {
@@ -62,14 +63,14 @@ private slots:
     void onAddBtnCilcked(); //
 
 private:
-    dcc::widgets::ComboxWidget *m_defaultIMCbox {nullptr}; //选择默认输入法
+    dcc_fcitx_configtool::widgets::ComboxWidget *m_defaultIMCbox {nullptr}; //选择默认输入法
     Dtk::Widget::DCommandLinkButton *m_editBtn {nullptr}; //编辑
     Dtk::Widget::DListView *m_IMCurrentView {nullptr}; //当前输入法列表
-    dcc::widgets::SettingsGroup *m_shortcutGroup {nullptr}; //快捷键容器
-    ComBoboxSettingsItem *m_imSwitchCbox {nullptr}; //切换输入法（快捷键）
-    KeySettingsItem *m_virtualKey {nullptr}; //虚拟键盘 （快捷键）
-    KeySettingsItem *m_defaultIMKey {nullptr}; //默认输入法 （快捷键）
-    dcc::widgets::ComboxWidget *m_systemAppCbox {nullptr}; //切换系统/应用
+    dcc_fcitx_configtool::widgets::SettingsGroup *m_shortcutGroup {nullptr}; //快捷键容器
+    dcc_fcitx_configtool::widgets::ComBoboxSettingsItem *m_imSwitchCbox {nullptr}; //切换输入法（快捷键）
+    dcc_fcitx_configtool::widgets::KeySettingsItem *m_virtualKey {nullptr}; //虚拟键盘 （快捷键）
+    dcc_fcitx_configtool::widgets::KeySettingsItem *m_defaultIMKey {nullptr}; //默认输入法 （快捷键）
+    dcc_fcitx_configtool::widgets::ComboxWidget *m_systemAppCbox {nullptr}; //切换系统/应用
     Dtk::Widget::DFloatingButton *m_addIMBtn {nullptr}; //添加输入法
 };
 

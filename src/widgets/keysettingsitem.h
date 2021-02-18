@@ -27,7 +27,9 @@
 #include <DKeySequenceEdit>
 
 using namespace Dtk::Widget;
-using namespace dcc::widgets;
+using namespace dcc_fcitx_configtool::widgets;
+namespace dcc_fcitx_configtool {
+namespace widgets {
 
 class KeyLabelWidget : public QWidget
 {
@@ -80,5 +82,6 @@ private:
     QComboBox *m_combox {nullptr};
     QLabel *m_label {nullptr};
 };
-
+}
+}
 #endif // KETSETTINGSITEM_H

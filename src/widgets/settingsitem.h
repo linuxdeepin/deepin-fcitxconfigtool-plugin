@@ -32,7 +32,7 @@
 #include <DStyle>
 #include <QFrame>
 #include <QVBoxLayout>
-namespace dcc {
+namespace dcc_fcitx_configtool {
 namespace widgets {
 
 class SettingsItem : public QFrame

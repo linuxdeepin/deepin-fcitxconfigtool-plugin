@@ -27,7 +27,7 @@
 
 #include "labels/normallabel.h"
 
-namespace dcc {
+namespace dcc_fcitx_configtool {
 namespace widgets {
 
 SettingsHeaderItem::SettingsHeaderItem(QWidget *parent)

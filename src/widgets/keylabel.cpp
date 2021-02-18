@@ -25,7 +25,8 @@
 #include <QStylePainter>
 #include <QStyleOptionButton>
 #include <QApplication>
-
+namespace dcc_fcitx_configtool {
+namespace widgets {
 KeyLabel::KeyLabel(QWidget *parent)
     : QLabel(parent)
 {
@@ -67,4 +68,6 @@ void KeyLabel::paintEvent(QPaintEvent *event)
 
     painter.setPen(QColor("#359cd3"));
     painter.drawText(rect().marginsRemoved(QMargins(5, h + 2, 0, h)), text());
+}
+}
 }

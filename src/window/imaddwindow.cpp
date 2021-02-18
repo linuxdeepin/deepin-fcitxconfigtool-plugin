@@ -27,7 +27,7 @@
 #include <DCommandLinkButton>
 #include <DSearchEdit>
 #include <DFontSizeManager>
-using namespace dcc::widgets;
+using namespace dcc_fcitx_configtool::widgets;
 
 IMAddWindow::IMAddWindow(QWidget *parent)
     : QWidget(parent)

@@ -33,7 +33,7 @@
 #include <QApplication>
 #include <DFontSizeManager>
 
-using namespace dcc::widgets;
+using namespace dcc_fcitx_configtool::widgets;
 DWIDGET_USE_NAMESPACE
 
 SettingsHead::SettingsHead(QFrame *parent)

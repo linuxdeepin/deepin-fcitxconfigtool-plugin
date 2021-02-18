@@ -33,7 +33,7 @@
 
 QPixmap loadPixmap(const QString &path);
 
-namespace dcc {
+namespace dcc_fcitx_configtool {
 
 namespace widgets {
 

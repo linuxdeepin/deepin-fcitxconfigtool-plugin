@@ -28,7 +28,8 @@
 #include <DPalette>
 
 DWIDGET_USE_NAMESPACE
-
+namespace dcc_fcitx_configtool {
+namespace widgets {
 IMSettingsItem::IMSettingsItem(QString str, QFrame *parent)
     : SettingsItem(parent)
 {
@@ -96,4 +97,6 @@ void IMSettingsItem::leaveEvent(QEvent *event)
 {
     if (m_bgGroup)
         m_bgGroup->setBackgroundRole(DPalette::ItemBackground);
+}
+}
 }

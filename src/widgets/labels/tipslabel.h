@@ -28,7 +28,7 @@
 
 #include "smalllabel.h"
 
-namespace dcc {
+namespace dcc_fcitx_configtool {
 namespace widgets {
 
 class TipsLabel : public SmallLabel

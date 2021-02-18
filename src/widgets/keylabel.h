@@ -23,7 +23,8 @@
 #define KEYLABEL_H
 
 #include <QLabel>
-
+namespace dcc_fcitx_configtool {
+namespace widgets {
 class KeyLabel : public QLabel
 {
     Q_OBJECT
@@ -34,5 +35,6 @@ public:
 protected:
     void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
 };
-
+}
+}
 #endif // KEYLABEL_H

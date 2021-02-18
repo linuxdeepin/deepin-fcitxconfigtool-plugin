@@ -28,7 +28,7 @@
 #include <QSize>
 #include <QDebug>
 
-namespace dcc {
+namespace dcc_fcitx_configtool {
 
 namespace widgets {
 

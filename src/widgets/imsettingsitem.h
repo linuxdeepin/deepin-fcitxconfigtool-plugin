@@ -24,7 +24,9 @@
 
 #include "settingsitem.h"
 #include <fcitxqtinputmethoditem.h>
-using namespace dcc::widgets;
+using namespace dcc_fcitx_configtool::widgets;
+namespace dcc_fcitx_configtool {
+namespace widgets {
 
 class IMSettingsItem : public SettingsItem
 {
@@ -50,5 +52,7 @@ public:
     QHBoxLayout *m_layout {nullptr};
     FcitxQtInputMethodItem m_item;
 };
+}
+}
 
 #endif // IMSETTINGSITEM_H

@@ -34,7 +34,7 @@
 
 DWIDGET_USE_NAMESPACE
 
-namespace dcc {
+namespace dcc_fcitx_configtool {
 namespace widgets {
 
 class LeftButton : public DPushButton

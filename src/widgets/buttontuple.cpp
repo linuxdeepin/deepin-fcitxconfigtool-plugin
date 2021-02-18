@@ -30,7 +30,7 @@
 
 #include <QDebug>
 
-namespace dcc {
+namespace dcc_fcitx_configtool {
 namespace widgets {
 
 ButtonTuple::ButtonTuple(ButtonType type, QWidget *parent)

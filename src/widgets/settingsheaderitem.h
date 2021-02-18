@@ -32,7 +32,7 @@
 #include <QHBoxLayout>
 #include <QLabel>
 
-namespace dcc {
+namespace dcc_fcitx_configtool {
 namespace widgets {
 
 class SettingsHeaderItem : public SettingsItem

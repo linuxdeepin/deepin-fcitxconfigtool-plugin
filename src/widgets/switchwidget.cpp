@@ -34,7 +34,7 @@
 
 DWIDGET_USE_NAMESPACE
 using namespace DCC_NAMESPACE;
-namespace dcc {
+namespace dcc_fcitx_configtool {
 namespace widgets {
 
 SwitchWidget::SwitchWidget(const QString &title, QWidget *parent)

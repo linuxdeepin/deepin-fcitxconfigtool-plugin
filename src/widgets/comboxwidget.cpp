@@ -30,7 +30,7 @@
 #include <QLabel>
 
 using namespace DCC_NAMESPACE;
-namespace dcc {
+namespace dcc_fcitx_configtool {
 namespace widgets {
 
 ComboxWidget::ComboxWidget(QFrame *parent)

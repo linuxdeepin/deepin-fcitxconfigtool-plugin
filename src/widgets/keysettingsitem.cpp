@@ -21,7 +21,8 @@
 #include "keysettingsitem.h"
 #include <QComboBox>
 #include <QMouseEvent>
-
+namespace dcc_fcitx_configtool {
+namespace widgets {
 KeyLabelWidget::KeyLabelWidget(QStringList list, QWidget *p)
     : QWidget(p)
 {
@@ -117,7 +118,7 @@ void KeyLabelWidget::editFinish()
         m_list << label;
         m_mainLayout->addWidget(label);
     }
-    emit editedFinish();
+   // emit editedFinish();
 }
 
 void KeyLabelWidget::mousePressEvent(QMouseEvent *event)
@@ -173,4 +174,6 @@ ComBoboxSettingsItem::ComBoboxSettingsItem(const QString &text, const QStringLis
 
 ComBoboxSettingsItem::~ComBoboxSettingsItem()
 {
+}
+}
 }
