@@ -35,11 +35,12 @@ public:
     static bool setVirtualKey(QString);
     static QString defaultIMKey();
     static bool setDefaultIMKey(QString);
-    static QString callIMConfigWindow(FcitxQtInputMethodItem item);
+    static QString IMPluginKey(QString);
     static QString prefix;
 
 private:
     static QString configFile(QString filePath, QString key);
+    static QString configFile(QString filePath, QString group, QString key);
     static bool setConfigFile(QString filePath, QString key, QString value, bool isHotKey);
 };
 

@@ -21,6 +21,7 @@
 #include "immodel.h"
 #include "fcitxInterface/global.h"
 #include "publisher/publisherdef.h"
+#include "imconfig.h"
 #include <QApplication>
 #include <DStyle>
 #include <DStandardItem>
@@ -287,14 +288,22 @@ void IMModel::configShow(DStandardItem *item)
     if (!item || !item->index().isValid())
         return;
 
-    qDebug() << m_curIMList[item->row()].name();
-    qDebug() << m_curIMList[item->row()].langCode();
-    qDebug() << m_curIMList[item->row()].uniqueName();
+    QString imName = m_curIMList[item->row()].name();
+    QString imLangCode = m_curIMList[item->row()].langCode();
+    QString imUniqueName = m_curIMList[item->row()].uniqueName();
 
-    QDBusPendingReply<QString> result = Global::instance()->inputMethodProxy()->GetIMAddon(m_curIMList[item->row()].uniqueName());
-    result.waitForFinished();
-    if (result.isValid()) {
-        QProcess::startDetached("fcitx-config-gtk3 " + result.value());
+    QStringList closeSrcImList {
+        "chineseime", "iflyime", "huayupy", "sogoupinyin", "baidupinyin"};
+
+    if (closeSrcImList.contains(imUniqueName)) {
+        QProcess::startDetached(IMConfig::IMPluginKey(imUniqueName));
+    } else {
+        QDBusPendingReply<QString>
+            result = Global::instance()->inputMethodProxy()->GetIMAddon(imUniqueName);
+        result.waitForFinished();
+        if (result.isValid()) {
+            QProcess::startDetached("fcitx-config-gtk3 " + result.value());
+        }
     }
 }
 

@@ -63,8 +63,31 @@ bool IMConfig::setDefaultIMKey(QString str)
     return setConfigFile(prefix + "/.config/fcitx/conf/fcitx-defaultim.config", "HOTKEY", str, true);
 }
 
-QString IMConfig::callIMConfigWindow(FcitxQtInputMethodItem item)
+QString IMConfig::IMPluginKey(QString str)
 {
+    return configFile(prefix + "/.config/fcitx/conf/fcitx-implugin.config", str, QString("Setting"));
+}
+
+QString IMConfig::configFile(QString filePath, QString group, QString key)
+{
+    QString read = publisherFunc::readFile(filePath);
+    if (read.isEmpty() || key.isEmpty())
+        return QString();
+
+    bool lock = false;
+    foreach (QString str, read.split("\n")) {
+        if (!lock && str.indexOf(group) != -1) {
+            lock = true;
+        }
+        if (lock && str.indexOf(key) != -1) {
+            auto list = str.split("=");
+            if (list.count() != 2) {
+                return QString();
+            } else {
+                return list[1];
+            }
+        }
+    }
     return QString();
 }
 
