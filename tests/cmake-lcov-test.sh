@@ -24,7 +24,11 @@ cd $project_path/../
 
 sudo dpkg -i deepin-fcitxconfigtool-plugin*.deb
 
-print $test_path
+echo $test_path
+
+echo ${DISPLAY}
+
+export DISPLAY=':0.0'
 
 cd $test_path
 

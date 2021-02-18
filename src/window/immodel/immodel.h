@@ -78,7 +78,7 @@ private:
     void itemSawp(int index, int index2); //交换item
     void loadItem(); //加载显示item
     void addActionList(Dtk::Widget::DStandardItem *item); //添加action至item
-    void IMListSvae(); //保存输入法列表至fcitx
+    void IMListSave(); //保存输入法列表至fcitx
 
 private:
     static IMModel *m_ins;

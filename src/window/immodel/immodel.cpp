@@ -121,7 +121,7 @@ bool IMModel::dropMimeData(const QMimeData *data, Qt::DropAction action, int row
         m_curIMList.insert(insRow, it);
     }
     loadItem();
-    IMListSvae();
+    IMListSave();
     return true;
 }
 
@@ -138,7 +138,7 @@ void IMModel::setEdit(bool flag)
     m_isEdit = flag;
     loadItem();
     if (!m_isEdit) {
-        IMListSvae();
+        IMListSave();
     }
 }
 
@@ -240,7 +240,7 @@ void IMModel::addIMItem(FcitxQtInputMethodItem item)
     tmp->setText(item.name());
     addActionList(tmp);
     insertRow(1, tmp);
-    IMListSvae();
+    IMListSave();
     emit availIMListChanged(m_availeIMList);
 }
 
@@ -279,7 +279,7 @@ void IMModel::itemSawp(int index, int index2)
 
     m_curIMList.swap(index, index2);
     loadItem();
-    IMListSvae();
+    IMListSave();
 }
 
 void IMModel::configShow(DStandardItem *item)
@@ -290,10 +290,15 @@ void IMModel::configShow(DStandardItem *item)
     qDebug() << m_curIMList[item->row()].name();
     qDebug() << m_curIMList[item->row()].langCode();
     qDebug() << m_curIMList[item->row()].uniqueName();
-    QProcess::startDetached("fcitx-config-gtk3 shuangpin");
+
+    QDBusPendingReply<QString> result = Global::instance()->inputMethodProxy()->GetIMAddon(m_curIMList[item->row()].uniqueName());
+    result.waitForFinished();
+    if (result.isValid()) {
+        QProcess::startDetached("fcitx-config-gtk3 " + result.value());
+    }
 }
 
-void IMModel::IMListSvae()
+void IMModel::IMListSave()
 {
     if (Global::instance()->inputMethodProxy()) {
         FcitxQtInputMethodItemList &&list = (m_curIMList + m_availeIMList);
