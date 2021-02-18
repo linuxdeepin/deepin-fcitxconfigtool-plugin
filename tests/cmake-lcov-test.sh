@@ -22,7 +22,9 @@ test_path="$(cd `dirname $0`; pwd)/tests"
 
 cd $project_path/../
 
-dpkg -i deepin-fcitxconfigtool-plugin*.deb
+sudo dpkg -i deepin-fcitxconfigtool-plugin*.deb
+
+print $test_path
 
 cd $test_path
 
