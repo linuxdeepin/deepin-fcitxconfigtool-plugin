@@ -124,7 +124,7 @@
     </message>
 </context>
 <context>
-    <name>dcc_2::widgets::KeyLabel</name>
+    <name>dcc_fcitx_configtool::widgets::KeyLabel</name>
     <message>
         <location filename="../src/widgets/keylabel.cpp" line="41"/>
         <source>None</source>
