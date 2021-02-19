@@ -255,6 +255,7 @@ void IMModel::deleteItem(DStandardItem *item)
     m_curIMList.removeAt(item->row());
     this->removeRow(item->row());
     emit curIMListChanaged(m_curIMList);
+    emit availIMListChanged(m_availeIMList);
 }
 
 void IMModel::itemUp(DStandardItem *item)

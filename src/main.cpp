@@ -33,7 +33,7 @@
 #include "widgets/settingsitem.h"
 DWIDGET_USE_NAMESPACE
 using namespace std;
-using namespace dcc::widgets;
+using namespace dcc_fcitx_configtool::widgets;
 
 int main(int argc, char *argv[])
 {
