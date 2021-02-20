@@ -168,9 +168,25 @@ FcitxQtInputMethodItem IMModel::getIM(int index) const
 
 void IMModel::onUpdateIMList()
 {
+    bool needSaveImList = false;
     if (Global::instance()->inputMethodProxy()) {
         FcitxQtInputMethodItemList &&list = Global::instance()->inputMethodProxy()->iMList();
         FcitxQtInputMethodItemList curList, availList;
+        Q_FOREACH (const FcitxQtInputMethodItem &im, list) {
+            if (im.uniqueName().compare("fcitx-keyboard-us") == 0) {
+                if (im.uniqueName().compare(list.front().uniqueName()) != 0 || im.enabled() == false) {
+                    FcitxQtInputMethodItem tempIm;
+                    tempIm.setName(im.name());
+                    tempIm.setEnabled(true);
+                    tempIm.setLangCode(im.langCode());
+                    tempIm.setUniqueName(im.uniqueName());
+                    list.removeOne(im);
+                    list.push_front(tempIm);
+                    needSaveImList = true;
+                }
+                break;
+            }
+        }
         Q_FOREACH (const FcitxQtInputMethodItem &im, list) {
             if (im.enabled()) {
                 curList.append(im);
@@ -190,6 +206,9 @@ void IMModel::onUpdateIMList()
             emit availIMListChanged(m_availeIMList);
         }
 
+        if (needSaveImList) {
+            IMListSave();
+        }
     } else {
         m_availeIMList.clear();
         m_curIMList.clear();
