@@ -98,16 +98,16 @@ set(TEST_SRCS
     )
 
 
-#    add_executable(${PROJECT_NAME}
-#        ${ALL_SRCS}
-#        ${DTNG_QM_FILES}
-#        ${CMAKE_CURRENT_SOURCE_DIR}/main.cpp
-#        )
-add_library(${PROJECT_NAME}
-        MODULE
+    add_executable(${PROJECT_NAME}
         ${ALL_SRCS}
         ${DTNG_QM_FILES}
+        ${CMAKE_CURRENT_SOURCE_DIR}/main.cpp
         )
+#add_library(${PROJECT_NAME}
+#        MODULE
+#        ${ALL_SRCS}
+#        ${DTNG_QM_FILES}
+#        )
 
 target_include_directories(${PROJECT_NAME} PUBLIC
         ${DdeControlCenter_INCLUDE_DIR}
@@ -139,7 +139,7 @@ if (CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
 endif ()
 
 # 设置执行 make install 时哪个目标应该被 install 到哪个位置
-install(TARGETS ${PROJECT_NAME} LIBRARY DESTINATION /lib/dde-control-center/modules)
+#install(TARGETS ${PROJECT_NAME} LIBRARY DESTINATION /lib/dde-control-center/modules)
 
 # 安装 .qm 文件
 install(FILES ${DTNG_QM_FILES} DESTINATION share/${PROJECT_NAME}/translations)

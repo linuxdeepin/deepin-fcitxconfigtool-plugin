@@ -22,12 +22,12 @@
 #define IMADDWINDOW_H
 
 #include <QWidget>
-
+#include <fcitxqtinputmethoditem.h>
 namespace dcc_fcitx_configtool {
 namespace widgets {
 class ButtonTuple;
 } // namespace widgets
-} // namespace dcc
+} // namespace dcc_fcitx_configtool
 
 namespace Dtk {
 namespace Widget {
@@ -47,6 +47,8 @@ public:
     void updateUI(); //刷新界面
 signals:
     void popSettingsWindow(); //弹出设置窗口
+    void addIM(FcitxQtInputMethodItem item);
+
 private:
     void initUI(); //初始化界面
     void initConnect(); //初始化信号槽

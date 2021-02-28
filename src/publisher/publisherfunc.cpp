@@ -122,4 +122,13 @@ bool createDir(const QString &dir)
     }
     return _dir.mkpath(dir);
 }
+
+int fontSize(const QString &str, const QFont &font)
+{
+    if (str.isEmpty())
+        return 0;
+    QFontMetrics fontMetrics(font);
+    return fontMetrics.width(str); //获取之前设置的字符串的像素大小
+}
+
 } // namespace publisherFunc

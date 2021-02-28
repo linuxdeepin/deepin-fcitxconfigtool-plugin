@@ -24,6 +24,7 @@
 
 #include "settingsitem.h"
 #include <fcitxqtinputmethoditem.h>
+#include "labels/shortenlabel.h"
 using namespace dcc_fcitx_configtool::widgets;
 namespace dcc_fcitx_configtool {
 namespace widgets {
@@ -47,12 +48,12 @@ protected:
     void leaveEvent(QEvent *event) override;
 
 public:
-    QLabel *m_labelText {nullptr};
+    ShortenLabel *m_labelText {nullptr};
     QLabel *m_labelIcon {nullptr};
     QHBoxLayout *m_layout {nullptr};
     FcitxQtInputMethodItem m_item;
 };
-}
-}
+} // namespace widgets
+} // namespace dcc_fcitx_configtool
 
 #endif // IMSETTINGSITEM_H

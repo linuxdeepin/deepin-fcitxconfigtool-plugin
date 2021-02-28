@@ -42,6 +42,7 @@ namespace widgets {
 
 class SettingsItem;
 class SettingsHeaderItem;
+class SettingsHead;
 
 class SettingsGroup : public TranslucentFrame
 {
@@ -82,6 +83,6 @@ private:
 };
 
 } // namespace widgets
-} // namespace dcc
+} // namespace dcc_fcitx_configtool
 
 #endif // SETTINGSGROUP_H
