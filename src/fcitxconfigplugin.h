@@ -148,6 +148,15 @@ public:
         return QString(KEYBOARD);
     }
 
+    /**
+     * @brief follow
+     * @return 插件插入位置，可以字符串或者数字
+     */
+    virtual QString follow() const
+    {
+        return QString("3");
+    }
+
 public Q_SLOTS:
     /**
     *   @brief active

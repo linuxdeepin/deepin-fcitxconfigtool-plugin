@@ -57,6 +57,7 @@ public:
 public Q_SLOTS:
     void toEdit();
     void toCancel();
+    void setEdit(bool flag);
 
 Q_SIGNALS:
     void editChanged(bool edit);
@@ -73,6 +74,6 @@ private:
 };
 
 } // namespace widgets
-} // namespace dcc
+} // namespace dcc_fcitx_configtool
 
 #endif // SETTINGSHEAD_H

@@ -123,8 +123,6 @@ void KeyLabelWidget::editFinish()
 
 void KeyLabelWidget::mousePressEvent(QMouseEvent *event)
 {
-    if (event->x() < this->x() / 3)
-        return;
     if (m_keyEdit->isHidden()) {
         m_keyEdit->show();
         m_keyEdit->setFocus();

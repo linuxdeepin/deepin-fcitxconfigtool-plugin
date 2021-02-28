@@ -21,8 +21,7 @@
 #ifndef IMMODEL_H
 #define IMMODEL_H
 
-#include <QMimeData>
-#include <QStandardItemModel>
+#include <QObject>
 #include <fcitxqtinputmethoditem.h>
 
 namespace Dtk {
@@ -31,7 +30,7 @@ class DStandardItem;
 } // namespace Widget
 } // namespace Dtk
 
-class IMModel : public QStandardItemModel
+class IMModel : public QObject
 {
     Q_OBJECT
 private:
@@ -48,36 +47,25 @@ public:
     //self
     void setEdit(bool flag); //设置编辑状态
     bool isEdit() { return m_isEdit; } //获取编辑状态
-
     int getIMIndex(const QString &IM) const;
+    int getIMIndex(const FcitxQtInputMethodItem &IM) const;
     FcitxQtInputMethodItem getIM(int index) const;
     const FcitxQtInputMethodItemList &getAvailIMList() const { return m_availeIMList; }
     const FcitxQtInputMethodItemList &getCurIMList() const { return m_curIMList; }
 
-    void addIMItem(FcitxQtInputMethodItem item); //添加输入法
+public slots:
+    void onUpdateIMList(); //更新输入法列表
+    void onAddIMItem(FcitxQtInputMethodItem item); //添加输入法
+    void onDeleteItem(FcitxQtInputMethodItem item); //删除item
+    void onItemUp(FcitxQtInputMethodItem item); //item上移
+    void onItemDown(FcitxQtInputMethodItem item); //item下移
+    void onConfigShow(FcitxQtInputMethodItem item); //显示输入法设置界面
 signals:
     void availIMListChanged(FcitxQtInputMethodItemList);
     void curIMListChanaged(FcitxQtInputMethodItemList);
-public slots:
-    void onUpdateIMList(); //更新输入法列表
-
-protected:
-    //重载  拖动
-    Qt::DropActions supportedDropActions() const override;
-    QStringList mimeTypes() const override;
-    QMimeData *mimeData(const QModelIndexList &index) const override;
-    bool dropMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent) override;
-    Qt::ItemFlags flags(const QModelIndex &index) const override;
+    void IMItemSawp(int index, int index2);
 
 private:
-    void deleteItem(Dtk::Widget::DStandardItem *item); //删除item
-    void itemUp(Dtk::Widget::DStandardItem *item); //item上移
-    void itemDown(Dtk::Widget::DStandardItem *item); //item下移
-    void configShow(Dtk::Widget::DStandardItem *item); //显示输入法设置界面
-
-    void itemSawp(int index, int index2); //交换item
-    void loadItem(); //加载显示item
-    void addActionList(Dtk::Widget::DStandardItem *item); //添加action至item
     void IMListSave(); //保存输入法列表至fcitx
 
 private:

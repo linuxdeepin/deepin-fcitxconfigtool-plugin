@@ -48,9 +48,8 @@ SettingsHead::SettingsHead(QFrame *parent)
     m_edit->setText(qApp->translate("SettingsHead", "Edit"));
     DFontSizeManager::instance()->bind(m_title, DFontSizeManager::T5, QFont::DemiBold);
     QHBoxLayout *mainLayout = new QHBoxLayout;
-    mainLayout->setMargin(0);
     mainLayout->setSpacing(0);
-    mainLayout->setContentsMargins(22, 20, 10, 0);
+    mainLayout->setContentsMargins(20, 20, 10, 0);
     mainLayout->addWidget(m_title);
     mainLayout->addStretch();
     mainLayout->addWidget(m_edit);
@@ -85,6 +84,17 @@ void SettingsHead::toCancel()
     refershButton();
 
     Q_EMIT editChanged(false);
+}
+
+void SettingsHead::setEdit(bool flag)
+{
+    if (flag) {
+        m_state = Edit;
+        refershButton();
+    } else {
+        m_state = Cancel;
+        refershButton();
+    }
 }
 
 void SettingsHead::onClicked()

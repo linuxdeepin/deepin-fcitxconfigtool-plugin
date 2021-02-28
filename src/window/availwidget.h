@@ -27,7 +27,7 @@ namespace dcc_fcitx_configtool {
 namespace widgets {
 class SettingsGroup;
 } // namespace widgets
-} // namespace dcc
+} // namespace dcc_fcitx_configtool
 
 class AvailWidget : public QWidget
 {
@@ -42,8 +42,6 @@ public slots:
     void onUpdateUI(FcitxQtInputMethodItemList); //更新界面
 signals:
     void seleteIM(bool); //选中状态信号 true 选中 false 未选中
-protected:
-    void resizeEvent(QResizeEvent *event) override;
 
 private:
     void initUI(); //初始化界面

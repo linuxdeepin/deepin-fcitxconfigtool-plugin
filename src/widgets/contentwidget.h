@@ -23,33 +23,50 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef BASICLISTDELEGATE_H
-#define BASICLISTDELEGATE_H
+#ifndef CONTENTWIDGET_H
+#define CONTENTWIDGET_H
 
-#include <QAbstractItemDelegate>
-#include <QIcon>
-#include <QApplication>
-#include <QImageReader>
+#include <QWidget>
+#include <QLabel>
+#include <QVBoxLayout>
 
-QPixmap loadPixmap(const QString &path);
+#include <dimagebutton.h>
+
+DWIDGET_USE_NAMESPACE
+
+class QScrollArea;
+class QPropertyAnimation;
+class QPushButton;
 
 namespace dcc_fcitx_configtool {
 
 namespace widgets {
+class BackButton;
+}
+} // namespace dcc_fcitx_configtool
 
-class BasicListDelegate : public QAbstractItemDelegate
+namespace dcc_fcitx_configtool {
+namespace widgets {
+class ContentWidget : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit BasicListDelegate(QObject *parent = 0);
+    explicit ContentWidget(QWidget *parent = 0);
+    ~ContentWidget();
 
-    void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const;
-    QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const;
+    QWidget *content() const { return m_content; }
+    QWidget *setContent(QWidget *const w);
+    void scrollTo(int dy);
+
+protected:
+    void resizeEvent(QResizeEvent *event) override;
+
+protected:
+    QScrollArea *m_contentArea {nullptr};
+    QWidget *m_content {nullptr};
 };
-
 } // namespace widgets
+} // namespace dcc_fcitx_configtool
 
-} // namespace dcc
-
-#endif // BASICLISTDELEGATE_H
+#endif // CONTENTWIDGET_H
