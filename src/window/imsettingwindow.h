@@ -23,25 +23,26 @@
 
 #include "fcitxInterface/global.h"
 #include <QWidget>
+#include <QScrollArea>
 
 namespace dcc_fcitx_configtool {
 namespace widgets {
 class SettingsGroup;
+class SettingsHead;
 class ComboxWidget;
 class ComBoboxSettingsItem;
 class KeySettingsItem;
 } // namespace widgets
-} // namespace dcc
+} // namespace dcc_fcitx_configtool
 
 namespace Dtk {
 namespace Widget {
 class DListView;
 class DCommandLinkButton;
 class DFloatingButton;
+
 } // namespace Widget
 } // namespace Dtk
-
-
 
 class IMSettingWindow : public QWidget
 {
@@ -56,17 +57,22 @@ private:
     void initUI(); //初始化界面
     void initConnect(); //初始化信号槽
     void readConfig(); //读取配置文件
+    void itemSwap(FcitxQtInputMethodItem item, bool isUp = true);
 private slots:
-    void onEditBtnClicked(); //启用编辑
+    void onEditBtnClicked(bool flag); //启用编辑
     void onDefaultIMChanged();
     void onCurIMChanged(FcitxQtInputMethodItemList list);
-    void onAddBtnCilcked(); //
+    void onAddBtnCilcked();
+    void onItemUp(FcitxQtInputMethodItem item);
+    void onItemDown(FcitxQtInputMethodItem item);
+    void onItemDelete(FcitxQtInputMethodItem item);
 
 private:
+    dcc_fcitx_configtool::widgets::SettingsGroup *m_defaultIMGroup {nullptr};
+    dcc_fcitx_configtool::widgets::SettingsGroup *m_IMListGroup {nullptr};
+    dcc_fcitx_configtool::widgets::SettingsGroup *m_shortcutGroup {nullptr};
+    dcc_fcitx_configtool::widgets::SettingsHead *m_editHead {nullptr}; //编辑按钮
     dcc_fcitx_configtool::widgets::ComboxWidget *m_defaultIMCbox {nullptr}; //选择默认输入法
-    Dtk::Widget::DCommandLinkButton *m_editBtn {nullptr}; //编辑
-    Dtk::Widget::DListView *m_IMCurrentView {nullptr}; //当前输入法列表
-    dcc_fcitx_configtool::widgets::SettingsGroup *m_shortcutGroup {nullptr}; //快捷键容器
     dcc_fcitx_configtool::widgets::ComBoboxSettingsItem *m_imSwitchCbox {nullptr}; //切换输入法（快捷键）
     dcc_fcitx_configtool::widgets::KeySettingsItem *m_virtualKey {nullptr}; //虚拟键盘 （快捷键）
     dcc_fcitx_configtool::widgets::KeySettingsItem *m_defaultIMKey {nullptr}; //默认输入法 （快捷键）

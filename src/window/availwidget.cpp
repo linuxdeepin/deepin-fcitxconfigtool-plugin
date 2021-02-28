@@ -19,16 +19,14 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 #include "availwidget.h"
-#include "widgets/titlelabel.h"
+#include "immodel/immodel.h"
 #include "widgets/settingshead.h"
 #include "widgets/settingsgroup.h"
 #include "widgets/imsettingsitem.h"
 #include "publisher/publisherdef.h"
-#include "immodel/immodel.h"
 #include "fcitxInterface/global.h"
 #include "fcitxInterface/i18n.h"
-
-#include <QScrollArea>
+#include "widgets/contentwidget.h"
 #include <QVBoxLayout>
 
 using namespace Fcitx;
@@ -94,31 +92,27 @@ AvailWidget::~AvailWidget()
 void AvailWidget::initUI()
 {
     //界面布局
-    QVBoxLayout *vlayout = new QVBoxLayout(this);
-    vlayout->setMargin(0);
-    vlayout->setSpacing(0);
+    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    mainLayout->setMargin(0);
+    mainLayout->setSpacing(0);
     //滑动窗口
-    QScrollArea *scrollArea = new QScrollArea(this);
-    scrollArea->setWidgetResizable(true);
-    scrollArea->setFrameShape(QFrame::NoFrame);
-    scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff); //隐藏横向滚动条
-    //scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff); //隐藏竖向滚动条
+    ContentWidget *scrollArea = new ContentWidget(this);
     QWidget *scrollAreaWidgetContents = new QWidget(scrollArea);
     QVBoxLayout *scrollAreaLayout = new QVBoxLayout(scrollAreaWidgetContents);
-    scrollAreaLayout->setMargin(0);
     scrollAreaLayout->setSpacing(0);
-    scrollArea->setWidget(scrollAreaWidgetContents);
+    scrollArea->setContent(scrollAreaWidgetContents);
     scrollAreaWidgetContents->setLayout(scrollAreaLayout);
     //搜索输入法列表 可用输入法列表
     m_allIMGroup = new SettingsGroup;
+    m_searchIMGroup = new SettingsGroup;
+    //控件添加至滑动窗口内
     scrollAreaLayout->addWidget(m_allIMGroup);
     scrollAreaLayout->addSpacing(10);
-    m_searchIMGroup = new SettingsGroup;
     scrollAreaLayout->addWidget(m_searchIMGroup);
     scrollAreaLayout->addStretch();
-
-    vlayout->addWidget(scrollArea);
-    this->setLayout(vlayout);
+    //添加至主界面内
+    mainLayout->addWidget(scrollArea);
+    setLayout(mainLayout);
 }
 
 void AvailWidget::initConnect()
@@ -129,10 +123,9 @@ void AvailWidget::initConnect()
 void AvailWidget::onUpdateUI(FcitxQtInputMethodItemList IMlist)
 {
     if (!Global::instance()->inputMethodProxy()) {
-        //清空group
-        m_allIMGroup->clear();
+        m_allIMGroup->clear(); //清空group
         m_searchIMGroup->clear();
-        m_selectItem = FcitxQtInputMethodItem();
+        m_allAvaiIMlList.clear();
         emit seleteIM(false);
         return;
     }
@@ -141,15 +134,15 @@ void AvailWidget::onUpdateUI(FcitxQtInputMethodItemList IMlist)
         m_allIMGroup->show();
         m_searchIMGroup->hide();
     } else {
-        m_searchIMGroup->show();
         m_allIMGroup->hide();
+        m_searchIMGroup->show();
     }
 
     if (m_allAvaiIMlList == IMlist) {
-        emit seleteIM(!(m_selectItem.name().isEmpty()));
+        emit seleteIM((m_allAvaiIMlList.indexOf(m_selectItem) != 0));
         return;
     }
-    m_allAvaiIMlList = IMlist;
+    m_allAvaiIMlList.swap(IMlist);
 
     QMap<QString, int> languageMap;
     QList<QPair<QString, FcitxQtInputMethodItemList>> filteredIMEntryList;
@@ -211,18 +204,6 @@ void AvailWidget::onUpdateUI(FcitxQtInputMethodItemList IMlist)
             createIMSttings(m_allIMGroup, *it2);
             createIMSttings(m_searchIMGroup, *it2);
         }
-    }
-}
-
-void AvailWidget::resizeEvent(QResizeEvent *event)
-{
-    QWidget::resizeEvent(event);
-    int w = size().width();
-    if (m_allIMGroup) {
-        m_allIMGroup->setFixedWidth(w - 15);
-    }
-    if (m_searchIMGroup) {
-        m_searchIMGroup->setFixedWidth(w - 15);
     }
 }
 

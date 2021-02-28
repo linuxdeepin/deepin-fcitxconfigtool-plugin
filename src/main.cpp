@@ -29,6 +29,7 @@
 #include <QVBoxLayout>
 #include <thread>
 #include <QObject>
+#include <QPushButton>
 #include "widgets/settingsgroup.h"
 #include "widgets/settingsitem.h"
 DWIDGET_USE_NAMESPACE

@@ -26,6 +26,7 @@
 #include "settingsgroup.h"
 #include "settingsitem.h"
 #include "settingsheaderitem.h"
+#include "settingshead.h"
 #include "utils.h"
 #include "imsettingsitem.h"
 #include <DBackgroundGroup>
@@ -108,8 +109,9 @@ void SettingsGroup::insertItem(const int index, SettingsItem *item)
             for (int j = 0; j < i; ++j) {
                 if (this->getItem(j) != myItem) {
                     IMSettingsItem *Titem = dynamic_cast<IMSettingsItem *>(this->getItem(j));
-                    if (Titem)
+                    if (Titem) {
                         Titem->setItemSelected(false);
+                    }
                 }
             }
         });
@@ -137,8 +139,9 @@ void SettingsGroup::appendItem(SettingsItem *item, BackgroundStyle bgStyle)
             for (int j = 0; j < i; ++j) {
                 if (this->getItem(j) != myItem) {
                     IMSettingsItem *Titem = dynamic_cast<IMSettingsItem *>(this->getItem(j));
-                    if (Titem)
+                    if (Titem) {
                         Titem->setItemSelected(false);
+                    }
                 }
             }
         });
@@ -146,6 +149,8 @@ void SettingsGroup::appendItem(SettingsItem *item, BackgroundStyle bgStyle)
 
 void SettingsGroup::removeItem(SettingsItem *item)
 {
+    if (!item)
+        return;
     m_layout->removeWidget(item);
     item->removeEventFilter(this);
 }
@@ -204,4 +209,4 @@ void SettingsGroup::insertWidget(QWidget *widget)
     m_layout->insertWidget(m_layout->count(), widget);
 }
 } // namespace widgets
-} // namespace dcc
+} // namespace dcc_fcitx_configtool

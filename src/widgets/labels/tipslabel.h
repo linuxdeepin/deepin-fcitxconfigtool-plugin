@@ -39,6 +39,6 @@ public:
 };
 
 } // namespace widgets
-} // namespace dcc
+} // namespace dcc_fcitx_configtool
 
 #endif // TIPSLABEL_H

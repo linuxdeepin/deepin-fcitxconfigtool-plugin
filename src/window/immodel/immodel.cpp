@@ -39,7 +39,7 @@ bool operator==(const FcitxQtInputMethodItem &item, const FcitxQtInputMethodItem
 }
 
 IMModel::IMModel()
-    : QStandardItemModel(nullptr)
+    : QObject(nullptr)
 {
     onUpdateIMList();
     connect(Global::instance(), &Global::connectStatusChanged, this, &IMModel::onUpdateIMList);
@@ -56,90 +56,16 @@ IMModel *IMModel::instance()
 
 void IMModel::deleteIMModel()
 {
+    m_ins->IMListSave();
     deleteObject_Null(m_ins);
-}
-
-Qt::DropActions IMModel::supportedDropActions() const
-{
-    return Qt::CopyAction | Qt::MoveAction;
-}
-
-QStringList IMModel::mimeTypes() const
-{
-    return QStringList() << "InputMethod";
-}
-
-QMimeData *IMModel::mimeData(const QModelIndexList &index) const
-{
-    QMimeData *mimeData = new QMimeData();
-    QByteArray encodeData;
-
-    QDataStream stream(&encodeData, QIODevice::WriteOnly);
-    foreach (const QModelIndex &index, index) {
-        if (index.isValid()) {
-            stream << index.row();
-        }
-    }
-    mimeData->setData("InputMethod", encodeData);
-    return mimeData;
-}
-
-bool IMModel::dropMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent)
-{
-    if (action == Qt::IgnoreAction)
-        return true;
-
-    if (!data->hasFormat("InputMethod") || column > 0)
-        return false;
-
-    QByteArray encodeData = data->data("InputMethod");
-    QDataStream stream(&encodeData, QIODevice::ReadOnly);
-    int swapRow = 0;
-    if (!stream.atEnd()) {
-        stream >> swapRow;
-    }
-
-    if (row == 0 || parent.row() == 0)
-        return false;
-
-    int insRow;
-    if (row != -1) {
-        insRow = row;
-    } else if (parent.isValid()) {
-        insRow = parent.row();
-    } else {
-        insRow = rowCount() - 1;
-    }
-
-    if (swapRow == insRow)
-        return false;
-    else if (swapRow > insRow) {
-        m_curIMList.insert(insRow, m_curIMList[swapRow]);
-        m_curIMList.removeAt(swapRow + 1);
-    } else {
-        FcitxQtInputMethodItem it = m_curIMList[swapRow];
-        m_curIMList.removeAt(swapRow);
-        m_curIMList.insert(insRow, it);
-    }
-    loadItem();
-    IMListSave();
-    return true;
-}
-
-Qt::ItemFlags IMModel::flags(const QModelIndex &index) const
-{
-    if (!index.isValid() || index.row() == 0)
-        return Qt::ItemIsEnabled | Qt::ItemIsDropEnabled | Qt::ItemIsSelectable;
-
-    return QAbstractItemModel::flags(index) | Qt::ItemIsEditable | Qt::ItemIsDropEnabled | Qt::ItemIsDragEnabled;
 }
 
 void IMModel::setEdit(bool flag)
 {
     m_isEdit = flag;
-    loadItem();
     if (!m_isEdit) {
         IMListSave();
+        emit availIMListChanged(m_availeIMList);
     }
 }
 
@@ -150,13 +76,17 @@ int IMModel::getIMIndex(const QString &IM) const
     }
 
     for (int i = 0; i < m_curIMList.count(); ++i) {
-        if (m_curIMList[i].name().indexOf(IM, Qt::CaseInsensitive) != -1
-            || m_curIMList[i].uniqueName().indexOf(IM, Qt::CaseInsensitive) != -1
+        if (m_curIMList[i].name() == IM || m_curIMList[i].uniqueName().indexOf(IM, Qt::CaseInsensitive) != -1
             || m_curIMList[i].langCode().indexOf(IM, Qt::CaseInsensitive) != -1) {
             return i;
         }
     }
     return -1;
+}
+
+int IMModel::getIMIndex(const FcitxQtInputMethodItem &IM) const
+{
+    return getIMIndex(IM.name());
 }
 
 FcitxQtInputMethodItem IMModel::getIM(int index) const
@@ -168,10 +98,10 @@ FcitxQtInputMethodItem IMModel::getIM(int index) const
 
 void IMModel::onUpdateIMList()
 {
-    bool needSaveImList = false;
     if (Global::instance()->inputMethodProxy()) {
         FcitxQtInputMethodItemList &&list = Global::instance()->inputMethodProxy()->iMList();
         FcitxQtInputMethodItemList curList, availList;
+        bool needSaveImList = false;
         Q_FOREACH (const FcitxQtInputMethodItem &im, list) {
             if (im.uniqueName().compare("fcitx-keyboard-us") == 0) {
                 if (im.uniqueName().compare(list.front().uniqueName()) != 0 || im.enabled() == false) {
@@ -187,17 +117,13 @@ void IMModel::onUpdateIMList()
                 break;
             }
         }
+
         Q_FOREACH (const FcitxQtInputMethodItem &im, list) {
-            if (im.enabled()) {
-                curList.append(im);
-            } else {
-                availList.append(im);
-            }
+            im.enabled() ? curList.append(im) : availList.append(im);
         }
 
         if (curList != m_curIMList) {
             m_curIMList.swap(curList);
-            loadItem();
             emit curIMListChanaged(m_curIMList);
         }
 
@@ -209,46 +135,16 @@ void IMModel::onUpdateIMList()
         if (needSaveImList) {
             IMListSave();
         }
+
     } else {
         m_availeIMList.clear();
         m_curIMList.clear();
-        this->clear();
         emit curIMListChanaged(m_curIMList);
         emit availIMListChanged(m_availeIMList);
     }
 }
 
-void IMModel::loadItem()
-{
-    if (0 == m_curIMList.count()) {
-        this->clear();
-        return;
-    }
-
-    int i = 0;
-    foreach (FcitxQtInputMethodItem it, m_curIMList) {
-        QStandardItem *iter = item(i, 0);
-        DStandardItem *item = dynamic_cast<DStandardItem *>(iter);
-        if (!item) {
-            item = new DStandardItem();
-            this->appendRow(item);
-        }
-
-        if (item->text() != it.name()) {
-            item->setText(it.name());
-        }
-
-        if (i > 0) {
-            addActionList(item);
-        }
-        ++i;
-    }
-    while (rowCount() > m_curIMList.count()) {
-        this->removeRow(rowCount() - 1);
-    }
-}
-
-void IMModel::addIMItem(FcitxQtInputMethodItem item)
+void IMModel::onAddIMItem(FcitxQtInputMethodItem item)
 {
     if (item.name().isEmpty() || item.uniqueName().isEmpty())
         return;
@@ -256,61 +152,48 @@ void IMModel::addIMItem(FcitxQtInputMethodItem item)
     m_availeIMList.removeAll(item);
     item.setEnabled(true);
     m_curIMList.insert(1, item);
-    DStandardItem *tmp = new DStandardItem();
-    insertRow(1, tmp);
-    tmp->setText(item.name());
-    addActionList(tmp);
     IMListSave();
-    emit availIMListChanged(m_availeIMList);
-}
-
-void IMModel::deleteItem(DStandardItem *item)
-{
-    if (!item || !item->index().isValid())
-        return;
-
-    m_availeIMList.append(m_curIMList[item->row()]);
-    m_availeIMList.rbegin()->setEnabled(false);
-    m_curIMList.removeAt(item->row());
-    this->removeRow(item->row());
     emit curIMListChanaged(m_curIMList);
     emit availIMListChanged(m_availeIMList);
 }
 
-void IMModel::itemUp(DStandardItem *item)
+void IMModel::onDeleteItem(FcitxQtInputMethodItem item)
 {
-    if (!item || !item->index().isValid() || item->row() < 2)
-        return;
-
-    itemSawp(item->row(), item->row() - 1);
+    m_curIMList.removeAll(item);
+    item.setEnabled(false);
+    m_availeIMList.append(item);
 }
 
-void IMModel::itemDown(DStandardItem *item)
+void IMModel::onItemUp(FcitxQtInputMethodItem item)
 {
-    if (!item || !item->index().isValid() || item->row() == m_curIMList.count() - 1)
+    int row = getIMIndex(item);
+
+    if (row < 2) {
         return;
-
-    itemSawp(item->row(), item->row() + 1);
-}
-
-void IMModel::itemSawp(int index, int index2)
-{
-    if (index < 0 || index > m_curIMList.count() - 1 || index2 < 0 || index2 > m_curIMList.count() - 1)
-        return;
-
-    m_curIMList.swap(index, index2);
-    loadItem();
+    }
+    m_curIMList.swap(row, row - 1);
     IMListSave();
+    emit IMItemSawp(row, row - 1);
 }
 
-void IMModel::configShow(DStandardItem *item)
+void IMModel::onItemDown(FcitxQtInputMethodItem item)
 {
-    if (!item || !item->index().isValid())
-        return;
+    int row = getIMIndex(item);
 
-    QString imName = m_curIMList[item->row()].name();
-    QString imLangCode = m_curIMList[item->row()].langCode();
-    QString imUniqueName = m_curIMList[item->row()].uniqueName();
+    if (row == m_curIMList.count() - 1) {
+        return;
+    }
+
+    m_curIMList.swap(row, row + 1);
+    IMListSave();
+    emit IMItemSawp(row, row + 1);
+}
+
+void IMModel::onConfigShow(FcitxQtInputMethodItem item)
+{
+    QString imName = item.name();
+    QString imLangCode = item.langCode();
+    QString imUniqueName = item.uniqueName();
 
     QStringList closeSrcImList {
         "chineseime", "iflyime", "huayupy", "sogoupinyin", "baidupinyin"};
@@ -337,34 +220,5 @@ void IMModel::IMListSave()
             Global::instance()->inputMethodProxy()->setIMList(m_curIMList + m_availeIMList);
             Global::instance()->inputMethodProxy()->ReloadConfig();
         }
-        emit curIMListChanaged(m_curIMList);
     }
-}
-
-void IMModel::addActionList(DStandardItem *item)
-{
-    if (!item || !item->index().isValid())
-        return;
-
-    DViewItemActionList list;
-    if (m_isEdit) {
-        DViewItemAction *iconAction = new DViewItemAction(Qt::AlignBottom, QSize(), QSize(), true);
-        iconAction->setIcon(DStyle::standardIcon(QApplication::style(), DStyle::SP_DeleteButton));
-        connect(iconAction, &DViewItemAction::triggered, [=]() { deleteItem(item); });
-        list.push_back(iconAction);
-    } else {
-        DViewItemAction *iconAction = new DViewItemAction(Qt::AlignBottom, QSize(), QSize(), true);
-        iconAction->setIcon(QIcon(":/icons/arrow_up.svg"));
-        DViewItemAction *iconAction2 = new DViewItemAction(Qt::AlignBottom, QSize(), QSize(), true);
-        iconAction2->setIcon(QIcon(":/icons/arrow_down.svg"));
-        DViewItemAction *iconAction3 = new DViewItemAction(Qt::AlignBottom, QSize(), QSize(), true);
-        iconAction3->setIcon(QIcon(":/icons/setting.svg"));
-        connect(iconAction, &DViewItemAction::triggered, [=]() { itemUp(item); });
-        connect(iconAction2, &DViewItemAction::triggered, [=]() { itemDown(item); });
-        connect(iconAction3, &DViewItemAction::triggered, [=]() { configShow(item); });
-        list.push_back(iconAction);
-        list.push_back(iconAction2);
-        list.push_back(iconAction3);
-    }
-    item->setActionList(Qt::RightEdge, list);
 }

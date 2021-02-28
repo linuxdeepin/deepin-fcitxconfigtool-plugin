@@ -20,9 +20,8 @@
 */
 #ifndef IMCONFIG_H
 #define IMCONFIG_H
-#include <QDir>
-#include <QObject>
-#include <fcitxqtinputmethoditem.h>
+#include <QString>
+
 //默认输入法 切换方式 虚拟键盘 默认输入法快捷键
 class IMConfig
 {
@@ -36,12 +35,12 @@ public:
     static QString defaultIMKey();
     static bool setDefaultIMKey(QString);
     static QString IMPluginKey(QString);
-    static QString prefix;
 
 private:
     static QString configFile(QString filePath, QString key);
     static QString configFile(QString filePath, QString group, QString key);
     static bool setConfigFile(QString filePath, QString key, QString value, bool isHotKey);
+    static QString prefix;
 };
 
 #endif // IMCONFIG_H

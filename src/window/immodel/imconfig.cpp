@@ -20,7 +20,7 @@
 */
 #include "imconfig.h"
 #include "publisher/publisherfunc.h"
-
+#include <fcitxqtinputmethoditem.h>
 QString IMConfig::prefix {QDir::homePath()};
 
 QString IMConfig::defaultIM()
@@ -81,6 +81,11 @@ QString IMConfig::configFile(QString filePath, QString group, QString key)
         }
         if (lock && str.indexOf(key) != -1) {
             auto list = str.split("=");
+
+            if (list[0].compare(key) != 0 && list[0].compare('#' + key) != 0) {
+                continue;
+            }
+
             if (list.count() != 2) {
                 return QString();
             } else {
