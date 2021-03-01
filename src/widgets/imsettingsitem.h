@@ -23,9 +23,9 @@
 #define IMSETTINGSITEM_H
 
 #include "settingsitem.h"
-#include <fcitxqtinputmethoditem.h>
 #include "labels/shortenlabel.h"
-using namespace dcc_fcitx_configtool::widgets;
+#include <fcitxqtinputmethoditem.h>
+
 namespace dcc_fcitx_configtool {
 namespace widgets {
 

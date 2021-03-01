@@ -23,7 +23,6 @@
 
 #include "fcitxInterface/global.h"
 #include <QWidget>
-#include <QScrollArea>
 
 namespace dcc_fcitx_configtool {
 namespace widgets {
@@ -32,6 +31,7 @@ class SettingsHead;
 class ComboxWidget;
 class ComBoboxSettingsItem;
 class KeySettingsItem;
+class IMActivityItem;
 } // namespace widgets
 } // namespace dcc_fcitx_configtool
 
@@ -57,20 +57,20 @@ private:
     void initUI(); //初始化界面
     void initConnect(); //初始化信号槽
     void readConfig(); //读取配置文件
-    void itemSwap(FcitxQtInputMethodItem item, bool isUp = true);
+    void itemSwap(const FcitxQtInputMethodItem &item, const bool &isUp = true);
 private slots:
-    void onEditBtnClicked(bool flag); //启用编辑
+    void onEditBtnClicked(const bool &flag); //启用编辑
     void onDefaultIMChanged();
-    void onCurIMChanged(FcitxQtInputMethodItemList list);
+    void onCurIMChanged(const FcitxQtInputMethodItemList &list);
     void onAddBtnCilcked();
-    void onItemUp(FcitxQtInputMethodItem item);
-    void onItemDown(FcitxQtInputMethodItem item);
-    void onItemDelete(FcitxQtInputMethodItem item);
+    void onItemUp(const FcitxQtInputMethodItem &item);
+    void onItemDown(const FcitxQtInputMethodItem &item);
+    void onItemDelete(const FcitxQtInputMethodItem &item);
 
 private:
-    dcc_fcitx_configtool::widgets::SettingsGroup *m_defaultIMGroup {nullptr};
-    dcc_fcitx_configtool::widgets::SettingsGroup *m_IMListGroup {nullptr};
-    dcc_fcitx_configtool::widgets::SettingsGroup *m_shortcutGroup {nullptr};
+    dcc_fcitx_configtool::widgets::SettingsGroup *m_defaultIMGroup {nullptr}; //默认输入法容器
+    dcc_fcitx_configtool::widgets::SettingsGroup *m_IMListGroup {nullptr}; //输入法列表容器
+    dcc_fcitx_configtool::widgets::SettingsGroup *m_shortcutGroup {nullptr}; //输入法快捷键容器
     dcc_fcitx_configtool::widgets::SettingsHead *m_editHead {nullptr}; //编辑按钮
     dcc_fcitx_configtool::widgets::ComboxWidget *m_defaultIMCbox {nullptr}; //选择默认输入法
     dcc_fcitx_configtool::widgets::ComBoboxSettingsItem *m_imSwitchCbox {nullptr}; //切换输入法（快捷键）

@@ -28,9 +28,9 @@ QString IMConfig::defaultIM()
     return configFile(prefix + "/.config/fcitx/conf/fcitx-defaultim.config", QString("IMNAME"));
 }
 
-bool IMConfig::setDefaultIM(QString str)
+bool IMConfig::setDefaultIM(const QString &str)
 {
-    return setConfigFile(prefix + "/.config/fcitx/conf/fcitx-defaultim.config", "IMNAME", str, false);
+    return setConfigFile(prefix + "/.config/fcitx/conf/fcitx-defaultim.config", "IMNAME", str);
 }
 
 QString IMConfig::IMSwitchKey()
@@ -38,9 +38,9 @@ QString IMConfig::IMSwitchKey()
     return configFile(prefix + "/.config/fcitx/config", QString("IMSwitchHotkey"));
 }
 
-bool IMConfig::setIMSwitchKey(QString str)
+bool IMConfig::setIMSwitchKey(const QString &str)
 {
-    return setConfigFile(prefix + "/.config/fcitx/config", "IMSwitchHotkey", str, false);
+    return setConfigFile(prefix + "/.config/fcitx/config", "IMSwitchHotkey", str);
 }
 
 QString IMConfig::virtualKey()
@@ -48,9 +48,9 @@ QString IMConfig::virtualKey()
     return configFile(prefix + "/.config/fcitx/conf/fcitx-onboard.config", QString("HOTKEY"));
 }
 
-bool IMConfig::setVirtualKey(QString str)
+bool IMConfig::setVirtualKey(const QString &str)
 {
-    return setConfigFile(prefix + "/.config/fcitx/conf/fcitx-onboard.config", "HOTKEY", str, true);
+    return setConfigFile(prefix + "/.config/fcitx/conf/fcitx-onboard.config", "HOTKEY", str);
 }
 
 QString IMConfig::defaultIMKey()
@@ -58,17 +58,23 @@ QString IMConfig::defaultIMKey()
     return configFile(prefix + "/.config/fcitx/conf/fcitx-defaultim.config", QString("HOTKEY"));
 }
 
-bool IMConfig::setDefaultIMKey(QString str)
+bool IMConfig::setDefaultIMKey(const QString &str)
 {
-    return setConfigFile(prefix + "/.config/fcitx/conf/fcitx-defaultim.config", "HOTKEY", str, true);
+    return setConfigFile(prefix + "/.config/fcitx/conf/fcitx-defaultim.config", "HOTKEY", str);
 }
 
-QString IMConfig::IMPluginKey(QString str)
+QString IMConfig::IMPluginKey(const QString &str)
 {
     return configFile(prefix + "/.config/fcitx/conf/fcitx-implugin.config", str, QString("Setting"));
 }
 
-QString IMConfig::configFile(QString filePath, QString group, QString key)
+bool IMConfig::checkShortKey(const QStringList &str)
+{
+    Q_UNUSED(str)
+    return true;
+}
+
+QString IMConfig::configFile(const QString &filePath, const QString &group, const QString &key)
 {
     QString read = publisherFunc::readFile(filePath);
     if (read.isEmpty() || key.isEmpty())
@@ -96,7 +102,7 @@ QString IMConfig::configFile(QString filePath, QString group, QString key)
     return QString();
 }
 
-QString IMConfig::configFile(QString filePath, QString key)
+QString IMConfig::configFile(const QString &filePath, const QString &key)
 {
     QString read = publisherFunc::readFile(filePath);
     if (read.isEmpty() || key.isEmpty())
@@ -115,7 +121,7 @@ QString IMConfig::configFile(QString filePath, QString key)
     return QString();
 }
 
-bool IMConfig::setConfigFile(QString filePath, QString key, QString value, bool isHotKey)
+bool IMConfig::setConfigFile(const QString &filePath, const QString &key, const QString &value)
 {
     QString read = publisherFunc::readFile(filePath);
     if (read.isEmpty() || key.isEmpty() || value.isEmpty())
@@ -124,11 +130,7 @@ bool IMConfig::setConfigFile(QString filePath, QString key, QString value, bool 
     QString file;
     foreach (QString tmp, read.split("\n")) {
         if (tmp.indexOf(key) != -1) {
-            if (isHotKey) {
-                file += QString(key + "=" + value + "\n").replace("+", "_").toUpper();
-            } else {
-                file += QString(key + "=" + value + "\n");
-            }
+            file += QString(key + "=" + value + "\n");
         } else {
             if (!tmp.isEmpty())
                 file += tmp + "\n";

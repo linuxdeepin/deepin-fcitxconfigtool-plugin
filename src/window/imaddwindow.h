@@ -47,7 +47,7 @@ public:
     void updateUI(); //刷新界面
 signals:
     void popSettingsWindow(); //弹出设置窗口
-    void addIM(FcitxQtInputMethodItem item);
+    void addIM(const FcitxQtInputMethodItem &item);
 
 private:
     void initUI(); //初始化界面

@@ -26,7 +26,7 @@
 公共函数 该公共空间内存放与项目无关的通用函数
 
 **************************************/
-
+class QKeyEvent;
 namespace publisherFunc {
 
 void pause(const unsigned int &msec);
@@ -39,6 +39,8 @@ QString getImagePixel(const QString &imagePath);
 QStringList getDirFileNames(const QString &dirPath, const QDir::Filters &flag = QDir::Files, const QStringList &suffix = QStringList());
 QPair<int, QString> startPopen(const QString &cmd, const QString &model = QString("r"));
 int fontSize(const QString &str, const QFont &font = qApp->font());
+QString getKeyValue(const QKeyEvent *event);
+QString getKeyValue(const int &key);
 
 }; // namespace publisherFunc
 

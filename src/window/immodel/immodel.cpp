@@ -23,8 +23,6 @@
 #include "publisher/publisherdef.h"
 #include "imconfig.h"
 #include <QApplication>
-#include <DStyle>
-#include <DStandardItem>
 
 using namespace Fcitx;
 using namespace Dtk::Widget;
@@ -57,7 +55,7 @@ IMModel *IMModel::instance()
 void IMModel::deleteIMModel()
 {
     m_ins->IMListSave();
-    deleteObject_Null(m_ins);
+    DeleteObject_Null(m_ins);
 }
 
 void IMModel::setEdit(bool flag)
@@ -76,7 +74,8 @@ int IMModel::getIMIndex(const QString &IM) const
     }
 
     for (int i = 0; i < m_curIMList.count(); ++i) {
-        if (m_curIMList[i].name() == IM || m_curIMList[i].uniqueName().indexOf(IM, Qt::CaseInsensitive) != -1
+        if (m_curIMList[i].name() == IM
+            || m_curIMList[i].uniqueName().indexOf(IM, Qt::CaseInsensitive) != -1
             || m_curIMList[i].langCode().indexOf(IM, Qt::CaseInsensitive) != -1) {
             return i;
         }
@@ -89,7 +88,7 @@ int IMModel::getIMIndex(const FcitxQtInputMethodItem &IM) const
     return getIMIndex(IM.name());
 }
 
-FcitxQtInputMethodItem IMModel::getIM(int index) const
+FcitxQtInputMethodItem IMModel::getIM(const int &index) const
 {
     if (index > m_curIMList.count() || index < 0)
         return FcitxQtInputMethodItem();
@@ -189,7 +188,7 @@ void IMModel::onItemDown(FcitxQtInputMethodItem item)
     emit IMItemSawp(row, row + 1);
 }
 
-void IMModel::onConfigShow(FcitxQtInputMethodItem item)
+void IMModel::onConfigShow(const FcitxQtInputMethodItem &item)
 {
     QString imName = item.name();
     QString imLangCode = item.langCode();
@@ -214,11 +213,11 @@ void IMModel::IMListSave()
 {
     if (Global::instance()->inputMethodProxy()) {
         FcitxQtInputMethodItemList &&list = (m_curIMList + m_availeIMList);
-        if (list == Global::instance()->inputMethodProxy()->iMList())
-            return;
-        if (Global::instance()->inputMethodProxy()) {
-            Global::instance()->inputMethodProxy()->setIMList(m_curIMList + m_availeIMList);
-            Global::instance()->inputMethodProxy()->ReloadConfig();
+        if (list != Global::instance()->inputMethodProxy()->iMList()) {
+            if (Global::instance()->inputMethodProxy()) {
+                Global::instance()->inputMethodProxy()->setIMList(list);
+                Global::instance()->inputMethodProxy()->ReloadConfig();
+            }
         }
     }
 }

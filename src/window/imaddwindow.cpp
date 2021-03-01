@@ -20,10 +20,11 @@
 */
 #include "imaddwindow.h"
 #include "availwidget.h"
-#include "immodel/immodel.h"
 
+#include "immodel/immodel.h"
 #include "widgets/titlelabel.h"
 #include "widgets/buttontuple.h"
+
 #include <DCommandLinkButton>
 #include <DSearchEdit>
 #include <DFontSizeManager>
@@ -111,8 +112,9 @@ void IMAddWindow::updateUI()
 {
     m_buttonTuple->rightButton()->setEnabled(false);
     m_buttonTuple->leftButton()->setDefault(true);
-    if (!m_searchLEdit->text().isEmpty())
+    if (!m_searchLEdit->text().isEmpty()) {
         m_searchLEdit->clear();
+    }
     m_availWidget->clearItemStatus();
 }
 

@@ -12,27 +12,27 @@
 <context>
     <name>IMAddWindow</name>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="54"/>
+        <location filename="../src/window/imaddwindow.cpp" line="55"/>
         <source>Add Input Method</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="63"/>
+        <location filename="../src/window/imaddwindow.cpp" line="64"/>
         <source>Search</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="74"/>
+        <location filename="../src/window/imaddwindow.cpp" line="75"/>
         <source>Find more in App Store</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="80"/>
+        <location filename="../src/window/imaddwindow.cpp" line="81"/>
         <source>Add</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="82"/>
+        <location filename="../src/window/imaddwindow.cpp" line="83"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
@@ -40,52 +40,52 @@
 <context>
     <name>IMSettingWindow</name>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="96"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="89"/>
         <source>Default</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="108"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="101"/>
         <source>Switch input methods</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="109"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="102"/>
         <source>Switch to default input method</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="110"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="103"/>
         <source>Call out Onboard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="111"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="104"/>
         <source>Applies to</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="112"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="105"/>
         <source>System</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="112"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="105"/>
         <source>Application</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="120"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="113"/>
         <source>Input Method</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="123"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="116"/>
         <source>Manage Input Methods</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="126"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="119"/>
         <source>Shortcuts</source>
         <translation type="unfinished"></translation>
     </message>
@@ -109,6 +109,20 @@
     <message>
         <location filename="../src/widgets/settingshead.cpp" line="114"/>
         <source>Done</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>dcc_fcitx_configtool::widgets::KeyLabelWidget</name>
+    <message>
+        <location filename="../src/widgets/keysettingsitem.cpp" line="38"/>
+        <source>Enter a new shortcut</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/widgets/keysettingsitem.cpp" line="48"/>
+        <location filename="../src/widgets/keysettingsitem.cpp" line="126"/>
+        <source>None</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

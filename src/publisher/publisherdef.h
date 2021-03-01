@@ -21,17 +21,21 @@
 #ifndef PUBLISHERDEF_H
 #define PUBLISHERDEF_H
 
-#define newSingleObj(objName, Object) \
-    if (nullptr == objName) { \
-        objName = new Object(); \
-    }
-
-#define deleteObject_Null(obj) \
+#define DeleteObject_Null(obj) \
     if (obj) \
         delete obj; \
     obj = nullptr;
 
 #define for_int(count) for (int i = 0; i < count; ++i)
+
 #define Debug 0
+
+#define Dynamic_Cast(Type, obj, base) \
+    Type *obj = dynamic_cast<Type *>(base)
+
+#define Dynamic_Cast_CheckNull(Type, obj, base) \
+    Type *obj = dynamic_cast<Type *>(base); \
+    if (!obj) \
+        return;
 
 #endif // PUBLISHERDEF_H

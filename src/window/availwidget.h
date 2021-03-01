@@ -46,7 +46,7 @@ signals:
 private:
     void initUI(); //初始化界面
     void initConnect(); //初始化信号槽
-    void clearItemStatusAndFilter(dcc_fcitx_configtool::widgets::SettingsGroup *group, bool falg = false); //清除选中 清除过滤
+    void clearItemStatusAndFilter(dcc_fcitx_configtool::widgets::SettingsGroup *group, const bool &falg = false); //清除选中 清除过滤
 private:
     dcc_fcitx_configtool::widgets::SettingsGroup *m_allIMGroup {nullptr}; //可用输入法列表界面
     dcc_fcitx_configtool::widgets::SettingsGroup *m_searchIMGroup {nullptr}; //搜索输入法列表界面

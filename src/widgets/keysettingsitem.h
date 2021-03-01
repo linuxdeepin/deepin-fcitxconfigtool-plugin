@@ -20,9 +20,9 @@
 */
 #ifndef KETSETTINGSITEM_H
 #define KETSETTINGSITEM_H
-
 #include "keylabel.h"
 #include "settingsitem.h"
+#include "labels/shortenlabel.h"
 #include <QComboBox>
 #include <DKeySequenceEdit>
 
@@ -38,19 +38,30 @@ public:
     KeyLabelWidget(QStringList list = {}, QWidget *p = nullptr);
     virtual ~KeyLabelWidget();
     void setList(const QStringList &list);
+    void appendKey(QString str);
     QString getKeyToStr();
-public slots:
-    void editFinish();
 signals:
     void editedFinish();
 
 protected:
     void mousePressEvent(QMouseEvent *event) override;
+    void resizeEvent(QResizeEvent *event) override;
+    virtual bool eventFilter(QObject *watched, QEvent *event) override;
+    void keyPressEvent(QKeyEvent *event) override;
+    void keyReleaseEvent(QKeyEvent *event) override;
+
+private:
+    void clearShortcutKey();
+    void setShortcutShow(bool flag);
+    bool checkNewKey(bool isRelease = false);
+    void initLableList(const QStringList &list);
 
 private:
     QHBoxLayout *m_mainLayout {nullptr};
-    DKeySequenceEdit *m_keyEdit {nullptr};
+    QLineEdit *m_keyEdit {nullptr};
     QList<KeyLabel *> m_list;
+    QStringList curlist;
+    QStringList newlist;
 };
 
 class KeySettingsItem : public SettingsItem
@@ -63,10 +74,14 @@ public:
 signals:
     void editedFinish();
 
+protected:
+    void resizeEvent(QResizeEvent *event);
+    void paintEvent(QPaintEvent *event);
+
 private:
-    QLabel *m_lable;
-    QHBoxLayout *m_hLayout;
-    KeyLabelWidget *m_keyWidget;
+    ShortenLabel *m_label {nullptr};
+    QHBoxLayout *m_hLayout {nullptr};
+    KeyLabelWidget *m_keyWidget {nullptr};
 };
 
 class ComBoboxSettingsItem : public SettingsItem
@@ -80,8 +95,8 @@ public:
 private:
     QHBoxLayout *m_mainLayout {nullptr};
     QComboBox *m_combox {nullptr};
-    QLabel *m_label {nullptr};
+    ShortenLabel *m_label {nullptr};
 };
-}
-}
+} // namespace widgets
+} // namespace dcc_fcitx_configtool
 #endif // KETSETTINGSITEM_H

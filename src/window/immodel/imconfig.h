@@ -27,19 +27,20 @@ class IMConfig
 {
 public:
     static QString defaultIM();
-    static bool setDefaultIM(QString);
+    static bool setDefaultIM(const QString &);
     static QString IMSwitchKey();
-    static bool setIMSwitchKey(QString);
+    static bool setIMSwitchKey(const QString &);
     static QString virtualKey();
-    static bool setVirtualKey(QString);
+    static bool setVirtualKey(const QString &);
     static QString defaultIMKey();
-    static bool setDefaultIMKey(QString);
-    static QString IMPluginKey(QString);
+    static bool setDefaultIMKey(const QString &);
+    static QString IMPluginKey(const QString &);
+    static bool checkShortKey(const QStringList &str);
 
 private:
-    static QString configFile(QString filePath, QString key);
-    static QString configFile(QString filePath, QString group, QString key);
-    static bool setConfigFile(QString filePath, QString key, QString value, bool isHotKey);
+    static QString configFile(const QString &filePath, const QString &key);
+    static QString configFile(const QString &filePath, const QString &group, const QString &key);
+    static bool setConfigFile(const QString &filePath, const QString &key, const QString &value);
     static QString prefix;
 };
 

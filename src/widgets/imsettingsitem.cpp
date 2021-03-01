@@ -36,7 +36,6 @@ IMSettingsItem::IMSettingsItem(QString str, QFrame *parent)
 {
     m_layout = new QHBoxLayout(this);
     m_layout->setContentsMargins(20, 0, 10, 0);
-
     m_labelText = new ShortenLabel(str, this);
     DFontSizeManager::instance()->bind(m_labelText, DFontSizeManager::T6);
     m_labelIcon = new QLabel(this);

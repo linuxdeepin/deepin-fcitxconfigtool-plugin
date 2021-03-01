@@ -1,3 +1,24 @@
+/*
+* Copyright (C) 2021 ~ 2021 Deepin Technology Co., Ltd.
+*
+* Author:     liuwenhao <liuwenhao@uniontech.com>
+*
+* Maintainer: liuwenhao <liuwenhao@uniontech.com>
+*
+* This program is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* any later version.
+*
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU General Public License for more details.
+*
+* You should have received a copy of the GNU General Public License
+* along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
 #include "imactivityitem.h"
 #include "publisher/publisherdef.h"
 #include "window/immodel/immodel.h"
@@ -16,7 +37,6 @@ IMActivityItem::IMActivityItem(FcitxQtInputMethodItem item, bool isFirst, QFrame
     m_layout = new QHBoxLayout(this);
     m_layout->setContentsMargins(20, 0, 10, 0);
     m_labelText = new ShortenLabel("", this);
-
     DFontSizeManager::instance()->bind(m_labelText, DFontSizeManager::T6);
     m_labelText->setShortenText(item.name());
     m_layout->addWidget(m_labelText);
@@ -53,7 +73,7 @@ IMActivityItem::~IMActivityItem()
 {
 }
 
-void IMActivityItem::editSwitch(bool flag)
+void IMActivityItem::editSwitch(const bool &flag)
 {
     if (m_isFirst)
         return;
@@ -68,17 +88,17 @@ void IMActivityItem::editSwitch(bool flag)
     }
 }
 
-void IMActivityItem::setSelectStatus(bool flag)
+void IMActivityItem::setSelectStatus(const bool &isEnter)
 {
     if (m_isFirst || !m_bgGroup)
         return;
 
-    if (!flag)
+    if (!isEnter)
         m_bgGroup->setBackgroundRole(DPalette::ItemBackground);
     else {
         m_bgGroup->setBackgroundRole(DPalette::FrameShadowBorder);
     }
-    if (!m_isEdit && flag) {
+    if (!m_isEdit && isEnter) {
         int index = IMModel::instance()->getIMIndex(m_item);
         int count = IMModel::instance()->getCurIMList().count();
 
@@ -137,11 +157,6 @@ void IMActivityItem::leaveEvent(QEvent *event)
 {
     setSelectStatus(false);
     SettingsItem::leaveEvent(event);
-}
-
-ToolButton::ToolButton(QWidget *parent)
-    : QToolButton(parent)
-{
 }
 
 void ToolButton::paintEvent(QPaintEvent *e)

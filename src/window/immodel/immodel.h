@@ -49,7 +49,7 @@ public:
     bool isEdit() { return m_isEdit; } //获取编辑状态
     int getIMIndex(const QString &IM) const;
     int getIMIndex(const FcitxQtInputMethodItem &IM) const;
-    FcitxQtInputMethodItem getIM(int index) const;
+    FcitxQtInputMethodItem getIM(const int &index) const;
     const FcitxQtInputMethodItemList &getAvailIMList() const { return m_availeIMList; }
     const FcitxQtInputMethodItemList &getCurIMList() const { return m_curIMList; }
 
@@ -59,7 +59,7 @@ public slots:
     void onDeleteItem(FcitxQtInputMethodItem item); //删除item
     void onItemUp(FcitxQtInputMethodItem item); //item上移
     void onItemDown(FcitxQtInputMethodItem item); //item下移
-    void onConfigShow(FcitxQtInputMethodItem item); //显示输入法设置界面
+    void onConfigShow(const FcitxQtInputMethodItem &item); //显示输入法设置界面
 signals:
     void availIMListChanged(FcitxQtInputMethodItemList);
     void curIMListChanaged(FcitxQtInputMethodItemList);

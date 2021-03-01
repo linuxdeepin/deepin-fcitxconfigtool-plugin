@@ -23,14 +23,14 @@
 #include "widgets/settingshead.h"
 #include "widgets/settingsgroup.h"
 #include "widgets/imsettingsitem.h"
+#include "widgets/contentwidget.h"
 #include "publisher/publisherdef.h"
 #include "fcitxInterface/global.h"
 #include "fcitxInterface/i18n.h"
-#include "widgets/contentwidget.h"
 #include <QVBoxLayout>
 
 using namespace Fcitx;
-
+using namespace dcc_fcitx_configtool::widgets;
 bool operator==(const FcitxQtInputMethodItem &item, const FcitxQtInputMethodItem &item2);
 // kcm代码 获取语言名称 简体中文 繁体中文 英文等 需要优化
 static QString languageName(const QString &langCode)
@@ -77,16 +77,16 @@ AvailWidget::AvailWidget(QWidget *parent)
     : QWidget(parent)
 {
     initUI();
-    initConnect();
     onUpdateUI(IMModel::instance()->getAvailIMList());
+    initConnect();
 }
 
 AvailWidget::~AvailWidget()
 {
     m_allIMGroup->clear();
     m_searchIMGroup->clear();
-    deleteObject_Null(m_allIMGroup);
-    deleteObject_Null(m_searchIMGroup);
+    DeleteObject_Null(m_allIMGroup);
+    DeleteObject_Null(m_searchIMGroup);
 }
 
 void AvailWidget::initUI()
@@ -144,6 +144,7 @@ void AvailWidget::onUpdateUI(FcitxQtInputMethodItemList IMlist)
     }
     m_allAvaiIMlList.swap(IMlist);
 
+    //fcitx原有逻辑 不需要修改 __begin
     QMap<QString, int> languageMap;
     QList<QPair<QString, FcitxQtInputMethodItemList>> filteredIMEntryList;
     Q_FOREACH (const FcitxQtInputMethodItem &im, m_allAvaiIMlList) {
@@ -170,8 +171,9 @@ void AvailWidget::onUpdateUI(FcitxQtInputMethodItemList IMlist)
             tmpIM[imcodeName].push_back(*it2);
         }
     }
+    //fcitx原有逻辑 不需要修改 __end
 
-    auto createIMSttings = [=](SettingsGroup *group, FcitxQtInputMethodItem imItem) {
+    auto createIMSttings = [=](SettingsGroup *group, const FcitxQtInputMethodItem &imItem) {
         IMSettingsItem *item = new IMSettingsItem();
         connect(item, &IMSettingsItem::itemClicked, [=](IMSettingsItem *item) {
             m_selectItem = item->m_item;
@@ -211,10 +213,9 @@ void AvailWidget::clearItemStatus()
 {
     m_selectItem = FcitxQtInputMethodItem();
     clearItemStatusAndFilter(m_allIMGroup, true);
-    //cleareFcitxItemAndFilter(m_searchIMGroup);  //不需要清除搜索m_searchIMGroup 搜索框信号会触发清除
 }
 
-void AvailWidget::clearItemStatusAndFilter(SettingsGroup *group, bool flag)
+void AvailWidget::clearItemStatusAndFilter(SettingsGroup *group, const bool &flag)
 {
     if (!group) {
         return;
@@ -224,8 +225,9 @@ void AvailWidget::clearItemStatusAndFilter(SettingsGroup *group, bool flag)
         IMSettingsItem *item = dynamic_cast<IMSettingsItem *>(group->getItem(i));
         if (item) {
             item->setItemSelected(false);
-            if (flag)
+            if (flag) {
                 item->setFilterStr(m_searchStr);
+            }
         }
     }
 }
