@@ -41,6 +41,7 @@ find_package(Qt5 COMPONENTS Widgets REQUIRED)
 find_package(Fcitx REQUIRED)
 find_package(FcitxQt5DBusAddons REQUIRED)
 find_package(FcitxQt5WidgetsAddons REQUIRED)
+pkg_check_modules(DFrameworkDBus REQUIRED dframeworkdbus)
 
 #设置资源目录 加载资源文件 翻译文件 源码
 set(APP_RES_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../res")
@@ -98,16 +99,16 @@ set(TEST_SRCS
     )
 
 
-#    add_executable(${PROJECT_NAME}
-#        ${ALL_SRCS}
-#        ${DTNG_QM_FILES}
-#        ${CMAKE_CURRENT_SOURCE_DIR}/main.cpp
-#        )
-add_library(${PROJECT_NAME}
-        MODULE
+    add_executable(${PROJECT_NAME}
         ${ALL_SRCS}
         ${DTNG_QM_FILES}
+        ${CMAKE_CURRENT_SOURCE_DIR}/main.cpp
         )
+#add_library(${PROJECT_NAME}
+#        MODULE
+#        ${ALL_SRCS}
+#        ${DTNG_QM_FILES}
+#        )
 
 target_include_directories(${PROJECT_NAME} PUBLIC
         ${DdeControlCenter_INCLUDE_DIR}
@@ -138,9 +139,9 @@ if (CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
     set(CMAKE_INSTALL_PREFIX /usr)
 endif ()
 
-# 设置执行 make install 时哪个目标应该被 install 到哪个位置
-install(TARGETS ${PROJECT_NAME} LIBRARY DESTINATION /lib/dde-control-center/modules)
+## 设置执行 make install 时哪个目标应该被 install 到哪个位置
+#install(TARGETS ${PROJECT_NAME} LIBRARY DESTINATION /lib/dde-control-center/modules)
 
 # 安装 .qm 文件
-install(FILES ${DTNG_QM_FILES} DESTINATION share/${PROJECT_NAME}/translations)
+#install(FILES ${DTNG_QM_FILES} DESTINATION share/${PROJECT_NAME}/translations)
 

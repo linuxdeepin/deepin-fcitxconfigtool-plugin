@@ -21,6 +21,7 @@
 #include "imwindow.h"
 #include "imaddwindow.h"
 #include "imsettingwindow.h"
+#include "shortcutkeywindow.h"
 #include "immodel/immodel.h"
 #include "fcitxInterface/config.h"
 #include <QStackedWidget>
@@ -57,8 +58,10 @@ void IMWindow::initUI()
     m_stackedWidget = new QStackedWidget(this);
     m_settingWindow = new IMSettingWindow(this);
     m_addWindow = new IMAddWindow(this);
+    m_shortcutKeyWindow = new ShortcutKeyWindow(this);
     m_stackedWidget->addWidget(m_settingWindow);
     m_stackedWidget->addWidget(m_addWindow);
+    m_stackedWidget->addWidget(m_shortcutKeyWindow);
     m_stackedWidget->setCurrentIndex(0);
     //界面布局
     QVBoxLayout *pLayout = new QVBoxLayout();
@@ -70,13 +73,34 @@ void IMWindow::initUI()
 
 void IMWindow::initConnect()
 {
+    auto func = [=]() {
+        m_stackedWidget->setCurrentIndex(PopIMSettingWindow);
+        m_settingWindow->updateUI();
+    };
+    connect(m_addWindow, &IMAddWindow::popSettingsWindow, func);
+    connect(m_shortcutKeyWindow, &ShortcutKeyWindow::popSettingsWindow, func);
+
     connect(m_settingWindow, &IMSettingWindow::popIMAddWindow, [=]() {
-        m_stackedWidget->setCurrentIndex(1);
+        m_stackedWidget->setCurrentIndex(PopIMAddWindow);
         m_addWindow->updateUI();
     });
+    connect(m_settingWindow, &IMSettingWindow::popShortKeyListWindow, [=](const QString &curName, const QStringList &list, QString &name) {
+        QString tmpString;
+        for (const QString &key : list) {
+            if (key != list.last()) {
+                tmpString += key + "+";
+            } else {
+                tmpString += key;
+            }
+        }
 
-    connect(m_addWindow, &IMAddWindow::popSettingsWindow, [=]() {
-        m_stackedWidget->setCurrentIndex(0);
+        m_shortcutKeyWindow->setValue(curName, name, tmpString);
+        m_stackedWidget->setCurrentIndex(PopShortcutKeyWindow);
+        m_settingWindow->updateUI();
+    });
+    connect(m_settingWindow, &IMSettingWindow::popShortKeyStrWindow, [=](const QString &curName, const QString &str, QString &name) {
+        m_shortcutKeyWindow->setValue(curName, name, str);
+        m_stackedWidget->setCurrentIndex(PopShortcutKeyWindow);
         m_settingWindow->updateUI();
     });
 }

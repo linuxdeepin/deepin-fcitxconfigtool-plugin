@@ -53,6 +53,8 @@ public:
     void updateUI(); //刷新界面
 signals:
     void popIMAddWindow(); //弹出添加输入法界面
+    void popShortKeyListWindow(const QString &curName, const QStringList &list, QString &name); //弹出快捷键冲突界面
+    void popShortKeyStrWindow(const QString &curName, const QString &str, QString &name); //弹出快捷键冲突界面
 private:
     void initUI(); //初始化界面
     void initConnect(); //初始化信号槽

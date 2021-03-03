@@ -47,6 +47,9 @@ public:
         layout->addWidget(label);
     }
 
+    QString text() { return label->text(); }
+
+protected:
     void paintEvent(QPaintEvent *event)
     {
         Q_UNUSED(event)
@@ -85,7 +88,6 @@ public:
         p->setRenderHint(QPainter::Antialiasing);
         p->drawRoundedRect(shadow, frame_radius, frame_radius);
     }
-    QString text() { return label->text(); }
 
 private:
     DLabel *label;

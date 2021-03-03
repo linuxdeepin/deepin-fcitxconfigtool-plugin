@@ -21,33 +21,32 @@
 #include "keysettingsitem.h"
 #include "settingsgroup.h"
 #include "window/immodel/imconfig.h"
+#include "publisher/publisherdef.h"
+#include <DFontSizeManager>
 #include <QComboBox>
 #include <QMouseEvent>
-#include <DFontSizeManager>
+#include <QLineEdit>
 namespace dcc_fcitx_configtool {
 namespace widgets {
 KeyLabelWidget::KeyLabelWidget(QStringList list, QWidget *p)
     : QWidget(p)
-    , curlist(list)
+    , m_curlist(list)
 {
+    m_eidtFlag = true;
+    if (m_curlist.isEmpty()) {
+        m_curlist << tr("None");
+    }
     m_keyEdit = new QLineEdit(this);
     m_keyEdit->installEventFilter(this);
     m_keyEdit->setReadOnly(true);
     m_keyEdit->hide();
-
     m_keyEdit->setPlaceholderText(tr("Enter a new shortcut"));
-
-    connect(m_keyEdit, SIGNAL(editingFinished()), this, SLOT(editFinish()));
-
     m_mainLayout = new QHBoxLayout(this);
     m_mainLayout->setContentsMargins(0, 9, 0, 9);
     m_mainLayout->addStretch();
     m_mainLayout->addWidget(m_keyEdit);
     setLayout(m_mainLayout);
-    if (curlist.isEmpty()) {
-        curlist << tr("None");
-    }
-    setList(curlist);
+    setList(m_curlist);
     setShortcutShow(true);
 }
 
@@ -58,27 +57,22 @@ KeyLabelWidget::~KeyLabelWidget()
 
 void KeyLabelWidget::setList(const QStringList &list)
 {
-    curlist = list;
-    initLableList(curlist);
+    m_curlist = list;
+    initLableList(m_curlist);
 }
 
 void KeyLabelWidget::initLableList(const QStringList &list)
 {
     clearShortcutKey();
     for (const QString &key : list) {
-        appendKey(key);
+        QString tmpKey = key.toLower();
+        if (!tmpKey.isEmpty()) {
+            tmpKey[0] = tmpKey[0].toUpper();
+        }
+        KeyLabel *label = new KeyLabel(tmpKey);
+        m_list << label;
+        m_mainLayout->addWidget(label);
     }
-}
-
-void KeyLabelWidget::appendKey(QString str)
-{
-    QString tmpKey = str.toLower();
-    if (!tmpKey.isEmpty()) {
-        tmpKey[0] = tmpKey[0].toUpper();
-    }
-    KeyLabel *label = new KeyLabel(tmpKey);
-    m_list << label;
-    m_mainLayout->addWidget(label);
 }
 
 QString KeyLabelWidget::getKeyToStr()
@@ -88,20 +82,29 @@ QString KeyLabelWidget::getKeyToStr()
         if (i == m_list.count() - 1) {
             key += m_list[i]->text();
         } else {
-            key += (m_list[i]->text() + "+");
+            key += (m_list[i]->text() + "_");
         }
     }
-    return QKeySequence(key).toString().replace("+", "_").toUpper();
+    return key.toUpper();
+}
+
+void KeyLabelWidget::setEnableEdit(bool flag)
+{
+    m_eidtFlag = flag;
 }
 
 void KeyLabelWidget::mousePressEvent(QMouseEvent *event)
 {
+    if (!m_eidtFlag)
+        return;
     setShortcutShow(!m_keyEdit->isHidden());
     QWidget::mousePressEvent(event);
 }
 
 void KeyLabelWidget::resizeEvent(QResizeEvent *event)
 {
+    if (!m_eidtFlag)
+        return;
     setShortcutShow(m_keyEdit->isHidden());
     QWidget::resizeEvent(event);
 }
@@ -118,27 +121,29 @@ bool KeyLabelWidget::eventFilter(QObject *watched, QEvent *event)
             return true;
         }
         if (event->type() == QEvent::KeyPress) {
-            QKeyEvent *e = static_cast<QKeyEvent *>(event);
+            Dynamic_Cast(QKeyEvent, e, event);
+
+            auto func = [=](QStringList &list, const QString &key) {
+                clearShortcutKey();
+                list.clear();
+                list << key;
+                initLableList(list);
+                setShortcutShow(true);
+            };
+
             if (e) {
                 if (e->key() == Qt::Key_Delete || e->key() == Qt::Key_Backspace) {
-                    clearShortcutKey();
-                    curlist.clear();
-                    curlist << tr("None");
-                    initLableList(curlist);
-                    setShortcutShow(true);
+                    func(m_curlist, tr("None"));
+
                 } else if (e->key() == Qt::Key_Control || e->key() == Qt::Key_Alt || e->key() == Qt::Key_Shift) {
                     setFocus();
-                    clearShortcutKey();
-                    newlist.clear();
-                    newlist << publisherFunc::getKeyValue(e->key());
-                    initLableList(newlist);
-                    setShortcutShow(true);
-
+                    func(m_newlist, publisherFunc::getKeyValue(e->key()));
                 } else {
                     setShortcutShow(true);
                 }
+                return true;
             }
-            return true;
+            return false;
         }
     }
     return false;
@@ -146,13 +151,12 @@ bool KeyLabelWidget::eventFilter(QObject *watched, QEvent *event)
 
 void KeyLabelWidget::keyPressEvent(QKeyEvent *event)
 {
-    QString key = publisherFunc::getKeyValue(event->key());
-    qDebug() << "keyPressEvent" << key;
-
-    newlist << publisherFunc::getKeyValue(event->key());
-    initLableList(newlist);
-    if (newlist.count() >= 2 && !checkNewKey()) {
-        initLableList(curlist);
+    if (!m_eidtFlag)
+        return;
+    m_newlist << publisherFunc::getKeyValue(event->key());
+    initLableList(m_newlist);
+    if (m_newlist.count() >= 2 && !checkNewKey()) {
+        initLableList(m_curlist);
     }
     setShortcutShow(true);
     QWidget::keyPressEvent(event);
@@ -160,8 +164,10 @@ void KeyLabelWidget::keyPressEvent(QKeyEvent *event)
 
 void KeyLabelWidget::keyReleaseEvent(QKeyEvent *event)
 {
-    if (newlist.count() < 2 || !checkNewKey(true)) {
-        initLableList(curlist);
+    if (!m_eidtFlag)
+        return;
+    if (m_newlist.count() < 2 || !checkNewKey(true)) {
+        initLableList(m_curlist);
     }
     setShortcutShow(true);
 
@@ -204,27 +210,33 @@ void KeyLabelWidget::setShortcutShow(bool flag)
 
 bool KeyLabelWidget::checkNewKey(bool isRelease)
 {
-    qDebug() << "checkNewKey" << newlist;
     QStringList list {publisherFunc::getKeyValue(Qt::Key_Control),
                       publisherFunc::getKeyValue(Qt::Key_Alt),
                       publisherFunc::getKeyValue(Qt::Key_Shift),
                       publisherFunc::getKeyValue(Qt::Key_Super_L)};
-    qDebug() << list;
-    if (newlist.count() == 2) {
-        for (int i = 0; i < list.count(); ++i) {
-            if (newlist.at(0) == list.at(i)) {
-                if (list.indexOf(newlist[1]) != -1) {
-                    if (newlist[1] != newlist[0]) {
-                        return !isRelease;
 
-                    } else {
+    if (m_newlist.count() == 2) {
+        for (int i = 0; i < list.count(); ++i) {
+            if (m_newlist.at(0) == list.at(i)) {
+                if (list.indexOf(m_newlist[1]) != -1) {
+                    if (m_newlist[1] != m_newlist[0]) {
+                        return !isRelease;
+                    }
+                    return false;
+                }
+                if (list.indexOf(m_newlist[1]) == -1) {
+                    QStringList tmpList;
+                    for (const QString &key : m_newlist) {
+                        QString tmpKey = key.toUpper();
+                        tmpList.append(tmpKey);
+                    }
+
+                    QString configName;
+                    if (m_curlist != tmpList && !IMConfig::checkShortKey(m_newlist, configName)) {
+                        emit shortCutError(m_newlist, configName);
                         return false;
                     }
-                }
-                if (list.indexOf(newlist[1]) == -1) {
-                    if (IMConfig::checkShortKey(newlist)) {
-                    }
-                    setList(newlist);
+                    setList(m_newlist);
                     focusNextChild();
                     emit editedFinish();
                     return true;
@@ -232,16 +244,25 @@ bool KeyLabelWidget::checkNewKey(bool isRelease)
             }
         }
     }
-    if (newlist.count() == 3) {
-        if (list.indexOf(newlist[2]) == -1) {
-            setList(newlist);
-            focusNextChild();
-            emit editedFinish();
-            return true;
-        } else {
+    if (m_newlist.count() >= 3) {
+        if (list.indexOf(m_newlist[0]) == -1 || list.indexOf(m_newlist[1]) == -1 || list.indexOf(m_newlist[2]) != -1) {
             focusNextChild();
             return false;
         }
+        QStringList tmpList;
+        for (const QString &key : m_newlist) {
+            QString tmpKey = key.toUpper();
+            tmpList.append(tmpKey);
+        }
+        QString configName;
+        if (m_curlist != tmpList && !IMConfig::checkShortKey(m_newlist, configName)) {
+            emit shortCutError(m_newlist, configName);
+            return false;
+        }
+        setList(m_newlist);
+        focusNextChild();
+        emit editedFinish();
+        return true;
     }
     return true;
 }
@@ -260,6 +281,22 @@ KeySettingsItem::KeySettingsItem(const QString &text, const QStringList &list, Q
     setFixedHeight(48);
     setLayout(m_hLayout);
     connect(m_keyWidget, &KeyLabelWidget::editedFinish, this, &KeySettingsItem::editedFinish);
+    connect(m_keyWidget, &KeyLabelWidget::shortCutError, this, &KeySettingsItem::doShortCutError);
+}
+
+void KeySettingsItem::setText(const QString &text)
+{
+    m_label->setShortenText(text);
+}
+
+QString KeySettingsItem::getLabelText()
+{
+    return m_label->text();
+}
+
+void KeySettingsItem::setEnableEdit(bool flag)
+{
+    m_keyWidget->setEnableEdit(flag);
 }
 
 void KeySettingsItem::setList(const QStringList &list)
@@ -269,19 +306,22 @@ void KeySettingsItem::setList(const QStringList &list)
 
 void KeySettingsItem::resizeEvent(QResizeEvent *event)
 {
-    int v = width() - m_keyWidget->width() - 32;
-    int titleWidth = publisherFunc::fontSize(m_label->text());
-    if (titleWidth <= v) {
-        m_label->setFixedWidth(titleWidth);
-    } else {
-        m_label->setFixedWidth(v);
-    }
-
-    qDebug() << size() << m_keyWidget->size() << m_label->size();
+    updateSize();
     SettingsItem::resizeEvent(event);
 }
 
 void KeySettingsItem::paintEvent(QPaintEvent *event)
+{
+    updateSize();
+    SettingsItem::paintEvent(event);
+}
+
+void KeySettingsItem::doShortCutError(const QStringList &list, QString &name)
+{
+    emit KeySettingsItem::shortCutError(m_label->text(), list, name);
+}
+
+void KeySettingsItem::updateSize()
 {
     int v = width() - m_keyWidget->width() - 32;
     int titleWidth = publisherFunc::fontSize(m_label->text());
@@ -290,8 +330,6 @@ void KeySettingsItem::paintEvent(QPaintEvent *event)
     } else {
         m_label->setFixedWidth(v);
     }
-
-    SettingsItem::paintEvent(event);
 }
 
 ComBoboxSettingsItem::ComBoboxSettingsItem(const QString &text, const QStringList &list, QFrame *parent)
@@ -308,6 +346,11 @@ ComBoboxSettingsItem::ComBoboxSettingsItem(const QString &text, const QStringLis
     m_mainLayout->setContentsMargins(10, 0, 10, 0);
     setLayout(m_mainLayout);
     setFixedHeight(48);
+}
+
+QString ComBoboxSettingsItem::getLabelText()
+{
+    return m_label->text();
 }
 
 ComBoboxSettingsItem::~ComBoboxSettingsItem()
