@@ -22,6 +22,22 @@
 #define IMCONFIG_H
 #include <QString>
 
+struct ShortcutInfo {
+    QString accels;
+    QString id;
+    QString name;
+    int type;
+    bool operator==(const ShortcutInfo &info) const
+    {
+        return id == info.id && type == info.type;
+    }
+
+    QString toString()
+    {
+        return name + " " + accels + " " + id + " " + QString::number(type);
+    }
+};
+
 //默认输入法 切换方式 虚拟键盘 默认输入法快捷键
 class IMConfig
 {
@@ -35,7 +51,8 @@ public:
     static QString defaultIMKey();
     static bool setDefaultIMKey(const QString &);
     static QString IMPluginKey(const QString &);
-    static bool checkShortKey(const QStringList &str);
+    static bool checkShortKey(const QStringList &str, QString &configName);
+    static bool checkShortKey(const QString &str, QString &configName);
 
 private:
     static QString configFile(const QString &filePath, const QString &key);

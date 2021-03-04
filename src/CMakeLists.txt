@@ -41,6 +41,7 @@ find_package(Qt5 COMPONENTS Widgets REQUIRED)
 find_package(Fcitx REQUIRED)
 find_package(FcitxQt5DBusAddons REQUIRED)
 find_package(FcitxQt5WidgetsAddons REQUIRED)
+pkg_check_modules(DFrameworkDBus REQUIRED dframeworkdbus)
 
 #设置资源目录 加载资源文件 翻译文件 源码
 set(APP_RES_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../res")
@@ -97,12 +98,12 @@ set(TEST_SRCS
     ${TEST_SOURCE_FILES}
     )
 
-
 #    add_executable(${PROJECT_NAME}
 #        ${ALL_SRCS}
 #        ${DTNG_QM_FILES}
 #        ${CMAKE_CURRENT_SOURCE_DIR}/main.cpp
 #        )
+
 add_library(${PROJECT_NAME}
         MODULE
         ${ALL_SRCS}

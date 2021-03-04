@@ -87,4 +87,4 @@ void ButtonTuple::createRightButton(const ButtonTuple::ButtonType type)
     }
 }
 } // namespace widgets
-} // namespace dcc
+} // namespace dcc_fcitx_configtool

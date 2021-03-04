@@ -24,7 +24,6 @@
 #include "settingsitem.h"
 #include "labels/shortenlabel.h"
 #include <QComboBox>
-#include <DKeySequenceEdit>
 
 using namespace Dtk::Widget;
 using namespace dcc_fcitx_configtool::widgets;
@@ -38,10 +37,12 @@ public:
     KeyLabelWidget(QStringList list = {}, QWidget *p = nullptr);
     virtual ~KeyLabelWidget();
     void setList(const QStringList &list);
-    void appendKey(QString str);
     QString getKeyToStr();
+    void setEnableEdit(bool flag);
+
 signals:
     void editedFinish();
+    void shortCutError(const QStringList &list, QString &name);
 
 protected:
     void mousePressEvent(QMouseEvent *event) override;
@@ -60,23 +61,35 @@ private:
     QHBoxLayout *m_mainLayout {nullptr};
     QLineEdit *m_keyEdit {nullptr};
     QList<KeyLabel *> m_list;
-    QStringList curlist;
-    QStringList newlist;
+    QStringList m_curlist;
+    QStringList m_newlist;
+    bool m_eidtFlag;
 };
 
 class KeySettingsItem : public SettingsItem
 {
     Q_OBJECT
 public:
-    KeySettingsItem(const QString &text, const QStringList &list = {}, QFrame *parent = nullptr);
+    KeySettingsItem(const QString &text = "", const QStringList &list = {}, QFrame *parent = nullptr);
     void setList(const QStringList &list);
     QString getKeyToStr() { return m_keyWidget->getKeyToStr(); }
+    void setEnableEdit(bool flag);
+    QString getLabelText();
+    void setText(const QString &text);
+
 signals:
     void editedFinish();
+    void shortCutError(const QString &curName, const QStringList &list, QString &name);
+
+public slots:
+    void doShortCutError(const QStringList &list, QString &name);
 
 protected:
     void resizeEvent(QResizeEvent *event);
     void paintEvent(QPaintEvent *event);
+
+private:
+    void updateSize();
 
 private:
     ShortenLabel *m_label {nullptr};
@@ -91,6 +104,7 @@ public:
     ComBoboxSettingsItem(const QString &text, const QStringList &list = {}, QFrame *parent = nullptr);
     virtual ~ComBoboxSettingsItem();
     QComboBox *comboBox() { return m_combox; }
+    QString getLabelText();
 
 private:
     QHBoxLayout *m_mainLayout {nullptr};
