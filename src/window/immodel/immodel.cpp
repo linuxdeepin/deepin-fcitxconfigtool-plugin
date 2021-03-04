@@ -195,10 +195,12 @@ void IMModel::onConfigShow(const FcitxQtInputMethodItem &item)
     QString imUniqueName = item.uniqueName();
 
     QStringList closeSrcImList {
-        "chineseime", "iflyime", "huayupy", "sogoupinyin", "baidupinyin"};
+        "chineseime", "iflyime", "sogoupinyin", "baidupinyin"};
 
     if (closeSrcImList.contains(imUniqueName)) {
         QProcess::startDetached(IMConfig::IMPluginKey(imUniqueName));
+    } else if (imUniqueName.compare("huayupy") == 0) {
+        QProcess::startDetached(IMConfig::IMPluginKey(imUniqueName) + " " + IMConfig::IMPluginPar(imUniqueName));
     } else {
         QDBusPendingReply<QString>
             result = Global::instance()->inputMethodProxy()->GetIMAddon(imUniqueName);

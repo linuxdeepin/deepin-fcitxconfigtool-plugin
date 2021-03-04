@@ -70,6 +70,11 @@ QString IMConfig::IMPluginKey(const QString &str)
     return configFile(prefix + "/.config/fcitx/conf/fcitx-implugin.config", str, QString("Setting"));
 }
 
+QString IMConfig::IMPluginPar(const QString &str)
+{
+    return configFile(prefix + "/.config/fcitx/conf/fcitx-implugin.config", str, QString("Parameter"));
+}
+
 bool IMConfig::checkShortKey(const QStringList &str, QString &configName)
 {
     if (str.count() > 3)

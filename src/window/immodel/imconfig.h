@@ -51,6 +51,8 @@ public:
     static QString defaultIMKey();
     static bool setDefaultIMKey(const QString &);
     static QString IMPluginKey(const QString &);
+    static QString IMPluginPar(const QString &);
+
     static bool checkShortKey(const QStringList &str, QString &configName);
     static bool checkShortKey(const QString &str, QString &configName);
 
