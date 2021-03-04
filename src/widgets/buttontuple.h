@@ -61,6 +61,7 @@ public:
         Normal = 0,
         Save = 1,
         Delete = 2,
+        None = 3,
     };
 
     explicit ButtonTuple(ButtonType type = Normal, QWidget *parent = nullptr);
@@ -83,6 +84,6 @@ private:
 };
 
 } // namespace widgets
-} // namespace dcc
+} // namespace dcc_fcitx_configtool
 
 #endif // BUTTONTUPLE_H

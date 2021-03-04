@@ -40,52 +40,52 @@
 <context>
     <name>IMSettingWindow</name>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="89"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="92"/>
         <source>Default</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="101"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="104"/>
         <source>Switch input methods</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="102"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="105"/>
         <source>Switch to default input method</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="103"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="106"/>
         <source>Call out Onboard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="104"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="107"/>
         <source>Applies to</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="105"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="108"/>
         <source>System</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="105"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="108"/>
         <source>Application</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="113"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="116"/>
         <source>Input Method</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="116"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="119"/>
         <source>Manage Input Methods</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="119"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="122"/>
         <source>Shortcuts</source>
         <translation type="unfinished"></translation>
     </message>
@@ -113,15 +113,28 @@
     </message>
 </context>
 <context>
+    <name>ShortcutKeyWindow</name>
+    <message>
+        <location filename="../src/window/shortcutkeywindow.cpp" line="29"/>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/window/shortcutkeywindow.cpp" line="49"/>
+        <source>This shortcut conflicts with  %1, please click on Cancel and replace this shortcut</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>dcc_fcitx_configtool::widgets::KeyLabelWidget</name>
     <message>
-        <location filename="../src/widgets/keysettingsitem.cpp" line="38"/>
+        <location filename="../src/widgets/keysettingsitem.cpp" line="43"/>
         <source>Enter a new shortcut</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/widgets/keysettingsitem.cpp" line="48"/>
-        <location filename="../src/widgets/keysettingsitem.cpp" line="126"/>
+        <location filename="../src/widgets/keysettingsitem.cpp" line="37"/>
+        <location filename="../src/widgets/keysettingsitem.cpp" line="136"/>
         <source>None</source>
         <translation type="unfinished"></translation>
     </message>
