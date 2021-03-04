@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b616aa0d_04a517d8",
+        "filename": "tests/windows/imconfig/ut_imconfig.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-03-04T12:33:38Z",
+      "side": 1,
+      "message": "注释行数: 0; 改动行数(修改和新增): 10; 注释率: 0.0%",
+      "revId": "214a8ab594aeedbe57f31a9cf039a639b5bd3379",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3d6dea9f_7c3f15ab",
+        "filename": "tests/windows/imconfig/ut_immodel.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-03-04T12:33:38Z",
+      "side": 1,
+      "message": "注释行数: 18; 改动行数(修改和新增): 72; 注释率: 25.0%",
+      "revId": "214a8ab594aeedbe57f31a9cf039a639b5bd3379",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a75bf611_92238770",
+        "filename": "tests/windows/ut_shortcutkeywindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-03-04T12:33:38Z",
+      "side": 1,
+      "message": "注释行数: 21; 改动行数(修改和新增): 65; 注释率: 32.3%",
+      "revId": "214a8ab594aeedbe57f31a9cf039a639b5bd3379",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    }
+  ]
+}
