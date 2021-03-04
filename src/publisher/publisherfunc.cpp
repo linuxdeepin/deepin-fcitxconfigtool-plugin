@@ -175,10 +175,10 @@ QString getKeyValue(const int &key)
         keyValue_QT_KEY = QString("Super");
         break;
     case Qt::Key_Return:
-        keyValue_QT_KEY = QString("Enter(main)");
+        keyValue_QT_KEY = QString("Enter");
         break;
     case Qt::Key_Enter:
-        keyValue_QT_KEY = QString("Enter(num)");
+        keyValue_QT_KEY = QString("Enter");
         break;
     case Qt::Key_Home:
         keyValue_QT_KEY = QString("Home");

@@ -29,10 +29,12 @@
 #include "widgets/settingshead.h"
 #include "publisher/publisherdef.h"
 #include "widgets/contentwidget.h"
+#include "window/shortcutkeywindow.h"
 
 #include <DFloatingButton>
 #include <DCommandLinkButton>
 #include <QScrollArea>
+#include <QStackedWidget>
 #include <libintl.h>
 
 using namespace Fcitx;
@@ -77,6 +79,7 @@ void IMSettingWindow::initUI()
 
     //滑动窗口
     ContentWidget *scrollArea = new ContentWidget(this);
+
     QWidget *scrollAreaWidgetContents = new QWidget(scrollArea);
     QVBoxLayout *scrollAreaLayout = new QVBoxLayout(scrollAreaWidgetContents);
     scrollAreaLayout->setMargin(10);
@@ -125,6 +128,8 @@ void IMSettingWindow::initUI()
     m_addIMBtn = new DFloatingButton(DStyle::SP_IncreaseElement, this);
     QHBoxLayout *headLayout = new QHBoxLayout(this);
     headLayout->setMargin(0);
+    headLayout->setSpacing(0);
+    headLayout->addSpacing(20);
     headLayout->addItem(new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum));
     headLayout->addWidget(m_addIMBtn);
     headLayout->addItem(new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum));
@@ -151,6 +156,10 @@ void IMSettingWindow::initConnect()
     connect(m_virtualKey, &KeySettingsItem::editedFinish, [=]() {
         reloadFcitx(IMConfig::setVirtualKey(m_virtualKey->getKeyToStr()));
     });
+
+    connect(m_defaultIMKey, &KeySettingsItem::shortCutError, this, &IMSettingWindow::popShortKeyListWindow);
+    connect(m_virtualKey, &KeySettingsItem::shortCutError, this, &IMSettingWindow::popShortKeyListWindow);
+
     connect(m_imSwitchCbox->comboBox(), &QComboBox::currentTextChanged, [=]() {
         reloadFcitx(IMConfig::setIMSwitchKey(m_imSwitchCbox->comboBox()->currentText()));
     });
@@ -164,12 +173,10 @@ void IMSettingWindow::initConnect()
 void IMSettingWindow::readConfig()
 {
     int index = m_imSwitchCbox->comboBox()->findText(IMConfig::IMSwitchKey());
-    index = (index < 0) ? 0 : index;
-    m_imSwitchCbox->comboBox()->setCurrentIndex(index);
+    m_imSwitchCbox->comboBox()->setCurrentIndex(index < 0 ? 0 : index);
 
     index = IMModel::instance()->getIMIndex(IMConfig::defaultIM());
-    index = (index < 0) ? 0 : index;
-    m_defaultIMCbox->comboBox()->setCurrentIndex(index);
+    m_defaultIMCbox->comboBox()->setCurrentIndex(index < 0 ? 0 : index);
 
     m_defaultIMKey->setList(IMConfig::defaultIMKey().split("_"));
     m_virtualKey->setList(IMConfig::virtualKey().split("_"));
@@ -209,6 +216,24 @@ void IMSettingWindow::itemSwap(const FcitxQtInputMethodItem &item, const bool &i
 //默认输入法改变
 void IMSettingWindow::onDefaultIMChanged()
 {
+    QString key = m_defaultIMCbox->comboBox()->currentText();
+    QString tmpShortKey;
+    QString tmpConfigName;
+    if (!IMConfig::checkShortKey(key, tmpConfigName)) {
+        if (key.compare("CTRL_SHIFT") == 0) {
+            tmpShortKey = "Ctrl+Shift";
+        } else if (key.compare("ALT_SHIFT") == 0) {
+            tmpShortKey = "Alt+Shift";
+        } else if (key.compare("CTRL_SUPER") == 0) {
+            tmpShortKey = "Ctrl+Super";
+        } else if (key.compare("ALT_SUPER") == 0) {
+            tmpShortKey = "Alt+Super";
+        }
+
+        emit popShortKeyStrWindow("defaultim", tmpShortKey, tmpConfigName);
+        return;
+    }
+
     FcitxQtInputMethodItem item = IMModel::instance()->getIM(m_defaultIMCbox->comboBox()->currentIndex());
     if (!item.uniqueName().isEmpty()) {
         IMConfig::setDefaultIM(item.uniqueName());

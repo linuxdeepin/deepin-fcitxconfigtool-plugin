@@ -26,9 +26,15 @@
 class IMAddWindow;
 class IMSettingWindow;
 class QStackedWidget;
-
+class ShortcutKeyWindow;
 class IMWindow : public QWidget
 {
+    enum WindowHendel {
+        PopIMSettingWindow = 0,
+        PopIMAddWindow,
+        PopShortcutKeyWindow
+    };
+
     Q_OBJECT
 public:
     explicit IMWindow(QWidget *parent = nullptr);
@@ -42,6 +48,7 @@ private:
     QStackedWidget *m_stackedWidget {nullptr}; //栈窗口
     IMSettingWindow *m_settingWindow {nullptr}; //输入法编辑窗口
     IMAddWindow *m_addWindow {nullptr}; //输入法添加窗口
+    ShortcutKeyWindow *m_shortcutKeyWindow {nullptr}; //快捷键冲突提示界面
 };
 
 #endif // IMWIDOW_H
