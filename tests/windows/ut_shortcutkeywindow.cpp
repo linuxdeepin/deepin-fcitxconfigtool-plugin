@@ -21,15 +21,16 @@
 
 #include <iostream>
 #include "gtest/gtest.h"
-#include "window/immodel/imconfig.h"
-class ut_imconfig : public ::testing::Test
+#include "window/shortcutkeywindow.h"
+//#include <QObject>
+class ut_shortcutkeywindow : public ::testing::Test
 {
 protected:
-    ut_imconfig()
+    ut_shortcutkeywindow()
     {
     }
 
-    virtual ~ut_imconfig()
+    virtual ~ut_shortcutkeywindow()
     {
     }
 
@@ -42,42 +43,32 @@ protected:
     }
 };
 
-TEST_F(ut_imconfig, defualtIM)
+TEST_F(ut_shortcutkeywindow, initUI)
 {
-    IMConfig imconfig;
-    QString defaultIm = imconfig.defaultIM();
-    imconfig.setDefaultIM(defaultIm);
+    ShortcutKeyWindow shortcutkeyWindow;
+    shortcutkeyWindow.initUI();
 }
 
-TEST_F(ut_imconfig, IMSwitch)
+TEST_F(ut_shortcutkeywindow, initConnect)
 {
-    IMConfig imconfig;
-    QString imSwitch = imconfig.IMSwitchKey();
-    imconfig.setIMSwitchKey(imSwitch);
+    ShortcutKeyWindow shortcutkeyWindow;
+    shortcutkeyWindow.initConnect();
 }
 
-TEST_F(ut_imconfig, virtualKey)
+TEST_F(ut_shortcutkeywindow, setBottomTip)
 {
-    IMConfig imconfig;
-    QString virtualKey = imconfig.virtualKey();
-    imconfig.setVirtualKey(virtualKey);
+    ShortcutKeyWindow shortcutkeyWindow;
+    shortcutkeyWindow.setBottomTip();
 }
 
-TEST_F(ut_imconfig, defualtIMKey)
+TEST_F(ut_shortcutkeywindow, setKeySettings)
 {
-    IMConfig imconfig;
-    QString defualtIMKey = imconfig.defaultIMKey();
-    imconfig.setDefaultIMKey(defualtIMKey);
+    ShortcutKeyWindow shortcutkeyWindow;
+    shortcutkeyWindow.setKeySettings();
 }
 
-TEST_F(ut_imconfig, IMPluginKey)
+TEST_F(ut_shortcutkeywindow, setLabelText)
 {
-    IMConfig imconfig;
-    QString impluginKey = imconfig.IMPluginKey("Setting");
-}
-
-TEST_F(ut_imconfig, IMPluginPar)
-{
-    IMConfig imconfig;
-    QString impluginKey = imconfig.IMPluginPar("Parameter");
+    ShortcutKeyWindow shortcutkeyWindow;
+    shortcutkeyWindow.setLabelText();
 }

@@ -48,3 +48,86 @@ TEST_F(ut_immodel, setEdit)
     immodel->setEdit(true);
     EXPECT_TRUE(true);
 }
+
+TEST_F(ut_immodel, isEdit)
+{
+    IMModel *immodel = IMModel::instance();
+    immodel->isEdit();
+    EXPECT_TRUE(true);
+}
+
+TEST_F(ut_immodel, getIMIndex)
+{
+    IMModel *immodel = IMModel::instance();
+    immodel->getIMIndex("iflyime");
+    EXPECT_TRUE(true);
+}
+
+TEST_F(ut_immodel, getIM)
+{
+    //    IMModel *immodel = IMModel::instance();
+    //    FcitxQtInputMethodItem item = immodel->getIM(0);
+    //    immodel->getIMIndex(item);
+    EXPECT_TRUE(true);
+}
+
+TEST_F(ut_immodel, getAvailIMList)
+{
+    IMModel *immodel = IMModel::instance();
+    FcitxQtInputMethodItemList itemList = immodel->getAvailIMList();
+    EXPECT_TRUE(true);
+}
+
+TEST_F(ut_immodel, getCurIMList)
+{
+    IMModel *immodel = IMModel::instance();
+    FcitxQtInputMethodItemList itemList = immodel->getCurIMList();
+    EXPECT_TRUE(true);
+}
+
+TEST_F(ut_immodel, onUpdateIMList)
+{
+    IMModel *immodel = IMModel::instance();
+    immodel->onUpdateIMList();
+    EXPECT_TRUE(true);
+}
+
+TEST_F(ut_immodel, onAddIMItem)
+{
+    //    IMModel *immodel = IMModel::instance();
+    //    FcitxQtInputMethodItem item = immodel->getIM(0);
+    //    immodel->onAddIMItem(item);
+    EXPECT_TRUE(true);
+}
+
+TEST_F(ut_immodel, onDeleteItem)
+{
+    //    IMModel *immodel = IMModel::instance();
+    //    FcitxQtInputMethodItem item = immodel->getIM(0);
+    //    immodel->onDeleteItem(item);
+    EXPECT_TRUE(true);
+}
+
+TEST_F(ut_immodel, onItemUp)
+{
+    //    IMModel *immodel = IMModel::instance();
+    //    FcitxQtInputMethodItem item = immodel->getIM(0);
+    //    immodel->onItemUp(item);
+    EXPECT_TRUE(true);
+}
+
+TEST_F(ut_immodel, onItemDown)
+{
+    //    IMModel *immodel = IMModel::instance();
+    //    FcitxQtInputMethodItem item = immodel->getIM(0);
+    //    immodel->onItemDown(item);
+    EXPECT_TRUE(true);
+}
+
+TEST_F(ut_immodel, onConfigShow)
+{
+    //    IMModel *immodel = IMModel::instance();
+    //    FcitxQtInputMethodItem item = immodel->getIM(0);
+    //    immodel->onConfigShow(item);
+    EXPECT_TRUE(true);
+}
