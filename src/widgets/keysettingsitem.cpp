@@ -338,7 +338,7 @@ ComBoboxSettingsItem::ComBoboxSettingsItem(const QString &text, const QStringLis
     m_combox->setFixedHeight(36);
     m_combox->addItems(list);
     m_label = new ShortenLabel(text, this);
-    DFontSizeManager::instance()->bind(m_label, DFontSizeManager::T7);
+    DFontSizeManager::instance()->bind(m_label, DFontSizeManager::T6);
     m_mainLayout = new QHBoxLayout(this);
     m_mainLayout->addWidget(m_label);
     m_mainLayout->addWidget(m_combox);

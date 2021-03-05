@@ -166,7 +166,9 @@ void IMSettingWindow::initConnect()
 
     connect(IMModel::instance(), &IMModel::curIMListChanaged, this, &IMSettingWindow::onCurIMChanged);
     connect(m_addIMBtn, &DFloatingButton::clicked, this, &IMSettingWindow::onAddBtnCilcked);
-    connect(m_defaultIMCbox, &ComboxWidget::onSelectChanged, this, &IMSettingWindow::onDefaultIMChanged);
+    // connect(m_defaultIMCbox, &ComboxWidget::onSelectChanged, this, &IMSettingWindow::onDefaultIMChanged);
+
+    connect(m_defaultIMCbox->comboBox(), &QComboBox::currentTextChanged, this, &IMSettingWindow::onDefaultIMChanged);
     connect(m_editHead, &SettingsHead::editChanged, this, &IMSettingWindow::onEditBtnClicked);
 }
 //读取配置文件
@@ -217,22 +219,6 @@ void IMSettingWindow::itemSwap(const FcitxQtInputMethodItem &item, const bool &i
 void IMSettingWindow::onDefaultIMChanged()
 {
     QString key = m_defaultIMCbox->comboBox()->currentText();
-    QString tmpShortKey;
-    QString tmpConfigName;
-    if (!IMConfig::checkShortKey(key, tmpConfigName)) {
-        if (key.compare("CTRL_SHIFT") == 0) {
-            tmpShortKey = "Ctrl+Shift";
-        } else if (key.compare("ALT_SHIFT") == 0) {
-            tmpShortKey = "Alt+Shift";
-        } else if (key.compare("CTRL_SUPER") == 0) {
-            tmpShortKey = "Ctrl+Super";
-        } else if (key.compare("ALT_SUPER") == 0) {
-            tmpShortKey = "Alt+Super";
-        }
-
-        emit popShortKeyStrWindow("defaultim", tmpShortKey, tmpConfigName);
-        return;
-    }
 
     FcitxQtInputMethodItem item = IMModel::instance()->getIM(m_defaultIMCbox->comboBox()->currentIndex());
     if (!item.uniqueName().isEmpty()) {
@@ -303,6 +289,22 @@ void IMSettingWindow::onItemDown(const FcitxQtInputMethodItem &item)
 void IMSettingWindow::onItemDelete(const FcitxQtInputMethodItem &item)
 {
     auto it = m_IMListGroup->getItem(IMModel::instance()->getIMIndex(item));
+    if (item.name() == IMConfig::defaultIM()) {
+        int index = m_defaultIMCbox->comboBox()->findText(item.name());
+        if (index >= 0) {
+            m_defaultIMCbox->comboBox()->removeItem(index);
+            m_defaultIMCbox->comboBox()->setCurrentIndex(1);
+        }
+        //        index = m_defaultIMCbox->comboBox()->count() >= 2 ? 0 : 1;
+        //        IMConfig::setDefaultIM(IMModel::instance()->getIM(index).uniqueName());
+
+    } else {
+        int index = m_defaultIMCbox->comboBox()->findText(item.name());
+        if (index >= 0) {
+            m_defaultIMCbox->comboBox()->removeItem(index);
+        }
+    }
+
     m_IMListGroup->removeItem(it);
     it->deleteLater();
     IMModel::instance()->onDeleteItem(item);
