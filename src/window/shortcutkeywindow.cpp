@@ -46,7 +46,7 @@ void ShortcutKeyWindow::initConnect()
 
 void ShortcutKeyWindow::setBottomTip()
 {
-    QString str = tr("This shortcut conflicts with  %1, please click on Cancel and replace this shortcut")
+    QString str = tr("This shortcut conflicts with %1, click on Add to make this shortcut effective immediately")
                       .arg(QString("<span style=\"color: rgba(255, 90, 90, 1);\">%1 %2</span>").arg(m_conflictName).arg(QString("[%1]").arg(m_shortCut)));
     m_bottomTip->setText(str);
 }

@@ -82,7 +82,7 @@ public:
     */
     virtual const QString name() const
     {
-        return QString("Manage Input Methods");
+        return QString("Input Methods Manage");
     };
 
     /**
@@ -92,7 +92,7 @@ public:
     */
     virtual const QString displayName() const
     {
-        return QString(tr("Manage Input Methods"));
+        return QString(tr("Input Methods Manage"));
     }
 
     /**
