@@ -26,11 +26,13 @@
 #include "fcitxInterface/config.h"
 #include <QStackedWidget>
 #include <QVBoxLayout>
+#include <QTranslator>
 #include <libintl.h>
 
 IMWindow::IMWindow(QWidget *parent)
     : QWidget(parent)
 {
+    initTranslator();
     initFcitxInterface();
     initUI();
     initConnect();
@@ -38,7 +40,17 @@ IMWindow::IMWindow(QWidget *parent)
 
 IMWindow::~IMWindow()
 {
+    //    qApp->removeTranslator(&m_translator);
     IMModel::instance()->deleteIMModel();
+}
+
+void IMWindow::initTranslator()
+{
+    //    m_translator.load(QLocale::system(),
+    //                      QStringLiteral("deepin-fcitxconfigtool-plugin"),
+    //                      QStringLiteral("_"),
+    //                      QStringLiteral("/usr/share/deepin-fcitxconfigtool-plugin/translations"));
+    //    qApp->installTranslator(&m_translator);
 }
 
 void IMWindow::initFcitxInterface()

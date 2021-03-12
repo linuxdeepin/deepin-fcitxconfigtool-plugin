@@ -47,6 +47,7 @@ public:
     }
     ~FcitxConfigPlugin()
     {
+        qApp->removeTranslator(&m_translator);
     }
 
     /**
@@ -56,6 +57,11 @@ public:
     virtual void preInitialize(bool sync = false, FrameProxyInterface::PushType = FrameProxyInterface::PushType::Normal)
     {
         Q_UNUSED(sync)
+        m_translator.load(QLocale::system(),
+                          QStringLiteral("deepin-fcitxconfigtool-plugin"),
+                          QStringLiteral("_"),
+                          QStringLiteral("/usr/share/deepin-fcitxconfigtool-plugin/translations"));
+        qApp->installTranslator(&m_translator);
     }
 
     /**
@@ -82,8 +88,8 @@ public:
     */
     virtual const QString name() const
     {
-        return QString("Input Methods Manage");
-    };
+        return QString(tr("Manage Input Methods"));
+    }
 
     /**
     * @brief name
@@ -92,7 +98,17 @@ public:
     */
     virtual const QString displayName() const
     {
-        return QString(tr("Input Methods Manage"));
+        QString displayName = QString(tr("Manage Input Methods"));
+        if (QLocale::system().language() == QLocale::Chinese) {
+            displayName = "输入法管理";
+            if (QLocale::system().country() == QLocale::HongKong) {
+                displayName = "输入法管理";
+            } else if (QLocale::system().country() == QLocale::Taiwan) {
+                displayName = "输入法管理";
+            } else {
+            }
+        }
+        return displayName;
     }
 
     /**
@@ -179,6 +195,7 @@ public Q_SLOTS:
 
 public:
     IMWindow *imWindow;
+    QTranslator m_translator;
 };
 } // namespace DCC_NAMESPACE
 #endif // FcitxConfigPlugin_H

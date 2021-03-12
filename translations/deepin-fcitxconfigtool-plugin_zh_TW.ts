@@ -5,6 +5,7 @@
     <name>DCC_NAMESPACE::FcitxConfigPlugin</name>
     <message>
         <location filename="../src/fcitxconfigplugin.h" line="95"/>
+        <location filename="../src/fcitxconfigplugin.h" line="85"/>
         <source>Manage Input Methods</source>
         <translation>輸入法管理</translation>
     </message>

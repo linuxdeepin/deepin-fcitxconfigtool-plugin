@@ -66,6 +66,7 @@ void IMSettingWindow::initUI()
         head->setParent(this);
         head->setTitle(str);
         head->setEditEnable(isEdit);
+        head->layout()->setContentsMargins(8, 20, 10, 0);
         if (isEdit) {
             m_editHead = head;
         }
@@ -74,7 +75,7 @@ void IMSettingWindow::initUI()
 
     //界面布局
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
-    mainLayout->setContentsMargins(0, 0, 0, 20);
+    mainLayout->setContentsMargins(0, 0, 0, 10);
     mainLayout->setSpacing(0);
 
     //滑动窗口
@@ -93,6 +94,8 @@ void IMSettingWindow::initUI()
     m_defaultIMCbox->addBackground();
     m_defaultIMCbox->comboBox()->setFixedHeight(36);
     m_defaultIMGroup->appendItem(m_defaultIMCbox);
+    //暂时隐藏
+    m_defaultIMGroup->setVisible(false);
 
     //输入法管理 编辑按钮
     m_IMListGroup = new SettingsGroup();
@@ -111,10 +114,13 @@ void IMSettingWindow::initUI()
     m_shortcutGroup->appendItem(m_defaultIMKey);
     m_shortcutGroup->appendItem(m_virtualKey);
     m_shortcutGroup->appendItem(m_systemAppCbox, SettingsGroup::NoneBackground);
+    //暂时隐藏
+    m_defaultIMKey->setVisible(false);
+    m_virtualKey->setVisible(false);
 
     //控件添加至滑动窗口内
-    scrollAreaLayout->addWidget(newTitleHead(tr("Input Method")));
-    scrollAreaLayout->addSpacing(10);
+    //    scrollAreaLayout->addWidget(newTitleHead(tr("Input Method")));
+    //    scrollAreaLayout->addSpacing(10);
     scrollAreaLayout->addWidget(m_defaultIMGroup);
     scrollAreaLayout->addWidget(newTitleHead(tr("Manage Input Methods"), true));
     scrollAreaLayout->addSpacing(10);
@@ -129,7 +135,7 @@ void IMSettingWindow::initUI()
     QHBoxLayout *headLayout = new QHBoxLayout(this);
     headLayout->setMargin(0);
     headLayout->setSpacing(0);
-    headLayout->addSpacing(20);
+    //headLayout->addSpacing(20);
     headLayout->addItem(new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum));
     headLayout->addWidget(m_addIMBtn);
     headLayout->addItem(new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum));

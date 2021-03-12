@@ -4,8 +4,9 @@
 <context>
     <name>DCC_NAMESPACE::FcitxConfigPlugin</name>
     <message>
-        <location filename="../src/fcitxconfigplugin.h" line="95"/>
-        <source>Input Methods Manage</source>
+        <location filename="../src/fcitxconfigplugin.h" line="91"/>
+        <location filename="../src/fcitxconfigplugin.h" line="101"/>
+        <source>Manage Input Methods</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -40,52 +41,47 @@
 <context>
     <name>IMSettingWindow</name>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="92"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="93"/>
         <source>Default</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="104"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="107"/>
         <source>Switch input methods</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="105"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="108"/>
         <source>Switch to default input method</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="106"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="109"/>
         <source>Call out Onboard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="107"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="110"/>
         <source>Applies to</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="108"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="111"/>
         <source>System</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="108"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="111"/>
         <source>Application</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="116"/>
-        <source>Input Method</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="119"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="125"/>
         <source>Manage Input Methods</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="122"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="128"/>
         <source>Shortcuts</source>
         <translation type="unfinished"></translation>
     </message>
