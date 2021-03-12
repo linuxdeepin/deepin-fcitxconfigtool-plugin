@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fffc6447_652a1c10",
+        "filename": "src/fcitxconfigplugin.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-03-12T10:24:49Z",
+      "side": 1,
+      "message": "注释行数: 0; 改动行数(修改和新增): 20; 注释率: 0.0%",
+      "revId": "619e17e385df369b4031713affdf4e34c12ad054",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4be5fd95_25a49583",
+        "filename": "src/window/imsettingwindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-03-12T10:24:49Z",
+      "side": 1,
+      "message": "注释行数: 5; 改动行数(修改和新增): 10; 注释率: 50.0%",
+      "revId": "619e17e385df369b4031713affdf4e34c12ad054",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f383e756_d6eb141d",
+        "filename": "src/window/imwindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-03-12T10:24:49Z",
+      "side": 1,
+      "message": "注释行数: 6; 改动行数(修改和新增): 11; 注释率: 54.5%",
+      "revId": "619e17e385df369b4031713affdf4e34c12ad054",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fc316123_94e2a000",
+        "filename": "src/window/imwindow.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-03-12T10:24:49Z",
+      "side": 1,
+      "message": "注释行数: 0; 改动行数(修改和新增): 3; 注释率: 0.0%",
+      "revId": "619e17e385df369b4031713affdf4e34c12ad054",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    }
+  ]
+}
