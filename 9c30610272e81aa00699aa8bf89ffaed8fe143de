@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "53ab01e3_5109b514",
+        "filename": "src/window/imsettingwindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-03-12T12:19:40Z",
+      "side": 1,
+      "message": "注释行数: 0; 改动行数(修改和新增): 1; 注释率: 0.0%",
+      "revId": "9c30610272e81aa00699aa8bf89ffaed8fe143de",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3331e87e_d1203040",
+        "filename": "src/window/imwindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-03-12T12:19:40Z",
+      "side": 1,
+      "message": "改动行数(修改和新增): 0; 删除代码行数: 10; 注释率: 不计算",
+      "revId": "9c30610272e81aa00699aa8bf89ffaed8fe143de",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7aeb9733_06411c63",
+        "filename": "src/window/imwindow.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-03-12T12:19:40Z",
+      "side": 1,
+      "message": "改动行数(修改和新增): 0; 删除代码行数: 3; 注释率: 不计算",
+      "revId": "9c30610272e81aa00699aa8bf89ffaed8fe143de",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    }
+  ]
+}
