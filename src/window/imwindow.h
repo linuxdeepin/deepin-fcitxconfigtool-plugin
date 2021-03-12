@@ -22,7 +22,6 @@
 #define IMWIDOW_H
 
 #include <QWidget>
-#include <QTranslator>
 
 class IMAddWindow;
 class IMSettingWindow;
@@ -42,7 +41,6 @@ public:
     virtual ~IMWindow();
 
 private:
-    void initTranslator();
     void initUI(); //初始化界面
     void initConnect(); //初始化信号槽
     void initFcitxInterface(); //初始化fcitx接口
@@ -51,7 +49,6 @@ private:
     IMSettingWindow *m_settingWindow {nullptr}; //输入法编辑窗口
     IMAddWindow *m_addWindow {nullptr}; //输入法添加窗口
     ShortcutKeyWindow *m_shortcutKeyWindow {nullptr}; //快捷键冲突提示界面
-    QTranslator m_translator;
 };
 
 #endif // IMWIDOW_H

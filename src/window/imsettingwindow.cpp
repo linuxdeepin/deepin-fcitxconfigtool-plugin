@@ -117,6 +117,7 @@ void IMSettingWindow::initUI()
     //暂时隐藏
     m_defaultIMKey->setVisible(false);
     m_virtualKey->setVisible(false);
+    m_systemAppCbox->setVisible(false);
 
     //控件添加至滑动窗口内
     //    scrollAreaLayout->addWidget(newTitleHead(tr("Input Method")));
@@ -135,7 +136,6 @@ void IMSettingWindow::initUI()
     QHBoxLayout *headLayout = new QHBoxLayout(this);
     headLayout->setMargin(0);
     headLayout->setSpacing(0);
-    //headLayout->addSpacing(20);
     headLayout->addItem(new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum));
     headLayout->addWidget(m_addIMBtn);
     headLayout->addItem(new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum));
