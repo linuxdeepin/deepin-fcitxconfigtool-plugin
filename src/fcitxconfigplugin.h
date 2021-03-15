@@ -100,11 +100,11 @@ public:
     {
         QString displayName = QString(tr("Manage Input Methods"));
         if (QLocale::system().language() == QLocale::Chinese) {
-            displayName = "输入法管理";
+            displayName = "输入法";
             if (QLocale::system().country() == QLocale::HongKong) {
-                displayName = "输入法管理";
+                displayName = "输入法";
             } else if (QLocale::system().country() == QLocale::Taiwan) {
-                displayName = "输入法管理";
+                displayName = "输入法";
             } else {
             }
         }
