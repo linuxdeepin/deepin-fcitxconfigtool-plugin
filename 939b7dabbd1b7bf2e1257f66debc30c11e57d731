@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "855946f5_88f3ea48",
+        "filename": "src/ddeInterface/frameproxyinterface.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-03-23T12:22:59Z",
+      "side": 1,
+      "message": "注释行数: 0; 改动行数(修改和新增): 2; 注释率: 0.0%",
+      "revId": "939b7dabbd1b7bf2e1257f66debc30c11e57d731",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b32cfc6a_0f581ca7",
+        "filename": "src/ddeInterface/moduleinterface.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-03-23T12:22:59Z",
+      "side": 1,
+      "message": "注释行数: 42; 改动行数(修改和新增): 58; 注释率: 72.4%",
+      "revId": "939b7dabbd1b7bf2e1257f66debc30c11e57d731",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c8619f6f_a4519f65",
+        "filename": "tests/windows/imconfig/ut_immodel.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-03-23T12:22:59Z",
+      "side": 1,
+      "message": "注释行数: 0; 改动行数(修改和新增): 4; 注释率: 0.0%",
+      "revId": "939b7dabbd1b7bf2e1257f66debc30c11e57d731",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8dd8f715_a652cbb4",
+        "filename": "tests/windows/ut_imsettingwindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-03-23T12:22:59Z",
+      "side": 1,
+      "message": "注释行数: 6; 改动行数(修改和新增): 7; 注释率: 85.7%",
+      "revId": "939b7dabbd1b7bf2e1257f66debc30c11e57d731",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "450cefed_163297b0",
+        "filename": "tests/windows/ut_imwndow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-03-23T12:22:59Z",
+      "side": 1,
+      "message": "改动行数(修改和新增): 0; 删除代码行数: 4; 注释率: 不计算",
+      "revId": "939b7dabbd1b7bf2e1257f66debc30c11e57d731",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    }
+  ]
+}
