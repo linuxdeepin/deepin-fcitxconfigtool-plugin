@@ -24,6 +24,12 @@ set(CMAKE_AUTORCC ON)#开启rcc 编译资源文件qrc
 set(CMAKE_AUTOUIC ON)#开启uic 编译转换*.ui文件生存设计界面对应的.h .cpp文件
 set(CMAKE_CXX_STANDARD 14)
 
+#可访问private
+ADD_COMPILE_OPTIONS(-fno-access-control)
+ADD_COMPILE_OPTIONS(-fno-inline)
+#添加-fno-inline编译选项，禁止内联，能获取到函数地址，可以对内联函数进行打桩
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fno-inline")
+
 set(DOTEST ON)
 
 # 查找库

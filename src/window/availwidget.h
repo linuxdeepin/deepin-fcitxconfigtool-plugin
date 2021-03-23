@@ -28,6 +28,7 @@ namespace widgets {
 class SettingsGroup;
 } // namespace widgets
 } // namespace dcc_fcitx_configtool
+QString languageName(const QString &langCode);
 
 class AvailWidget : public QWidget
 {

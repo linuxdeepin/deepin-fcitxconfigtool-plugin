@@ -116,7 +116,7 @@ void IMSettingWindow::initUI()
     m_shortcutGroup->appendItem(m_systemAppCbox, SettingsGroup::NoneBackground);
     //暂时隐藏
     m_defaultIMKey->setVisible(false);
-    m_virtualKey->setVisible(false);
+//    m_virtualKey->setVisible(false);
     m_systemAppCbox->setVisible(false);
 
     //控件添加至滑动窗口内
@@ -159,9 +159,9 @@ void IMSettingWindow::initConnect()
     connect(m_defaultIMKey, &KeySettingsItem::editedFinish, [=]() {
         reloadFcitx(IMConfig::setDefaultIMKey(m_defaultIMKey->getKeyToStr()));
     });
-    connect(m_virtualKey, &KeySettingsItem::editedFinish, [=]() {
-        reloadFcitx(IMConfig::setVirtualKey(m_virtualKey->getKeyToStr()));
-    });
+//    connect(m_virtualKey, &KeySettingsItem::editedFinish, [=]() {
+//        reloadFcitx(IMConfig::setVirtualKey(m_virtualKey->getKeyToStr()));
+//    });
 
     connect(m_defaultIMKey, &KeySettingsItem::shortCutError, this, &IMSettingWindow::popShortKeyListWindow);
     connect(m_virtualKey, &KeySettingsItem::shortCutError, this, &IMSettingWindow::popShortKeyListWindow);

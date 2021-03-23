@@ -47,6 +47,7 @@ public:
     }
     ~FcitxConfigPlugin()
     {
+        delete imWindow;
         qApp->removeTranslator(&m_translator);
     }
 
@@ -71,6 +72,8 @@ public:
     */
     virtual void initialize()
     {
+        imWindow = new IMWindow();
+        imWindow->hide();
     }
 
     /**
@@ -180,7 +183,7 @@ public Q_SLOTS:
     */
     virtual void active()
     {
-        imWindow = new IMWindow;
+        imWindow->show();
         m_frameProxy->pushWidget(this, imWindow, dccV20::FrameProxyInterface::PushType::Normal);
     }
 
@@ -190,10 +193,10 @@ public Q_SLOTS:
     */
     virtual void deactive()
     {
-        delete imWindow;
+        imWindow->hide();
     }
 
-public:
+private:
     IMWindow *imWindow;
     QTranslator m_translator;
 };

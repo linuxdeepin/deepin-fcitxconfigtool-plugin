@@ -48,3 +48,76 @@ TEST_F(ut_imsettingwindow, updateUI)
     iMSettingWindow.updateUI();
     EXPECT_TRUE(true);
 }
+
+TEST_F(ut_imsettingwindow, initUI)
+{
+    IMSettingWindow iMSettingWindow;
+    iMSettingWindow.initUI();
+    EXPECT_TRUE(true);
+}
+
+TEST_F(ut_imsettingwindow, initConnect)
+{
+    IMSettingWindow iMSettingWindow;
+    iMSettingWindow.initConnect();
+    EXPECT_TRUE(true);
+}
+
+TEST_F(ut_imsettingwindow, readConfig)
+{
+    IMSettingWindow iMSettingWindow;
+    iMSettingWindow.readConfig();
+    EXPECT_TRUE(true);
+}
+
+//TEST_F(ut_imsettingwindow, itemSwap)
+//{
+//    IMSettingWindow iMSettingWindow;
+//    iMSettingWindow.itemSwap(nullptr);
+//    EXPECT_TRUE(true);
+//}
+
+TEST_F(ut_imsettingwindow, itemSwap)
+{
+    IMSettingWindow iMSettingWindow;
+    iMSettingWindow.onEditBtnClicked(false);
+    EXPECT_TRUE(true);
+}
+
+TEST_F(ut_imsettingwindow, onDefaultIMChanged)
+{
+    IMSettingWindow iMSettingWindow;
+    iMSettingWindow.onDefaultIMChanged();
+    EXPECT_TRUE(true);
+}
+
+TEST_F(ut_imsettingwindow, onCurIMChanged)
+{
+    FcitxQtInputMethodItemList list;
+    IMSettingWindow iMSettingWindow;
+    iMSettingWindow.onCurIMChanged(list);
+    EXPECT_TRUE(true);
+}
+
+TEST_F(ut_imsettingwindow, onAddBtnCilcked)
+{
+    IMSettingWindow iMSettingWindow;
+    iMSettingWindow.onAddBtnCilcked();
+    EXPECT_TRUE(true);
+}
+
+TEST_F(ut_imsettingwindow, onItemUp)
+{
+    FcitxQtInputMethodItem item;
+    IMSettingWindow iMSettingWindow;
+    iMSettingWindow.onItemUp(item);
+    EXPECT_TRUE(true);
+}
+
+TEST_F(ut_imsettingwindow, onItemDown)
+{
+    FcitxQtInputMethodItem item;
+    IMSettingWindow iMSettingWindow;
+    iMSettingWindow.onItemDown(item);
+    EXPECT_TRUE(true);
+}

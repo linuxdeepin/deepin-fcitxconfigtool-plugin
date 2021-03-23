@@ -47,3 +47,21 @@ TEST_F(ut_imwindow, init)
 {
     IMWindow imwindow;
 }
+
+TEST_F(ut_imwindow, initUI)
+{
+    IMWindow imwindow;
+    imwindow.initUI();
+}
+
+TEST_F(ut_imwindow, initConnect)
+{
+    IMWindow imwindow;
+    imwindow.initConnect();
+}
+
+TEST_F(ut_imwindow, initFcitxInterface)
+{
+    IMWindow imwindow;
+    imwindow.initFcitxInterface();
+}

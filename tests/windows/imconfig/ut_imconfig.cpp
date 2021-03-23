@@ -22,6 +22,7 @@
 #include <iostream>
 #include "gtest/gtest.h"
 #include "window/immodel/imconfig.h"
+#include <QStringList>
 class ut_imconfig : public ::testing::Test
 {
 protected:
@@ -80,4 +81,15 @@ TEST_F(ut_imconfig, IMPluginPar)
 {
     IMConfig imconfig;
     QString impluginKey = imconfig.IMPluginPar("Parameter");
+}
+
+TEST_F(ut_imconfig, checkShortKey)
+{
+    IMConfig imconfig;
+    QStringList tempSList;
+    tempSList << "A"
+              << "B"
+              << "C";
+    QString temp = "C";
+    imconfig.checkShortKey(tempSList, temp);
 }

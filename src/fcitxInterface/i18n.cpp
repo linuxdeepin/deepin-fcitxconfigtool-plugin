@@ -58,7 +58,7 @@ std::string translateCtx(const char *ctx,
 
 const char *translateCtx(const char *ctx, const char *s)
 {
-    std::string str = nullptr;
+    std::string str = "";
     str.append(ctx);
     str.append("\004");
     str.append(s);
@@ -93,7 +93,7 @@ const char *
 translateDomainCtx(const char *domain, const char *ctx, const char *s)
 {
     gettextManager.addDomain(domain);
-    std::string str = nullptr;
+    std::string str = "";
     str.append(ctx);
     str.append("\004");
     str.append(s);

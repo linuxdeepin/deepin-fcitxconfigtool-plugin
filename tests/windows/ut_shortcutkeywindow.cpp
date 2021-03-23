@@ -72,3 +72,9 @@ TEST_F(ut_shortcutkeywindow, setLabelText)
     ShortcutKeyWindow shortcutkeyWindow;
     shortcutkeyWindow.setLabelText();
 }
+
+TEST_F(ut_shortcutkeywindow, setValue)
+{
+    ShortcutKeyWindow shortcutkeyWindow;
+    shortcutkeyWindow.setValue("", "", "");
+}

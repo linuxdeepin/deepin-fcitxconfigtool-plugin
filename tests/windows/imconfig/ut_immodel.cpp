@@ -63,11 +63,20 @@ TEST_F(ut_immodel, getIMIndex)
     EXPECT_TRUE(true);
 }
 
+TEST_F(ut_immodel, onConfigShow)
+{
+    IMModel *immodel = IMModel::instance();
+    FcitxQtInputMethodItem item;
+    item.setUniqueName("iflyime");
+    immodel->onConfigShow(item);
+    EXPECT_TRUE(true);
+}
 TEST_F(ut_immodel, getIM)
 {
-    //    IMModel *immodel = IMModel::instance();
-    //    FcitxQtInputMethodItem item = immodel->getIM(0);
-    //    immodel->getIMIndex(item);
+    IMModel *immodel = IMModel::instance();
+    FcitxQtInputMethodItem item;
+    item.setName("iflyime");
+    immodel->getIMIndex(item);
     EXPECT_TRUE(true);
 }
 
@@ -94,40 +103,57 @@ TEST_F(ut_immodel, onUpdateIMList)
 
 TEST_F(ut_immodel, onAddIMItem)
 {
-    //    IMModel *immodel = IMModel::instance();
-    //    FcitxQtInputMethodItem item = immodel->getIM(0);
-    //    immodel->onAddIMItem(item);
+    IMModel *immodel = IMModel::instance();
+    FcitxQtInputMethodItem item;
+    item.setName("iflyime");
+    immodel->onAddIMItem(item);
     EXPECT_TRUE(true);
 }
 
 TEST_F(ut_immodel, onDeleteItem)
 {
-    //    IMModel *immodel = IMModel::instance();
-    //    FcitxQtInputMethodItem item = immodel->getIM(0);
-    //    immodel->onDeleteItem(item);
+    IMModel *immodel = IMModel::instance();
+    FcitxQtInputMethodItem item;
+    item.setName("iflyime");
+    immodel->onAddIMItem(item);
+    immodel->onUpdateIMList();
+    immodel->onDeleteItem(item);
     EXPECT_TRUE(true);
 }
 
 TEST_F(ut_immodel, onItemUp)
 {
-    //    IMModel *immodel = IMModel::instance();
-    //    FcitxQtInputMethodItem item = immodel->getIM(0);
-    //    immodel->onItemUp(item);
+    IMModel *immodel = IMModel::instance();
+    FcitxQtInputMethodItem item1, item2;
+    item1.setName("iflyime");
+    item2.setName("chineseime");
+    immodel->onAddIMItem(item1);
+    immodel->onAddIMItem(item2);
+    immodel->onItemUp(item2);
     EXPECT_TRUE(true);
 }
 
 TEST_F(ut_immodel, onItemDown)
 {
-    //    IMModel *immodel = IMModel::instance();
-    //    FcitxQtInputMethodItem item = immodel->getIM(0);
-    //    immodel->onItemDown(item);
+    IMModel *immodel = IMModel::instance();
+    FcitxQtInputMethodItem item1, item2;
+    item1.setName("iflyime");
+    item2.setName("chineseime");
+    immodel->onAddIMItem(item1);
+    immodel->onAddIMItem(item2);
+    immodel->onItemDown(item1);
     EXPECT_TRUE(true);
 }
 
-TEST_F(ut_immodel, onConfigShow)
+TEST_F(ut_immodel, equals)
 {
-    //    IMModel *immodel = IMModel::instance();
-    //    FcitxQtInputMethodItem item = immodel->getIM(0);
-    //    immodel->onConfigShow(item);
+    FcitxQtInputMethodItem item1,item2;
+    item1.setName("pinyin");
+    item1.setLangCode("pinyin");
+    item1.setUniqueName("pinyin");
+    item2.setName("pinyin");
+    item2.setLangCode("pinyin");
+    item2.setUniqueName("pinyin");
+    item1 == item2;
     EXPECT_TRUE(true);
 }

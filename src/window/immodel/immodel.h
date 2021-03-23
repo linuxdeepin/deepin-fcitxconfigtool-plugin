@@ -30,6 +30,8 @@ class DStandardItem;
 } // namespace Widget
 } // namespace Dtk
 
+bool operator==(const FcitxQtInputMethodItem &item, const FcitxQtInputMethodItem &item2);
+
 class IMModel : public QObject
 {
     Q_OBJECT

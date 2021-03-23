@@ -48,3 +48,27 @@ TEST_F(ut_imaddwindow, updateUI)
     iMAddWindow.updateUI();
     EXPECT_TRUE(true);
 }
+
+TEST_F(ut_imaddwindow, initUI)
+{
+    IMAddWindow iMAddWindow;
+    iMAddWindow.initUI();
+}
+
+TEST_F(ut_imaddwindow, initConnect)
+{
+    IMAddWindow iMAddWindow;
+    iMAddWindow.initConnect();
+}
+
+TEST_F(ut_imaddwindow, onAddIM)
+{
+    IMAddWindow iMAddWindow;
+    iMAddWindow.onAddIM();
+}
+
+TEST_F(ut_imaddwindow, onOpenStore)
+{
+    IMAddWindow iMAddWindow;
+    iMAddWindow.onOpenStore();
+}
