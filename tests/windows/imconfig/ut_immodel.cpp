@@ -136,12 +136,14 @@ TEST_F(ut_immodel, onItemUp)
 TEST_F(ut_immodel, onItemDown)
 {
     IMModel *immodel = IMModel::instance();
-    FcitxQtInputMethodItem item1, item2;
+    FcitxQtInputMethodItem item1, item2,item3;
     item1.setName("iflyime");
     item2.setName("chineseime");
+    item3.setName("huayupy");
     immodel->onAddIMItem(item1);
     immodel->onAddIMItem(item2);
-    immodel->onItemDown(item1);
+    immodel->onAddIMItem(item3);
+    immodel->onItemDown(item2);
     EXPECT_TRUE(true);
 }
 

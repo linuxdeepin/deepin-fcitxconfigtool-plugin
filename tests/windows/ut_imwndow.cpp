@@ -43,11 +43,6 @@ protected:
     }
 };
 
-TEST_F(ut_imwindow, init)
-{
-    IMWindow imwindow;
-}
-
 TEST_F(ut_imwindow, initUI)
 {
     IMWindow imwindow;

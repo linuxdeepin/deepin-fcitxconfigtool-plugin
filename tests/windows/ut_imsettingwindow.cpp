@@ -42,12 +42,12 @@ protected:
     }
 };
 
-TEST_F(ut_imsettingwindow, updateUI)
-{
-    IMSettingWindow iMSettingWindow;
-    iMSettingWindow.updateUI();
-    EXPECT_TRUE(true);
-}
+//TEST_F(ut_imsettingwindow, updateUI)
+//{
+//    IMSettingWindow iMSettingWindow;
+//    iMSettingWindow.updateUI();
+//    EXPECT_TRUE(true);
+//}
 
 TEST_F(ut_imsettingwindow, initUI)
 {
@@ -77,7 +77,7 @@ TEST_F(ut_imsettingwindow, readConfig)
 //    EXPECT_TRUE(true);
 //}
 
-TEST_F(ut_imsettingwindow, itemSwap)
+TEST_F(ut_imsettingwindow, onEditBtnClicked)
 {
     IMSettingWindow iMSettingWindow;
     iMSettingWindow.onEditBtnClicked(false);

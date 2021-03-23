@@ -51,9 +51,7 @@ public:
     virtual void setModuleSubscriptVisible(const QString &module, bool bIsDisplay) = 0;
 
     virtual void setRemoveableDeviceStatus(QString type, bool state) = 0;
-
     virtual bool getRemoveableDeviceStatus(QString type) const = 0;
-
 public:
     ModuleInterface *currModule() const { return m_currModule; }
 
@@ -61,6 +59,6 @@ protected:
     void setCurrModule(ModuleInterface *const m) { m_currModule = m; }
 
 private:
-    ModuleInterface *m_currModule {nullptr};
+    ModuleInterface *m_currModule{nullptr};
 };
-} // namespace DCC_NAMESPACE
+}

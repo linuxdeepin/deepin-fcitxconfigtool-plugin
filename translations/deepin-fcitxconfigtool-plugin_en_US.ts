@@ -4,8 +4,8 @@
 <context>
     <name>DCC_NAMESPACE::FcitxConfigPlugin</name>
     <message>
-        <location filename="../src/fcitxconfigplugin.h" line="91"/>
-        <location filename="../src/fcitxconfigplugin.h" line="101"/>
+        <location filename="../src/fcitxconfigplugin.h" line="94"/>
+        <location filename="../src/fcitxconfigplugin.h" line="104"/>
         <source>Manage Input Methods</source>
         <translation type="unfinished"></translation>
     </message>
