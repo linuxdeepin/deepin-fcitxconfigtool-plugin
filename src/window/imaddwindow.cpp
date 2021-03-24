@@ -52,7 +52,7 @@ void IMAddWindow::initUI()
 
     //添加输入法标题
     QHBoxLayout *hlayout = new QHBoxLayout(this);
-    TitleLabel *title = new TitleLabel(tr("Add Input Method"), this);
+    Fcitx_TitleLabel *title = new Fcitx_TitleLabel(tr("Add Input Method"), this);
     DFontSizeManager::instance()->bind(title, DFontSizeManager::T3, QFont::DemiBold); // 设置label字体
     hlayout->addItem(new QSpacerItem(20, 20, QSizePolicy::Expanding, QSizePolicy::Minimum));
     hlayout->addWidget(title);
@@ -77,7 +77,7 @@ void IMAddWindow::initUI()
     hlayout3->addSpacing(10);
 
     //添加 取消按钮
-    m_buttonTuple = new ButtonTuple(ButtonTuple::Save);
+    m_buttonTuple = new Fcitx_ButtonTuple(Fcitx_ButtonTuple::Save);
     m_buttonTuple->rightButton()->setText(tr("Add"));
     m_buttonTuple->rightButton()->setEnabled(false);
     m_buttonTuple->leftButton()->setText(tr("Cancel"));

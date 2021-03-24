@@ -8,9 +8,9 @@
 #include <QLabel>
 namespace dcc_fcitx_configtool {
 namespace widgets {
-class SettingsGroup;
-class KeySettingsItem;
-class ButtonTuple;
+class Fcitx_SettingsGroup;
+class Fcitx_KeySettingsItem;
+class Fcitx_ButtonTuple;
 } // namespace widgets
 } // namespace dcc_fcitx_configtool
 
@@ -32,9 +32,9 @@ public slots:
     void setValue(QString curName, QString conflictName, QString shortCut);
 
 private:
-    dcc_fcitx_configtool::widgets::SettingsGroup *m_shortcutGroup;
-    dcc_fcitx_configtool::widgets::KeySettingsItem *m_keySettingsItem;
-    dcc_fcitx_configtool::widgets::ButtonTuple *m_buttonTuple;
+    dcc_fcitx_configtool::widgets::Fcitx_SettingsGroup *m_shortcutGroup;
+    dcc_fcitx_configtool::widgets::Fcitx_KeySettingsItem *m_keySettingsItem;
+    dcc_fcitx_configtool::widgets::Fcitx_ButtonTuple *m_buttonTuple;
     QLabel *m_bottomTip;
     QPushButton *cancel;
     QString m_log;

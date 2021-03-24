@@ -28,7 +28,7 @@
 namespace dcc_fcitx_configtool {
 namespace widgets {
 
-TranslucentFrame::TranslucentFrame(QWidget *parent)
+Fcitx_TranslucentFrame::Fcitx_TranslucentFrame(QWidget *parent)
     : QFrame(parent)
 {
 }

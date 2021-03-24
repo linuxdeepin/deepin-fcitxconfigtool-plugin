@@ -29,14 +29,14 @@ using namespace Dtk::Widget;
 namespace dcc_fcitx_configtool {
 namespace widgets {
 
-IMActivityItem::IMActivityItem(FcitxQtInputMethodItem item, bool isFirst, QFrame *parent)
-    : SettingsItem(parent)
+Fcitx_IMActivityItem::Fcitx_IMActivityItem(FcitxQtInputMethodItem item, bool isFirst, QFrame *parent)
+    : Fcitx_SettingsItem(parent)
     , m_isFirst(isFirst)
     , m_item(item)
 {
     m_layout = new QHBoxLayout(this);
     m_layout->setContentsMargins(20, 0, 10, 0);
-    m_labelText = new ShortenLabel("", this);
+    m_labelText = new Fcitx_ShortenLabel("", this);
     DFontSizeManager::instance()->bind(m_labelText, DFontSizeManager::T6);
     m_labelText->setShortenText(item.name());
     m_layout->addWidget(m_labelText);
@@ -59,21 +59,21 @@ IMActivityItem::IMActivityItem(FcitxQtInputMethodItem item, bool isFirst, QFrame
         m_configBtn->hide();
         m_downBtn->hide();
 
-        connect(m_upBtn, &ToolButton::clicked, this, &IMActivityItem::onUpItem);
-        connect(m_downBtn, &ToolButton::clicked, this, &IMActivityItem::onDownItem);
-        connect(m_configBtn, &DToolButton::clicked, this, &IMActivityItem::onConfigItem);
-        connect(m_deleteBtn, &DToolButton::clicked, this, &IMActivityItem::onDeleteItem);
+        connect(m_upBtn, &ToolButton::clicked, this, &Fcitx_IMActivityItem::onUpItem);
+        connect(m_downBtn, &ToolButton::clicked, this, &Fcitx_IMActivityItem::onDownItem);
+        connect(m_configBtn, &DToolButton::clicked, this, &Fcitx_IMActivityItem::onConfigItem);
+        connect(m_deleteBtn, &DToolButton::clicked, this, &Fcitx_IMActivityItem::onDeleteItem);
     }
 
     this->setFixedHeight(40);
     this->setLayout(m_layout);
 }
 
-IMActivityItem::~IMActivityItem()
+Fcitx_IMActivityItem::~Fcitx_IMActivityItem()
 {
 }
 
-void IMActivityItem::editSwitch(const bool &flag)
+void Fcitx_IMActivityItem::editSwitch(const bool &flag)
 {
     if (m_isFirst)
         return;
@@ -88,7 +88,7 @@ void IMActivityItem::editSwitch(const bool &flag)
     }
 }
 
-void IMActivityItem::setSelectStatus(const bool &isEnter)
+void Fcitx_IMActivityItem::setSelectStatus(const bool &isEnter)
 {
     if (m_isFirst || !m_bgGroup)
         return;
@@ -105,8 +105,7 @@ void IMActivityItem::setSelectStatus(const bool &isEnter)
         if (count <= 2) {
             m_upBtn->setEnabled(false);
             m_downBtn->setEnabled(false);
-        }
-        if (index == 1) {
+        }else if (index == 1) {
             m_upBtn->setEnabled(false);
             m_downBtn->setEnabled(true);
         } else if (index == count - 1) {
@@ -127,36 +126,36 @@ void IMActivityItem::setSelectStatus(const bool &isEnter)
     }
 }
 
-void IMActivityItem::onUpItem()
+void Fcitx_IMActivityItem::onUpItem()
 {
     emit upBtnClicked(m_item);
 }
 
-void IMActivityItem::onDownItem()
+void Fcitx_IMActivityItem::onDownItem()
 {
     emit downBtnClicked(m_item);
 }
 
-void IMActivityItem::onConfigItem()
+void Fcitx_IMActivityItem::onConfigItem()
 {
     emit configBtnClicked(m_item);
 }
 
-void IMActivityItem::onDeleteItem()
+void Fcitx_IMActivityItem::onDeleteItem()
 {
     emit deleteBtnClicked(m_item);
 }
 
-void IMActivityItem::enterEvent(QEvent *event)
+void Fcitx_IMActivityItem::enterEvent(QEvent *event)
 {
     setSelectStatus(true);
-    SettingsItem::enterEvent(event);
+    Fcitx_SettingsItem::enterEvent(event);
 }
 
-void IMActivityItem::leaveEvent(QEvent *event)
+void Fcitx_IMActivityItem::leaveEvent(QEvent *event)
 {
     setSelectStatus(false);
-    SettingsItem::leaveEvent(event);
+    Fcitx_SettingsItem::leaveEvent(event);
 }
 
 void ToolButton::paintEvent(QPaintEvent *e)

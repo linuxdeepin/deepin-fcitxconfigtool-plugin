@@ -31,11 +31,11 @@
 namespace dcc_fcitx_configtool {
 namespace widgets {
 
-class TranslucentFrame : public QFrame
+class Fcitx_TranslucentFrame : public QFrame
 {
     Q_OBJECT
 public:
-    explicit TranslucentFrame(QWidget *parent = 0);
+    explicit Fcitx_TranslucentFrame(QWidget *parent = 0);
 };
 
 } // namespace widgets

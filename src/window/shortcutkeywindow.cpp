@@ -19,11 +19,11 @@ void ShortcutKeyWindow::initUI()
     mainLayout->setContentsMargins(0, 0, 0, 10);
     mainLayout->addSpacing(10);
     //冲突快捷键
-    m_shortcutGroup = new SettingsGroup();
-    m_keySettingsItem = new KeySettingsItem();
+    m_shortcutGroup = new Fcitx_SettingsGroup();
+    m_keySettingsItem = new Fcitx_KeySettingsItem();
     m_shortcutGroup->appendItem(m_keySettingsItem);
     //取消按鈕
-    m_buttonTuple = new ButtonTuple();
+    m_buttonTuple = new Fcitx_ButtonTuple();
     cancel = m_buttonTuple->rightButton();
     m_buttonTuple->leftButton()->setVisible(false);
     cancel->setText(tr("Cancel"));

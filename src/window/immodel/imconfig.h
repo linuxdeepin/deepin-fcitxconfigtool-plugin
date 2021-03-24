@@ -22,12 +22,12 @@
 #define IMCONFIG_H
 #include <QString>
 
-struct ShortcutInfo {
+struct Fcitx_ShortcutInfo {
     QString accels;
     QString id;
     QString name;
     int type;
-    bool operator==(const ShortcutInfo &info) const
+    bool operator==(const Fcitx_ShortcutInfo &info) const
     {
         return id == info.id && type == info.type;
     }

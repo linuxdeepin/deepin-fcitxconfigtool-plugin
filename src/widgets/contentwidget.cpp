@@ -39,7 +39,7 @@ DWIDGET_USE_NAMESPACE
 
 namespace dcc_fcitx_configtool {
 namespace widgets {
-ContentWidget::ContentWidget(QWidget *parent)
+Fcitx_ContentWidget::Fcitx_ContentWidget(QWidget *parent)
     : QWidget(parent)
     , m_content(nullptr)
 {
@@ -64,11 +64,11 @@ ContentWidget::ContentWidget(QWidget *parent)
     centralLayout->setSpacing(0);
 
     setLayout(centralLayout);
-    setObjectName("ContentWidget");
+    setObjectName("Fcitx_ContentWidget");
     setBackgroundRole(QPalette::Base);
 }
 
-ContentWidget::~ContentWidget()
+Fcitx_ContentWidget::~Fcitx_ContentWidget()
 {
     QScroller *scroller = QScroller::scroller(m_contentArea->viewport());
     if (scroller) {
@@ -76,7 +76,7 @@ ContentWidget::~ContentWidget()
     }
 }
 
-QWidget *ContentWidget::setContent(QWidget *const w)
+QWidget *Fcitx_ContentWidget::setContent(QWidget *const w)
 {
     QWidget *lastWidget = m_content;
 
@@ -90,12 +90,12 @@ QWidget *ContentWidget::setContent(QWidget *const w)
     return lastWidget;
 }
 
-void ContentWidget::scrollTo(int dy)
+void Fcitx_ContentWidget::scrollTo(int dy)
 {
     m_contentArea->verticalScrollBar()->setValue(m_contentArea->verticalScrollBar()->value() + dy);
 }
 
-void ContentWidget::resizeEvent(QResizeEvent *event)
+void Fcitx_ContentWidget::resizeEvent(QResizeEvent *event)
 {
     if (m_content)
         m_content->setFixedWidth(event->size().width());

@@ -30,10 +30,10 @@
 namespace dcc_fcitx_configtool {
 namespace widgets {
 
-SettingsHeaderItem::SettingsHeaderItem(QWidget *parent)
-    : SettingsItem(parent)
+Fcitx_SettingsHeaderItem::Fcitx_SettingsHeaderItem(QWidget *parent)
+    : Fcitx_SettingsItem(parent)
     , m_mainLayout(new QHBoxLayout)
-    , m_headerText(new TitleLabel)
+    , m_headerText(new Fcitx_TitleLabel)
 {
     m_headerText->setObjectName("SettingsHeaderItemTitle");
 
@@ -48,12 +48,12 @@ SettingsHeaderItem::SettingsHeaderItem(QWidget *parent)
     setLayout(m_mainLayout);
 }
 
-void SettingsHeaderItem::setTitle(const QString &title)
+void Fcitx_SettingsHeaderItem::setTitle(const QString &title)
 {
     m_headerText->setText(title);
 }
 
-void SettingsHeaderItem::setRightWidget(QWidget *widget)
+void Fcitx_SettingsHeaderItem::setRightWidget(QWidget *widget)
 {
     Q_ASSERT(widget);
 

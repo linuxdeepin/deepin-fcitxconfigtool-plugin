@@ -25,7 +25,7 @@
 #include <fcitxqtinputmethoditem.h>
 namespace dcc_fcitx_configtool {
 namespace widgets {
-class SettingsGroup;
+class Fcitx_SettingsGroup;
 } // namespace widgets
 } // namespace dcc_fcitx_configtool
 QString languageName(const QString &langCode);
@@ -47,10 +47,10 @@ signals:
 private:
     void initUI(); //初始化界面
     void initConnect(); //初始化信号槽
-    void clearItemStatusAndFilter(dcc_fcitx_configtool::widgets::SettingsGroup *group, const bool &falg = false); //清除选中 清除过滤
+    void clearItemStatusAndFilter(dcc_fcitx_configtool::widgets::Fcitx_SettingsGroup *group, const bool &falg = false); //清除选中 清除过滤
 private:
-    dcc_fcitx_configtool::widgets::SettingsGroup *m_allIMGroup {nullptr}; //可用输入法列表界面
-    dcc_fcitx_configtool::widgets::SettingsGroup *m_searchIMGroup {nullptr}; //搜索输入法列表界面
+    dcc_fcitx_configtool::widgets::Fcitx_SettingsGroup *m_allIMGroup {nullptr}; //可用输入法列表界面
+    dcc_fcitx_configtool::widgets::Fcitx_SettingsGroup *m_searchIMGroup {nullptr}; //搜索输入法列表界面
     FcitxQtInputMethodItem m_selectItem; //选中输入法
     FcitxQtInputMethodItemList m_allAvaiIMlList; //可用输入法列表
     QString m_searchStr; //当前搜索字符串

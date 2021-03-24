@@ -31,6 +31,7 @@ find_package(DtkWidget REQUIRED)
 find_package(DtkGui REQUIRED)
 find_package(DtkCore REQUIRED)
 find_package(DtkCMake REQUIRED)
+find_package(DdeControlCenter REQUIRED)
 find_package(Qt5 COMPONENTS Core REQUIRED)
 find_package(Qt5 COMPONENTS Gui REQUIRED)
 find_package(Qt5 COMPONENTS Widgets REQUIRED)
@@ -58,12 +59,10 @@ endforeach()
 
 #创建qm文件
 file (GLOB DTNG_TS_FILES ${TS_DIR}/*.ts)
-qt5_create_translation(DTNG_QM_FILES
-     ${DTNG_TS_FILES}
-     ${DTNG_QM_FILES})
+qt5_create_translation(DTNG_QM_FILES ${CMAKE_SOURCE_DIR} ${DTNG_TS_FILES})
+add_custom_target(translations ALL DEPENDS ${DTNG_QM_FILES})
 
 FILE(GLOB_RECURSE HEAD_FILES
-    ${CMAKE_CURRENT_SOURCE_DIR}/ddeInterface/*.h
     ${CMAKE_CURRENT_SOURCE_DIR}/fcitxInterface/*.h
     ${CMAKE_CURRENT_SOURCE_DIR}/widgets/*.h
     ${CMAKE_CURRENT_SOURCE_DIR}/window/*.h
@@ -72,7 +71,6 @@ FILE(GLOB_RECURSE HEAD_FILES
     ${CMAKE_CURRENT_SOURCE_DIR}/publisher/*.h)
 
 FILE(GLOB_RECURSE SOURCE_FILES
-    ${CMAKE_CURRENT_SOURCE_DIR}/ddeInterface/*.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/fcitxInterface/*.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/widgets/*.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/window/*.cpp
