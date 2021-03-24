@@ -2,31 +2,31 @@
 namespace dcc_fcitx_configtool {
 namespace widgets {
 
-ShortenLabel::ShortenLabel(const QString &text, QWidget *parent)
+Fcitx_ShortenLabel::Fcitx_ShortenLabel(const QString &text, QWidget *parent)
     : m_text(text)
     , QLabel(text, parent)
 {
 }
 
-void ShortenLabel::setShortenText(const QString &text)
+void Fcitx_ShortenLabel::setShortenText(const QString &text)
 {
     m_text = text;
     setText(m_text);
     updateTitleSize();
 }
 
-QString ShortenLabel::text() const
+QString Fcitx_ShortenLabel::text() const
 {
     return m_text;
 }
 
-void ShortenLabel::resizeEvent(QResizeEvent *event)
+void Fcitx_ShortenLabel::resizeEvent(QResizeEvent *event)
 {
     updateTitleSize();
     QLabel::resizeEvent(event);
 }
 
-void ShortenLabel::updateTitleSize()
+void Fcitx_ShortenLabel::updateTitleSize()
 {
     QFontMetrics fontMetrics(font());
     int fontSize = fontMetrics.width(m_text); //获取之前设置的字符串的像素大小

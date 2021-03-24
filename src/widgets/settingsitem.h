@@ -35,13 +35,13 @@
 namespace dcc_fcitx_configtool {
 namespace widgets {
 
-class SettingsItem : public QFrame
+class Fcitx_SettingsItem : public QFrame
 {
     Q_OBJECT
     Q_PROPERTY(bool isErr READ isErr DESIGNABLE true SCRIPTABLE true)
 
 public:
-    explicit SettingsItem(QWidget *parent = nullptr);
+    explicit Fcitx_SettingsItem(QWidget *parent = nullptr);
 
     bool isErr() const;
     virtual void setIsErr(const bool err = true);

@@ -4,10 +4,30 @@
 <context>
     <name>DCC_NAMESPACE::FcitxConfigPlugin</name>
     <message>
-        <location filename="../src/fcitxconfigplugin.h" line="85"/>
-        <location filename="../src/fcitxconfigplugin.h" line="95"/>
         <source>Manage Input Methods</source>
-        <translation>输入法管理</translation>
+        <translation type="vanished">输入法管理</translation>
+    </message>
+</context>
+<context>
+    <name>FcitxConfigPlugin</name>
+    <message>
+        <location filename="../src/fcitxconfigplugin.cpp" line="84"/>
+        <source>Manage Input Methods</source>
+        <translation type="unfinished">输入法管理</translation>
+    </message>
+</context>
+<context>
+    <name>Fcitx_SettingsHead</name>
+    <message>
+        <location filename="../src/widgets/settingshead.cpp" line="48"/>
+        <location filename="../src/widgets/settingshead.cpp" line="112"/>
+        <source>Edit</source>
+        <translation type="unfinished">编辑</translation>
+    </message>
+    <message>
+        <location filename="../src/widgets/settingshead.cpp" line="114"/>
+        <source>Done</source>
+        <translation type="unfinished">完成</translation>
     </message>
 </context>
 <context>
@@ -41,68 +61,72 @@
 <context>
     <name>IMSettingWindow</name>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="92"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="93"/>
         <source>Default</source>
         <translation>默认</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="104"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="107"/>
         <source>Switch input methods</source>
         <translation>切换输入法</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="105"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="108"/>
         <source>Switch to default input method</source>
         <translation>切换至默认输入法</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="106"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="109"/>
         <source>Call out Onboard</source>
         <translation>唤起虚拟键盘</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="107"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="110"/>
         <source>Applies to</source>
         <translation>切换方式</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="108"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="111"/>
         <source>System</source>
         <translation>系统</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="108"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="111"/>
         <source>Application</source>
         <translation>应用</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="116"/>
         <source>Input Method</source>
-        <translation>输入法</translation>
+        <translation type="vanished">输入法</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="119"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="126"/>
         <source>Manage Input Methods</source>
         <translation>输入法管理</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="122"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="129"/>
         <source>Shortcuts</source>
         <translation>快捷键</translation>
     </message>
 </context>
 <context>
+    <name>Main</name>
+    <message>
+        <location filename="../src/main.cpp" line="50"/>
+        <source>deepin-fcitxconfigtool-plugin</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>SettingsHead</name>
     <message>
-        <location filename="../src/widgets/settingshead.cpp" line="48"/>
-        <location filename="../src/widgets/settingshead.cpp" line="112"/>
         <source>Edit</source>
-        <translation>编辑</translation>
+        <translation type="vanished">编辑</translation>
     </message>
     <message>
-        <location filename="../src/widgets/settingshead.cpp" line="114"/>
         <source>Done</source>
-        <translation>完成</translation>
+        <translation type="vanished">完成</translation>
     </message>
 </context>
 <context>
@@ -119,17 +143,28 @@
     </message>
 </context>
 <context>
-    <name>dcc_fcitx_configtool::widgets::KeyLabelWidget</name>
-    <message>
-        <location filename="../src/widgets/keysettingsitem.cpp" line="43"/>
-        <source>Enter a new shortcut</source>
-        <translation>请输入新的快捷键</translation>
-    </message>
+    <name>dcc_fcitx_configtool::widgets::Fcitx_KeyLabelWidget</name>
     <message>
         <location filename="../src/widgets/keysettingsitem.cpp" line="37"/>
         <location filename="../src/widgets/keysettingsitem.cpp" line="136"/>
         <source>None</source>
-        <translation>无</translation>
+        <translation type="unfinished">无</translation>
+    </message>
+    <message>
+        <location filename="../src/widgets/keysettingsitem.cpp" line="43"/>
+        <source>Enter a new shortcut</source>
+        <translation type="unfinished">请输入新的快捷键</translation>
+    </message>
+</context>
+<context>
+    <name>dcc_fcitx_configtool::widgets::KeyLabelWidget</name>
+    <message>
+        <source>Enter a new shortcut</source>
+        <translation type="vanished">请输入新的快捷键</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="vanished">无</translation>
     </message>
 </context>
 </TS>

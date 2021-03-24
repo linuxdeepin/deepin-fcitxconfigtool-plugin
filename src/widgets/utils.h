@@ -32,7 +32,7 @@
 
 DCORE_USE_NAMESPACE
 
-namespace DCC_NAMESPACE {
+namespace dcc_fcitx_configtool {
 
 const QMargins ThirdPageContentsMargins(10, 10, 10, 10);
 const QMargins ScrollAreaMargins(10, 10, 10, 10);
@@ -98,6 +98,6 @@ inline bool compareVersion(const QString &targetVersion, const QString &baseVers
 
     return true;
 }
-} // namespace DCC_NAMESPACE
+} // namespace dcc_fcitx_configtool
 
 #endif // V20_DISPLAY_UTILS_H

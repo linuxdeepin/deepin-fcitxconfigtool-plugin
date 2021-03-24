@@ -36,16 +36,16 @@
 using namespace dcc_fcitx_configtool::widgets;
 DWIDGET_USE_NAMESPACE
 
-SettingsHead::SettingsHead(QFrame *parent)
-    : SettingsItem(parent)
-    , m_title(new TitleLabel)
+Fcitx_SettingsHead::Fcitx_SettingsHead(QFrame *parent)
+    : Fcitx_SettingsItem(parent)
+    , m_title(new Fcitx_TitleLabel)
     , m_edit(new DCommandLinkButton(""))
     , m_state(Cancel)
 {
     m_title->setObjectName("SettingsHeadTitle");
 
     // can not translate correctly just using tr()
-    m_edit->setText(qApp->translate("SettingsHead", "Edit"));
+    m_edit->setText(qApp->translate("Fcitx_SettingsHead", "Edit"));
     DFontSizeManager::instance()->bind(m_title, DFontSizeManager::T5, QFont::DemiBold);
     QHBoxLayout *mainLayout = new QHBoxLayout;
     mainLayout->setSpacing(0);
@@ -56,21 +56,21 @@ SettingsHead::SettingsHead(QFrame *parent)
 
     setLayout(mainLayout);
 
-    connect(m_edit, &DCommandLinkButton::clicked, this, &SettingsHead::onClicked);
+    connect(m_edit, &DCommandLinkButton::clicked, this, &Fcitx_SettingsHead::onClicked);
 }
 
-void SettingsHead::setTitle(const QString &title)
+void Fcitx_SettingsHead::setTitle(const QString &title)
 {
     m_title->setText(title);
     m_edit->setAccessibleName(title);
 }
 
-void SettingsHead::setEditEnable(bool state)
+void Fcitx_SettingsHead::setEditEnable(bool state)
 {
     m_edit->setVisible(state);
 }
 
-void SettingsHead::toEdit()
+void Fcitx_SettingsHead::toEdit()
 {
     m_state = Edit;
     refershButton();
@@ -78,7 +78,7 @@ void SettingsHead::toEdit()
     Q_EMIT editChanged(true);
 }
 
-void SettingsHead::toCancel()
+void Fcitx_SettingsHead::toCancel()
 {
     m_state = Cancel;
     refershButton();
@@ -86,7 +86,7 @@ void SettingsHead::toCancel()
     Q_EMIT editChanged(false);
 }
 
-void SettingsHead::setEdit(bool flag)
+void Fcitx_SettingsHead::setEdit(bool flag)
 {
     if (flag) {
         m_state = Edit;
@@ -97,7 +97,7 @@ void SettingsHead::setEdit(bool flag)
     }
 }
 
-void SettingsHead::onClicked()
+void Fcitx_SettingsHead::onClicked()
 {
     if (m_state == Cancel) {
         toEdit();
@@ -106,11 +106,11 @@ void SettingsHead::onClicked()
     }
 }
 
-void SettingsHead::refershButton()
+void Fcitx_SettingsHead::refershButton()
 {
     if (m_state == Cancel) {
-        m_edit->setText(qApp->translate("SettingsHead", "Edit"));
+        m_edit->setText(qApp->translate("Fcitx_SettingsHead", "Edit"));
     } else {
-        m_edit->setText(qApp->translate("SettingsHead", "Done"));
+        m_edit->setText(qApp->translate("Fcitx_SettingsHead", "Done"));
     }
 }

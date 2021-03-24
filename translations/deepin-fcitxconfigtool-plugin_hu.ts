@@ -4,10 +4,30 @@
 <context>
     <name>DCC_NAMESPACE::FcitxConfigPlugin</name>
     <message>
-        <location filename="../src/fcitxconfigplugin.h" line="85"/>
-        <location filename="../src/fcitxconfigplugin.h" line="95"/>
         <source>Manage Input Methods</source>
-        <translation>Beviteli módok kezelése</translation>
+        <translation type="vanished">Beviteli módok kezelése</translation>
+    </message>
+</context>
+<context>
+    <name>FcitxConfigPlugin</name>
+    <message>
+        <location filename="../src/fcitxconfigplugin.cpp" line="84"/>
+        <source>Manage Input Methods</source>
+        <translation type="unfinished">Beviteli módok kezelése</translation>
+    </message>
+</context>
+<context>
+    <name>Fcitx_SettingsHead</name>
+    <message>
+        <location filename="../src/widgets/settingshead.cpp" line="48"/>
+        <location filename="../src/widgets/settingshead.cpp" line="112"/>
+        <source>Edit</source>
+        <translation type="unfinished">Szerkesztés</translation>
+    </message>
+    <message>
+        <location filename="../src/widgets/settingshead.cpp" line="114"/>
+        <source>Done</source>
+        <translation type="unfinished">Kész</translation>
     </message>
 </context>
 <context>
@@ -41,68 +61,72 @@
 <context>
     <name>IMSettingWindow</name>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="92"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="93"/>
         <source>Default</source>
         <translation>Alapértelmezett</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="104"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="107"/>
         <source>Switch input methods</source>
         <translation>Beviteli mód váltása</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="105"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="108"/>
         <source>Switch to default input method</source>
         <translation>Váltson az alapértelmezett beviteli módra</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="106"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="109"/>
         <source>Call out Onboard</source>
         <translation>Virtuális billentyűzet előhívása</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="107"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="110"/>
         <source>Applies to</source>
         <translation>Alkalmazva ehhez:</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="108"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="111"/>
         <source>System</source>
         <translation>Rendszer</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="108"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="111"/>
         <source>Application</source>
         <translation>Alkalmazás</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="116"/>
         <source>Input Method</source>
-        <translation>Beviteli mód</translation>
+        <translation type="vanished">Beviteli mód</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="119"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="126"/>
         <source>Manage Input Methods</source>
         <translation>Beviteli módok kezelése</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="122"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="129"/>
         <source>Shortcuts</source>
         <translation>Gyorsbillentyűk</translation>
     </message>
 </context>
 <context>
+    <name>Main</name>
+    <message>
+        <location filename="../src/main.cpp" line="50"/>
+        <source>deepin-fcitxconfigtool-plugin</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>SettingsHead</name>
     <message>
-        <location filename="../src/widgets/settingshead.cpp" line="48"/>
-        <location filename="../src/widgets/settingshead.cpp" line="112"/>
         <source>Edit</source>
-        <translation>Szerkesztés</translation>
+        <translation type="vanished">Szerkesztés</translation>
     </message>
     <message>
-        <location filename="../src/widgets/settingshead.cpp" line="114"/>
         <source>Done</source>
-        <translation>Kész</translation>
+        <translation type="vanished">Kész</translation>
     </message>
 </context>
 <context>
@@ -119,17 +143,28 @@
     </message>
 </context>
 <context>
-    <name>dcc_fcitx_configtool::widgets::KeyLabelWidget</name>
-    <message>
-        <location filename="../src/widgets/keysettingsitem.cpp" line="43"/>
-        <source>Enter a new shortcut</source>
-        <translation>Adjon meg egy új gyorsbillentyűt</translation>
-    </message>
+    <name>dcc_fcitx_configtool::widgets::Fcitx_KeyLabelWidget</name>
     <message>
         <location filename="../src/widgets/keysettingsitem.cpp" line="37"/>
         <location filename="../src/widgets/keysettingsitem.cpp" line="136"/>
         <source>None</source>
-        <translation>Nincs</translation>
+        <translation type="unfinished">Nincs</translation>
+    </message>
+    <message>
+        <location filename="../src/widgets/keysettingsitem.cpp" line="43"/>
+        <source>Enter a new shortcut</source>
+        <translation type="unfinished">Adjon meg egy új gyorsbillentyűt</translation>
+    </message>
+</context>
+<context>
+    <name>dcc_fcitx_configtool::widgets::KeyLabelWidget</name>
+    <message>
+        <source>Enter a new shortcut</source>
+        <translation type="vanished">Adjon meg egy új gyorsbillentyűt</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="vanished">Nincs</translation>
     </message>
 </context>
 </TS>

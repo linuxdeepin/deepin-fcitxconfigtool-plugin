@@ -2,11 +2,24 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="en_US">
 <context>
-    <name>DCC_NAMESPACE::FcitxConfigPlugin</name>
+    <name>FcitxConfigPlugin</name>
     <message>
-        <location filename="../src/fcitxconfigplugin.h" line="94"/>
-        <location filename="../src/fcitxconfigplugin.h" line="104"/>
+        <location filename="../src/fcitxconfigplugin.cpp" line="84"/>
         <source>Manage Input Methods</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Fcitx_SettingsHead</name>
+    <message>
+        <location filename="../src/widgets/settingshead.cpp" line="48"/>
+        <location filename="../src/widgets/settingshead.cpp" line="112"/>
+        <source>Edit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/widgets/settingshead.cpp" line="114"/>
+        <source>Done</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -95,20 +108,6 @@
     </message>
 </context>
 <context>
-    <name>SettingsHead</name>
-    <message>
-        <location filename="../src/widgets/settingshead.cpp" line="48"/>
-        <location filename="../src/widgets/settingshead.cpp" line="112"/>
-        <source>Edit</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/widgets/settingshead.cpp" line="114"/>
-        <source>Done</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>ShortcutKeyWindow</name>
     <message>
         <location filename="../src/window/shortcutkeywindow.cpp" line="29"/>
@@ -122,7 +121,7 @@
     </message>
 </context>
 <context>
-    <name>dcc_fcitx_configtool::widgets::KeyLabelWidget</name>
+    <name>dcc_fcitx_configtool::widgets::Fcitx_KeyLabelWidget</name>
     <message>
         <location filename="../src/widgets/keysettingsitem.cpp" line="37"/>
         <location filename="../src/widgets/keysettingsitem.cpp" line="136"/>

@@ -31,11 +31,11 @@
 namespace dcc_fcitx_configtool {
 namespace widgets {
 
-class TipsLabel : public SmallLabel
+class Fcitx_TipsLabel : public Fcitx_SmallLabel
 {
     Q_OBJECT
 public:
-    using SmallLabel::SmallLabel; // using default inheritance constructor
+    using Fcitx_SmallLabel::Fcitx_SmallLabel; // using default inheritance constructor
 };
 
 } // namespace widgets

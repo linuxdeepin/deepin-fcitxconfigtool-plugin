@@ -96,15 +96,15 @@ void AvailWidget::initUI()
     mainLayout->setMargin(0);
     mainLayout->setSpacing(0);
     //滑动窗口
-    ContentWidget *scrollArea = new ContentWidget(this);
+    Fcitx_ContentWidget *scrollArea = new Fcitx_ContentWidget(this);
     QWidget *scrollAreaWidgetContents = new QWidget(scrollArea);
     QVBoxLayout *scrollAreaLayout = new QVBoxLayout(scrollAreaWidgetContents);
     scrollAreaLayout->setSpacing(0);
     scrollArea->setContent(scrollAreaWidgetContents);
     scrollAreaWidgetContents->setLayout(scrollAreaLayout);
     //搜索输入法列表 可用输入法列表
-    m_allIMGroup = new SettingsGroup;
-    m_searchIMGroup = new SettingsGroup;
+    m_allIMGroup = new Fcitx_SettingsGroup;
+    m_searchIMGroup = new Fcitx_SettingsGroup;
     //控件添加至滑动窗口内
     scrollAreaLayout->addWidget(m_allIMGroup);
     scrollAreaLayout->addSpacing(10);
@@ -173,9 +173,9 @@ void AvailWidget::onUpdateUI(FcitxQtInputMethodItemList IMlist)
     }
     //fcitx原有逻辑 不需要修改 __end
 
-    auto createIMSttings = [=](SettingsGroup *group, const FcitxQtInputMethodItem &imItem) {
-        IMSettingsItem *item = new IMSettingsItem();
-        connect(item, &IMSettingsItem::itemClicked, [=](IMSettingsItem *item) {
+    auto createIMSttings = [=](Fcitx_SettingsGroup *group, const FcitxQtInputMethodItem &imItem) {
+        Fcitx_IMSettingsItem *item = new Fcitx_IMSettingsItem();
+        connect(item, &Fcitx_IMSettingsItem::itemClicked, [=](Fcitx_IMSettingsItem *item) {
             m_selectItem = item->m_item;
             emit seleteIM(true);
         });
@@ -198,10 +198,10 @@ void AvailWidget::onUpdateUI(FcitxQtInputMethodItemList IMlist)
     m_searchIMGroup->clear();
     //添加item
     for (auto it = tmpIM.rbegin(); it != tmpIM.rend(); ++it) {
-        SettingsHead *head = new SettingsHead();
+        Fcitx_SettingsHead *head = new Fcitx_SettingsHead();
         head->setEditEnable(false);
         head->setTitle(it->first);
-        m_allIMGroup->appendItem(head, SettingsGroup::NoneBackground);
+        m_allIMGroup->appendItem(head, Fcitx_SettingsGroup::NoneBackground);
         for (auto it2 = it->second.begin(); it2 != it->second.end(); ++it2) {
             createIMSttings(m_allIMGroup, *it2);
             createIMSttings(m_searchIMGroup, *it2);
@@ -215,14 +215,14 @@ void AvailWidget::clearItemStatus()
     clearItemStatusAndFilter(m_allIMGroup, true);
 }
 
-void AvailWidget::clearItemStatusAndFilter(SettingsGroup *group, const bool &flag)
+void AvailWidget::clearItemStatusAndFilter(Fcitx_SettingsGroup *group, const bool &flag)
 {
     if (!group) {
         return;
     }
 
     for (int i = 0; i < group->itemCount(); ++i) {
-        IMSettingsItem *item = dynamic_cast<IMSettingsItem *>(group->getItem(i));
+        Fcitx_IMSettingsItem *item = dynamic_cast<Fcitx_IMSettingsItem *>(group->getItem(i));
         if (item) {
             item->setItemSelected(false);
             if (flag) {

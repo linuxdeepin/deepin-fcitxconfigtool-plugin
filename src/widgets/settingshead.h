@@ -37,8 +37,8 @@ DWIDGET_END_NAMESPACE
 namespace dcc_fcitx_configtool {
 namespace widgets {
 
-class NormalLabel;
-class SettingsHead : public SettingsItem
+class Fcitx_NormalLabel;
+class Fcitx_SettingsHead : public Fcitx_SettingsItem
 {
     Q_OBJECT
 
@@ -49,7 +49,7 @@ public:
     };
 
 public:
-    explicit SettingsHead(QFrame *parent = nullptr);
+    explicit Fcitx_SettingsHead(QFrame *parent = nullptr);
 
     void setTitle(const QString &title);
     void setEditEnable(bool state = true);
@@ -67,7 +67,7 @@ private Q_SLOTS:
     void onClicked();
 
 private:
-    TitleLabel *m_title;
+    Fcitx_TitleLabel *m_title;
     DTK_WIDGET_NAMESPACE::DCommandLinkButton *m_edit;
 
     State m_state;

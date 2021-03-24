@@ -4,10 +4,30 @@
 <context>
     <name>DCC_NAMESPACE::FcitxConfigPlugin</name>
     <message>
-        <location filename="../src/fcitxconfigplugin.h" line="85"/>
-        <location filename="../src/fcitxconfigplugin.h" line="95"/>
         <source>Manage Input Methods</source>
-        <translation>Manage Input Methods</translation>
+        <translation type="vanished">Manage Input Methods</translation>
+    </message>
+</context>
+<context>
+    <name>FcitxConfigPlugin</name>
+    <message>
+        <location filename="../src/fcitxconfigplugin.cpp" line="84"/>
+        <source>Manage Input Methods</source>
+        <translation type="unfinished">Manage Input Methods</translation>
+    </message>
+</context>
+<context>
+    <name>Fcitx_SettingsHead</name>
+    <message>
+        <location filename="../src/widgets/settingshead.cpp" line="48"/>
+        <location filename="../src/widgets/settingshead.cpp" line="112"/>
+        <source>Edit</source>
+        <translation type="unfinished">Edit</translation>
+    </message>
+    <message>
+        <location filename="../src/widgets/settingshead.cpp" line="114"/>
+        <source>Done</source>
+        <translation type="unfinished">Done</translation>
     </message>
 </context>
 <context>
@@ -41,68 +61,72 @@
 <context>
     <name>IMSettingWindow</name>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="92"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="93"/>
         <source>Default</source>
         <translation>Default</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="104"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="107"/>
         <source>Switch input methods</source>
         <translation>Switch input methods</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="105"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="108"/>
         <source>Switch to default input method</source>
         <translation>Switch to default input method</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="106"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="109"/>
         <source>Call out Onboard</source>
         <translation>Call out Onboard</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="107"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="110"/>
         <source>Applies to</source>
         <translation>Applies to</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="108"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="111"/>
         <source>System</source>
         <translation>System</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="108"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="111"/>
         <source>Application</source>
         <translation>Application</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="116"/>
         <source>Input Method</source>
-        <translation>Input Method</translation>
+        <translation type="vanished">Input Method</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="119"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="126"/>
         <source>Manage Input Methods</source>
         <translation>Manage Input Methods</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="122"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="129"/>
         <source>Shortcuts</source>
         <translation>Shortcuts</translation>
     </message>
 </context>
 <context>
+    <name>Main</name>
+    <message>
+        <location filename="../src/main.cpp" line="50"/>
+        <source>deepin-fcitxconfigtool-plugin</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>SettingsHead</name>
     <message>
-        <location filename="../src/widgets/settingshead.cpp" line="48"/>
-        <location filename="../src/widgets/settingshead.cpp" line="112"/>
         <source>Edit</source>
-        <translation>Edit</translation>
+        <translation type="vanished">Edit</translation>
     </message>
     <message>
-        <location filename="../src/widgets/settingshead.cpp" line="114"/>
         <source>Done</source>
-        <translation>Done</translation>
+        <translation type="vanished">Done</translation>
     </message>
 </context>
 <context>
@@ -119,17 +143,28 @@
     </message>
 </context>
 <context>
-    <name>dcc_fcitx_configtool::widgets::KeyLabelWidget</name>
-    <message>
-        <location filename="../src/widgets/keysettingsitem.cpp" line="43"/>
-        <source>Enter a new shortcut</source>
-        <translation>Enter a new shortcut</translation>
-    </message>
+    <name>dcc_fcitx_configtool::widgets::Fcitx_KeyLabelWidget</name>
     <message>
         <location filename="../src/widgets/keysettingsitem.cpp" line="37"/>
         <location filename="../src/widgets/keysettingsitem.cpp" line="136"/>
         <source>None</source>
-        <translation>None</translation>
+        <translation type="unfinished">None</translation>
+    </message>
+    <message>
+        <location filename="../src/widgets/keysettingsitem.cpp" line="43"/>
+        <source>Enter a new shortcut</source>
+        <translation type="unfinished">Enter a new shortcut</translation>
+    </message>
+</context>
+<context>
+    <name>dcc_fcitx_configtool::widgets::KeyLabelWidget</name>
+    <message>
+        <source>Enter a new shortcut</source>
+        <translation type="vanished">Enter a new shortcut</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="vanished">None</translation>
     </message>
 </context>
 </TS>

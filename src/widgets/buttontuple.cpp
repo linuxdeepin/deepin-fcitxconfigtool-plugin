@@ -33,9 +33,9 @@
 namespace dcc_fcitx_configtool {
 namespace widgets {
 
-ButtonTuple::ButtonTuple(ButtonType type, QWidget *parent)
+Fcitx_ButtonTuple::Fcitx_ButtonTuple(ButtonType type, QWidget *parent)
     : QWidget(parent)
-    , m_leftButton(new LeftButton)
+    , m_leftButton(new Fcitx_LeftButton)
 {
     createRightButton(type);
 
@@ -46,21 +46,21 @@ ButtonTuple::ButtonTuple(ButtonType type, QWidget *parent)
     layout->addWidget(m_rightButton);
     setLayout(layout);
 
-    connect(m_leftButton, &QPushButton::clicked, this, &ButtonTuple::leftButtonClicked);
-    connect(m_rightButton, &QPushButton::clicked, this, &ButtonTuple::rightButtonClicked);
+    connect(m_leftButton, &QPushButton::clicked, this, &Fcitx_ButtonTuple::leftButtonClicked);
+    connect(m_rightButton, &QPushButton::clicked, this, &Fcitx_ButtonTuple::rightButtonClicked);
 }
 
-QPushButton *ButtonTuple::leftButton()
+QPushButton *Fcitx_ButtonTuple::leftButton()
 {
     return m_leftButton;
 }
 
-QPushButton *ButtonTuple::rightButton()
+QPushButton *Fcitx_ButtonTuple::rightButton()
 {
     return m_rightButton;
 }
 
-void ButtonTuple::removeSpacing()
+void Fcitx_ButtonTuple::removeSpacing()
 {
     if (!this->layout())
         return;
@@ -70,7 +70,7 @@ void ButtonTuple::removeSpacing()
     }
 }
 
-void ButtonTuple::createRightButton(const ButtonTuple::ButtonType type)
+void Fcitx_ButtonTuple::createRightButton(const Fcitx_ButtonTuple::ButtonType type)
 {
     switch (type) {
     case Save:

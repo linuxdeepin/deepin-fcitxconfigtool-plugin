@@ -31,12 +31,12 @@
 DWIDGET_USE_NAMESPACE
 namespace dcc_fcitx_configtool {
 namespace widgets {
-IMSettingsItem::IMSettingsItem(QString str, QFrame *parent)
-    : SettingsItem(parent)
+Fcitx_IMSettingsItem::Fcitx_IMSettingsItem(QString str, QFrame *parent)
+    : Fcitx_SettingsItem(parent)
 {
     m_layout = new QHBoxLayout(this);
     m_layout->setContentsMargins(20, 0, 10, 0);
-    m_labelText = new ShortenLabel(str, this);
+    m_labelText = new Fcitx_ShortenLabel(str, this);
     DFontSizeManager::instance()->bind(m_labelText, DFontSizeManager::T6);
     m_labelIcon = new QLabel(this);
     QIcon icon = DStyle::standardIcon(QApplication::style(), DStyle::SP_IndicatorChecked);
@@ -48,17 +48,17 @@ IMSettingsItem::IMSettingsItem(QString str, QFrame *parent)
     this->setLayout(m_layout);
 }
 
-IMSettingsItem::~IMSettingsItem()
+Fcitx_IMSettingsItem::~Fcitx_IMSettingsItem()
 {
 }
 
-void IMSettingsItem::setFcitxItem(const FcitxQtInputMethodItem &item)
+void Fcitx_IMSettingsItem::setFcitxItem(const FcitxQtInputMethodItem &item)
 {
     m_item = item;
     m_labelText->setShortenText(m_item.name());
 }
 
-void IMSettingsItem::setFilterStr(QString str)
+void Fcitx_IMSettingsItem::setFilterStr(QString str)
 {
     if (!(m_item.name().indexOf(str, Qt::CaseInsensitive) != -1
           || m_item.uniqueName().indexOf(str, Qt::CaseInsensitive) != -1
@@ -69,7 +69,7 @@ void IMSettingsItem::setFilterStr(QString str)
     }
 }
 
-void IMSettingsItem::setItemSelected(bool status)
+void Fcitx_IMSettingsItem::setItemSelected(bool status)
 {
     if (status) {
         m_labelIcon->show();
@@ -78,28 +78,28 @@ void IMSettingsItem::setItemSelected(bool status)
     }
 }
 
-void IMSettingsItem::mousePressEvent(QMouseEvent *event)
+void Fcitx_IMSettingsItem::mousePressEvent(QMouseEvent *event)
 {
     setItemSelected(true);
     emit itemClicked(this);
 
-    SettingsItem::mousePressEvent(event);
+    Fcitx_SettingsItem::mousePressEvent(event);
 }
 
-void IMSettingsItem::enterEvent(QEvent *event)
+void Fcitx_IMSettingsItem::enterEvent(QEvent *event)
 {
     if (m_bgGroup)
         m_bgGroup->setBackgroundRole(DPalette::FrameShadowBorder);
 
-    SettingsItem::enterEvent(event);
+    Fcitx_SettingsItem::enterEvent(event);
 }
 
-void IMSettingsItem::leaveEvent(QEvent *event)
+void Fcitx_IMSettingsItem::leaveEvent(QEvent *event)
 {
     if (m_bgGroup)
         m_bgGroup->setBackgroundRole(DPalette::ItemBackground);
 
-    SettingsItem::leaveEvent(event);
+    Fcitx_SettingsItem::leaveEvent(event);
 }
 
 } // namespace widgets

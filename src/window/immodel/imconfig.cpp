@@ -105,7 +105,7 @@ bool IMConfig::checkShortKey(const QString &keyStr, QString &configName)
 
     QString info = reply.value();
 
-    QMap<QString, ShortcutInfo> map;
+    QMap<QString, Fcitx_ShortcutInfo> map;
     QJsonArray array = QJsonDocument::fromJson(info.toStdString().c_str()).array();
     Q_FOREACH (QJsonValue value, array) {
         QJsonObject obj = value.toObject();
@@ -114,7 +114,7 @@ bool IMConfig::checkShortKey(const QString &keyStr, QString &configName)
             continue;
         if (obj["Accels"].toArray().isEmpty())
             continue;
-        ShortcutInfo shortcut;
+        Fcitx_ShortcutInfo shortcut;
         QString Id = obj["Id"].toString();
         QString accels = obj["Accels"].toArray().at(0).toString().toUpper();
         accels.replace("<", "");
@@ -126,9 +126,9 @@ bool IMConfig::checkShortKey(const QString &keyStr, QString &configName)
         map.insert(accels, shortcut);
     }
 
-    ShortcutInfo defaultIMInfo;
-    ShortcutInfo virtualKeyInfo;
-    ShortcutInfo IMSwitchKeyInfo;
+    Fcitx_ShortcutInfo defaultIMInfo;
+    Fcitx_ShortcutInfo virtualKeyInfo;
+    Fcitx_ShortcutInfo IMSwitchKeyInfo;
     defaultIMInfo.id = "defaultIMKey";
     defaultIMInfo.name = "defaultIMKey";
     defaultIMInfo.type = -1;

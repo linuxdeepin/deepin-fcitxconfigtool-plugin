@@ -45,99 +45,93 @@ protected:
 
 TEST_F(ui_fcitxconfigplugin, preInitialize)
 {
-    DCC_NAMESPACE::FcitxConfigPlugin fcitxConfigPlugin;
+    FcitxConfigPlugin fcitxConfigPlugin;
     fcitxConfigPlugin.preInitialize();
     EXPECT_TRUE(true);
 }
 
 TEST_F(ui_fcitxconfigplugin, initialize)
 {
-    DCC_NAMESPACE::FcitxConfigPlugin fcitxConfigPlugin;
+    FcitxConfigPlugin fcitxConfigPlugin;
     fcitxConfigPlugin.initialize();
     EXPECT_TRUE(true);
 }
 
-TEST_F(ui_fcitxconfigplugin, reset)
-{
-    DCC_NAMESPACE::FcitxConfigPlugin fcitxConfigPlugin;
-    fcitxConfigPlugin.reset();
-    EXPECT_TRUE(true);
-}
 
 TEST_F(ui_fcitxconfigplugin, name)
 {
-    DCC_NAMESPACE::FcitxConfigPlugin fcitxConfigPlugin;
+    FcitxConfigPlugin fcitxConfigPlugin;
     fcitxConfigPlugin.name();
     EXPECT_TRUE(true);
 }
 
 TEST_F(ui_fcitxconfigplugin, displayName)
 {
-    DCC_NAMESPACE::FcitxConfigPlugin fcitxConfigPlugin;
+    FcitxConfigPlugin fcitxConfigPlugin;
     fcitxConfigPlugin.displayName();
     EXPECT_TRUE(true);
 }
 
 TEST_F(ui_fcitxconfigplugin, icon)
 {
-    DCC_NAMESPACE::FcitxConfigPlugin fcitxConfigPlugin;
+    FcitxConfigPlugin fcitxConfigPlugin;
     fcitxConfigPlugin.icon();
     EXPECT_TRUE(true);
 }
 
 TEST_F(ui_fcitxconfigplugin, translationPath)
 {
-    DCC_NAMESPACE::FcitxConfigPlugin fcitxConfigPlugin;
+    FcitxConfigPlugin fcitxConfigPlugin;
     fcitxConfigPlugin.translationPath();
     EXPECT_TRUE(true);
 }
 
 TEST_F(ui_fcitxconfigplugin, showPage)
 {
-    DCC_NAMESPACE::FcitxConfigPlugin fcitxConfigPlugin;
+    FcitxConfigPlugin fcitxConfigPlugin;
     fcitxConfigPlugin.showPage("");
     EXPECT_TRUE(true);
 }
 
 TEST_F(ui_fcitxconfigplugin, load)
 {
-    DCC_NAMESPACE::FcitxConfigPlugin fcitxConfigPlugin;
+    FcitxConfigPlugin fcitxConfigPlugin;
     fcitxConfigPlugin.load("");
     EXPECT_TRUE(true);
 }
 
 TEST_F(ui_fcitxconfigplugin, availPage)
 {
-    DCC_NAMESPACE::FcitxConfigPlugin fcitxConfigPlugin;
+    FcitxConfigPlugin fcitxConfigPlugin;
     fcitxConfigPlugin.availPage();
     EXPECT_TRUE(true);
 }
 
 TEST_F(ui_fcitxconfigplugin, path)
 {
-    DCC_NAMESPACE::FcitxConfigPlugin fcitxConfigPlugin;
+    FcitxConfigPlugin fcitxConfigPlugin;
     fcitxConfigPlugin.path();
     EXPECT_TRUE(true);
 }
 
 TEST_F(ui_fcitxconfigplugin, follow)
 {
-    DCC_NAMESPACE::FcitxConfigPlugin fcitxConfigPlugin;
+    FcitxConfigPlugin fcitxConfigPlugin;
     fcitxConfigPlugin.follow();
     EXPECT_TRUE(true);
 }
 
-//TEST_F(ui_fcitxconfigplugin, active)
-//{
-//    DCC_NAMESPACE::FcitxConfigPlugin fcitxConfigPlugin;
-//    fcitxConfigPlugin.initialize();
-//    fcitxConfigPlugin.active();
-//    EXPECT_TRUE(true);
-//}
+TEST_F(ui_fcitxconfigplugin, active)
+{
+    FcitxConfigPlugin fcitxConfigPlugin;
+    fcitxConfigPlugin.initialize();
+    fcitxConfigPlugin.active();
+    EXPECT_TRUE(true);
+}
 
 TEST_F(ui_fcitxconfigplugin, deactive)
 {
-    DCC_NAMESPACE::FcitxConfigPlugin fcitxConfigPlugin;
+    FcitxConfigPlugin fcitxConfigPlugin;
     fcitxConfigPlugin.initialize();
     fcitxConfigPlugin.deactive();
     EXPECT_TRUE(true);

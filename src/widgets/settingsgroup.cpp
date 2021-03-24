@@ -40,8 +40,8 @@ DWIDGET_USE_NAMESPACE
 namespace dcc_fcitx_configtool {
 namespace widgets {
 
-SettingsGroup::SettingsGroup(QFrame *parent, BackgroundStyle bgStyle)
-    : TranslucentFrame(parent)
+Fcitx_SettingsGroup::Fcitx_SettingsGroup(QFrame *parent, BackgroundStyle bgStyle)
+    : Fcitx_TranslucentFrame(parent)
     , m_layout(new QVBoxLayout)
     , m_headerItem(nullptr)
 {
@@ -63,8 +63,8 @@ SettingsGroup::SettingsGroup(QFrame *parent, BackgroundStyle bgStyle)
     setLayout(vLayout);
 }
 
-SettingsGroup::SettingsGroup(const QString &title, QFrame *parent)
-    : SettingsGroup(parent)
+Fcitx_SettingsGroup::Fcitx_SettingsGroup(const QString &title, QFrame *parent)
+    : Fcitx_SettingsGroup(parent)
 {
     setHeaderVisible(!title.isEmpty());
     setAccessibleName(title);
@@ -72,17 +72,17 @@ SettingsGroup::SettingsGroup(const QString &title, QFrame *parent)
     m_headerItem->setTitle(title);
 }
 
-SettingsGroup::~SettingsGroup()
+Fcitx_SettingsGroup::~Fcitx_SettingsGroup()
 {
     if (m_headerItem)
         m_headerItem->deleteLater();
 }
 
-void SettingsGroup::setHeaderVisible(const bool visible)
+void Fcitx_SettingsGroup::setHeaderVisible(const bool visible)
 {
     if (visible) {
         if (!m_headerItem)
-            m_headerItem = new SettingsHeaderItem;
+            m_headerItem = new Fcitx_SettingsHeaderItem;
         insertItem(0, m_headerItem);
     } else {
         if (m_headerItem) {
@@ -92,23 +92,23 @@ void SettingsGroup::setHeaderVisible(const bool visible)
     }
 }
 
-void SettingsGroup::insertItem(const int index, SettingsItem *item)
+void Fcitx_SettingsGroup::insertItem(const int index, Fcitx_SettingsItem *item)
 {
     if (ItemBackground == m_bgStyle) {
-        //当SettingsItem 被加入　SettingsGroup　时，为其加入背景
+        //当SettingsItem 被加入　Fcitx_SettingsGroup　时，为其加入背景
         item->addBackground();
     }
 
     m_layout->insertWidget(index, item);
     item->installEventFilter(this);
 
-    IMSettingsItem *mItem = dynamic_cast<IMSettingsItem *>(item);
+    Fcitx_IMSettingsItem *mItem = dynamic_cast<Fcitx_IMSettingsItem *>(item);
     if (mItem)
-        connect(mItem, &IMSettingsItem::itemClicked, [=](IMSettingsItem *myItem) {
+        connect(mItem, &Fcitx_IMSettingsItem::itemClicked, [=](Fcitx_IMSettingsItem *myItem) {
             int i = itemCount();
             for (int j = 0; j < i; ++j) {
                 if (this->getItem(j) != myItem) {
-                    IMSettingsItem *Titem = dynamic_cast<IMSettingsItem *>(this->getItem(j));
+                    Fcitx_IMSettingsItem *Titem = dynamic_cast<Fcitx_IMSettingsItem *>(this->getItem(j));
                     if (Titem) {
                         Titem->setItemSelected(false);
                     }
@@ -117,28 +117,28 @@ void SettingsGroup::insertItem(const int index, SettingsItem *item)
         });
 }
 
-void SettingsGroup::appendItem(SettingsItem *item)
+void Fcitx_SettingsGroup::appendItem(Fcitx_SettingsItem *item)
 {
     insertItem(m_layout->count(), item);
 }
 
-void SettingsGroup::appendItem(SettingsItem *item, BackgroundStyle bgStyle)
+void Fcitx_SettingsGroup::appendItem(Fcitx_SettingsItem *item, BackgroundStyle bgStyle)
 {
     if ((ItemBackground == bgStyle) && (m_bgStyle == ItemBackground)) {
-        //当SettingsItem 被加入　SettingsGroup　时，为其加入背景
+        //当SettingsItem 被加入　Fcitx_SettingsGroup　时，为其加入背景
         item->addBackground();
     }
 
     m_layout->insertWidget(m_layout->count(), item);
     item->installEventFilter(this);
 
-    IMSettingsItem *mItem = dynamic_cast<IMSettingsItem *>(item);
+    Fcitx_IMSettingsItem *mItem = dynamic_cast<Fcitx_IMSettingsItem *>(item);
     if (mItem)
-        connect(mItem, &IMSettingsItem::itemClicked, [=](IMSettingsItem *myItem) {
+        connect(mItem, &Fcitx_IMSettingsItem::itemClicked, [=](Fcitx_IMSettingsItem *myItem) {
             int i = itemCount();
             for (int j = 0; j < i; ++j) {
                 if (this->getItem(j) != myItem) {
-                    IMSettingsItem *Titem = dynamic_cast<IMSettingsItem *>(this->getItem(j));
+                    Fcitx_IMSettingsItem *Titem = dynamic_cast<Fcitx_IMSettingsItem *>(this->getItem(j));
                     if (Titem) {
                         Titem->setItemSelected(false);
                     }
@@ -147,7 +147,7 @@ void SettingsGroup::appendItem(SettingsItem *item, BackgroundStyle bgStyle)
         });
 }
 
-void SettingsGroup::removeItem(SettingsItem *item)
+void Fcitx_SettingsGroup::removeItem(Fcitx_SettingsItem *item)
 {
     if (!item)
         return;
@@ -155,7 +155,7 @@ void SettingsGroup::removeItem(SettingsItem *item)
     item->removeEventFilter(this);
 }
 
-void SettingsGroup::moveItem(SettingsItem *item, const int index)
+void Fcitx_SettingsGroup::moveItem(Fcitx_SettingsItem *item, const int index)
 {
     const int oldIndex = m_layout->indexOf(item);
     if (oldIndex == index)
@@ -165,19 +165,19 @@ void SettingsGroup::moveItem(SettingsItem *item, const int index)
     m_layout->insertWidget(index, item);
 }
 
-void SettingsGroup::setSpacing(const int spaceing)
+void Fcitx_SettingsGroup::setSpacing(const int spaceing)
 {
     m_layout->setSpacing(spaceing);
     if (m_bggroup)
         m_bggroup->setItemSpacing(spaceing);
 }
 
-int SettingsGroup::itemCount() const
+int Fcitx_SettingsGroup::itemCount() const
 {
     return m_layout->count();
 }
 
-void SettingsGroup::clear()
+void Fcitx_SettingsGroup::clear()
 {
     const int index = m_headerItem ? 1 : 0;
     const int count = m_layout->count();
@@ -192,19 +192,19 @@ void SettingsGroup::clear()
     }
 }
 
-SettingsItem *SettingsGroup::getItem(int index)
+Fcitx_SettingsItem *Fcitx_SettingsGroup::getItem(int index)
 {
     if (index < 0)
         return nullptr;
 
     if (index < itemCount()) {
-        return qobject_cast<SettingsItem *>(m_layout->itemAt(index)->widget());
+        return qobject_cast<Fcitx_SettingsItem *>(m_layout->itemAt(index)->widget());
     }
 
     return nullptr;
 }
 
-void SettingsGroup::insertWidget(QWidget *widget)
+void Fcitx_SettingsGroup::insertWidget(QWidget *widget)
 {
     m_layout->insertWidget(m_layout->count(), widget);
 }

@@ -3,11 +3,11 @@
 #include <QLabel>
 namespace dcc_fcitx_configtool {
 namespace widgets {
-class ShortenLabel : public QLabel
+class Fcitx_ShortenLabel : public QLabel
 {
     Q_OBJECT
 public:
-    ShortenLabel(const QString &text = "", QWidget *parent = nullptr);
+    Fcitx_ShortenLabel(const QString &text = "", QWidget *parent = nullptr);
     void setShortenText(const QString &text);
     QString text() const;
 

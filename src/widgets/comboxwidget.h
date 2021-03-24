@@ -33,14 +33,14 @@ QT_END_NAMESPACE
 namespace dcc_fcitx_configtool {
 namespace widgets {
 
-class ComboxWidget : public SettingsItem
+class Fcitx_ComboxWidget : public Fcitx_SettingsItem
 {
     Q_OBJECT
 
 public:
-    explicit ComboxWidget(QFrame *parent = nullptr);
-    explicit ComboxWidget(const QString &title, QFrame *parent = nullptr);
-    explicit ComboxWidget(QWidget *widget, QFrame *parent = nullptr);
+    explicit Fcitx_ComboxWidget(QFrame *parent = nullptr);
+    explicit Fcitx_ComboxWidget(const QString &title, QFrame *parent = nullptr);
+    explicit Fcitx_ComboxWidget(QWidget *widget, QFrame *parent = nullptr);
 
     void setComboxOption(const QStringList &options);
     void setCurrentText(const QString &curText);

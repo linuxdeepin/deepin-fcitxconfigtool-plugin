@@ -41,18 +41,18 @@ DGUI_USE_NAMESPACE
 namespace dcc_fcitx_configtool {
 namespace widgets {
 
-SettingsItem::SettingsItem(QWidget *parent)
+Fcitx_SettingsItem::Fcitx_SettingsItem(QWidget *parent)
     : QFrame(parent)
     , m_isErr(false)
 {
 }
 
-bool SettingsItem::isErr() const
+bool Fcitx_SettingsItem::isErr() const
 {
     return m_isErr;
 }
 
-void SettingsItem::setIsErr(const bool err)
+void Fcitx_SettingsItem::setIsErr(const bool err)
 {
     if (m_isErr == err)
         return;
@@ -62,7 +62,7 @@ void SettingsItem::setIsErr(const bool err)
     style()->polish(this);
 }
 
-void SettingsItem::addBackground()
+void Fcitx_SettingsItem::addBackground()
 {
     //加入一个 DFrame 作为圆角背景
     if (m_bgGroup)
@@ -78,7 +78,7 @@ void SettingsItem::addBackground()
     m_bgGroup->setFixedSize(size());
 }
 
-void SettingsItem::resizeEvent(QResizeEvent *event)
+void Fcitx_SettingsItem::resizeEvent(QResizeEvent *event)
 {
     QFrame::resizeEvent(event);
 
