@@ -40,7 +40,7 @@ lcov -d ../ -c -o ./coverage/coverage.info
 
 lcov --extract ./coverage/coverage.info '*/src/*' -o ./coverage/coverage.info
 
-lcov --remove ./coverage/coverage.info '*/tests/*' '*/src/ddeInterface/*' '*/src/fcitxInterface/*' '*/src/widgets/*' '*/src/widgets/labels/*' -o ./coverage/coverage.info
+lcov --remove ./coverage/coverage.info '*/tests/*' '*/src/ddeInterface/*' '*/src/fcitxInterface/*' '*/src/widgets/*' '*/src/widgets/labels/*' '*fcitxconfigplugin*' -o ./coverage/coverage.info
 
 mkdir ../report
 
