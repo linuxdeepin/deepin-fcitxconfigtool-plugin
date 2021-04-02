@@ -4,7 +4,7 @@
 
 Name:			deepin-fcitxconfigtool-plugin
 Summary:		An input method framework
-Version:	    0.1.17	
+Version:		0.1.17	
 Release:		1%{?dist}
 License:		GPLv2+
 URL:			https://fcitx-im.org/wiki/Fcitx
