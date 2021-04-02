@@ -47,7 +47,7 @@ int main(int argc, char *argv[])
     a.setProductName("deepin-fcitxconfigtool-plugin");
     a.setApplicationDescription("This is a dtk deepin-fcitxconfigtool-plugin");
     a.loadTranslator();
-    a.setApplicationDisplayName(QCoreApplication::translate("Main", "deepin-fcitxconfigtool-plugin"));
+    a.setApplicationDisplayName("deepin-fcitxconfigtool-plugin");
 
     IMWindow w;
     w.show();

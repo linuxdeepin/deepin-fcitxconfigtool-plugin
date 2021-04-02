@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="zh_CN">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="zh_CN" version="2.1">
 <context>
     <name>DCC_NAMESPACE::FcitxConfigPlugin</name>
     <message>
@@ -13,7 +11,7 @@
     <message>
         <location filename="../src/fcitxconfigplugin.cpp" line="84"/>
         <source>Manage Input Methods</source>
-        <translation type="unfinished">输入法管理</translation>
+        <translation>输入法管理</translation>
     </message>
 </context>
 <context>
@@ -22,12 +20,12 @@
         <location filename="../src/widgets/settingshead.cpp" line="48"/>
         <location filename="../src/widgets/settingshead.cpp" line="112"/>
         <source>Edit</source>
-        <translation type="unfinished">编辑</translation>
+        <translation>编辑</translation>
     </message>
     <message>
         <location filename="../src/widgets/settingshead.cpp" line="114"/>
         <source>Done</source>
-        <translation type="unfinished">完成</translation>
+        <translation>完成</translation>
     </message>
 </context>
 <context>
@@ -111,14 +109,6 @@
     </message>
 </context>
 <context>
-    <name>Main</name>
-    <message>
-        <location filename="../src/main.cpp" line="50"/>
-        <source>deepin-fcitxconfigtool-plugin</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>SettingsHead</name>
     <message>
         <source>Edit</source>
@@ -148,12 +138,12 @@
         <location filename="../src/widgets/keysettingsitem.cpp" line="37"/>
         <location filename="../src/widgets/keysettingsitem.cpp" line="136"/>
         <source>None</source>
-        <translation type="unfinished">无</translation>
+        <translation>无</translation>
     </message>
     <message>
         <location filename="../src/widgets/keysettingsitem.cpp" line="43"/>
         <source>Enter a new shortcut</source>
-        <translation type="unfinished">请输入新的快捷键</translation>
+        <translation>请输入新的快捷键</translation>
     </message>
 </context>
 <context>

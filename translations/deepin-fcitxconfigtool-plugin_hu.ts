@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="hu">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="hu" version="2.1">
 <context>
     <name>DCC_NAMESPACE::FcitxConfigPlugin</name>
     <message>
@@ -13,7 +11,7 @@
     <message>
         <location filename="../src/fcitxconfigplugin.cpp" line="84"/>
         <source>Manage Input Methods</source>
-        <translation type="unfinished">Beviteli módok kezelése</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -22,12 +20,12 @@
         <location filename="../src/widgets/settingshead.cpp" line="48"/>
         <location filename="../src/widgets/settingshead.cpp" line="112"/>
         <source>Edit</source>
-        <translation type="unfinished">Szerkesztés</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/widgets/settingshead.cpp" line="114"/>
         <source>Done</source>
-        <translation type="unfinished">Kész</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -78,7 +76,7 @@
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="109"/>
         <source>Call out Onboard</source>
-        <translation>Virtuális billentyűzet előhívása</translation>
+        <translation>Képernyő billentyűzet előhívása</translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="110"/>
@@ -111,14 +109,6 @@
     </message>
 </context>
 <context>
-    <name>Main</name>
-    <message>
-        <location filename="../src/main.cpp" line="50"/>
-        <source>deepin-fcitxconfigtool-plugin</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>SettingsHead</name>
     <message>
         <source>Edit</source>
@@ -148,12 +138,12 @@
         <location filename="../src/widgets/keysettingsitem.cpp" line="37"/>
         <location filename="../src/widgets/keysettingsitem.cpp" line="136"/>
         <source>None</source>
-        <translation type="unfinished">Nincs</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/widgets/keysettingsitem.cpp" line="43"/>
         <source>Enter a new shortcut</source>
-        <translation type="unfinished">Adjon meg egy új gyorsbillentyűt</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

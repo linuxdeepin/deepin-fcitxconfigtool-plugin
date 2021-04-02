@@ -1,9 +1,9 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="zh_TW" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="sl" version="2.1">
 <context>
     <name>DCC_NAMESPACE::FcitxConfigPlugin</name>
     <message>
         <source>Manage Input Methods</source>
-        <translation type="vanished">輸入法管理</translation>
+        <translation type="vanished">Upravljanje načinov vnosa</translation>
     </message>
 </context>
 <context>
@@ -11,7 +11,7 @@
     <message>
         <location filename="../src/fcitxconfigplugin.cpp" line="84"/>
         <source>Manage Input Methods</source>
-        <translation>輸入法管理</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -20,12 +20,12 @@
         <location filename="../src/widgets/settingshead.cpp" line="48"/>
         <location filename="../src/widgets/settingshead.cpp" line="112"/>
         <source>Edit</source>
-        <translation>編輯</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/widgets/settingshead.cpp" line="114"/>
         <source>Done</source>
-        <translation>完成</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -33,27 +33,27 @@
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="55"/>
         <source>Add Input Method</source>
-        <translation>添加輸入法</translation>
+        <translation>Dodaj način vnosa</translation>
     </message>
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="64"/>
         <source>Search</source>
-        <translation>搜尋</translation>
+        <translation>Iskanje</translation>
     </message>
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="75"/>
         <source>Find more in App Store</source>
-        <translation>前往商店下載</translation>
+        <translation>Najdi več v Trgovini</translation>
     </message>
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="81"/>
         <source>Add</source>
-        <translation>添加</translation>
+        <translation>Dodaj</translation>
     </message>
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="83"/>
         <source>Cancel</source>
-        <translation>取消</translation>
+        <translation>Prekini</translation>
     </message>
 </context>
 <context>
@@ -61,62 +61,62 @@
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="93"/>
         <source>Default</source>
-        <translation>預設</translation>
+        <translation>Privzeto</translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="107"/>
         <source>Switch input methods</source>
-        <translation>切換輸入法</translation>
+        <translation>Zamenjaj način vnosa</translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="108"/>
         <source>Switch to default input method</source>
-        <translation>切換至預設輸入法</translation>
+        <translation>Preklopi na privzeti način vnosa</translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="109"/>
         <source>Call out Onboard</source>
-        <translation>喚起虛擬鍵盤</translation>
+        <translation>Prikliči integrirano</translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="110"/>
         <source>Applies to</source>
-        <translation>切換方式</translation>
+        <translation>Uporabljeno za</translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="111"/>
         <source>System</source>
-        <translation>系統</translation>
+        <translation>sistem</translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="111"/>
         <source>Application</source>
-        <translation>應用</translation>
+        <translation>program</translation>
     </message>
     <message>
         <source>Input Method</source>
-        <translation type="vanished">輸入法</translation>
+        <translation type="vanished">Način vnosa</translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="126"/>
         <source>Manage Input Methods</source>
-        <translation>輸入法管理</translation>
+        <translation>Upravljanje načinov vnosa</translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="129"/>
         <source>Shortcuts</source>
-        <translation>快捷鍵</translation>
+        <translation>Bljižnice</translation>
     </message>
 </context>
 <context>
     <name>SettingsHead</name>
     <message>
         <source>Edit</source>
-        <translation type="vanished">編輯</translation>
+        <translation type="vanished">Uredi</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation type="vanished">完成</translation>
+        <translation type="vanished">Končano</translation>
     </message>
 </context>
 <context>
@@ -124,12 +124,12 @@
     <message>
         <location filename="../src/window/shortcutkeywindow.cpp" line="29"/>
         <source>Cancel</source>
-        <translation>取消</translation>
+        <translation>Prekini</translation>
     </message>
     <message>
         <location filename="../src/window/shortcutkeywindow.cpp" line="49"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation>此快捷鍵與%1衝突，點擊添加使這個快捷鍵立即生效</translation>
+        <translation>Ta bližnjica se prekriva z/s %1. Lahko jo takoj omogočite s klikom na Dodaj</translation>
     </message>
 </context>
 <context>
@@ -138,23 +138,23 @@
         <location filename="../src/widgets/keysettingsitem.cpp" line="37"/>
         <location filename="../src/widgets/keysettingsitem.cpp" line="136"/>
         <source>None</source>
-        <translation>無</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/widgets/keysettingsitem.cpp" line="43"/>
         <source>Enter a new shortcut</source>
-        <translation>請輸入新的快捷鍵</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>dcc_fcitx_configtool::widgets::KeyLabelWidget</name>
     <message>
         <source>Enter a new shortcut</source>
-        <translation type="vanished">請輸入新的快捷鍵</translation>
+        <translation type="vanished">Vnesite novo bljižnico</translation>
     </message>
     <message>
         <source>None</source>
-        <translation type="vanished">無</translation>
+        <translation type="vanished">brez</translation>
     </message>
 </context>
 </TS>
