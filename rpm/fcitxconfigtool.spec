@@ -62,7 +62,10 @@ The %{name} package provides fcitx-config-tools and multilanguages translations
 %build
 mkdir -p build
 pushd build
-cmake .. make VERBOSE=1 %{?_smp_mflags}
+%cmake ..
+popd
+make %{?_smp_mflags} -C build
+
 %install
 %make_install INSTALL="install -p" -C build
 
