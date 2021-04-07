@@ -41,7 +41,7 @@ find_package(DtkWidget REQUIRED)
 find_package(DtkGui REQUIRED)
 find_package(DtkCore REQUIRED)
 find_package(DtkCMake REQUIRED)
-find_package(DdeControlCenter REQUIRED)
+#find_package(DdeControlCenter REQUIRED)
 find_package(Qt5 COMPONENTS Core REQUIRED)
 find_package(Qt5 COMPONENTS Gui REQUIRED)
 find_package(Qt5 COMPONENTS Widgets REQUIRED)
@@ -117,7 +117,8 @@ include_directories(${PROJECT_NAME_TEST} PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}/../src)
 
 target_include_directories(${PROJECT_NAME_TEST} PUBLIC
-        ${DdeControlCenter_INCLUDE_DIR}
+        "/usr/include/dde-control-center"
+#${DdeControlCenter_INCLUDE_DIR}
         ${DtkCore_INCLUDE_DIRS}
         ${DtkWidget_INCLUDE_DIRS}
         ${DFrameworkDBus_INCLUDE_DIRS}
@@ -126,7 +127,8 @@ target_include_directories(${PROJECT_NAME_TEST} PUBLIC
         )
 
 target_link_libraries(${PROJECT_NAME_TEST} PRIVATE
-        ${DdeControlCenter_LIBRARIES}
+        "/usr/include/dde-control-center"
+#${DdeControlCenter_LIBRARIES}
         ${DFrameworkDBus_LIBRARIES}
         ${DtkWidget_LIBRARIES}
         ${Qt5Widgets_LIBRARIES}
