@@ -2,7 +2,7 @@
 %{!?gtk2_binary_version: %global gtk2_binary_version %(pkg-config  --variable=gtk_binary_version gtk+-2.0)}
 %{!?gtk3_binary_version: %global gtk3_binary_version %(pkg-config  --variable=gtk_binary_version gtk+-3.0)}
 
-Name:			deepin-fcitxconfigtool-plugin
+Name:		deepin-fcitxconfigtool-plugin
 Summary:		An input method framework
 Version:		0.1.17
 Release:		1%{?dist}
@@ -60,7 +60,7 @@ The %{name} package provides fcitx-config-tools and multilanguages translations
 %build
 mkdir -p build
 pushd build
-cmake .. -DCMAKE_INSTALL_PREFIX:PATH=/usr  && make VERBOSE=1 %{?_smp_mflags}
+cmake .. make VERBOSE=1 %{?_smp_mflags}
 %install
 %make_install INSTALL="install -p" -C build
 
