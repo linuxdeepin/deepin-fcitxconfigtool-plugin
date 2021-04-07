@@ -18,19 +18,25 @@ BuildRequires:		pango-devel, dbus-devel
 BuildRequires:		enchant-devel
 %endif
 %endif
-BuildRequires:		qt5-qmake,libqt5widgets5,
-BuildRequires:		libqt5network5, libdtkwidget-dev,
-BuildRequires:		libdtkgui-dev, libdtkgui5,
-BuildRequires:		libdtkgui5-bin, libdtkcore5-bin,
-BuildRequires:		libdtkcore-dev, qttools5-dev,
-BuildRequires:		qttools5-dev-tools, pkg-config,
-BuildRequires:		cmake, debhelper
-BuildRequires:		fcitx-bin, fcitx-libs-dev
-BuildRequires:		libfcitx-qt5-1, libfcitx-qt5-data,
-BuildRequires:		libfcitx-qt5-dev, iso-codes,  libdbus-glib-1-dev,
-BuildRequires:		libgtk-3-dev, libgtk2.0-dev
-BuildRequires:		libunique-dev, libdframeworkdbus-dev,
-BuildRequires:		libgtest-dev, libgmock-dev, dde-control-center-dev,
+
+BuildRequires:		cmake
+BuildRequires:		fcitx, fcitx-devel
+BuildRequires:		fcitx-qt5-devel
+BuildRequires:		dtkwidget-devel
+BuildRequires:		dtkgui-devel dtkcore-devel
+BuildRequires:		gtest-devel, gtk3-devel, gtk2-devel
+BuildRequires:		qt5-qttools-devel
+BuildRequires:		pkgconfig
+BuildRequires:		gtest-devel
+BuildRequires:		dde-control-center-devel
+BuildRequires:		iso-codes, dbus-glib-devel
+BuildRequires:	 	gmock-devel, unique-devel
+BuildRequires:		dtkwidget-devel
+BuildRequires:		dtkgui-devel dtkcore-devel
+BuildRequires:		qt5-qtbase-devel
+BuildRequires:		qt5-qtbase-gui
+BuildRequires:		qt5-qtbase
+BuildRequires:		dde-qt-dbus-factory-devel
 
 %description
 Fcitx is an input method framework with extension support. Currently it
