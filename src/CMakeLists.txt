@@ -109,7 +109,8 @@ add_library(${PROJECT_NAME}
         )
 
 target_include_directories(${PROJECT_NAME} PUBLIC
-        ${DdeControlCenter_INCLUDE_DIR}
+        "/usr/include/dde-control-center"
+#${DdeControlCenter_INCLUDE_DIR}
         ${DtkCore_INCLUDE_DIRS}
         ${DtkWidget_INCLUDE_DIRS}
         ${DFrameworkDBus_INCLUDE_DIRS}
@@ -117,7 +118,8 @@ target_include_directories(${PROJECT_NAME} PUBLIC
         )
 
 target_link_libraries(${PROJECT_NAME} PRIVATE
-        ${DdeControlCenter_LIBRARIES}
+        "/usr/include/dde-control-center"
+#${DdeControlCenter_LIBRARIES}
         ${DFrameworkDBus_LIBRARIES}
         ${DtkWidget_LIBRARIES}
         ${Qt5Widgets_LIBRARIES}
