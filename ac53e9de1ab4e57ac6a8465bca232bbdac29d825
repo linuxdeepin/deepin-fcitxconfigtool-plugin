@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aa3cadcc_c0a53629",
+        "filename": "src/fcitxconfigplugin.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-04-15T04:36:23Z",
+      "side": 1,
+      "message": "注释行数: 1; 改动行数(修改和新增): 3; 注释率: 33.3%",
+      "revId": "ac53e9de1ab4e57ac6a8465bca232bbdac29d825",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    }
+  ]
+}
