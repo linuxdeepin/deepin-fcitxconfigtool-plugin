@@ -76,22 +76,13 @@ void FcitxConfigPlugin::active()
 
 const QString FcitxConfigPlugin::name() const
 {
-    return "manage input methods";
+    return tr("Manage Input Methods");
 }
 
 const QString FcitxConfigPlugin::displayName() const
 {
-    QString displayName = QString(tr("Manage Input Methods"));
-    if (QLocale::system().language() == QLocale::Chinese) {
-        displayName = "输入法";
-        if (QLocale::system().country() == QLocale::HongKong) {
-            displayName = "输入法";
-        } else if (QLocale::system().country() == QLocale::Taiwan) {
-            displayName = "输入法";
-        } else {
-        }
-    }
-    return displayName;
+    //~ contents_path /keyboard/Manage Input Methods
+    return tr("Manage Input Methods");
 }
 
 

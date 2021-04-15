@@ -9,4 +9,29 @@
     <qresource prefix="/icons/deepin/builtin">
         <file>actions/input_method_32px.svg</file>
     </qresource>
+    <qresource prefix="/translations">
+        <file>../translations/deepin-fcitxconfigtool-plugin_az.ts</file>
+        <file>../translations/deepin-fcitxconfigtool-plugin_bo.ts</file>
+        <file>../translations/deepin-fcitxconfigtool-plugin_ca.ts</file>
+        <file>../translations/deepin-fcitxconfigtool-plugin_en_US.ts</file>
+        <file>../translations/deepin-fcitxconfigtool-plugin_es.ts</file>
+        <file>../translations/deepin-fcitxconfigtool-plugin_fi.ts</file>
+        <file>../translations/deepin-fcitxconfigtool-plugin_fr.ts</file>
+        <file>../translations/deepin-fcitxconfigtool-plugin_hi_IN.ts</file>
+        <file>../translations/deepin-fcitxconfigtool-plugin_hu.ts</file>
+        <file>../translations/deepin-fcitxconfigtool-plugin_it.ts</file>
+        <file>../translations/deepin-fcitxconfigtool-plugin_nl.ts</file>
+        <file>../translations/deepin-fcitxconfigtool-plugin_pt_BR.ts</file>
+        <file>../translations/deepin-fcitxconfigtool-plugin_pt.ts</file>
+        <file>../translations/deepin-fcitxconfigtool-plugin_sl.ts</file>
+        <file>../translations/deepin-fcitxconfigtool-plugin_sq.ts</file>
+        <file>../translations/deepin-fcitxconfigtool-plugin_sr.ts</file>
+        <file>../translations/deepin-fcitxconfigtool-plugin_tr.ts</file>
+        <file>../translations/deepin-fcitxconfigtool-plugin_ug.ts</file>
+        <file>../translations/deepin-fcitxconfigtool-plugin_uk.ts</file>
+        <file>../translations/deepin-fcitxconfigtool-plugin_zh_CN.ts</file>
+        <file>../translations/deepin-fcitxconfigtool-plugin_zh_HK.ts</file>
+        <file>../translations/deepin-fcitxconfigtool-plugin_zh_TW.ts</file>
+        <file>../translations/deepin-fcitxconfigtool-plugin.ts</file>
+    </qresource>
 </RCC>

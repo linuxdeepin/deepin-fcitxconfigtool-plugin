@@ -4,9 +4,11 @@
 <context>
     <name>FcitxConfigPlugin</name>
     <message>
-        <location filename="../src/fcitxconfigplugin.cpp" line="84"/>
+        <location filename="../src/fcitxconfigplugin.cpp" line="79"/>
+        <location filename="../src/fcitxconfigplugin.cpp" line="85"/>
         <source>Manage Input Methods</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
 </context>
 <context>
@@ -96,14 +98,6 @@
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="129"/>
         <source>Shortcuts</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>Main</name>
-    <message>
-        <location filename="../src/main.cpp" line="50"/>
-        <source>deepin-fcitxconfigtool-plugin</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

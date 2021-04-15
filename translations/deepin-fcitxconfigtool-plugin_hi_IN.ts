@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="hi_IN" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="hi_IN">
 <context>
     <name>DCC_NAMESPACE::FcitxConfigPlugin</name>
     <message>
@@ -9,9 +11,11 @@
 <context>
     <name>FcitxConfigPlugin</name>
     <message>
-        <location filename="../src/fcitxconfigplugin.cpp" line="84"/>
+        <location filename="../src/fcitxconfigplugin.cpp" line="79"/>
+        <location filename="../src/fcitxconfigplugin.cpp" line="85"/>
         <source>Manage Input Methods</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">इनपुट विधि प्रबंधन</translation>
+        <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
 </context>
 <context>
@@ -20,12 +24,12 @@
         <location filename="../src/widgets/settingshead.cpp" line="48"/>
         <location filename="../src/widgets/settingshead.cpp" line="112"/>
         <source>Edit</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">संपादन</translation>
     </message>
     <message>
         <location filename="../src/widgets/settingshead.cpp" line="114"/>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">पूर्ण</translation>
     </message>
 </context>
 <context>
@@ -138,12 +142,12 @@
         <location filename="../src/widgets/keysettingsitem.cpp" line="37"/>
         <location filename="../src/widgets/keysettingsitem.cpp" line="136"/>
         <source>None</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">कोई नहीं</translation>
     </message>
     <message>
         <location filename="../src/widgets/keysettingsitem.cpp" line="43"/>
         <source>Enter a new shortcut</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">नया शॉर्टकट दर्ज करें</translation>
     </message>
 </context>
 <context>

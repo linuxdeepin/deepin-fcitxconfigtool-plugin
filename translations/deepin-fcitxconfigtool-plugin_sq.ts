@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="hu">
+<TS version="2.1" language="sq">
 <context>
     <name>DCC_NAMESPACE::FcitxConfigPlugin</name>
     <message>
         <source>Manage Input Methods</source>
-        <translation type="vanished">Beviteli módok kezelése</translation>
+        <translation type="vanished">Administroni Metoda Dhënieje</translation>
     </message>
 </context>
 <context>
@@ -14,7 +14,7 @@
         <location filename="../src/fcitxconfigplugin.cpp" line="79"/>
         <location filename="../src/fcitxconfigplugin.cpp" line="85"/>
         <source>Manage Input Methods</source>
-        <translation>Beviteli módok kezelése</translation>
+        <translation>Administroni Metoda Dhënieje</translation>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
 </context>
@@ -24,12 +24,12 @@
         <location filename="../src/widgets/settingshead.cpp" line="48"/>
         <location filename="../src/widgets/settingshead.cpp" line="112"/>
         <source>Edit</source>
-        <translation>Szerkesztés</translation>
+        <translation>Përpunoni</translation>
     </message>
     <message>
         <location filename="../src/widgets/settingshead.cpp" line="114"/>
         <source>Done</source>
-        <translation>Kész</translation>
+        <translation>U bë</translation>
     </message>
 </context>
 <context>
@@ -37,27 +37,27 @@
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="55"/>
         <source>Add Input Method</source>
-        <translation>Beviteli mód hozzáadása</translation>
+        <translation>Shtoni Metodë Dhënieje</translation>
     </message>
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="64"/>
         <source>Search</source>
-        <translation>Keresés</translation>
+        <translation>Kërko</translation>
     </message>
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="75"/>
         <source>Find more in App Store</source>
-        <translation>További megoldásokat az Áruházban talál</translation>
+        <translation>Gjeni më tepër, te Shitorja e Aplikacioneve</translation>
     </message>
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="81"/>
         <source>Add</source>
-        <translation>Hozzáadás</translation>
+        <translation>Shtoje</translation>
     </message>
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="83"/>
         <source>Cancel</source>
-        <translation>Mégsem</translation>
+        <translation>Anuloje</translation>
     </message>
 </context>
 <context>
@@ -65,62 +65,62 @@
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="93"/>
         <source>Default</source>
-        <translation>Alapértelmezett</translation>
+        <translation>Parazgjedhje</translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="107"/>
         <source>Switch input methods</source>
-        <translation>Beviteli mód váltása</translation>
+        <translation>Ndërroni metoda dhënieje</translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="108"/>
         <source>Switch to default input method</source>
-        <translation>Váltson az alapértelmezett beviteli módra</translation>
+        <translation>Kalo te metoda parazgjedhje e dhënieve</translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="109"/>
         <source>Call out Onboard</source>
-        <translation>Képernyő billentyűzet előhívása</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="110"/>
         <source>Applies to</source>
-        <translation>Alkalmazva ehhez:</translation>
+        <translation>Vlen për</translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="111"/>
         <source>System</source>
-        <translation>Rendszer</translation>
+        <translation>Sistem</translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="111"/>
         <source>Application</source>
-        <translation>Alkalmazás</translation>
+        <translation>Aplikacion</translation>
     </message>
     <message>
         <source>Input Method</source>
-        <translation type="vanished">Beviteli mód</translation>
+        <translation type="vanished">Metodë Dhënieje</translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="126"/>
         <source>Manage Input Methods</source>
-        <translation>Beviteli módok kezelése</translation>
+        <translation>Administroni Metoda Dhënieje</translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="129"/>
         <source>Shortcuts</source>
-        <translation>Gyorsbillentyűk</translation>
+        <translation>Shkurtore</translation>
     </message>
 </context>
 <context>
     <name>SettingsHead</name>
     <message>
         <source>Edit</source>
-        <translation type="vanished">Szerkesztés</translation>
+        <translation type="vanished">Përpunim</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation type="vanished">Kész</translation>
+        <translation type="vanished">U bë</translation>
     </message>
 </context>
 <context>
@@ -128,12 +128,12 @@
     <message>
         <location filename="../src/window/shortcutkeywindow.cpp" line="29"/>
         <source>Cancel</source>
-        <translation>Mégsem</translation>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <location filename="../src/window/shortcutkeywindow.cpp" line="49"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation>Ez a gyorsbillentyű ütközik ezzel: %1, kattintson a Hozzáadás gombra, hogy ez a gyorsbillentyű azonnal használható legyen</translation>
+        <translation>Kjo shkurtore përplaset me %1, klikoni mbi Shtoje për ta bërë këtë shkurtore menjëherë efektive</translation>
     </message>
 </context>
 <context>
@@ -142,23 +142,23 @@
         <location filename="../src/widgets/keysettingsitem.cpp" line="37"/>
         <location filename="../src/widgets/keysettingsitem.cpp" line="136"/>
         <source>None</source>
-        <translation>Nincs</translation>
+        <translation>Asnjë</translation>
     </message>
     <message>
         <location filename="../src/widgets/keysettingsitem.cpp" line="43"/>
         <source>Enter a new shortcut</source>
-        <translation>Adjon meg egy új gyorsbillentyűt</translation>
+        <translation>Jepni një shkurtore të re</translation>
     </message>
 </context>
 <context>
     <name>dcc_fcitx_configtool::widgets::KeyLabelWidget</name>
     <message>
         <source>Enter a new shortcut</source>
-        <translation type="vanished">Adjon meg egy új gyorsbillentyűt</translation>
+        <translation type="vanished">Jepni një shkurtore të re</translation>
     </message>
     <message>
         <source>None</source>
-        <translation type="vanished">Nincs</translation>
+        <translation type="vanished">Asnjë</translation>
     </message>
 </context>
 </TS>
