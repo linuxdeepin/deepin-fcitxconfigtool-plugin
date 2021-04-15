@@ -31,6 +31,7 @@ FcitxConfigPlugin::FcitxConfigPlugin()
                       QStringLiteral("/usr/share/deepin-fcitxconfigtool-plugin/translations"));
     qApp->installTranslator(&m_translator);
 }
+
 FcitxConfigPlugin::~FcitxConfigPlugin()
 {
     qApp->removeTranslator(&m_translator);
@@ -59,7 +60,10 @@ QString FcitxConfigPlugin::follow() const
 
 void FcitxConfigPlugin::deactive()
 {
-    delete imWindow;
+    if (imWindow) {
+        imWindow->deleteLater();
+        imWindow = nullptr;
+    }
 }
 
 void FcitxConfigPlugin::initialize()
@@ -84,7 +88,6 @@ const QString FcitxConfigPlugin::displayName() const
     //~ contents_path /keyboard/Manage Input Methods
     return tr("Manage Input Methods");
 }
-
 
 QIcon FcitxConfigPlugin::icon() const
 {
