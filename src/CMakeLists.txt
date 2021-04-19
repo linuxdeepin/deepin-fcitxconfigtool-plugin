@@ -89,6 +89,7 @@ set(ALL_SRCS
     ${SOURCE_FILES}
     ${APP_QRC}
     ${DTNG_QM_FILES}
+    ${TS_DIR}/translations.qrc
     )
 
 set(TEST_SRCS

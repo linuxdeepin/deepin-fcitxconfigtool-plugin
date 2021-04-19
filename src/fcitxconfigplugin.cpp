@@ -31,6 +31,7 @@ FcitxConfigPlugin::FcitxConfigPlugin()
                       QStringLiteral("/usr/share/deepin-fcitxconfigtool-plugin/translations"));
     qApp->installTranslator(&m_translator);
     imWindow = nullptr;
+    this->translationPath();
 }
 
 FcitxConfigPlugin::~FcitxConfigPlugin()
