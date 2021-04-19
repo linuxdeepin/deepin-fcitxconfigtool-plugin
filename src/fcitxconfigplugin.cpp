@@ -81,13 +81,13 @@ void FcitxConfigPlugin::active()
 
 const QString FcitxConfigPlugin::name() const
 {
-    return tr("Manage Input Methods");
+    return tr("Input Methods");
 }
 
 const QString FcitxConfigPlugin::displayName() const
 {
     //~ contents_path /keyboard/Manage Input Methods
-    return tr("Manage Input Methods");
+    return tr("Input Methods");
 }
 
 QIcon FcitxConfigPlugin::icon() const

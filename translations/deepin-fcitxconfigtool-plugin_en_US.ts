@@ -4,9 +4,9 @@
 <context>
     <name>FcitxConfigPlugin</name>
     <message>
-        <location filename="../src/fcitxconfigplugin.cpp" line="85"/>
-        <location filename="../src/fcitxconfigplugin.cpp" line="91"/>
-        <source>Manage Input Methods</source>
+        <location filename="../src/fcitxconfigplugin.cpp" line="84"/>
+        <location filename="../src/fcitxconfigplugin.cpp" line="90"/>
+        <source>Input Methods</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>

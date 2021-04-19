@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="nl">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="nl" version="2.1">
 <context>
     <name>DCC_NAMESPACE::FcitxConfigPlugin</name>
     <message>
@@ -11,10 +9,15 @@
 <context>
     <name>FcitxConfigPlugin</name>
     <message>
-        <location filename="../src/fcitxconfigplugin.cpp" line="85"/>
-        <location filename="../src/fcitxconfigplugin.cpp" line="91"/>
         <source>Manage Input Methods</source>
-        <translation>Invoermethoden beheren</translation>
+        <translation type="vanished">Invoermethoden beheren</translation>
+        <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/fcitxconfigplugin.cpp" line="84"/>
+        <location filename="../src/fcitxconfigplugin.cpp" line="90"/>
+        <source>Input Methods</source>
+        <translation type="unfinished"/>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
 </context>

@@ -207,7 +207,6 @@ void IMModel::onConfigShow(const FcitxQtInputMethodItem &item)
         result.waitForFinished();
         if (result.isValid()) {
             QProcess::startDetached("fcitx-config-gtk3 " + result.value() + " exit");
-//            sleep(0.5);
             QProcess::startDetached("fcitx-config-gtk3 " + result.value());
         }
     }
