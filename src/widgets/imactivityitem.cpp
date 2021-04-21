@@ -35,7 +35,7 @@ Fcitx_IMActivityItem::Fcitx_IMActivityItem(FcitxQtInputMethodItem item, bool isF
     , m_item(item)
 {
     m_layout = new QHBoxLayout(this);
-    m_layout->setContentsMargins(20, 0, 10, 0);
+    m_layout->setContentsMargins(10, 0, 10, 0);
     m_labelText = new Fcitx_ShortenLabel("", this);
     DFontSizeManager::instance()->bind(m_labelText, DFontSizeManager::T6);
     m_labelText->setShortenText(item.name());

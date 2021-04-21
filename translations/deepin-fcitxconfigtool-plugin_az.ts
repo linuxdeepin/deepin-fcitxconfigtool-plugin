@@ -27,12 +27,12 @@
     <name>Fcitx_SettingsHead</name>
     <message>
         <location filename="../src/widgets/settingshead.cpp" line="48"/>
-        <location filename="../src/widgets/settingshead.cpp" line="112"/>
+        <location filename="../src/widgets/settingshead.cpp" line="113"/>
         <source>Edit</source>
         <translation type="unfinished">Düzəlt</translation>
     </message>
     <message>
-        <location filename="../src/widgets/settingshead.cpp" line="114"/>
+        <location filename="../src/widgets/settingshead.cpp" line="115"/>
         <source>Done</source>
         <translation type="unfinished">Tamamlandı</translation>
     </message>

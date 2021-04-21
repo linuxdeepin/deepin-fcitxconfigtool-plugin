@@ -201,6 +201,7 @@ void AvailWidget::onUpdateUI(FcitxQtInputMethodItemList IMlist)
         Fcitx_SettingsHead *head = new Fcitx_SettingsHead();
         head->setEditEnable(false);
         head->setTitle(it->first);
+        head->layout()->setContentsMargins(10, 0, 0, 0);
         m_allIMGroup->appendItem(head, Fcitx_SettingsGroup::NoneBackground);
         for (auto it2 = it->second.begin(); it2 != it->second.end(); ++it2) {
             createIMSttings(m_allIMGroup, *it2);

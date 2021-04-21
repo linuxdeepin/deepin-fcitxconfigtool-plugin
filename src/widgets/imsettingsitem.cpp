@@ -35,7 +35,7 @@ Fcitx_IMSettingsItem::Fcitx_IMSettingsItem(QString str, QFrame *parent)
     : Fcitx_SettingsItem(parent)
 {
     m_layout = new QHBoxLayout(this);
-    m_layout->setContentsMargins(20, 0, 10, 0);
+    m_layout->setContentsMargins(10, 0, 10, 0);
     m_labelText = new Fcitx_ShortenLabel(str, this);
     DFontSizeManager::instance()->bind(m_labelText, DFontSizeManager::T6);
     m_labelIcon = new QLabel(this);

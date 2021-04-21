@@ -48,8 +48,9 @@ Fcitx_SettingsHead::Fcitx_SettingsHead(QFrame *parent)
     m_edit->setText(qApp->translate("Fcitx_SettingsHead", "Edit"));
     DFontSizeManager::instance()->bind(m_title, DFontSizeManager::T5, QFont::DemiBold);
     QHBoxLayout *mainLayout = new QHBoxLayout;
+    mainLayout->setMargin(0);
     mainLayout->setSpacing(0);
-    mainLayout->setContentsMargins(20, 20, 10, 0);
+    mainLayout->setContentsMargins(0, 0, 10, 0);
     mainLayout->addWidget(m_title);
     mainLayout->addStretch();
     mainLayout->addWidget(m_edit);

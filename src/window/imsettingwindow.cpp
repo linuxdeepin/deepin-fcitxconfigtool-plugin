@@ -66,7 +66,7 @@ void IMSettingWindow::initUI()
         head->setParent(this);
         head->setTitle(str);
         head->setEditEnable(isEdit);
-        head->layout()->setContentsMargins(8, 20, 10, 0);
+        head->layout()->setContentsMargins(10, 20, 10, 0);
         if (isEdit) {
             m_editHead = head;
         }
@@ -177,6 +177,7 @@ void IMSettingWindow::initConnect()
     connect(m_defaultIMCbox->comboBox(), &QComboBox::currentTextChanged, this, &IMSettingWindow::onDefaultIMChanged);
     connect(m_editHead, &Fcitx_SettingsHead::editChanged, this, &IMSettingWindow::onEditBtnClicked);
 }
+
 //读取配置文件
 void IMSettingWindow::readConfig()
 {
@@ -235,6 +236,7 @@ void IMSettingWindow::onDefaultIMChanged()
         return;
     }
 }
+
 //编辑当前输入法列表
 void IMSettingWindow::onEditBtnClicked(const bool &flag)
 {

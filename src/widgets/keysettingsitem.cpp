@@ -272,7 +272,7 @@ Fcitx_KeySettingsItem::Fcitx_KeySettingsItem(const QString &text, const QStringL
     m_label = new Fcitx_ShortenLabel(text, this);
     m_keyWidget = new Fcitx_KeyLabelWidget(list, parent);
     m_hLayout = new QHBoxLayout(this);
-    m_hLayout->setContentsMargins(10, 0, 10, 0);
+    m_hLayout->setContentsMargins(0, 0, 10, 0);
     m_hLayout->addWidget(m_label);
     m_hLayout->addWidget(m_keyWidget);
     m_hLayout->setAlignment(m_label, Qt::AlignLeft);
