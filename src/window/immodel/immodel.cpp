@@ -206,7 +206,6 @@ void IMModel::onConfigShow(const FcitxQtInputMethodItem &item)
             result = Global::instance()->inputMethodProxy()->GetIMAddon(imUniqueName);
         result.waitForFinished();
         if (result.isValid()) {
-            QProcess::startDetached("fcitx-config-gtk3 " + result.value() + " exit");
             QProcess::startDetached("fcitx-config-gtk3 " + result.value());
         }
     }
