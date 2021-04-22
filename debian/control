@@ -17,7 +17,6 @@ Build-Depends:
  qttools5-dev-tools,
  pkg-config,
  cmake (>= 3.1),
- debhelper (>= 11),
  fcitx-bin,
  fcitx-libs-dev (>= 1:4.2.8),
  libfcitx-qt5-1,
