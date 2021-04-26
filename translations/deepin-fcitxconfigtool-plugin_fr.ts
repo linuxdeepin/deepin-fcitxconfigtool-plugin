@@ -1,25 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="fr">
-<context>
-    <name>DCC_NAMESPACE::FcitxConfigPlugin</name>
-    <message>
-        <source>Manage Input Methods</source>
-        <translation type="vanished">Gérer les méthodes de saisie</translation>
-    </message>
-</context>
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="fr" version="2.1">
 <context>
     <name>FcitxConfigPlugin</name>
-    <message>
-        <source>Manage Input Methods</source>
-        <translation type="vanished">Gérer les méthodes de saisie</translation>
-        <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
-    </message>
     <message>
         <location filename="../src/fcitxconfigplugin.cpp" line="84"/>
         <location filename="../src/fcitxconfigplugin.cpp" line="90"/>
         <source>Input Methods</source>
-        <translation type="unfinished"></translation>
+        <translation>Méthodes de saisie</translation>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
 </context>
@@ -42,7 +28,7 @@
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="55"/>
         <source>Add Input Method</source>
-        <translation>Ajouter une méthode d&apos;entrée</translation>
+        <translation>Ajouter une méthode de saisie</translation>
     </message>
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="64"/>
@@ -75,7 +61,7 @@
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="107"/>
         <source>Switch input methods</source>
-        <translation>Changer de méthode d&apos;entrée</translation>
+        <translation>Changer de méthode de saisie</translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="108"/>
@@ -104,7 +90,7 @@
     </message>
     <message>
         <source>Input Method</source>
-        <translation type="vanished">Méthode d&apos;entrée</translation>
+        <translation type="vanished">Méthode de saisie</translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="126"/>

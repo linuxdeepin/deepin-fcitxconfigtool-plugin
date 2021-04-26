@@ -1,25 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="az">
-<context>
-    <name>DCC_NAMESPACE::FcitxConfigPlugin</name>
-    <message>
-        <source>Manage Input Methods</source>
-        <translation type="vanished">Daxiletmə üsulunun idarə edilməsi</translation>
-    </message>
-</context>
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="az" version="2.1">
 <context>
     <name>FcitxConfigPlugin</name>
-    <message>
-        <source>Manage Input Methods</source>
-        <translation type="obsolete">Daxiletmə üsulunun idarə edilməsi</translation>
-        <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
-    </message>
     <message>
         <location filename="../src/fcitxconfigplugin.cpp" line="84"/>
         <location filename="../src/fcitxconfigplugin.cpp" line="90"/>
         <source>Input Methods</source>
-        <translation type="unfinished"></translation>
+        <translation>Daxiletmə üsulları</translation>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
 </context>
@@ -29,12 +15,12 @@
         <location filename="../src/widgets/settingshead.cpp" line="48"/>
         <location filename="../src/widgets/settingshead.cpp" line="113"/>
         <source>Edit</source>
-        <translation type="unfinished">Düzəlt</translation>
+        <translation>Düzəliş edin</translation>
     </message>
     <message>
         <location filename="../src/widgets/settingshead.cpp" line="115"/>
         <source>Done</source>
-        <translation type="unfinished">Tamamlandı</translation>
+        <translation>Hazır</translation>
     </message>
 </context>
 <context>
@@ -147,12 +133,12 @@
         <location filename="../src/widgets/keysettingsitem.cpp" line="37"/>
         <location filename="../src/widgets/keysettingsitem.cpp" line="136"/>
         <source>None</source>
-        <translation type="unfinished">Heç biri</translation>
+        <translation>Heç biri</translation>
     </message>
     <message>
         <location filename="../src/widgets/keysettingsitem.cpp" line="43"/>
         <source>Enter a new shortcut</source>
-        <translation type="unfinished">Yeni qısayol daxil edin</translation>
+        <translation>Yeni qısayol daxil edin</translation>
     </message>
 </context>
 <context>

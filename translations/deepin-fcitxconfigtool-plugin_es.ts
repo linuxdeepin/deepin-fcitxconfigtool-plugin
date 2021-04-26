@@ -1,25 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="es">
-<context>
-    <name>DCC_NAMESPACE::FcitxConfigPlugin</name>
-    <message>
-        <source>Manage Input Methods</source>
-        <translation type="vanished">Gestionar métodos de entrada</translation>
-    </message>
-</context>
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="es" version="2.1">
 <context>
     <name>FcitxConfigPlugin</name>
-    <message>
-        <source>Manage Input Methods</source>
-        <translation type="vanished">Gestionar métodos de entrada</translation>
-        <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
-    </message>
     <message>
         <location filename="../src/fcitxconfigplugin.cpp" line="84"/>
         <location filename="../src/fcitxconfigplugin.cpp" line="90"/>
         <source>Input Methods</source>
-        <translation type="unfinished"></translation>
+        <translation>Método de entrada</translation>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
 </context>

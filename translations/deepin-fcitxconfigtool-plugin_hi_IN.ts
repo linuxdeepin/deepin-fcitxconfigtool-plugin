@@ -1,25 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="hi_IN">
-<context>
-    <name>DCC_NAMESPACE::FcitxConfigPlugin</name>
-    <message>
-        <source>Manage Input Methods</source>
-        <translation type="vanished">इनपुट विधि प्रबंधन</translation>
-    </message>
-</context>
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="hi_IN" version="2.1">
 <context>
     <name>FcitxConfigPlugin</name>
-    <message>
-        <source>Manage Input Methods</source>
-        <translation type="obsolete">इनपुट विधि प्रबंधन</translation>
-        <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
-    </message>
     <message>
         <location filename="../src/fcitxconfigplugin.cpp" line="84"/>
         <location filename="../src/fcitxconfigplugin.cpp" line="90"/>
         <source>Input Methods</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
 </context>
@@ -29,12 +15,12 @@
         <location filename="../src/widgets/settingshead.cpp" line="48"/>
         <location filename="../src/widgets/settingshead.cpp" line="113"/>
         <source>Edit</source>
-        <translation type="unfinished">संपादन</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/widgets/settingshead.cpp" line="115"/>
         <source>Done</source>
-        <translation type="unfinished">पूर्ण</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -147,12 +133,12 @@
         <location filename="../src/widgets/keysettingsitem.cpp" line="37"/>
         <location filename="../src/widgets/keysettingsitem.cpp" line="136"/>
         <source>None</source>
-        <translation type="unfinished">कोई नहीं</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/widgets/keysettingsitem.cpp" line="43"/>
         <source>Enter a new shortcut</source>
-        <translation type="unfinished">नया शॉर्टकट दर्ज करें</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

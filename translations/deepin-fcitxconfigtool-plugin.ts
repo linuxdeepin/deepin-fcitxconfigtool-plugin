@@ -2,19 +2,7 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="en">
 <context>
-    <name>DCC_NAMESPACE::FcitxConfigPlugin</name>
-    <message>
-        <source>Manage Input Methods</source>
-        <translation type="vanished">Manage Input Methods</translation>
-    </message>
-</context>
-<context>
     <name>FcitxConfigPlugin</name>
-    <message>
-        <source>Manage Input Methods</source>
-        <translation type="vanished">Manage Input Methods</translation>
-        <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
-    </message>
     <message>
         <location filename="../src/fcitxconfigplugin.cpp" line="84"/>
         <location filename="../src/fcitxconfigplugin.cpp" line="90"/>
