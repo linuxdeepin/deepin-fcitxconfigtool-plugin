@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="bo" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="bo">
 <context>
     <name>FcitxConfigPlugin</name>
     <message>
@@ -54,9 +56,8 @@
 <context>
     <name>IMSettingWindow</name>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="93"/>
         <source>Default</source>
-        <translation>སོར་བཞག</translation>
+        <translation type="vanished">སོར་བཞག</translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="107"/>
@@ -64,9 +65,8 @@
         <translation>ནང་འཇུག་བྱེད་སྟངས་བརྗེ་བ།</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="108"/>
         <source>Switch to default input method</source>
-        <translation>སོར་བཞག་ནང་འཇུག་བྱེད་སྟངས་བརྗེ་བ།</translation>
+        <translation type="vanished">སོར་བཞག་ནང་འཇུག་བྱེད་སྟངས་བརྗེ་བ།</translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="109"/>
@@ -74,19 +74,16 @@
         <translation>རྟོག་བཟོའི་མཐེབ་གཞོང་སློང་བ།</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="110"/>
         <source>Applies to</source>
-        <translation>བརྗེ་སྟངས།</translation>
+        <translation type="vanished">བརྗེ་སྟངས།</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="111"/>
         <source>System</source>
-        <translation>རྒྱུད་ཁོངས།</translation>
+        <translation type="vanished">རྒྱུད་ཁོངས།</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="111"/>
         <source>Application</source>
-        <translation>ཉེར་སྤྱོད།</translation>
+        <translation type="vanished">ཉེར་སྤྱོད།</translation>
     </message>
     <message>
         <source>Input Method</source>

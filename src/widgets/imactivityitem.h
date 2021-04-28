@@ -30,11 +30,11 @@ using namespace Dtk::Widget;
 namespace dcc_fcitx_configtool {
 namespace widgets {
 
-class ToolButton : public QToolButton
+class ToolButton : public DToolButton
 {
     Q_OBJECT
 public:
-    using QToolButton::QToolButton;
+    using DToolButton::DToolButton;
 
 protected:
     void paintEvent(QPaintEvent *e) override;

@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="fi" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="fi">
 <context>
     <name>FcitxConfigPlugin</name>
     <message>
@@ -54,9 +56,8 @@
 <context>
     <name>IMSettingWindow</name>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="93"/>
         <source>Default</source>
-        <translation>Oletus</translation>
+        <translation type="vanished">Oletus</translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="107"/>
@@ -64,9 +65,8 @@
         <translation>Vaihda kirjoitustapaa</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="108"/>
         <source>Switch to default input method</source>
-        <translation>Vaihda oletus kirjoitustapa</translation>
+        <translation type="vanished">Vaihda oletus kirjoitustapa</translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="109"/>
@@ -74,19 +74,16 @@
         <translation>Kutsu näppäimistö näytölle</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="110"/>
         <source>Applies to</source>
-        <translation>Pätee</translation>
+        <translation type="vanished">Pätee</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="111"/>
         <source>System</source>
-        <translation>Järjestelmä</translation>
+        <translation type="vanished">Järjestelmä</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="111"/>
         <source>Application</source>
-        <translation>Sovellus</translation>
+        <translation type="vanished">Sovellus</translation>
     </message>
     <message>
         <source>Input Method</source>

@@ -49,10 +49,10 @@ IMSettingWindow::IMSettingWindow(QWidget *parent)
 
 IMSettingWindow::~IMSettingWindow()
 {
-    m_defaultIMGroup->clear();
+//    m_defaultIMGroup->clear();
     m_IMListGroup->clear();
     m_shortcutGroup->clear();
-    DeleteObject_Null(m_defaultIMGroup);
+//    DeleteObject_Null(m_defaultIMGroup);
     DeleteObject_Null(m_IMListGroup);
     DeleteObject_Null(m_shortcutGroup);
     DeleteObject_Null(m_editHead);
@@ -66,36 +66,41 @@ void IMSettingWindow::initUI()
         head->setParent(this);
         head->setTitle(str);
         head->setEditEnable(isEdit);
-        head->layout()->setContentsMargins(10, 20, 10, 0);
+        head->layout()->setContentsMargins(10, 0, 10, 0);
         if (isEdit) {
             m_editHead = head;
         }
         return head;
     };
 
+    QVBoxLayout *mainLayout = new QVBoxLayout();
+    QWidget* mainWidget = new QWidget(this);
+    mainLayout->addWidget(mainWidget);
+    setLayout(mainLayout);
+
     //界面布局
-    QVBoxLayout *mainLayout = new QVBoxLayout(this);
-    mainLayout->setContentsMargins(0, 0, 0, 10);
-    mainLayout->setSpacing(0);
+    QVBoxLayout *subLayout = new QVBoxLayout(mainWidget);
+    subLayout->setContentsMargins(0, 0, 0, 10);
+    subLayout->setSpacing(0);
 
     //滑动窗口
     Fcitx_ContentWidget *scrollArea = new Fcitx_ContentWidget(this);
 
     QWidget *scrollAreaWidgetContents = new QWidget(scrollArea);
     QVBoxLayout *scrollAreaLayout = new QVBoxLayout(scrollAreaWidgetContents);
-    scrollAreaLayout->setMargin(10);
+    scrollAreaLayout->setContentsMargins(10, 5, 10, 0);
     scrollAreaLayout->setSpacing(0);
     scrollArea->setContent(scrollAreaWidgetContents);
     scrollAreaWidgetContents->setLayout(scrollAreaLayout);
 
     //默认输入法
-    m_defaultIMGroup = new Fcitx_SettingsGroup();
-    m_defaultIMCbox = new Fcitx_ComboxWidget(tr("Default"));
-    m_defaultIMCbox->addBackground();
-    m_defaultIMCbox->comboBox()->setFixedHeight(36);
-    m_defaultIMGroup->appendItem(m_defaultIMCbox);
+//    m_defaultIMGroup = new Fcitx_SettingsGroup();
+//    m_defaultIMCbox = new Fcitx_ComboxWidget(tr("Default"));
+//    m_defaultIMCbox->addBackground();
+//    m_defaultIMCbox->comboBox()->setFixedHeight(36);
+//    m_defaultIMGroup->appendItem(m_defaultIMCbox);
     //暂时隐藏
-    m_defaultIMGroup->setVisible(false);
+//    m_defaultIMGroup->setVisible(false);
 
     //输入法管理 编辑按钮
     m_IMListGroup = new Fcitx_SettingsGroup();
@@ -105,24 +110,24 @@ void IMSettingWindow::initUI()
     //快捷键 切换输入法 切换虚拟键盘 切换至默认输入法
     m_shortcutGroup = new Fcitx_SettingsGroup();
     m_imSwitchCbox = new Fcitx_ComBoboxSettingsItem(tr("Switch input methods"), {"CTRL_SHIFT", "ALT_SHIFT", "CTRL_SUPER", "ALT_SUPER"});
-    m_defaultIMKey = new Fcitx_KeySettingsItem(tr("Switch to default input method"));
+//    m_defaultIMKey = new Fcitx_KeySettingsItem(tr("Switch to default input method"));
     m_virtualKey = new Fcitx_KeySettingsItem(tr("Call out Onboard"));
-    m_systemAppCbox = new Fcitx_ComboxWidget(tr("Applies to"));
-    m_systemAppCbox->comboBox()->addItems({tr("System"), tr("Application")});
-    m_systemAppCbox->layout()->setContentsMargins(10, 0, 0, 0);
+//    m_systemAppCbox = new Fcitx_ComboxWidget(tr("Applies to"));
+//    m_systemAppCbox->comboBox()->addItems({tr("System"), tr("Application")});
+//    m_systemAppCbox->layout()->setContentsMargins(10, 0, 0, 0);
     m_shortcutGroup->appendItem(m_imSwitchCbox);
-    m_shortcutGroup->appendItem(m_defaultIMKey);
+//    m_shortcutGroup->appendItem(m_defaultIMKey);
     m_shortcutGroup->appendItem(m_virtualKey);
-    m_shortcutGroup->appendItem(m_systemAppCbox, Fcitx_SettingsGroup::NoneBackground);
+//    m_shortcutGroup->appendItem(m_systemAppCbox, Fcitx_SettingsGroup::NoneBackground);
     //暂时隐藏
-    m_defaultIMKey->setVisible(false);
+//    m_defaultIMKey->setVisible(false);
     m_virtualKey->setVisible(false);
-    m_systemAppCbox->setVisible(false);
+//    m_systemAppCbox->setVisible(false);
 
     //控件添加至滑动窗口内
 //        scrollAreaLayout->addWidget(newTitleHead(tr("Input Method")));
 //        scrollAreaLayout->addSpacing(10);
-    scrollAreaLayout->addWidget(m_defaultIMGroup);
+//    scrollAreaLayout->addWidget(m_defaultIMGroup);
     scrollAreaLayout->addWidget(newTitleHead(tr("Manage Input Methods"), true));
     scrollAreaLayout->addSpacing(10);
     scrollAreaLayout->addWidget(m_IMListGroup);
@@ -141,11 +146,10 @@ void IMSettingWindow::initUI()
     headLayout->addItem(new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum));
 
     //添加至主界面内
-    mainLayout->addWidget(scrollArea);
-    mainLayout->addSpacing(17);
-    mainLayout->addLayout(headLayout);
+    subLayout->addWidget(scrollArea);
+    subLayout->addSpacing(17);
+    subLayout->addLayout(headLayout);
 
-    setLayout(mainLayout);
     readConfig();
 }
 
@@ -156,14 +160,14 @@ void IMSettingWindow::initConnect()
             Global::instance()->inputMethodProxy()->ReloadConfig();
     };
 
-    connect(m_defaultIMKey, &Fcitx_KeySettingsItem::editedFinish, [=]() {
-        reloadFcitx(IMConfig::setDefaultIMKey(m_defaultIMKey->getKeyToStr()));
-    });
+//    connect(m_defaultIMKey, &Fcitx_KeySettingsItem::editedFinish, [=]() {
+//        reloadFcitx(IMConfig::setDefaultIMKey(m_defaultIMKey->getKeyToStr()));
+//    });
     connect(m_virtualKey, &Fcitx_KeySettingsItem::editedFinish, [=]() {
         reloadFcitx(IMConfig::setVirtualKey(m_virtualKey->getKeyToStr()));
     });
 
-    connect(m_defaultIMKey, &Fcitx_KeySettingsItem::shortCutError, this, &IMSettingWindow::popShortKeyListWindow);
+//    connect(m_defaultIMKey, &Fcitx_KeySettingsItem::shortCutError, this, &IMSettingWindow::popShortKeyListWindow);
     connect(m_virtualKey, &Fcitx_KeySettingsItem::shortCutError, this, &IMSettingWindow::popShortKeyListWindow);
 
     connect(m_imSwitchCbox->comboBox(), &QComboBox::currentTextChanged, [=]() {
@@ -172,9 +176,8 @@ void IMSettingWindow::initConnect()
 
     connect(IMModel::instance(), &IMModel::curIMListChanaged, this, &IMSettingWindow::onCurIMChanged);
     connect(m_addIMBtn, &DFloatingButton::clicked, this, &IMSettingWindow::onAddBtnCilcked);
-     connect(m_defaultIMCbox, &Fcitx_ComboxWidget::onSelectChanged, this, &IMSettingWindow::onDefaultIMChanged);
-
-    connect(m_defaultIMCbox->comboBox(), &QComboBox::currentTextChanged, this, &IMSettingWindow::onDefaultIMChanged);
+//     connect(m_defaultIMCbox, &Fcitx_ComboxWidget::onSelectChanged, this, &IMSettingWindow::onDefaultIMChanged);
+//     connect(m_defaultIMCbox->comboBox(), &QComboBox::currentTextChanged, this, &IMSettingWindow::onDefaultIMChanged);
     connect(m_editHead, &Fcitx_SettingsHead::editChanged, this, &IMSettingWindow::onEditBtnClicked);
 }
 
@@ -184,10 +187,10 @@ void IMSettingWindow::readConfig()
     int index = m_imSwitchCbox->comboBox()->findText(IMConfig::IMSwitchKey());
     m_imSwitchCbox->comboBox()->setCurrentIndex(index < 0 ? 0 : index);
 
-    index = IMModel::instance()->getIMIndex(IMConfig::defaultIM());
-    m_defaultIMCbox->comboBox()->setCurrentIndex(index < 0 ? 0 : index);
+//    index = IMModel::instance()->getIMIndex(IMConfig::defaultIM());
+//    m_defaultIMCbox->comboBox()->setCurrentIndex(index < 0 ? 0 : index);
+//    m_defaultIMKey->setList(IMConfig::defaultIMKey().split("_"));
 
-    m_defaultIMKey->setList(IMConfig::defaultIMKey().split("_"));
     m_virtualKey->setList(IMConfig::virtualKey().split("_"));
 }
 
@@ -223,19 +226,18 @@ void IMSettingWindow::itemSwap(const FcitxQtInputMethodItem &item, const bool &i
 }
 
 //默认输入法改变
-void IMSettingWindow::onDefaultIMChanged()
-{
-    QString key = m_defaultIMCbox->comboBox()->currentText();
-
-    FcitxQtInputMethodItem item = IMModel::instance()->getIM(m_defaultIMCbox->comboBox()->currentIndex());
-    if (!item.uniqueName().isEmpty()) {
-        IMConfig::setDefaultIM(item.uniqueName());
-        if (Global::instance()->inputMethodProxy()) {
-            Global::instance()->inputMethodProxy()->ReloadConfig();
-        }
-        return;
-    }
-}
+//void IMSettingWindow::onDefaultIMChanged()
+//{
+//    QString key = m_defaultIMCbox->comboBox()->currentText();
+//    FcitxQtInputMethodItem item = IMModel::instance()->getIM(m_defaultIMCbox->comboBox()->currentIndex());
+//    if (!item.uniqueName().isEmpty()) {
+//        IMConfig::setDefaultIM(item.uniqueName());
+//        if (Global::instance()->inputMethodProxy()) {
+//            Global::instance()->inputMethodProxy()->ReloadConfig();
+//        }
+//        return;
+//    }
+//}
 
 //编辑当前输入法列表
 void IMSettingWindow::onEditBtnClicked(const bool &flag)
@@ -253,9 +255,9 @@ void IMSettingWindow::onEditBtnClicked(const bool &flag)
 //当前输入法列表改变
 void IMSettingWindow::onCurIMChanged(const FcitxQtInputMethodItemList &list)
 {
-    disconnect(m_defaultIMCbox, &Fcitx_ComboxWidget::onSelectChanged, this, &IMSettingWindow::onDefaultIMChanged);
+//    disconnect(m_defaultIMCbox, &Fcitx_ComboxWidget::onSelectChanged, this, &IMSettingWindow::onDefaultIMChanged);
     m_IMListGroup->clear();
-    m_defaultIMCbox->comboBox()->clear();
+//    m_defaultIMCbox->comboBox()->clear();
     for (int i = 0; i < list.count(); ++i) {
         Fcitx_IMActivityItem *tmp;
         if (i == 0) {
@@ -269,19 +271,18 @@ void IMSettingWindow::onCurIMChanged(const FcitxQtInputMethodItemList &list)
             tmp->editSwitch(IMModel::instance()->isEdit());
         }
         m_IMListGroup->appendItem(tmp);
-        m_defaultIMCbox->comboBox()->addItem(list[i].name());
+//        m_defaultIMCbox->comboBox()->addItem(list[i].name());
     }
 
-    int index = IMModel::instance()->getIMIndex(IMConfig::defaultIM());
-
-    if (index < 0) {
-        index = 0;
-        m_defaultIMCbox->comboBox()->setCurrentIndex(index);
-        onDefaultIMChanged();
-    } else {
-        m_defaultIMCbox->comboBox()->setCurrentIndex(index);
-    }
-    connect(m_defaultIMCbox, &Fcitx_ComboxWidget::onSelectChanged, this, &IMSettingWindow::onDefaultIMChanged);
+//    int index = IMModel::instance()->getIMIndex(IMConfig::defaultIM());
+//    if (index < 0) {
+//        index = 0;
+//        m_defaultIMCbox->comboBox()->setCurrentIndex(index);
+//        onDefaultIMChanged();
+//    } else {
+//        m_defaultIMCbox->comboBox()->setCurrentIndex(index);
+//    }
+//    connect(m_defaultIMCbox, &Fcitx_ComboxWidget::onSelectChanged, this, &IMSettingWindow::onDefaultIMChanged);
 }
 
 void IMSettingWindow::onItemUp(const FcitxQtInputMethodItem &item)
@@ -297,21 +298,20 @@ void IMSettingWindow::onItemDown(const FcitxQtInputMethodItem &item)
 void IMSettingWindow::onItemDelete(const FcitxQtInputMethodItem &item)
 {
     auto it = m_IMListGroup->getItem(IMModel::instance()->getIMIndex(item));
-    if (item.name() == IMConfig::defaultIM()) {
-        int index = m_defaultIMCbox->comboBox()->findText(item.name());
-        if (index >= 0) {
-            m_defaultIMCbox->comboBox()->removeItem(index);
-            m_defaultIMCbox->comboBox()->setCurrentIndex(1);
-        }
-        index = m_defaultIMCbox->comboBox()->count() >= 2 ? 0 : 1;
-        IMConfig::setDefaultIM(IMModel::instance()->getIM(index).uniqueName());
-
-    } else {
-        int index = m_defaultIMCbox->comboBox()->findText(item.name());
-        if (index >= 0) {
-            m_defaultIMCbox->comboBox()->removeItem(index);
-        }
-    }
+//    if (item.name() == IMConfig::defaultIM()) {
+//        int index = m_defaultIMCbox->comboBox()->findText(item.name());
+//        if (index >= 0) {
+//            m_defaultIMCbox->comboBox()->removeItem(index);
+//            m_defaultIMCbox->comboBox()->setCurrentIndex(1);
+//        }
+//        index = m_defaultIMCbox->comboBox()->count() >= 2 ? 0 : 1;
+//        IMConfig::setDefaultIM(IMModel::instance()->getIM(index).uniqueName());
+//    } else {
+//        int index = m_defaultIMCbox->comboBox()->findText(item.name());
+//        if (index >= 0) {
+//            m_defaultIMCbox->comboBox()->removeItem(index);
+//        }
+//    }
 
     m_IMListGroup->removeItem(it);
     it->deleteLater();

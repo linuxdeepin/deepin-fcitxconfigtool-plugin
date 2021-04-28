@@ -56,38 +56,13 @@
 <context>
     <name>IMSettingWindow</name>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="93"/>
-        <source>Default</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../src/window/imsettingwindow.cpp" line="107"/>
         <source>Switch input methods</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="108"/>
-        <source>Switch to default input method</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../src/window/imsettingwindow.cpp" line="109"/>
         <source>Call out Onboard</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="110"/>
-        <source>Applies to</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="111"/>
-        <source>System</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="111"/>
-        <source>Application</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

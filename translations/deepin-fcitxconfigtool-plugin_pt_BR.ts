@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="pt_BR" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="pt_BR">
 <context>
     <name>FcitxConfigPlugin</name>
     <message>
@@ -54,9 +56,8 @@
 <context>
     <name>IMSettingWindow</name>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="93"/>
         <source>Default</source>
-        <translation>Padrão</translation>
+        <translation type="vanished">Padrão</translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="107"/>
@@ -64,9 +65,8 @@
         <translation>Alternar Métodos de Entrada</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="108"/>
         <source>Switch to default input method</source>
-        <translation>Alternar para o método de entrada padrão</translation>
+        <translation type="vanished">Alternar para o método de entrada padrão</translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="109"/>
@@ -74,19 +74,16 @@
         <translation>Abrir Teclado Virtual</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="110"/>
         <source>Applies to</source>
-        <translation>Aplicável a</translation>
+        <translation type="vanished">Aplicável a</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="111"/>
         <source>System</source>
-        <translation>Sistema</translation>
+        <translation type="vanished">Sistema</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="111"/>
         <source>Application</source>
-        <translation>Aplicativo</translation>
+        <translation type="vanished">Aplicativo</translation>
     </message>
     <message>
         <source>Input Method</source>

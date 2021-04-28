@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="ug" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="ug">
 <context>
     <name>FcitxConfigPlugin</name>
     <message>
@@ -54,9 +56,8 @@
 <context>
     <name>IMSettingWindow</name>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="93"/>
         <source>Default</source>
-        <translation>سۈكۈتتىكى</translation>
+        <translation type="vanished">سۈكۈتتىكى</translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="107"/>
@@ -64,9 +65,8 @@
         <translation>كىرگۈزگۈچ ئالماشتۇرۇش</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="108"/>
         <source>Switch to default input method</source>
-        <translation>سۈكۈتتىكى كىرگۈزگۈچكە ئالماشتۇرۇش</translation>
+        <translation type="vanished">سۈكۈتتىكى كىرگۈزگۈچكە ئالماشتۇرۇش</translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="109"/>
@@ -74,19 +74,16 @@
         <translation>مەۋھۇم كۇنۇپكىنى قوزغىتىش</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="110"/>
         <source>Applies to</source>
-        <translation>ئالماشتۇرۇش ئۇسۇلى</translation>
+        <translation type="vanished">ئالماشتۇرۇش ئۇسۇلى</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="111"/>
         <source>System</source>
-        <translation>سېستىما</translation>
+        <translation type="vanished">سېستىما</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="111"/>
         <source>Application</source>
-        <translation>ئەپلەر </translation>
+        <translation type="vanished">ئەپلەر </translation>
     </message>
     <message>
         <source>Input Method</source>

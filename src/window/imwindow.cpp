@@ -30,7 +30,7 @@
 #include <libintl.h>
 
 IMWindow::IMWindow(QWidget *parent)
-    : QWidget(parent)
+    : DWidget(parent)
 {
     initFcitxInterface();
     initUI();

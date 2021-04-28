@@ -84,12 +84,12 @@ TEST_F(ut_imsettingwindow, onEditBtnClicked)
     EXPECT_TRUE(true);
 }
 
-TEST_F(ut_imsettingwindow, onDefaultIMChanged)
-{
-    IMSettingWindow iMSettingWindow;
-    iMSettingWindow.onDefaultIMChanged();
-    EXPECT_TRUE(true);
-}
+//TEST_F(ut_imsettingwindow, onDefaultIMChanged)
+//{
+//    IMSettingWindow iMSettingWindow;
+//    iMSettingWindow.onDefaultIMChanged();
+//    EXPECT_TRUE(true);
+//}
 
 TEST_F(ut_imsettingwindow, onCurIMChanged)
 {
