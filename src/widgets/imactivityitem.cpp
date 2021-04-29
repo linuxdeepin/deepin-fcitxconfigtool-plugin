@@ -44,7 +44,7 @@ Fcitx_IMActivityItem::Fcitx_IMActivityItem(FcitxQtInputMethodItem item, bool isF
         m_upBtn = new DToolButton(this);
         m_downBtn = new DToolButton(this);
         m_configBtn = new DToolButton(this);
-        m_deleteBtn = new DToolButton(this);//input_method
+        m_deleteBtn = new DToolButton(this);
         m_upBtn->setIcon(QIcon::fromTheme("arrow_up"));
         m_downBtn->setIcon(QIcon::fromTheme("arrow_down"));
         m_configBtn->setIcon(QIcon::fromTheme("setting"));
