@@ -60,7 +60,7 @@
         <translation type="vanished">Predefinito</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="107"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="112"/>
         <source>Switch input methods</source>
         <translation>Cambia metodo di input</translation>
     </message>
@@ -69,7 +69,7 @@
         <translation type="vanished">Cambia il metodo di input predefinito</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="109"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="114"/>
         <source>Call out Onboard</source>
         <translation>Richiama la tastiera virtuale</translation>
     </message>
@@ -90,12 +90,12 @@
         <translation type="vanished">Metodo di input</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="126"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="131"/>
         <source>Manage Input Methods</source>
         <translation>Gestisci metodi di input</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="129"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="134"/>
         <source>Shortcuts</source>
         <translation>Scorciatoie</translation>
     </message>

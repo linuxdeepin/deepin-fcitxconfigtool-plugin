@@ -41,13 +41,13 @@ Fcitx_IMActivityItem::Fcitx_IMActivityItem(FcitxQtInputMethodItem item, bool isF
     m_labelText->setShortenText(item.name());
     m_layout->addWidget(m_labelText);
     if (!m_isFirst) {
-        m_upBtn = new ToolButton(this);
-        m_downBtn = new ToolButton(this);
+        m_upBtn = new DToolButton(this);
+        m_downBtn = new DToolButton(this);
         m_configBtn = new DToolButton(this);
-        m_deleteBtn = new DToolButton(this);
-        m_upBtn->setIcon(QIcon(":/icons/arrow_up.svg"));
-        m_downBtn->setIcon(QIcon(":/icons/arrow_down.svg"));
-        m_configBtn->setIcon(QIcon(":/icons/setting.svg"));
+        m_deleteBtn = new DToolButton(this);//input_method
+        m_upBtn->setIcon(QIcon::fromTheme("arrow_up"));
+        m_downBtn->setIcon(QIcon::fromTheme("arrow_down"));
+        m_configBtn->setIcon(QIcon::fromTheme("setting"));
         m_deleteBtn->setIcon(DStyle::standardIcon(QApplication::style(), DStyle::SP_DeleteButton));
 
         m_layout->addWidget(m_downBtn);
@@ -59,8 +59,8 @@ Fcitx_IMActivityItem::Fcitx_IMActivityItem(FcitxQtInputMethodItem item, bool isF
         m_configBtn->hide();
         m_downBtn->hide();
 
-        connect(m_upBtn, &ToolButton::clicked, this, &Fcitx_IMActivityItem::onUpItem);
-        connect(m_downBtn, &ToolButton::clicked, this, &Fcitx_IMActivityItem::onDownItem);
+        connect(m_upBtn, &DToolButton::clicked, this, &Fcitx_IMActivityItem::onUpItem);
+        connect(m_downBtn, &DToolButton::clicked, this, &Fcitx_IMActivityItem::onDownItem);
         connect(m_configBtn, &DToolButton::clicked, this, &Fcitx_IMActivityItem::onConfigItem);
         connect(m_deleteBtn, &DToolButton::clicked, this, &Fcitx_IMActivityItem::onDeleteItem);
     }

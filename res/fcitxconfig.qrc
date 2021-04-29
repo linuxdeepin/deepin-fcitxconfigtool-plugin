@@ -2,11 +2,11 @@
     <qresource prefix="/">
         <file>icons/add_hover.png</file>
         <file>icons/add_normal.png</file>
-        <file>icons/arrow_up.svg</file>
-        <file>icons/arrow_down.svg</file>
-        <file>icons/setting.svg</file>
     </qresource>
     <qresource prefix="/icons/deepin/builtin">
         <file>actions/input_method_32px.svg</file>
+        <file>texts/arrow_down_36px.svg</file>
+        <file>texts/arrow_up_36px.svg</file>
+        <file>texts/setting_36px.svg</file>
     </qresource>
 </RCC>

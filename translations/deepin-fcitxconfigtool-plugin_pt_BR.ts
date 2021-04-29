@@ -60,7 +60,7 @@
         <translation type="vanished">Padrão</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="107"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="112"/>
         <source>Switch input methods</source>
         <translation>Alternar Métodos de Entrada</translation>
     </message>
@@ -69,7 +69,7 @@
         <translation type="vanished">Alternar para o método de entrada padrão</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="109"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="114"/>
         <source>Call out Onboard</source>
         <translation>Abrir Teclado Virtual</translation>
     </message>
@@ -90,12 +90,12 @@
         <translation type="vanished">Método de Entrada</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="126"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="131"/>
         <source>Manage Input Methods</source>
         <translation>Gerenciar Métodos de Entrada</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="129"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="134"/>
         <source>Shortcuts</source>
         <translation>Atalhos</translation>
     </message>

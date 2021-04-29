@@ -60,7 +60,7 @@
         <translation type="vanished">Alapértelmezett</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="107"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="112"/>
         <source>Switch input methods</source>
         <translation>Beviteli mód váltása</translation>
     </message>
@@ -69,7 +69,7 @@
         <translation type="vanished">Váltson az alapértelmezett beviteli módra</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="109"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="114"/>
         <source>Call out Onboard</source>
         <translation>Képernyő billentyűzet előhívása</translation>
     </message>
@@ -90,12 +90,12 @@
         <translation type="vanished">Beviteli mód</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="126"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="131"/>
         <source>Manage Input Methods</source>
         <translation>Beviteli módok kezelése</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="129"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="134"/>
         <source>Shortcuts</source>
         <translation>Gyorsbillentyűk</translation>
     </message>

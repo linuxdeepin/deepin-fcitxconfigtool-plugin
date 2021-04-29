@@ -60,7 +60,7 @@
         <translation type="vanished">Default</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="107"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="112"/>
         <source>Switch input methods</source>
         <translation>Switch input methods</translation>
     </message>
@@ -69,7 +69,7 @@
         <translation type="vanished">Switch to default input method</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="109"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="114"/>
         <source>Call out Onboard</source>
         <translation>Call out Onboard</translation>
     </message>
@@ -90,12 +90,12 @@
         <translation type="vanished">Input Method</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="126"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="131"/>
         <source>Manage Input Methods</source>
         <translation>Manage Input Methods</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="129"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="134"/>
         <source>Shortcuts</source>
         <translation>Shortcuts</translation>
     </message>

@@ -60,7 +60,7 @@
         <translation type="vanished">Varsayılan</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="107"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="112"/>
         <source>Switch input methods</source>
         <translation>Giriş yöntemlerini değiştir</translation>
     </message>
@@ -69,7 +69,7 @@
         <translation type="vanished">Varsayılan giriş yöntemine geç</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="109"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="114"/>
         <source>Call out Onboard</source>
         <translation>Dahili aç</translation>
     </message>
@@ -90,12 +90,12 @@
         <translation type="vanished">Giriş Yöntemi</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="126"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="131"/>
         <source>Manage Input Methods</source>
         <translation>Giriş Yöntemlerini Yönet</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="129"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="134"/>
         <source>Shortcuts</source>
         <translation>Kısayollar</translation>
     </message>

@@ -69,8 +69,8 @@ public:
     FcitxQtInputMethodItem m_item;
     Fcitx_ShortenLabel *m_labelText {nullptr};
     QHBoxLayout *m_layout {nullptr};
-    ToolButton *m_upBtn {nullptr};
-    ToolButton *m_downBtn {nullptr};
+    DToolButton *m_upBtn {nullptr};
+    DToolButton *m_downBtn {nullptr};
     DToolButton *m_configBtn {nullptr};
     DToolButton *m_deleteBtn {nullptr};
     bool m_isFirst {false};

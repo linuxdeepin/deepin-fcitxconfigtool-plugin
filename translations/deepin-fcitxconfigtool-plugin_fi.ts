@@ -60,7 +60,7 @@
         <translation type="vanished">Oletus</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="107"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="112"/>
         <source>Switch input methods</source>
         <translation>Vaihda kirjoitustapaa</translation>
     </message>
@@ -69,7 +69,7 @@
         <translation type="vanished">Vaihda oletus kirjoitustapa</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="109"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="114"/>
         <source>Call out Onboard</source>
         <translation>Kutsu näppäimistö näytölle</translation>
     </message>
@@ -90,12 +90,12 @@
         <translation type="vanished">Kirjoitustapa</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="126"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="131"/>
         <source>Manage Input Methods</source>
         <translation>Kirjoituksen menetelmät</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="129"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="134"/>
         <source>Shortcuts</source>
         <translation>Pikanäppäimet</translation>
     </message>
