@@ -36,7 +36,6 @@ void ShortcutKeyWindow::initUI()
     mainLayout->addWidget(m_buttonTuple);
     mainLayout->addWidget(m_bottomTip);
     mainLayout->addSpacerItem(verticalSpacer);
-    setLayout(mainLayout);
 }
 
 void ShortcutKeyWindow::initConnect()

@@ -119,7 +119,7 @@
         <translation>Mégsem</translation>
     </message>
     <message>
-        <location filename="../src/window/shortcutkeywindow.cpp" line="49"/>
+        <location filename="../src/window/shortcutkeywindow.cpp" line="48"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
         <translation>Ez a gyorsbillentyű ütközik ezzel: %1, kattintson a Hozzáadás gombra, hogy ez a gyorsbillentyű azonnal használható legyen</translation>
     </message>

@@ -119,7 +119,7 @@
         <translation>འདོར་བ།</translation>
     </message>
     <message>
-        <location filename="../src/window/shortcutkeywindow.cpp" line="49"/>
+        <location filename="../src/window/shortcutkeywindow.cpp" line="48"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
         <translation>མྱུར་མཐེབ་འདི་%1དང་གདོང་ཐུག་བྱུང་འདུག ཁ་སྣོན་མནན་ནས་མྱུར་མཐེབ་འདི་ལམ་སེང་གོ་ཆོད་པ་བྱེད། </translation>
     </message>

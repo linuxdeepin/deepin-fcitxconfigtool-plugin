@@ -119,7 +119,7 @@
         <translation>İptal</translation>
     </message>
     <message>
-        <location filename="../src/window/shortcutkeywindow.cpp" line="49"/>
+        <location filename="../src/window/shortcutkeywindow.cpp" line="48"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
         <translation>Bu kısayol %1 ile çakışıyor, bu kısayolu hemen etkinleştirmek için Ekle üzerine tıkla</translation>
     </message>

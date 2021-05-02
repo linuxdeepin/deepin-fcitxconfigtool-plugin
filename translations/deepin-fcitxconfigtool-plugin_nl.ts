@@ -119,7 +119,7 @@
         <translation>Annuleren</translation>
     </message>
     <message>
-        <location filename="../src/window/shortcutkeywindow.cpp" line="49"/>
+        <location filename="../src/window/shortcutkeywindow.cpp" line="48"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
         <translation>Deze sneltoets wordt al gebruikt door &apos;1%&apos;. Klik op &apos;Toevoegen&apos; om de nieuwe sneltoets toe te wijzen.</translation>
     </message>

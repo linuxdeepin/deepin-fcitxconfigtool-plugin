@@ -95,7 +95,6 @@ void IMAddWindow::initUI()
     mainLayout->addLayout(hlayout3);
     mainLayout->addSpacing(7);
     mainLayout->addLayout(hlayout4);
-    setLayout(mainLayout);
 }
 
 void IMAddWindow::initConnect()

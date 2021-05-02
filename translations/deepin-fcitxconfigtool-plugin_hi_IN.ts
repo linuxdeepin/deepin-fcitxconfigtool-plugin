@@ -119,7 +119,7 @@
         <translation>रद्द करें</translation>
     </message>
     <message>
-        <location filename="../src/window/shortcutkeywindow.cpp" line="49"/>
+        <location filename="../src/window/shortcutkeywindow.cpp" line="48"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
         <translation>यह शॉर्टकट %1 के विरुद्ध है, &apos;जोड़ें&apos; पर क्लिक कर इसे तुरंत प्रभाव से लागू करें</translation>
     </message>

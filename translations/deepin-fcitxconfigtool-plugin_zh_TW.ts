@@ -119,7 +119,7 @@
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../src/window/shortcutkeywindow.cpp" line="49"/>
+        <location filename="../src/window/shortcutkeywindow.cpp" line="48"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
         <translation>此快捷鍵與%1衝突，點擊添加使這個快捷鍵立即生效</translation>
     </message>

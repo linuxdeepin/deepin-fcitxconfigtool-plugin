@@ -112,7 +112,6 @@ void AvailWidget::initUI()
     scrollAreaLayout->addStretch();
     //添加至主界面内
     mainLayout->addWidget(scrollArea);
-    setLayout(mainLayout);
 }
 
 void AvailWidget::initConnect()
