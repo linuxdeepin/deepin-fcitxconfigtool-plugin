@@ -96,7 +96,7 @@ void Fcitx_IMActivityItem::setSelectStatus(const bool &isEnter)
     if (!isEnter)
         m_bgGroup->setBackgroundRole(DPalette::ItemBackground);
     else {
-        m_bgGroup->setBackgroundRole(DPalette::FrameShadowBorder);
+        m_bgGroup->setBackgroundRole(DPalette::ObviousBackground);
     }
     if (!m_isEdit && isEnter) {
         int index = IMModel::instance()->getIMIndex(m_item);
