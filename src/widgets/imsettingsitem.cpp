@@ -89,7 +89,7 @@ void Fcitx_IMSettingsItem::mousePressEvent(QMouseEvent *event)
 void Fcitx_IMSettingsItem::enterEvent(QEvent *event)
 {
     if (m_bgGroup)
-        m_bgGroup->setBackgroundRole(DPalette::FrameShadowBorder);
+        m_bgGroup->setBackgroundRole(DPalette::ObviousBackground);
 
     Fcitx_SettingsItem::enterEvent(event);
 }
