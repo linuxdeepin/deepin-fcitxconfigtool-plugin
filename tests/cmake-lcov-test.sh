@@ -9,8 +9,8 @@ cd ../$utdir
 cmake -DCMAKE_SAFETYTEST_ARG="CMAKE_SAFETYTEST_ARG_ON" .. -DCMAKE_INSTALL_PREFIX="/usr"
 make -j4
 
-touch ./bin/utcase.log
-./bin/deepin-fcitxconfigtool-plugin_test --gtest_output=xml:./report/report.xml | tee ./bin/utcase.log
+touch ./tests/utcase.log
+./tests/deepin-fcitxconfigtool-plugin_test --gtest_output=xml:./report/report.xml | tee ./bin/utcase.log
 
 workdir=$(cd ../$(dirname $0)/$utdir; pwd)
 
