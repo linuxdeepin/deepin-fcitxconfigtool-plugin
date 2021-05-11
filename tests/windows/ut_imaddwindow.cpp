@@ -71,4 +71,41 @@ TEST_F(ut_imaddwindow, onOpenStore)
 {
     IMAddWindow iMAddWindow;
     iMAddWindow.onOpenStore();
+
+    sleep(4);
+    FILE *fp;
+    int pid;
+    char unused[150];
+    char buf[150];
+    char command[150];
+    sprintf(command,
+            "ps -ef | grep deepin-app-store | grep -v grep");
+    if ((fp = popen(command, "r")) == NULL)
+        return ;
+    if ((fgets(buf, 150, fp)) != NULL) {
+        sscanf(buf, "%s\t%d\t%s", unused, &pid, unused);
+    }
+    pclose(fp);
+    if(pid == 32767)
+        return ;
+    sprintf(command, "kill -9 %d", pid);
+    if ((fp = popen(command, "r")) == NULL)
+        return ;
+    pclose(fp);
+
+    sprintf(command,
+            "ps -ef | grep deepin-app-store | grep -v grep");
+    if ((fp = popen(command, "r")) == NULL)
+        return ;
+    if ((fgets(buf, 150, fp)) != NULL) {
+        sscanf(buf, "%s\t%d\t%s", unused, &pid, unused);
+    }
+    pclose(fp);
+    if(pid == 32767)
+        return ;
+    sprintf(command, "kill -9 %d", pid);
+    if ((fp = popen(command, "r")) == NULL)
+        return ;
+    pclose(fp);
+    return ;
 }
