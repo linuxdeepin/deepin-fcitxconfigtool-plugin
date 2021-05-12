@@ -39,6 +39,26 @@ Fcitx_ComboxWidget::Fcitx_ComboxWidget(QFrame *parent)
     , m_switchComboBox(new QComboBox)
     , m_str("")
 {
+    QHBoxLayout *mainLayout = new QHBoxLayout;
+    m_titleLabel = qobject_cast<QLabel *>(m_leftWidget);
+    if (m_titleLabel) {
+        m_str = m_titleLabel->text();
+    }
+
+    mainLayout->addWidget(m_leftWidget, 0, Qt::AlignVCenter);
+    mainLayout->setStretchFactor(m_leftWidget, 3);
+    mainLayout->addWidget(m_switchComboBox, 0, Qt::AlignVCenter);
+    mainLayout->setStretchFactor(m_switchComboBox, 7);
+
+    m_leftWidget->setFixedWidth(ComboxTitleWidth);
+    m_leftWidget->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+    setLayout(mainLayout);
+
+    connect(m_switchComboBox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &Fcitx_ComboxWidget::onIndexChanged);
+    connect(m_switchComboBox, &QComboBox::currentTextChanged, this, &Fcitx_ComboxWidget::onSelectChanged);
+    connect(m_switchComboBox, &QComboBox::currentTextChanged, this, [this] {
+        Q_EMIT dataChanged(m_switchComboBox->currentData());
+    });
 }
 
 Fcitx_ComboxWidget::Fcitx_ComboxWidget(const QString &title, QFrame *parent)
@@ -48,6 +68,26 @@ Fcitx_ComboxWidget::Fcitx_ComboxWidget(const QString &title, QFrame *parent)
     , m_switchComboBox(new QComboBox)
     , m_str("")
 {
+    QHBoxLayout *mainLayout = new QHBoxLayout;
+    m_titleLabel = qobject_cast<QLabel *>(m_leftWidget);
+    if (m_titleLabel) {
+        m_str = m_titleLabel->text();
+    }
+
+    mainLayout->addWidget(m_leftWidget, 0, Qt::AlignVCenter);
+    mainLayout->setStretchFactor(m_leftWidget, 3);
+    mainLayout->addWidget(m_switchComboBox, 0, Qt::AlignVCenter);
+    mainLayout->setStretchFactor(m_switchComboBox, 7);
+
+    m_leftWidget->setFixedWidth(ComboxTitleWidth);
+    m_leftWidget->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+    setLayout(mainLayout);
+
+    connect(m_switchComboBox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &Fcitx_ComboxWidget::onIndexChanged);
+    connect(m_switchComboBox, &QComboBox::currentTextChanged, this, &Fcitx_ComboxWidget::onSelectChanged);
+    connect(m_switchComboBox, &QComboBox::currentTextChanged, this, [this] {
+        Q_EMIT dataChanged(m_switchComboBox->currentData());
+    });
 }
 
 Fcitx_ComboxWidget::Fcitx_ComboxWidget(QWidget *widget, QFrame *parent)

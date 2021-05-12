@@ -83,7 +83,7 @@ TEST_F(ut_imaddwindow, onOpenStore)
     if ((fp = popen(command, "r")) == NULL)
         return ;
     if ((fgets(buf, 150, fp)) != NULL) {
-        sscanf(buf, "%70s\t%d\t%70s", unused, &pid, unused);
+        sscanf(buf, "%69s\t%d\t%69s", unused, &pid, unused);
     }
     pclose(fp);
     if(pid == 32767)
@@ -98,7 +98,7 @@ TEST_F(ut_imaddwindow, onOpenStore)
     if ((fp = popen(command, "r")) == NULL)
         return ;
     if ((fgets(buf, 150, fp)) != NULL) {
-        sscanf(buf, "%70s\t%d\t%70s", unused, &pid, unused);
+        sscanf(buf, "%69s\t%d\t%69s", unused, &pid, unused);
     }
     pclose(fp);
     if(pid == 32767)
