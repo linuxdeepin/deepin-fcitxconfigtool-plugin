@@ -74,8 +74,8 @@ TEST_F(ut_imaddwindow, onOpenStore)
 
     sleep(4);
     FILE *fp;
-    int pid;
-    char unused[150];
+    int pid = -1;
+    char unused[70];
     char buf[150];
     char command[150];
     sprintf(command,
@@ -83,7 +83,7 @@ TEST_F(ut_imaddwindow, onOpenStore)
     if ((fp = popen(command, "r")) == NULL)
         return ;
     if ((fgets(buf, 150, fp)) != NULL) {
-        sscanf(buf, "%s\t%d\t%s", unused, &pid, unused);
+        sscanf(buf, "%70s\t%d\t%70s", unused, &pid, unused);
     }
     pclose(fp);
     if(pid == 32767)
@@ -98,7 +98,7 @@ TEST_F(ut_imaddwindow, onOpenStore)
     if ((fp = popen(command, "r")) == NULL)
         return ;
     if ((fgets(buf, 150, fp)) != NULL) {
-        sscanf(buf, "%s\t%d\t%s", unused, &pid, unused);
+        sscanf(buf, "%70s\t%d\t%70s", unused, &pid, unused);
     }
     pclose(fp);
     if(pid == 32767)
