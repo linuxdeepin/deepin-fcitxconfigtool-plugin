@@ -33,12 +33,20 @@ namespace dcc_fcitx_configtool {
 namespace widgets {
 
 Fcitx_ComboxWidget::Fcitx_ComboxWidget(QFrame *parent)
-    : Fcitx_ComboxWidget(new QLabel, parent)
+//    : Fcitx_ComboxWidget(new QLabel, parent)
+    : Fcitx_SettingsItem(parent)
+    , m_leftWidget(new QLabel)
+    , m_switchComboBox(new QComboBox)
+    , m_str("")
 {
 }
 
 Fcitx_ComboxWidget::Fcitx_ComboxWidget(const QString &title, QFrame *parent)
-    : Fcitx_ComboxWidget(new QLabel(title), parent)
+//    : Fcitx_ComboxWidget(new QLabel(title), parent)
+    : Fcitx_SettingsItem(parent)
+    , m_leftWidget(new QLabel(title))
+    , m_switchComboBox(new QComboBox)
+    , m_str("")
 {
 }
 

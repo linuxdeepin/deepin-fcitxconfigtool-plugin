@@ -156,6 +156,5 @@ TEST_F(ut_immodel, equals)
     item2.setName("pinyin");
     item2.setLangCode("pinyin");
     item2.setUniqueName("pinyin");
-    item1 == item2;
-    EXPECT_TRUE(true);
+    EXPECT_TRUE(item1 == item2);
 }
