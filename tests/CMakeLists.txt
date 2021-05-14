@@ -4,16 +4,18 @@ set(VERSION 0.1)
 set(PROJECT_NAME_TEST
     ${PROJECT_NAME}_test)#项目名称设置
 
-set(CMAKE_SAFETYTEST "${CMAKE_SAFETYTEST_ARG}")
-set(CMAKE_SAFETYTEST "CMAKE_SAFETYTEST_ARG_ON")
-if(CMAKE_SAFETYTEST STREQUAL "")
-    set(CMAKE_SAFETYTEST "CMAKE_SAFETYTEST_ARG_OFF")
-endif()
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -D${CMAKE_SAFETYTEST}")
-if(CMAKE_SAFETYTEST STREQUAL "CMAKE_SAFETYTEST_ARG_ON")
-  #安全测试选项
-  set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -g -fsanitize=address -O2")
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -fsanitize=address -O2")
+if (${CMAKE_SYSTEM_PROCESSOR} STREQUAL "x86_64")
+    set(CMAKE_SAFETYTEST "${CMAKE_SAFETYTEST_ARG}")
+    set(CMAKE_SAFETYTEST "CMAKE_SAFETYTEST_ARG_ON")
+    if(CMAKE_SAFETYTEST STREQUAL "")
+        set(CMAKE_SAFETYTEST "CMAKE_SAFETYTEST_ARG_OFF")
+    endif()
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -D${CMAKE_SAFETYTEST}")
+    if(CMAKE_SAFETYTEST STREQUAL "CMAKE_SAFETYTEST_ARG_ON")
+    #安全测试选项
+    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -g -fsanitize=address -O2")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -fsanitize=address -O2")
+    endif()
 endif()
 
 if (CMAKE_BUILD_TYPE MATCHES Debug)
@@ -41,8 +43,6 @@ ADD_COMPILE_OPTIONS(-fno-access-control)
 ADD_COMPILE_OPTIONS(-fno-inline)
 #添加-fno-inline编译选项，禁止内联，能获取到函数地址，可以对内联函数进行打桩
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fno-inline")
-
-set(DOTEST ON)
 
 # 查找库
 enable_testing()
