@@ -21,6 +21,7 @@
 #ifndef IMADDWINDOW_H
 #define IMADDWINDOW_H
 
+#include <QVBoxLayout>
 #include <QWidget>
 #include <fcitxqtinputmethoditem.h>
 namespace dcc_fcitx_configtool {
@@ -60,6 +61,7 @@ private:
     AvailWidget *m_availWidget {nullptr}; //可用输入法列表窗口
     Dtk::Widget::DCommandLinkButton *m_storeBtn {nullptr}; //应用商店按钮
     dcc_fcitx_configtool::widgets::Fcitx_ButtonTuple *m_buttonTuple {nullptr}; //取消/添加按钮
+    QVBoxLayout *m_mainLayout;
 };
 
 #endif // IMADDWINDOW_H

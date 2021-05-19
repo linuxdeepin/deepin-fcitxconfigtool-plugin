@@ -21,6 +21,7 @@
 #include "imaddwindow.h"
 #include "availwidget.h"
 
+#include "publisher/publisherdef.h"
 #include "immodel/immodel.h"
 #include "widgets/titlelabel.h"
 #include "widgets/buttontuple.h"
@@ -40,15 +41,16 @@ IMAddWindow::IMAddWindow(QWidget *parent)
 
 IMAddWindow::~IMAddWindow()
 {
+    DeleteObject_Null(m_mainLayout);
 }
 
 void IMAddWindow::initUI()
 {
     //界面布局
-    QVBoxLayout *mainLayout = new QVBoxLayout(this);
-    mainLayout->setContentsMargins(0, 0, 0, 10);
-    mainLayout->setSpacing(0);
-    mainLayout->addSpacing(10);
+    m_mainLayout = new QVBoxLayout(this);
+    m_mainLayout->setContentsMargins(0, 0, 0, 10);
+    m_mainLayout->setSpacing(0);
+    m_mainLayout->addSpacing(10);
 
     //添加输入法标题
     QHBoxLayout *hlayout = new QHBoxLayout(this);
@@ -87,14 +89,14 @@ void IMAddWindow::initUI()
     hlayout4->addSpacing(10);
 
     //添加至主界面内
-    mainLayout->addLayout(hlayout);
-    mainLayout->addLayout(hlayout2);
-    mainLayout->addSpacing(20);
-    mainLayout->addWidget(m_availWidget);
-    mainLayout->addSpacing(6);
-    mainLayout->addLayout(hlayout3);
-    mainLayout->addSpacing(7);
-    mainLayout->addLayout(hlayout4);
+    m_mainLayout->addLayout(hlayout);
+    m_mainLayout->addLayout(hlayout2);
+    m_mainLayout->addSpacing(20);
+    m_mainLayout->addWidget(m_availWidget);
+    m_mainLayout->addSpacing(6);
+    m_mainLayout->addLayout(hlayout3);
+    m_mainLayout->addSpacing(7);
+    m_mainLayout->addLayout(hlayout4);
 }
 
 void IMAddWindow::initConnect()

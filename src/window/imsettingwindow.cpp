@@ -56,6 +56,7 @@ IMSettingWindow::~IMSettingWindow()
     DeleteObject_Null(m_IMListGroup);
     DeleteObject_Null(m_shortcutGroup);
     DeleteObject_Null(m_editHead);
+    DeleteObject_Null(m_mainLayout);
 }
 
 void IMSettingWindow::initUI()
@@ -73,10 +74,10 @@ void IMSettingWindow::initUI()
         return head;
     };
 
-    QVBoxLayout *mainLayout = new QVBoxLayout();
+    m_mainLayout = new QVBoxLayout();
     QWidget* mainWidget = new QWidget(this);
-    mainLayout->addWidget(mainWidget);
-    setLayout(mainLayout);
+    m_mainLayout->addWidget(mainWidget);
+    setLayout(m_mainLayout);
 
     //界面布局
     QVBoxLayout *subLayout = new QVBoxLayout(mainWidget);

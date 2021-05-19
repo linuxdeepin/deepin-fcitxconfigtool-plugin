@@ -87,14 +87,15 @@ AvailWidget::~AvailWidget()
     m_searchIMGroup->clear();
     DeleteObject_Null(m_allIMGroup);
     DeleteObject_Null(m_searchIMGroup);
+    DeleteObject_Null(m_mainLayout);
 }
 
 void AvailWidget::initUI()
 {
     //界面布局
-    QVBoxLayout *mainLayout = new QVBoxLayout(this);
-    mainLayout->setMargin(0);
-    mainLayout->setSpacing(0);
+    m_mainLayout = new QVBoxLayout(this);
+    m_mainLayout->setMargin(0);
+    m_mainLayout->setSpacing(0);
     //滑动窗口
     Fcitx_ContentWidget *scrollArea = new Fcitx_ContentWidget(this);
     QWidget *scrollAreaWidgetContents = new QWidget(scrollArea);
@@ -111,7 +112,7 @@ void AvailWidget::initUI()
     scrollAreaLayout->addWidget(m_searchIMGroup);
     scrollAreaLayout->addStretch();
     //添加至主界面内
-    mainLayout->addWidget(scrollArea);
+    m_mainLayout->addWidget(scrollArea);
 }
 
 void AvailWidget::initConnect()
