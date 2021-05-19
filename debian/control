@@ -30,8 +30,7 @@ Build-Depends:
  libdframeworkdbus-dev,
  libgtest-dev,
  libgmock-dev,
- dde-control-center-dev,
- libgcc-8-dev
+ dde-control-center-dev
 Standards-Version: 4.1.3
 Homepage:  https://www.deepin.org/
 

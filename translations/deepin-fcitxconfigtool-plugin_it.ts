@@ -28,27 +28,27 @@
 <context>
     <name>IMAddWindow</name>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="55"/>
+        <location filename="../src/window/imaddwindow.cpp" line="57"/>
         <source>Add Input Method</source>
         <translation>Aggiungi metodi di input</translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="64"/>
+        <location filename="../src/window/imaddwindow.cpp" line="66"/>
         <source>Search</source>
         <translation>Cerca</translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="75"/>
+        <location filename="../src/window/imaddwindow.cpp" line="77"/>
         <source>Find more in App Store</source>
         <translation>Prosegui la ricerca nell&apos;App Store</translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="81"/>
+        <location filename="../src/window/imaddwindow.cpp" line="83"/>
         <source>Add</source>
         <translation>Aggiungi</translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="83"/>
+        <location filename="../src/window/imaddwindow.cpp" line="85"/>
         <source>Cancel</source>
         <translation>Annulla</translation>
     </message>
@@ -60,7 +60,7 @@
         <translation type="vanished">Predefinito</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="112"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="113"/>
         <source>Switch input methods</source>
         <translation>Cambia metodo di input</translation>
     </message>
@@ -69,7 +69,7 @@
         <translation type="vanished">Cambia il metodo di input predefinito</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="114"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="115"/>
         <source>Call out Onboard</source>
         <translation>Richiama la tastiera virtuale</translation>
     </message>
@@ -90,12 +90,12 @@
         <translation type="vanished">Metodo di input</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="131"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="132"/>
         <source>Manage Input Methods</source>
         <translation>Gestisci metodi di input</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="134"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="135"/>
         <source>Shortcuts</source>
         <translation>Scorciatoie</translation>
     </message>
@@ -114,14 +114,12 @@
 <context>
     <name>ShortcutKeyWindow</name>
     <message>
-        <location filename="../src/window/shortcutkeywindow.cpp" line="29"/>
         <source>Cancel</source>
-        <translation>Annulla</translation>
+        <translation type="vanished">Annulla</translation>
     </message>
     <message>
-        <location filename="../src/window/shortcutkeywindow.cpp" line="48"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation>Questa scorciatoia è in conflitto con %1, clicca Aggiungi per renderla effettiva</translation>
+        <translation type="vanished">Questa scorciatoia è in conflitto con %1, clicca Aggiungi per renderla effettiva</translation>
     </message>
 </context>
 <context>

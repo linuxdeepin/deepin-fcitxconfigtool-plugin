@@ -65,11 +65,11 @@ void IMWindow::initUI()
     m_stackedWidget->addWidget(m_shortcutKeyWindow);
     m_stackedWidget->setCurrentIndex(0);
     //界面布局
-    QVBoxLayout *pLayout = new QVBoxLayout();
+    QVBoxLayout *pLayout = new QVBoxLayout(this);
     pLayout->addWidget(m_stackedWidget);
     pLayout->setMargin(0);
     pLayout->setSpacing(0);
-    setLayout(pLayout);
+//    setLayout(pLayout);
 }
 
 void IMWindow::initConnect()

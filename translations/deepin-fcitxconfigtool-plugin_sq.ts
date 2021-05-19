@@ -28,27 +28,27 @@
 <context>
     <name>IMAddWindow</name>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="55"/>
+        <location filename="../src/window/imaddwindow.cpp" line="57"/>
         <source>Add Input Method</source>
         <translation>Shtoni Metodë Dhënieje</translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="64"/>
+        <location filename="../src/window/imaddwindow.cpp" line="66"/>
         <source>Search</source>
         <translation>Kërko</translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="75"/>
+        <location filename="../src/window/imaddwindow.cpp" line="77"/>
         <source>Find more in App Store</source>
         <translation>Gjeni më tepër, te Shitorja e Aplikacioneve</translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="81"/>
+        <location filename="../src/window/imaddwindow.cpp" line="83"/>
         <source>Add</source>
         <translation>Shtoje</translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="83"/>
+        <location filename="../src/window/imaddwindow.cpp" line="85"/>
         <source>Cancel</source>
         <translation>Anuloje</translation>
     </message>
@@ -60,7 +60,7 @@
         <translation type="vanished">Parazgjedhje</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="112"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="113"/>
         <source>Switch input methods</source>
         <translation>Ndërroni metoda dhënieje</translation>
     </message>
@@ -69,7 +69,7 @@
         <translation type="vanished">Kalo te metoda parazgjedhje e dhënieve</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="114"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="115"/>
         <source>Call out Onboard</source>
         <translation type="unfinished"></translation>
     </message>
@@ -90,12 +90,12 @@
         <translation type="vanished">Metodë Dhënieje</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="131"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="132"/>
         <source>Manage Input Methods</source>
         <translation>Administroni Metoda Dhënieje</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="134"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="135"/>
         <source>Shortcuts</source>
         <translation>Shkurtore</translation>
     </message>
@@ -114,14 +114,12 @@
 <context>
     <name>ShortcutKeyWindow</name>
     <message>
-        <location filename="../src/window/shortcutkeywindow.cpp" line="29"/>
         <source>Cancel</source>
-        <translation>Anuloje</translation>
+        <translation type="vanished">Anuloje</translation>
     </message>
     <message>
-        <location filename="../src/window/shortcutkeywindow.cpp" line="48"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation>Kjo shkurtore përplaset me %1, klikoni mbi Shtoje për ta bërë këtë shkurtore menjëherë efektive</translation>
+        <translation type="vanished">Kjo shkurtore përplaset me %1, klikoni mbi Shtoje për ta bërë këtë shkurtore menjëherë efektive</translation>
     </message>
 </context>
 <context>

@@ -22,6 +22,7 @@
 #define AVAILWIDGET_H
 
 #include <QWidget>
+#include <QVBoxLayout>
 #include <fcitxqtinputmethoditem.h>
 namespace dcc_fcitx_configtool {
 namespace widgets {
@@ -54,6 +55,7 @@ private:
     FcitxQtInputMethodItem m_selectItem; //选中输入法
     FcitxQtInputMethodItemList m_allAvaiIMlList; //可用输入法列表
     QString m_searchStr; //当前搜索字符串
+    QVBoxLayout *m_mainLayout;
 };
 
 #endif // AVAILWIDGET_H

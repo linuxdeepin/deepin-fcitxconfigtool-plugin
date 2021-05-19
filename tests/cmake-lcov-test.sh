@@ -6,7 +6,7 @@ rm -r ../$utdir
 mkdir ../$utdir
 cd ../$utdir
 
-cmake -DCMAKE_SAFETYTEST_ARG="CMAKE_SAFETYTEST_ARG_ON" .. -DCMAKE_INSTALL_PREFIX="/usr"
+cmake .. -DCMAKE_INSTALL_PREFIX="/usr"
 make -j4
 
 touch ./tests/utcase.log

@@ -28,27 +28,27 @@
 <context>
     <name>IMAddWindow</name>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="55"/>
+        <location filename="../src/window/imaddwindow.cpp" line="57"/>
         <source>Add Input Method</source>
         <translation>添加輸入法</translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="64"/>
+        <location filename="../src/window/imaddwindow.cpp" line="66"/>
         <source>Search</source>
         <translation>搜索</translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="75"/>
+        <location filename="../src/window/imaddwindow.cpp" line="77"/>
         <source>Find more in App Store</source>
         <translation>前往商店下載</translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="81"/>
+        <location filename="../src/window/imaddwindow.cpp" line="83"/>
         <source>Add</source>
         <translation>添加</translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="83"/>
+        <location filename="../src/window/imaddwindow.cpp" line="85"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
@@ -60,7 +60,7 @@
         <translation type="vanished">默認</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="112"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="113"/>
         <source>Switch input methods</source>
         <translation>切換輸入法</translation>
     </message>
@@ -69,7 +69,7 @@
         <translation type="vanished">切換至默認輸入法</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="114"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="115"/>
         <source>Call out Onboard</source>
         <translation>喚起虛擬鍵盤</translation>
     </message>
@@ -90,12 +90,12 @@
         <translation type="vanished">輸入法</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="131"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="132"/>
         <source>Manage Input Methods</source>
         <translation>輸入法管理</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="134"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="135"/>
         <source>Shortcuts</source>
         <translation>快捷鍵</translation>
     </message>
@@ -114,14 +114,12 @@
 <context>
     <name>ShortcutKeyWindow</name>
     <message>
-        <location filename="../src/window/shortcutkeywindow.cpp" line="29"/>
         <source>Cancel</source>
-        <translation>取消</translation>
+        <translation type="vanished">取消</translation>
     </message>
     <message>
-        <location filename="../src/window/shortcutkeywindow.cpp" line="48"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation>此快捷鍵與%1衝突，點擊添加使這個快捷鍵立即生效</translation>
+        <translation type="vanished">此快捷鍵與%1衝突，點擊添加使這個快捷鍵立即生效</translation>
     </message>
 </context>
 <context>

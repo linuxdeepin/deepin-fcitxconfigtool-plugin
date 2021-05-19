@@ -23,6 +23,7 @@
 
 #include "fcitxInterface/global.h"
 #include <QWidget>
+#include <QVBoxLayout>
 
 namespace dcc_fcitx_configtool {
 namespace widgets {
@@ -80,6 +81,7 @@ private:
 //    dcc_fcitx_configtool::widgets::Fcitx_KeySettingsItem *m_defaultIMKey {nullptr}; //默认输入法 （快捷键）
 //    dcc_fcitx_configtool::widgets::Fcitx_ComboxWidget *m_systemAppCbox {nullptr}; //切换系统/应用
     Dtk::Widget::DFloatingButton *m_addIMBtn {nullptr}; //添加输入法
+    QVBoxLayout *m_mainLayout;
 };
 
 #endif // IMSETTINGWINDOW_H
