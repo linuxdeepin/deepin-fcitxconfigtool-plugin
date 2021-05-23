@@ -4,8 +4,8 @@
 <context>
     <name>FcitxConfigPlugin</name>
     <message>
-        <location filename="../src/fcitxconfigplugin.cpp" line="84"/>
-        <location filename="../src/fcitxconfigplugin.cpp" line="90"/>
+        <location filename="../src/fcitxconfigplugin.cpp" line="89"/>
+        <location filename="../src/fcitxconfigplugin.cpp" line="95"/>
         <source>Input Methods</source>
         <translation>Input Methods</translation>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
@@ -60,7 +60,7 @@
         <translation type="vanished">Default</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="113"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="122"/>
         <source>Switch input methods</source>
         <translation>Switch input methods</translation>
     </message>
@@ -69,7 +69,7 @@
         <translation type="vanished">Switch to default input method</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="115"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="124"/>
         <source>Call out Onboard</source>
         <translation>Call out Onboard</translation>
     </message>
@@ -90,12 +90,12 @@
         <translation type="vanished">Input Method</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="132"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="141"/>
         <source>Manage Input Methods</source>
         <translation>Manage Input Methods</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="135"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="146"/>
         <source>Shortcuts</source>
         <translation>Shortcuts</translation>
     </message>
