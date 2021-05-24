@@ -65,13 +65,13 @@
         <translation>Zamenjaj način vnosa</translation>
     </message>
     <message>
+        <location filename="../src/window/imsettingwindow.cpp" line="116"/>
         <source>Switch to default input method</source>
-        <translation type="vanished">Preklopi na privzeti način vnosa</translation>
+        <translation>Preklopi na privzeti način vnosa</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="117"/>
         <source>Call out Onboard</source>
-        <translation>Prikliči integrirano</translation>
+        <translation type="vanished">Prikliči integrirano</translation>
     </message>
     <message>
         <source>Applies to</source>

@@ -65,13 +65,13 @@
         <translation>Giriş yöntemlerini değiştir</translation>
     </message>
     <message>
+        <location filename="../src/window/imsettingwindow.cpp" line="116"/>
         <source>Switch to default input method</source>
-        <translation type="vanished">Varsayılan giriş yöntemine geç</translation>
+        <translation>Varsayılan giriş yöntemine geç</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="117"/>
         <source>Call out Onboard</source>
-        <translation>Dahili aç</translation>
+        <translation type="vanished">Dahili aç</translation>
     </message>
     <message>
         <source>Applies to</source>

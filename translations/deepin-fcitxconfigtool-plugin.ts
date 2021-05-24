@@ -65,13 +65,13 @@
         <translation>Switch input methods</translation>
     </message>
     <message>
+        <location filename="../src/window/imsettingwindow.cpp" line="116"/>
         <source>Switch to default input method</source>
-        <translation type="vanished">Switch to default input method</translation>
+        <translation>Switch to default input method</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="117"/>
         <source>Call out Onboard</source>
-        <translation>Call out Onboard</translation>
+        <translation type="vanished">Call out Onboard</translation>
     </message>
     <message>
         <source>Applies to</source>

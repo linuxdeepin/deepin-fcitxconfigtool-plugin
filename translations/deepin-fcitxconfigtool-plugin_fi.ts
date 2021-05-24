@@ -65,13 +65,13 @@
         <translation>Vaihda kirjoitustapaa</translation>
     </message>
     <message>
+        <location filename="../src/window/imsettingwindow.cpp" line="116"/>
         <source>Switch to default input method</source>
-        <translation type="vanished">Vaihda oletus kirjoitustapa</translation>
+        <translation>Vaihda oletus kirjoitustapa</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="117"/>
         <source>Call out Onboard</source>
-        <translation>Kutsu näppäimistö näytölle</translation>
+        <translation type="vanished">Kutsu näppäimistö näytölle</translation>
     </message>
     <message>
         <source>Applies to</source>

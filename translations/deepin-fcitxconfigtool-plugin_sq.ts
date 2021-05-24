@@ -65,13 +65,9 @@
         <translation>Ndërroni metoda dhënieje</translation>
     </message>
     <message>
+        <location filename="../src/window/imsettingwindow.cpp" line="116"/>
         <source>Switch to default input method</source>
-        <translation type="vanished">Kalo te metoda parazgjedhje e dhënieve</translation>
-    </message>
-    <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="117"/>
-        <source>Call out Onboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Kalo te metoda parazgjedhje e dhënieve</translation>
     </message>
     <message>
         <source>Applies to</source>

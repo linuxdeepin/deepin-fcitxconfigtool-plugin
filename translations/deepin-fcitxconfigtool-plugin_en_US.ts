@@ -61,8 +61,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="117"/>
-        <source>Call out Onboard</source>
+        <location filename="../src/window/imsettingwindow.cpp" line="116"/>
+        <source>Switch to default input method</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

@@ -65,13 +65,13 @@
         <translation>Beviteli mód váltása</translation>
     </message>
     <message>
+        <location filename="../src/window/imsettingwindow.cpp" line="116"/>
         <source>Switch to default input method</source>
-        <translation type="vanished">Váltson az alapértelmezett beviteli módra</translation>
+        <translation>Váltson az alapértelmezett beviteli módra</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="117"/>
         <source>Call out Onboard</source>
-        <translation>Képernyő billentyűzet előhívása</translation>
+        <translation type="vanished">Képernyő billentyűzet előhívása</translation>
     </message>
     <message>
         <source>Applies to</source>

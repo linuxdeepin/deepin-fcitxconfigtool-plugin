@@ -65,13 +65,13 @@
         <translation>切換輸入法</translation>
     </message>
     <message>
+        <location filename="../src/window/imsettingwindow.cpp" line="116"/>
         <source>Switch to default input method</source>
-        <translation type="vanished">切換至默認輸入法</translation>
+        <translation>切換至默認輸入法</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="117"/>
         <source>Call out Onboard</source>
-        <translation>喚起虛擬鍵盤</translation>
+        <translation type="vanished">喚起虛擬鍵盤</translation>
     </message>
     <message>
         <source>Applies to</source>

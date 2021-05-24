@@ -65,13 +65,13 @@
         <translation>Cambia metodo di input</translation>
     </message>
     <message>
+        <location filename="../src/window/imsettingwindow.cpp" line="116"/>
         <source>Switch to default input method</source>
-        <translation type="vanished">Cambia il metodo di input predefinito</translation>
+        <translation>Cambia il metodo di input predefinito</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="117"/>
         <source>Call out Onboard</source>
-        <translation>Richiama la tastiera virtuale</translation>
+        <translation type="vanished">Richiama la tastiera virtuale</translation>
     </message>
     <message>
         <source>Applies to</source>

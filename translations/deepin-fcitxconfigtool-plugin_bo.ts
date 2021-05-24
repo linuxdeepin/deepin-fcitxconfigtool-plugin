@@ -65,13 +65,13 @@
         <translation>ནང་འཇུག་བྱེད་སྟངས་བརྗེ་བ།</translation>
     </message>
     <message>
+        <location filename="../src/window/imsettingwindow.cpp" line="116"/>
         <source>Switch to default input method</source>
-        <translation type="vanished">སོར་བཞག་ནང་འཇུག་བྱེད་སྟངས་བརྗེ་བ།</translation>
+        <translation>སོར་བཞག་ནང་འཇུག་བྱེད་སྟངས་བརྗེ་བ།</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="117"/>
         <source>Call out Onboard</source>
-        <translation>རྟོག་བཟོའི་མཐེབ་གཞོང་སློང་བ།</translation>
+        <translation type="vanished">རྟོག་བཟོའི་མཐེབ་གཞོང་སློང་བ།</translation>
     </message>
     <message>
         <source>Applies to</source>

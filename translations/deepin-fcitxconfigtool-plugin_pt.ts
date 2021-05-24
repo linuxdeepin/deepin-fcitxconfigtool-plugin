@@ -65,13 +65,13 @@
         <translation>Alternar métodos de introdução</translation>
     </message>
     <message>
+        <location filename="../src/window/imsettingwindow.cpp" line="116"/>
         <source>Switch to default input method</source>
-        <translation type="vanished">Trocar para o método de introdução predefinido</translation>
+        <translation>Trocar para o método de introdução predefinido</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="117"/>
         <source>Call out Onboard</source>
-        <translation>Invocar o Onboard</translation>
+        <translation type="vanished">Invocar o Onboard</translation>
     </message>
     <message>
         <source>Applies to</source>

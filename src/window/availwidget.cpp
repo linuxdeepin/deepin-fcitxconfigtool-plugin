@@ -64,7 +64,6 @@ QString languageName(const QString &langCode)
                 countryName = QLocale::countryToString(locale.country());
             }
         }
-
         if (countryName.isEmpty()) {
             return languageName;
         } else {

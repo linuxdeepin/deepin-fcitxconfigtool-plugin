@@ -65,13 +65,13 @@
         <translation>Daxiletmə üsullarını dəyişin</translation>
     </message>
     <message>
+        <location filename="../src/window/imsettingwindow.cpp" line="116"/>
         <source>Switch to default input method</source>
-        <translation type="vanished">Standart daxietmə üsuluna keçin</translation>
+        <translation>Standart daxietmə üsuluna keçin</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="117"/>
         <source>Call out Onboard</source>
-        <translation>Ekran klaviaturasını çağırın</translation>
+        <translation type="vanished">Ekran klaviaturasını çağırın</translation>
     </message>
     <message>
         <source>Applies to</source>

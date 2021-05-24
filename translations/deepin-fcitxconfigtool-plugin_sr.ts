@@ -65,13 +65,13 @@
         <translation>Промени начин уноса</translation>
     </message>
     <message>
+        <location filename="../src/window/imsettingwindow.cpp" line="116"/>
         <source>Switch to default input method</source>
-        <translation type="vanished">Пређи на подразумевани начин уноса</translation>
+        <translation>Пређи на подразумевани начин уноса</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="117"/>
         <source>Call out Onboard</source>
-        <translation>Активирај Онборд</translation>
+        <translation type="vanished">Активирај Онборд</translation>
     </message>
     <message>
         <source>Applies to</source>

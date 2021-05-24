@@ -65,13 +65,13 @@
         <translation>Andere invoermethode kiezen</translation>
     </message>
     <message>
+        <location filename="../src/window/imsettingwindow.cpp" line="116"/>
         <source>Switch to default input method</source>
-        <translation type="vanished">Overschakelen naar standaard invoermethode</translation>
+        <translation>Overschakelen naar standaard invoermethode</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="117"/>
         <source>Call out Onboard</source>
-        <translation>Onboard tonen</translation>
+        <translation type="vanished">Onboard tonen</translation>
     </message>
     <message>
         <source>Applies to</source>

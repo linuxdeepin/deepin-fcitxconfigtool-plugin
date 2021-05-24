@@ -65,13 +65,13 @@
         <translation>Canvia el mètode d&apos;entrada</translation>
     </message>
     <message>
+        <location filename="../src/window/imsettingwindow.cpp" line="116"/>
         <source>Switch to default input method</source>
-        <translation type="vanished">Canvia al mètode d&apos;entrada per defecte</translation>
+        <translation>Canvia al mètode d&apos;entrada per defecte</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="117"/>
         <source>Call out Onboard</source>
-        <translation>Crida Abord</translation>
+        <translation type="vanished">Crida Abord</translation>
     </message>
     <message>
         <source>Applies to</source>

@@ -44,7 +44,7 @@ Fcitx_IMActivityItem::Fcitx_IMActivityItem(FcitxQtInputMethodItem item, bool isF
         m_upBtn = new DToolButton(this);
         m_downBtn = new DToolButton(this);
         m_configBtn = new DToolButton(this);
-        m_deleteBtn = new DToolButton(this);//input_method
+        m_deleteBtn = new DToolButton(this);
         m_upBtn->setIcon(QIcon::fromTheme("arrow_up"));
         m_downBtn->setIcon(QIcon::fromTheme("arrow_down"));
         m_configBtn->setIcon(QIcon::fromTheme("setting"));
@@ -105,7 +105,7 @@ void Fcitx_IMActivityItem::setSelectStatus(const bool &isEnter)
         if (count <= 2) {
             m_upBtn->setEnabled(false);
             m_downBtn->setEnabled(false);
-        }else if (index == 1) {
+        }else if (index == 0) {
             m_upBtn->setEnabled(false);
             m_downBtn->setEnabled(true);
         } else if (index == count - 1) {

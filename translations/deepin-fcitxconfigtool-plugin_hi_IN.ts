@@ -65,13 +65,13 @@
         <translation>इनपुट विधि बदलें</translation>
     </message>
     <message>
+        <location filename="../src/window/imsettingwindow.cpp" line="116"/>
         <source>Switch to default input method</source>
-        <translation type="vanished">डिफ़ॉल्ट इनपुट विधि उपयोग करें</translation>
+        <translation>डिफ़ॉल्ट इनपुट विधि उपयोग करें</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="117"/>
         <source>Call out Onboard</source>
-        <translation>ऑनबोर्ड कुंजीपटल आरंभ करें</translation>
+        <translation type="vanished">ऑनबोर्ड कुंजीपटल आरंभ करें</translation>
     </message>
     <message>
         <source>Applies to</source>

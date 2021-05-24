@@ -65,13 +65,13 @@
         <translation>كىرگۈزگۈچ ئالماشتۇرۇش</translation>
     </message>
     <message>
+        <location filename="../src/window/imsettingwindow.cpp" line="116"/>
         <source>Switch to default input method</source>
-        <translation type="vanished">سۈكۈتتىكى كىرگۈزگۈچكە ئالماشتۇرۇش</translation>
+        <translation>سۈكۈتتىكى كىرگۈزگۈچكە ئالماشتۇرۇش</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="117"/>
         <source>Call out Onboard</source>
-        <translation>مەۋھۇم كۇنۇپكىنى قوزغىتىش</translation>
+        <translation type="vanished">مەۋھۇم كۇنۇپكىنى قوزغىتىش</translation>
     </message>
     <message>
         <source>Applies to</source>
