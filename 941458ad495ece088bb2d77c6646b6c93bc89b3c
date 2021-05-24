@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dec7c096_7bcfcd2a",
+        "filename": "src/fcitxconfigplugin.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-05-24T03:25:32Z",
+      "side": 1,
+      "message": "注释行数: 0; 改动行数(修改和新增): 9; 注释率: 0.0%",
+      "revId": "941458ad495ece088bb2d77c6646b6c93bc89b3c",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6166b715_026c0616",
+        "filename": "src/window/immodel/immodel.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-05-24T03:25:32Z",
+      "side": 1,
+      "message": "注释行数: 19; 改动行数(修改和新增): 19; 注释率: 100.0%",
+      "revId": "941458ad495ece088bb2d77c6646b6c93bc89b3c",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1a7fa072_5e6e0920",
+        "filename": "src/window/imsettingwindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-05-24T03:25:32Z",
+      "side": 1,
+      "message": "注释行数: 2; 改动行数(修改和新增): 6; 注释率: 33.3%",
+      "revId": "941458ad495ece088bb2d77c6646b6c93bc89b3c",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    }
+  ]
+}
