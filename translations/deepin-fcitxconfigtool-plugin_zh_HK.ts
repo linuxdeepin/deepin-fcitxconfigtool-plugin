@@ -4,8 +4,8 @@
 <context>
     <name>FcitxConfigPlugin</name>
     <message>
-        <location filename="../src/fcitxconfigplugin.cpp" line="89"/>
-        <location filename="../src/fcitxconfigplugin.cpp" line="95"/>
+        <location filename="../src/fcitxconfigplugin.cpp" line="86"/>
+        <location filename="../src/fcitxconfigplugin.cpp" line="92"/>
         <source>Input Methods</source>
         <translation>輸入法</translation>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
@@ -60,7 +60,7 @@
         <translation type="vanished">默認</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="122"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="115"/>
         <source>Switch input methods</source>
         <translation>切換輸入法</translation>
     </message>
@@ -69,7 +69,7 @@
         <translation type="vanished">切換至默認輸入法</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="124"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="117"/>
         <source>Call out Onboard</source>
         <translation>喚起虛擬鍵盤</translation>
     </message>
@@ -90,12 +90,12 @@
         <translation type="vanished">輸入法</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="141"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="134"/>
         <source>Manage Input Methods</source>
         <translation>輸入法管理</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="146"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="138"/>
         <source>Shortcuts</source>
         <translation>快捷鍵</translation>
     </message>

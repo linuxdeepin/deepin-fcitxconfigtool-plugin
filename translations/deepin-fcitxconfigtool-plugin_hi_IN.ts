@@ -4,8 +4,8 @@
 <context>
     <name>FcitxConfigPlugin</name>
     <message>
-        <location filename="../src/fcitxconfigplugin.cpp" line="89"/>
-        <location filename="../src/fcitxconfigplugin.cpp" line="95"/>
+        <location filename="../src/fcitxconfigplugin.cpp" line="86"/>
+        <location filename="../src/fcitxconfigplugin.cpp" line="92"/>
         <source>Input Methods</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
@@ -60,7 +60,7 @@
         <translation type="vanished">डिफ़ॉल्ट</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="122"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="115"/>
         <source>Switch input methods</source>
         <translation>इनपुट विधि बदलें</translation>
     </message>
@@ -69,7 +69,7 @@
         <translation type="vanished">डिफ़ॉल्ट इनपुट विधि उपयोग करें</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="124"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="117"/>
         <source>Call out Onboard</source>
         <translation>ऑनबोर्ड कुंजीपटल आरंभ करें</translation>
     </message>
@@ -90,12 +90,12 @@
         <translation type="vanished">इनपुट विधि</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="141"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="134"/>
         <source>Manage Input Methods</source>
         <translation>इनपुट विधि प्रबंधन</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="146"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="138"/>
         <source>Shortcuts</source>
         <translation>शॉर्टकट</translation>
     </message>

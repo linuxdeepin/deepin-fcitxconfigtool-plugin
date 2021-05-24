@@ -32,16 +32,16 @@ FcitxConfigPlugin::FcitxConfigPlugin()
                       QStringLiteral("_"),
                       QStringLiteral("/usr/share/deepin-fcitxconfigtool-plugin/translations"));
     qApp->installTranslator(&m_translator);
-//    imWindow = nullptr;
+    imWindow = nullptr;
 }
 
 FcitxConfigPlugin::~FcitxConfigPlugin()
 {
     qApp->removeTranslator(&m_translator);
-//    if (imWindow) {
-//        imWindow->deleteLater();
-//        imWindow = nullptr;
-//    }
+    if (imWindow) {
+        imWindow->deleteLater();
+        imWindow = nullptr;
+    }
 }
 
 void FcitxConfigPlugin::preInitialize(bool sync)
@@ -63,10 +63,10 @@ QString FcitxConfigPlugin::follow() const
 
 void FcitxConfigPlugin::deactive()
 {
-//    if (imWindow) {
-//        imWindow->deleteLater();
-//        imWindow = nullptr;
-//    }
+    if (imWindow) {
+        imWindow->deleteLater();
+        imWindow = nullptr;
+    }
 }
 
 void FcitxConfigPlugin::initialize()
@@ -77,9 +77,6 @@ void FcitxConfigPlugin::initialize()
 void FcitxConfigPlugin::active()
 {
     qDebug()<<__FUNCTION__;
-//    QProcess::execute("deepin-app-store");
-//    QProcess::startDetached("deepin-app-store");
-//    QProcess::startDeached("deepin-app-store");
     imWindow = new IMWindow();
     m_frameProxy->pushWidget(this, imWindow, dccV20::FrameProxyInterface::PushType::Normal);
 }

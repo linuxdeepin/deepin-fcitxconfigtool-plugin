@@ -77,6 +77,8 @@ void IMSettingWindow::initUI()
     m_mainLayout = new QVBoxLayout();
     QWidget* mainWidget = new QWidget(this);
     m_mainLayout->addWidget(mainWidget);
+    m_mainLayout->setMargin(0);
+    m_mainLayout->setSpacing(0);
     setLayout(m_mainLayout);
 
     //界面布局
@@ -89,7 +91,7 @@ void IMSettingWindow::initUI()
 
     QWidget *scrollAreaWidgetContents = new QWidget(scrollArea);
     QVBoxLayout *scrollAreaLayout = new QVBoxLayout(scrollAreaWidgetContents);
-    scrollAreaLayout->setContentsMargins(10, 5, 10, 0);
+    scrollAreaLayout->setContentsMargins(10, 4, 10, 0);
     scrollAreaLayout->setSpacing(0);
     scrollArea->setContent(scrollAreaWidgetContents);
     scrollAreaWidgetContents->setLayout(scrollAreaLayout);
@@ -126,12 +128,13 @@ void IMSettingWindow::initUI()
 //    m_systemAppCbox->setVisible(false);
 
     //控件添加至滑动窗口内
-//        scrollAreaLayout->addWidget(newTitleHead(tr("Input Method")));
-//        scrollAreaLayout->addSpacing(10);
+//    scrollAreaLayout->addWidget(newTitleHead(tr("Input Method")));
+//    scrollAreaLayout->addSpacing(10);
 //    scrollAreaLayout->addWidget(m_defaultIMGroup);
     scrollAreaLayout->addWidget(newTitleHead(tr("Manage Input Methods"), true));
     scrollAreaLayout->addSpacing(10);
     scrollAreaLayout->addWidget(m_IMListGroup);
+    scrollAreaLayout->addSpacing(15);
     scrollAreaLayout->addWidget(newTitleHead(tr("Shortcuts")));
     scrollAreaLayout->addSpacing(10);
     scrollAreaLayout->addWidget(m_shortcutGroup);
