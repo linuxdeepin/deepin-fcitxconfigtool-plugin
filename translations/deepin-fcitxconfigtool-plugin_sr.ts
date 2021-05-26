@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="sr">
+<TS version="2.1" language="sr_RS">
 <context>
     <name>FcitxConfigPlugin</name>
     <message>
         <location filename="../src/fcitxconfigplugin.cpp" line="86"/>
         <location filename="../src/fcitxconfigplugin.cpp" line="92"/>
         <source>Input Methods</source>
-        <translation>Начини уноса</translation>
+        <translation type="unfinished"></translation>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
 </context>
@@ -17,12 +17,12 @@
         <location filename="../src/widgets/settingshead.cpp" line="48"/>
         <location filename="../src/widgets/settingshead.cpp" line="113"/>
         <source>Edit</source>
-        <translation>Уреди</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/widgets/settingshead.cpp" line="115"/>
         <source>Done</source>
-        <translation>Готово</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -30,121 +30,77 @@
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="57"/>
         <source>Add Input Method</source>
-        <translation>Додај начин уноса</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="66"/>
         <source>Search</source>
-        <translation>Претражи</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="77"/>
         <source>Find more in App Store</source>
-        <translation>Пронађи више у Продавници</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="83"/>
         <source>Add</source>
-        <translation>Додај</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="85"/>
         <source>Cancel</source>
-        <translation>Откажи</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>IMSettingWindow</name>
     <message>
-        <source>Default</source>
-        <translation type="vanished">Подразумевано</translation>
-    </message>
-    <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="115"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="117"/>
         <source>Switch input methods</source>
-        <translation>Промени начин уноса</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="116"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="118"/>
         <source>Switch to default input method</source>
-        <translation>Пређи на подразумевани начин уноса</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Call out Onboard</source>
-        <translation type="vanished">Активирај Онборд</translation>
-    </message>
-    <message>
-        <source>Applies to</source>
-        <translation type="vanished">Примени на</translation>
-    </message>
-    <message>
-        <source>System</source>
-        <translation type="vanished">Систем</translation>
-    </message>
-    <message>
-        <source>Application</source>
-        <translation type="vanished">Програм</translation>
-    </message>
-    <message>
-        <source>Input Method</source>
-        <translation type="vanished">Начин уноса</translation>
-    </message>
-    <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="134"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="136"/>
         <source>Manage Input Methods</source>
-        <translation>Управљај начинима уноса</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="138"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="140"/>
         <source>Shortcuts</source>
-        <translation>Пречице</translation>
-    </message>
-</context>
-<context>
-    <name>SettingsHead</name>
-    <message>
-        <source>Edit</source>
-        <translation type="vanished">Уреди</translation>
-    </message>
-    <message>
-        <source>Done</source>
-        <translation type="vanished">Готово</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>ShortcutKeyWindow</name>
     <message>
+        <location filename="../src/window/shortcutkeywindow.cpp" line="35"/>
         <source>Cancel</source>
-        <translation type="vanished">Откажи</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../src/window/shortcutkeywindow.cpp" line="54"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation type="vanished">Ова пречица је у сукобу са %1, кликните на „Додај“ да бисте могли да користите ову пречицу</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>dcc_fcitx_configtool::widgets::Fcitx_KeyLabelWidget</name>
     <message>
         <location filename="../src/widgets/keysettingsitem.cpp" line="37"/>
-        <location filename="../src/widgets/keysettingsitem.cpp" line="136"/>
+        <location filename="../src/widgets/keysettingsitem.cpp" line="145"/>
         <source>None</source>
-        <translation>Ништа</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/widgets/keysettingsitem.cpp" line="43"/>
         <source>Enter a new shortcut</source>
-        <translation>Унеси нову пречицу</translation>
-    </message>
-</context>
-<context>
-    <name>dcc_fcitx_configtool::widgets::KeyLabelWidget</name>
-    <message>
-        <source>Enter a new shortcut</source>
-        <translation type="vanished">Унеси нову пречицу</translation>
-    </message>
-    <message>
-        <source>None</source>
-        <translation type="vanished">Ништа</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

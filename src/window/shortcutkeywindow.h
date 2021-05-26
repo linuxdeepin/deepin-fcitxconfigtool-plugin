@@ -34,14 +34,15 @@ public slots:
     void setValue(QString curName, QString conflictName, QString shortCut);
 
 private:
-//    dcc_fcitx_configtool::widgets::Fcitx_SettingsGroup *m_shortcutGroup;
-//    dcc_fcitx_configtool::widgets::Fcitx_KeySettingsItem *m_keySettingsItem;
-//    dcc_fcitx_configtool::widgets::Fcitx_ButtonTuple *m_buttonTuple;
-//    QLabel *m_bottomTip;
-//    QPushButton *cancel;
-//    QString m_log;
-//    QString m_curName;
-//    QString m_conflictName;
-//    QString m_shortCut;
+    dcc_fcitx_configtool::widgets::Fcitx_SettingsGroup *m_shortcutGroup;
+    dcc_fcitx_configtool::widgets::Fcitx_KeySettingsItem *m_keySettingsItem;
+    dcc_fcitx_configtool::widgets::Fcitx_ButtonTuple *m_buttonTuple;
+    QSpacerItem* m_verticalSpacer;
+    QLabel *m_bottomTip;
+    QPushButton *cancel;
+    QString m_log;
+    QString m_curName;
+    QString m_conflictName;
+    QString m_shortCut;
 };
 #endif // SHORTCUTKEYWINDOW_H

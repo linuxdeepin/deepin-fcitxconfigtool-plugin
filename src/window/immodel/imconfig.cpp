@@ -57,12 +57,12 @@ bool IMConfig::setVirtualKey(const QString &str)
 
 QString IMConfig::defaultIMKey()
 {
-    return configFile(prefix + "/.config/fcitx/conf/fcitx-defaultim.config", QString("HOTKEY"));
+    return configFile(prefix + "/.config/fcitx/config", QString("TriggerKey"));
 }
 
 bool IMConfig::setDefaultIMKey(const QString &str)
 {
-    return setConfigFile(prefix + "/.config/fcitx/conf/fcitx-defaultim.config", "HOTKEY", str);
+    return setConfigFile(prefix + "/.config/fcitx/config", "TriggerKey", str);
 }
 
 QString IMConfig::IMPluginKey(const QString &str)
@@ -91,6 +91,105 @@ bool IMConfig::checkShortKey(const QStringList &str, QString &configName)
 
     return checkShortKey(keyStr, configName);
 }
+
+Fcitx_ShortcutInfo IMConfig::findIdKey(const QString &shortcutId)
+{
+    Fcitx_ShortcutInfo retshortcut;
+    retshortcut.id=-1;
+    retshortcut.name="-1";
+    retshortcut.type=-1;
+    retshortcut.accels="";
+
+    __Keybinding k("com.deepin.daemon.Keybinding",
+                   "/com/deepin/daemon/Keybinding",
+                   QDBusConnection::sessionBus());
+
+    QDBusPendingReply<QString> reply = k.ListAllShortcuts();
+    if (reply.isError()) {
+        return retshortcut;
+    }
+
+    QString info = reply.value();
+
+    QMap<QString, Fcitx_ShortcutInfo> map;
+    QJsonArray array = QJsonDocument::fromJson(info.toStdString().c_str()).array();
+    Q_FOREACH (QJsonValue value, array) {
+        QJsonObject obj = value.toObject();
+        //qDebug() << obj;
+        if (obj.isEmpty())
+            continue;
+        if (obj["Accels"].toArray().isEmpty())
+            continue;
+        Fcitx_ShortcutInfo shortcut;
+        QString Id = obj["Id"].toString();
+        if(Id == shortcutId)
+        {
+            QString accels = obj["Accels"].toArray().at(0).toString().toUpper();
+            accels.replace("<", "");
+            accels.replace(">", "_");
+            shortcut.accels = accels;
+            shortcut.id = obj["Id"].toString();
+            shortcut.name = obj["Name"].toString();
+            shortcut.type = obj["Type"].toInt();
+            map.insert(accels, shortcut);
+            return shortcut;
+        }
+    }
+
+    return retshortcut;
+}
+
+bool IMConfig::modifyShortKey(const QString &id, QString &keystroke)
+{
+    QString name;
+    QString cmd;
+    if(id.compare("terminal")==0)
+    {
+        name = "终端";
+        cmd = "echo hello";
+    }
+    else if (id.compare("system-monitor")==0) {
+        name = "系统镜像";
+        cmd = "echo world";
+    }
+
+    __Keybinding k("com.deepin.daemon.Keybinding",
+                   "/com/deepin/daemon/Keybinding",
+                   QDBusConnection::sessionBus());
+     QDBusPendingReply<QString> reply = k.ModifyCustomShortcut(id,name,cmd,keystroke);
+    if (reply.isError()) {
+        return false;
+    }
+    return true;
+}
+
+bool addCustomShortKey(const QString &name, const QString &action, QString &keystroke)
+{
+    __Keybinding k("com.deepin.daemon.Keybinding",
+                   "/com/deepin/daemon/Keybinding",
+                   QDBusConnection::sessionBus());
+     QDBusPendingReply<QString> reply = k.AddCustomShortcut(name,action,keystroke);
+    if (reply.isError()) {
+        return false;
+    }
+    QString info = reply.value();
+
+    QString id;
+    int type;
+    QJsonArray array = QJsonDocument::fromJson(info.toStdString().c_str()).array();
+    Q_FOREACH (QJsonValue value, array) {
+        QJsonObject obj = value.toObject();
+        if (obj.isEmpty())
+            continue;
+//        if (obj["Accels"].toArray().isEmpty())
+//            continue;
+        id = obj["Id"].toString();
+        type = obj["Type"].toInt();
+    }
+
+    return true;
+}
+
 
 bool IMConfig::checkShortKey(const QString &keyStr, QString &configName)
 {
@@ -126,27 +225,27 @@ bool IMConfig::checkShortKey(const QString &keyStr, QString &configName)
         map.insert(accels, shortcut);
     }
 
-    Fcitx_ShortcutInfo defaultIMInfo;
-    Fcitx_ShortcutInfo virtualKeyInfo;
-    Fcitx_ShortcutInfo IMSwitchKeyInfo;
-    defaultIMInfo.id = "defaultIMKey";
-    defaultIMInfo.name = "defaultIMKey";
-    defaultIMInfo.type = -1;
-    defaultIMInfo.accels = IMConfig::defaultIMKey();
+//    Fcitx_ShortcutInfo defaultIMInfo;
+//    Fcitx_ShortcutInfo virtualKeyInfo;
+//    Fcitx_ShortcutInfo IMSwitchKeyInfo;
+//    defaultIMInfo.id = "defaultIMKey";
+//    defaultIMInfo.name = "defaultIMKey";
+//    defaultIMInfo.type = -1;
+//    defaultIMInfo.accels = IMConfig::defaultIMKey();
 
-    virtualKeyInfo.id = "virtualKey";
-    virtualKeyInfo.name = "virtualKey";
-    virtualKeyInfo.type = -1;
-    virtualKeyInfo.accels = IMConfig::virtualKey();
+//    virtualKeyInfo.id = "virtualKey";
+//    virtualKeyInfo.name = "virtualKey";
+//    virtualKeyInfo.type = -1;
+//    virtualKeyInfo.accels = IMConfig::virtualKey();
 
-    IMSwitchKeyInfo.id = "IMSwitchKey";
-    IMSwitchKeyInfo.name = "IMSwitchKey";
-    IMSwitchKeyInfo.type = -1;
-    IMSwitchKeyInfo.accels = IMConfig::IMSwitchKey();
+//    IMSwitchKeyInfo.id = "IMSwitchKey";
+//    IMSwitchKeyInfo.name = "IMSwitchKey";
+//    IMSwitchKeyInfo.type = -1;
+//    IMSwitchKeyInfo.accels = IMConfig::IMSwitchKey();
 
-    map.insert(defaultIMInfo.accels, defaultIMInfo);
-    map.insert(virtualKeyInfo.accels, virtualKeyInfo);
-    map.insert(IMSwitchKeyInfo.accels, IMSwitchKeyInfo);
+//    map.insert(defaultIMInfo.accels, defaultIMInfo);
+//    map.insert(virtualKeyInfo.accels, virtualKeyInfo);
+//    map.insert(IMSwitchKeyInfo.accels, IMSwitchKeyInfo);
 
     //    qDebug() << defaultIMInfo.toString();
     //    qDebug() << virtualKeyInfo.toString();

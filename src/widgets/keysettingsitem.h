@@ -23,6 +23,7 @@
 #include "keylabel.h"
 #include "settingsitem.h"
 #include "labels/shortenlabel.h"
+#include "DLineEdit"
 #include <QComboBox>
 
 using namespace Dtk::Widget;
@@ -36,6 +37,7 @@ class Fcitx_KeyLabelWidget : public QWidget
 public:
     Fcitx_KeyLabelWidget(QStringList list = {}, QWidget *p = nullptr);
     virtual ~Fcitx_KeyLabelWidget();
+    void setKeyId(const QString &id);
     void setList(const QStringList &list);
     QString getKeyToStr();
     void setEnableEdit(bool flag);
@@ -61,6 +63,7 @@ private:
     QHBoxLayout *m_mainLayout {nullptr};
     QLineEdit *m_keyEdit {nullptr};
     QList<Fcitx_KeyLabel *> m_list;
+    QString m_id;
     QStringList m_curlist;
     QStringList m_newlist;
     bool m_eidtFlag;
@@ -71,6 +74,7 @@ class Fcitx_KeySettingsItem : public Fcitx_SettingsItem
     Q_OBJECT
 public:
     Fcitx_KeySettingsItem(const QString &text = "", const QStringList &list = {}, QFrame *parent = nullptr);
+    void setKeyId(const QString &id);
     void setList(const QStringList &list);
     QString getKeyToStr() { return m_keyWidget->getKeyToStr(); }
     void setEnableEdit(bool flag);

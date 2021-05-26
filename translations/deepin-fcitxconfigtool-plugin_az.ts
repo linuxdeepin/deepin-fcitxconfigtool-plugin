@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="az">
+<TS version="2.1" language="az_AZ">
 <context>
     <name>FcitxConfigPlugin</name>
     <message>
         <location filename="../src/fcitxconfigplugin.cpp" line="86"/>
         <location filename="../src/fcitxconfigplugin.cpp" line="92"/>
         <source>Input Methods</source>
-        <translation>Daxiletmə üsulları</translation>
+        <translation type="unfinished"></translation>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
 </context>
@@ -17,12 +17,12 @@
         <location filename="../src/widgets/settingshead.cpp" line="48"/>
         <location filename="../src/widgets/settingshead.cpp" line="113"/>
         <source>Edit</source>
-        <translation>Düzəliş edin</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/widgets/settingshead.cpp" line="115"/>
         <source>Done</source>
-        <translation>Hazır</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -30,121 +30,77 @@
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="57"/>
         <source>Add Input Method</source>
-        <translation>Daxiletmə üsulu əlavə edin</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="66"/>
         <source>Search</source>
-        <translation>Axtarış</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="77"/>
         <source>Find more in App Store</source>
-        <translation>Tətbiq Mağazasında daha çox tapın</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="83"/>
         <source>Add</source>
-        <translation>Əlavə edin</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="85"/>
         <source>Cancel</source>
-        <translation>İmtina</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>IMSettingWindow</name>
     <message>
-        <source>Default</source>
-        <translation type="vanished">Standart</translation>
-    </message>
-    <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="115"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="117"/>
         <source>Switch input methods</source>
-        <translation>Daxiletmə üsullarını dəyişin</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="116"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="118"/>
         <source>Switch to default input method</source>
-        <translation>Standart daxietmə üsuluna keçin</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Call out Onboard</source>
-        <translation type="vanished">Ekran klaviaturasını çağırın</translation>
-    </message>
-    <message>
-        <source>Applies to</source>
-        <translation type="vanished">Aid edilir</translation>
-    </message>
-    <message>
-        <source>System</source>
-        <translation type="vanished">Sistem</translation>
-    </message>
-    <message>
-        <source>Application</source>
-        <translation type="vanished">Tətbiq</translation>
-    </message>
-    <message>
-        <source>Input Method</source>
-        <translation type="vanished">Daxiletmə üsulu</translation>
-    </message>
-    <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="134"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="136"/>
         <source>Manage Input Methods</source>
-        <translation>Daxiletmə üsulunun idarə edilməsi</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="138"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="140"/>
         <source>Shortcuts</source>
-        <translation>Qısayollar</translation>
-    </message>
-</context>
-<context>
-    <name>SettingsHead</name>
-    <message>
-        <source>Edit</source>
-        <translation type="vanished">Düzəlt</translation>
-    </message>
-    <message>
-        <source>Done</source>
-        <translation type="vanished">Tamamlandı</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>ShortcutKeyWindow</name>
     <message>
+        <location filename="../src/window/shortcutkeywindow.cpp" line="35"/>
         <source>Cancel</source>
-        <translation type="vanished">İmtina</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../src/window/shortcutkeywindow.cpp" line="54"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation type="vanished">Bu qısayol %1 ilə ziddiyətlidir, bu qısayolun dərhal qüvvəyə minməsi üçün Əlavə etmək düyməsinə vurun</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>dcc_fcitx_configtool::widgets::Fcitx_KeyLabelWidget</name>
     <message>
         <location filename="../src/widgets/keysettingsitem.cpp" line="37"/>
-        <location filename="../src/widgets/keysettingsitem.cpp" line="136"/>
+        <location filename="../src/widgets/keysettingsitem.cpp" line="145"/>
         <source>None</source>
-        <translation>Heç biri</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/widgets/keysettingsitem.cpp" line="43"/>
         <source>Enter a new shortcut</source>
-        <translation>Yeni qısayol daxil edin</translation>
-    </message>
-</context>
-<context>
-    <name>dcc_fcitx_configtool::widgets::KeyLabelWidget</name>
-    <message>
-        <source>Enter a new shortcut</source>
-        <translation type="vanished">Yeni qısayol daxil edin</translation>
-    </message>
-    <message>
-        <source>None</source>
-        <translation type="vanished">Heç biri</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

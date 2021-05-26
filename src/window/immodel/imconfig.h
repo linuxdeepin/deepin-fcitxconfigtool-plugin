@@ -53,8 +53,13 @@ public:
     static QString IMPluginKey(const QString &);
     static QString IMPluginPar(const QString &);
 
+    static Fcitx_ShortcutInfo findIdKey(const QString &);
+
     static bool checkShortKey(const QStringList &str, QString &configName);
     static bool checkShortKey(const QString &str, QString &configName);
+    static bool modifyShortKey(const QString &id, QString &keystroke);
+    static bool addCustomShortKey(const QString &name, const QString &action, QString &keystroke);
+
 
 private:
     static QString configFile(const QString &filePath, const QString &key);

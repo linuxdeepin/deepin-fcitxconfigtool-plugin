@@ -44,7 +44,7 @@ class Fcitx_IMActivityItem : public Fcitx_SettingsItem
 {
     Q_OBJECT
 public:
-    Fcitx_IMActivityItem(FcitxQtInputMethodItem item, bool isFirst = false, QFrame *parent = nullptr);
+    Fcitx_IMActivityItem(FcitxQtInputMethodItem item, QFrame *parent = nullptr);
     ~Fcitx_IMActivityItem();
     void editSwitch(const bool &flag);
     void setSelectStatus(const bool &flag);
@@ -73,7 +73,6 @@ public:
     DToolButton *m_downBtn {nullptr};
     DToolButton *m_configBtn {nullptr};
     DToolButton *m_deleteBtn {nullptr};
-    bool m_isFirst {false};
     bool m_isEdit {false};
 };
 

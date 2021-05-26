@@ -29,9 +29,8 @@ using namespace Dtk::Widget;
 namespace dcc_fcitx_configtool {
 namespace widgets {
 
-Fcitx_IMActivityItem::Fcitx_IMActivityItem(FcitxQtInputMethodItem item, bool isFirst, QFrame *parent)
+Fcitx_IMActivityItem::Fcitx_IMActivityItem(FcitxQtInputMethodItem item, QFrame *parent)
     : Fcitx_SettingsItem(parent)
-    , m_isFirst(isFirst)
     , m_item(item)
 {
     m_layout = new QHBoxLayout(this);
@@ -40,30 +39,28 @@ Fcitx_IMActivityItem::Fcitx_IMActivityItem(FcitxQtInputMethodItem item, bool isF
     DFontSizeManager::instance()->bind(m_labelText, DFontSizeManager::T6);
     m_labelText->setShortenText(item.name());
     m_layout->addWidget(m_labelText);
-    if (!m_isFirst) {
-        m_upBtn = new DToolButton(this);
-        m_downBtn = new DToolButton(this);
-        m_configBtn = new DToolButton(this);
-        m_deleteBtn = new DToolButton(this);
-        m_upBtn->setIcon(QIcon::fromTheme("arrow_up"));
-        m_downBtn->setIcon(QIcon::fromTheme("arrow_down"));
-        m_configBtn->setIcon(QIcon::fromTheme("setting"));
-        m_deleteBtn->setIcon(DStyle::standardIcon(QApplication::style(), DStyle::SP_DeleteButton));
+    m_upBtn = new DToolButton(this);
+    m_downBtn = new DToolButton(this);
+    m_configBtn = new DToolButton(this);
+    m_deleteBtn = new DToolButton(this);
+    m_upBtn->setIcon(QIcon::fromTheme("arrow_up"));
+    m_downBtn->setIcon(QIcon::fromTheme("arrow_down"));
+    m_configBtn->setIcon(QIcon::fromTheme("setting"));
+    m_deleteBtn->setIcon(DStyle::standardIcon(QApplication::style(), DStyle::SP_DeleteButton));
 
-        m_layout->addWidget(m_downBtn);
-        m_layout->addWidget(m_upBtn);
-        m_layout->addWidget(m_configBtn);
-        m_layout->addWidget(m_deleteBtn);
-        m_deleteBtn->hide();
-        m_upBtn->hide();
-        m_configBtn->hide();
-        m_downBtn->hide();
+    m_layout->addWidget(m_downBtn);
+    m_layout->addWidget(m_upBtn);
+    m_layout->addWidget(m_configBtn);
+    m_layout->addWidget(m_deleteBtn);
+    m_deleteBtn->hide();
+    m_upBtn->hide();
+    m_configBtn->hide();
+    m_downBtn->hide();
 
-        connect(m_upBtn, &DToolButton::clicked, this, &Fcitx_IMActivityItem::onUpItem);
-        connect(m_downBtn, &DToolButton::clicked, this, &Fcitx_IMActivityItem::onDownItem);
-        connect(m_configBtn, &DToolButton::clicked, this, &Fcitx_IMActivityItem::onConfigItem);
-        connect(m_deleteBtn, &DToolButton::clicked, this, &Fcitx_IMActivityItem::onDeleteItem);
-    }
+    connect(m_upBtn, &DToolButton::clicked, this, &Fcitx_IMActivityItem::onUpItem);
+    connect(m_downBtn, &DToolButton::clicked, this, &Fcitx_IMActivityItem::onDownItem);
+    connect(m_configBtn, &DToolButton::clicked, this, &Fcitx_IMActivityItem::onConfigItem);
+    connect(m_deleteBtn, &DToolButton::clicked, this, &Fcitx_IMActivityItem::onDeleteItem);
 
     this->setFixedHeight(40);
     this->setLayout(m_layout);
@@ -75,8 +72,6 @@ Fcitx_IMActivityItem::~Fcitx_IMActivityItem()
 
 void Fcitx_IMActivityItem::editSwitch(const bool &flag)
 {
-    if (m_isFirst)
-        return;
     m_isEdit = flag;
     if (m_isEdit) {
         m_deleteBtn->show();
@@ -90,7 +85,7 @@ void Fcitx_IMActivityItem::editSwitch(const bool &flag)
 
 void Fcitx_IMActivityItem::setSelectStatus(const bool &isEnter)
 {
-    if (m_isFirst || !m_bgGroup)
+    if (!m_bgGroup)
         return;
 
     if (!isEnter)
@@ -102,7 +97,7 @@ void Fcitx_IMActivityItem::setSelectStatus(const bool &isEnter)
         int index = IMModel::instance()->getIMIndex(m_item);
         int count = IMModel::instance()->getCurIMList().count();
 
-        if (count <= 2) {
+        if (count <= 1) {
             m_upBtn->setEnabled(false);
             m_downBtn->setEnabled(false);
         }else if (index == 0) {

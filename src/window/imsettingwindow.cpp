@@ -110,16 +110,18 @@ void IMSettingWindow::initUI()
 
     //快捷键 切换输入法 切换虚拟键盘 切换至默认输入法
     m_shortcutGroup = new Fcitx_SettingsGroup();
-    //    m_imSwitchCbox = new Fcitx_ComBoboxSettingsItem(tr("Switch input methods"), {"CTRL_SHIFT", "ALT_SHIFT", "CTRL_SUPER", "ALT_SUPER"});
+    m_shortcutGroup->setSpacing(2);
+
+    m_imSwitchCbox = new Fcitx_ComBoboxSettingsItem(tr("Switch input methods"), {"CTRL_SHIFT", "ALT_SHIFT", "CTRL_SUPER", "ALT_SUPER"});
     //    m_defaultIMKey = new Fcitx_KeySettingsItem(tr("Switch to default input method"));
-    m_imSwitchKey = new Fcitx_KeySettingsItem(tr("Switch input methods"));
+//    m_imSwitchKey = new Fcitx_KeySettingsItem(tr("Switch input methods"));
     m_defaultIMKey = new Fcitx_KeySettingsItem(tr("Switch to default input method"));
 //    m_virtualKey = new Fcitx_KeySettingsItem(tr("Call out Onboard"));
 //    m_systemAppCbox = new Fcitx_ComboxWidget(tr("Applies to"));
 //    m_systemAppCbox->comboBox()->addItems({tr("System"), tr("Application")});
 //    m_systemAppCbox->layout()->setContentsMargins(10, 0, 0, 0);
-//    m_shortcutGroup->appendItem(m_imSwitchCbox);
-    m_shortcutGroup->appendItem(m_imSwitchKey);
+    m_shortcutGroup->appendItem(m_imSwitchCbox);
+//    m_shortcutGroup->appendItem(m_imSwitchKey);
     m_shortcutGroup->appendItem(m_defaultIMKey);
 //    m_shortcutGroup->appendItem(m_virtualKey);
 //    m_shortcutGroup->appendItem(m_systemAppCbox, Fcitx_SettingsGroup::NoneBackground);
@@ -163,20 +165,34 @@ void IMSettingWindow::initConnect()
         if (Global::instance()->inputMethodProxy() && flag)
             Global::instance()->inputMethodProxy()->ReloadConfig();
     };
+    connect(m_defaultIMKey, &Fcitx_KeySettingsItem::editedFinish, [=]() {
+//        Fcitx_ShortcutInfo defaultShortCutInfo = IMConfig::findIdKey("terminal");
+        reloadFcitx(IMConfig::setDefaultIMKey(m_defaultIMKey->getKeyToStr()));
+        m_defaultIMKey->setList(m_defaultIMKey->getKeyToStr().split("_"));
+    });
+//    connect(m_imSwitchKey, &Fcitx_KeySettingsItem::editedFinish, [=]() {
+//        reloadFcitx(IMConfig::setVirtualKey(m_virtualKey->getKeyToStr()));
+//        Fcitx_ShortcutInfo imswitchShortCutInfo = IMConfig::findIdKey("system-monitor");
+//    });
+
 
 //    connect(m_defaultIMKey, &Fcitx_KeySettingsItem::editedFinish, [=]() {
 //        reloadFcitx(IMConfig::setDefaultIMKey(m_defaultIMKey->getKeyToStr()));
 //    });
-//    connect(m_virtualKey, &Fcitx_KeySettingsItem::editedFinish, [=]() {
+//    connect(m_imSwitchKey, &Fcitx_KeySettingsItem::editedFinish, [=]() {
 //        reloadFcitx(IMConfig::setVirtualKey(m_virtualKey->getKeyToStr()));
 //    });
 
 //    connect(m_defaultIMKey, &Fcitx_KeySettingsItem::shortCutError, this, &IMSettingWindow::popShortKeyListWindow);
 //    connect(m_virtualKey, &Fcitx_KeySettingsItem::shortCutError, this, &IMSettingWindow::popShortKeyListWindow);
 
-//    connect(m_imSwitchCbox->comboBox(), &QComboBox::currentTextChanged, [=]() {
-//        reloadFcitx(IMConfig::setIMSwitchKey(m_imSwitchCbox->comboBox()->currentText()));
-//    });
+    connect(m_imSwitchCbox->comboBox(), &QComboBox::currentTextChanged, [=]() {
+        reloadFcitx(IMConfig::setIMSwitchKey(m_imSwitchCbox->comboBox()->currentText()));
+    });
+
+    connect(m_defaultIMKey, &Fcitx_KeySettingsItem::shortCutError, this, &IMSettingWindow::popShortKeyListWindow);
+//    connect(m_imSwitchKey, &Fcitx_KeySettingsItem::shortCutError, this, &IMSettingWindow::popShortKeyListWindow);
+
 
     connect(IMModel::instance(), &IMModel::curIMListChanaged, this, &IMSettingWindow::onCurIMChanged);
     connect(m_addIMBtn, &DFloatingButton::clicked, this, &IMSettingWindow::onAddBtnCilcked);
@@ -188,12 +204,19 @@ void IMSettingWindow::initConnect()
 //读取配置文件
 void IMSettingWindow::readConfig()
 {
-//    int index = m_imSwitchCbox->comboBox()->findText(IMConfig::IMSwitchKey());
-//    m_imSwitchCbox->comboBox()->setCurrentIndex(index < 0 ? 0 : index);
+//    Fcitx_ShortcutInfo defaultShortCutInfo = IMConfig::findIdKey("terminal");
+//    Fcitx_ShortcutInfo imswitchShortCutInfo = IMConfig::findIdKey("system-monitor");
+//    m_defaultIMKey->setKeyId("terminal");
+//    m_defaultIMKey->setKeyId("system-monitor");
+//    m_defaultIMKey->setList(defaultShortCutInfo.accels.split("_"));
+//    m_imSwitchKey->setList(imswitchShortCutInfo.accels.split("_"));
+
+    int index = m_imSwitchCbox->comboBox()->findText(IMConfig::IMSwitchKey());
+    m_imSwitchCbox->comboBox()->setCurrentIndex(index < 0 ? 0 : index);
 
 //    index = IMModel::instance()->getIMIndex(IMConfig::defaultIM());
 //    m_defaultIMCbox->comboBox()->setCurrentIndex(index < 0 ? 0 : index);
-//    m_defaultIMKey->setList(IMConfig::defaultIMKey().split("_"));
+    m_defaultIMKey->setList(IMConfig::defaultIMKey().split("_"));
 
 //    m_virtualKey->setList(IMConfig::virtualKey().split("_"));
 }

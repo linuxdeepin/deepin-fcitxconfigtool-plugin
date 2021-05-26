@@ -55,6 +55,11 @@ Fcitx_KeyLabelWidget::~Fcitx_KeyLabelWidget()
     clearShortcutKey();
 }
 
+void Fcitx_KeyLabelWidget::setKeyId(const QString &id)
+{
+    m_id = id;
+}
+
 void Fcitx_KeyLabelWidget::setList(const QStringList &list)
 {
     m_curlist = list;
@@ -66,10 +71,14 @@ void Fcitx_KeyLabelWidget::initLableList(const QStringList &list)
     clearShortcutKey();
     for (const QString &key : list) {
         QString tmpKey = key.toLower();
+        if(tmpKey.compare("control") == 0){
+            tmpKey = "ctrl";
+        }
         if (!tmpKey.isEmpty()) {
             tmpKey[0] = tmpKey[0].toUpper();
         }
         Fcitx_KeyLabel *label = new Fcitx_KeyLabel(tmpKey);
+        label->setBackgroundRole(DPalette::DarkLively);
         m_list << label;
         m_mainLayout->addWidget(label);
     }
@@ -272,7 +281,7 @@ Fcitx_KeySettingsItem::Fcitx_KeySettingsItem(const QString &text, const QStringL
     m_label = new Fcitx_ShortenLabel(text, this);
     m_keyWidget = new Fcitx_KeyLabelWidget(list, parent);
     m_hLayout = new QHBoxLayout(this);
-    m_hLayout->setContentsMargins(0, 0, 10, 0);
+    m_hLayout->setContentsMargins(10, 0, 10, 0);
     m_hLayout->addWidget(m_label);
     m_hLayout->addWidget(m_keyWidget);
     m_hLayout->setAlignment(m_label, Qt::AlignLeft);
@@ -296,6 +305,11 @@ QString Fcitx_KeySettingsItem::getLabelText()
 void Fcitx_KeySettingsItem::setEnableEdit(bool flag)
 {
     m_keyWidget->setEnableEdit(flag);
+}
+
+void Fcitx_KeySettingsItem::setKeyId(const QString &id)
+{
+    m_keyWidget->setKeyId(id);
 }
 
 void Fcitx_KeySettingsItem::setList(const QStringList &list)

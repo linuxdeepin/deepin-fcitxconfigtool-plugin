@@ -43,7 +43,7 @@ public:
         QVBoxLayout *layout = new QVBoxLayout(this);
         layout->setContentsMargins(layout->contentsMargins().left(), 0, layout->contentsMargins().right(), 0);
         layout->setSpacing(0);
-        label->setForegroundRole(QPalette::Highlight);
+        label->setForegroundRole(DPalette::LightLively);
         layout->addWidget(label);
     }
 
@@ -65,7 +65,7 @@ protected:
         if (DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::LightType) {
             p.setBackground(QColor(255, 255, 255));
         } else {
-            p.setBackground(QColor(109, 109, 109));
+            p.setBackground(QColor(40, 40, 40));
         }
 
         p.setPen(QPen(dp.frameBorder(), opt.lineWidth));
