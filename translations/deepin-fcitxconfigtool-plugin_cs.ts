@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="sq">
+<TS version="2.1" language="cs">
 <context>
     <name>FcitxConfigPlugin</name>
     <message>
         <location filename="../src/fcitxconfigplugin.cpp" line="86"/>
         <location filename="../src/fcitxconfigplugin.cpp" line="92"/>
         <source>Input Methods</source>
-        <translation>Metoda Dhëniesh</translation>
+        <translation>Vstupní metody</translation>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
 </context>
@@ -17,12 +17,12 @@
         <location filename="../src/widgets/settingshead.cpp" line="48"/>
         <location filename="../src/widgets/settingshead.cpp" line="113"/>
         <source>Edit</source>
-        <translation>Përpunoni</translation>
+        <translation>Upravit</translation>
     </message>
     <message>
         <location filename="../src/widgets/settingshead.cpp" line="115"/>
         <source>Done</source>
-        <translation>U bë</translation>
+        <translation>Hotovo</translation>
     </message>
 </context>
 <context>
@@ -30,81 +30,85 @@
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="57"/>
         <source>Add Input Method</source>
-        <translation>Shtoni Metodë Dhënieje</translation>
+        <translation>Přidat vstupní metodu</translation>
     </message>
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="66"/>
         <source>Search</source>
-        <translation>Kërko</translation>
+        <translation>Hledat</translation>
     </message>
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="77"/>
         <source>Find more in App Store</source>
-        <translation>Gjeni më tepër, te Shitorja e Aplikacioneve</translation>
+        <translation>Najít více v katalogu aplikací</translation>
     </message>
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="83"/>
         <source>Add</source>
-        <translation>Shtoje</translation>
+        <translation>Přidat</translation>
     </message>
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="85"/>
         <source>Cancel</source>
-        <translation>Anuloje</translation>
+        <translation>Zrušit</translation>
     </message>
 </context>
 <context>
     <name>IMSettingWindow</name>
     <message>
         <source>Default</source>
-        <translation type="vanished">Parazgjedhje</translation>
+        <translation type="vanished">Výchozí</translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="115"/>
         <source>Switch input methods</source>
-        <translation>Ndërroni metoda dhënieje</translation>
+        <translation>Přepnout vstupní metody</translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="118"/>
         <source>Switch to default input method</source>
-        <translation>Kalo te metoda parazgjedhje e dhënieve</translation>
+        <translation>Přepnout na výchozí vstupní metodu</translation>
+    </message>
+    <message>
+        <source>Call out Onboard</source>
+        <translation type="vanished">Zavolat na základní desku</translation>
     </message>
     <message>
         <source>Applies to</source>
-        <translation type="vanished">Vlen për</translation>
+        <translation type="vanished">Použije se na</translation>
     </message>
     <message>
         <source>System</source>
-        <translation type="vanished">Sistem</translation>
+        <translation type="vanished">Systém</translation>
     </message>
     <message>
         <source>Application</source>
-        <translation type="vanished">Aplikacion</translation>
+        <translation type="vanished">Aplikace</translation>
     </message>
     <message>
         <source>Input Method</source>
-        <translation type="vanished">Metodë Dhënieje</translation>
+        <translation type="vanished">Vstupní metoda</translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="136"/>
         <source>Manage Input Methods</source>
-        <translation>Administroni Metoda Dhënieje</translation>
+        <translation>Spravovat vstupní metody</translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="140"/>
         <source>Shortcuts</source>
-        <translation>Shkurtore</translation>
+        <translation>Klávesové zkratky</translation>
     </message>
 </context>
 <context>
     <name>SettingsHead</name>
     <message>
         <source>Edit</source>
-        <translation type="vanished">Përpunim</translation>
+        <translation type="vanished">Upravit</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation type="vanished">U bë</translation>
+        <translation type="vanished">Hotovo</translation>
     </message>
 </context>
 <context>
@@ -112,12 +116,12 @@
     <message>
         <location filename="../src/window/shortcutkeywindow.cpp" line="35"/>
         <source>Cancel</source>
-        <translation>Anuloje</translation>
+        <translation>Zrušit</translation>
     </message>
     <message>
         <location filename="../src/window/shortcutkeywindow.cpp" line="54"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation>Kjo shkurtore përplaset me %1, klikoni mbi Shtoje për ta bërë këtë shkurtore menjëherë efektive</translation>
+        <translation>Tato klávesová zkratka se střetává s %1. Pokud chcete, aby platila ta nová, klepněte na Přidat</translation>
     </message>
 </context>
 <context>
@@ -126,23 +130,23 @@
         <location filename="../src/widgets/keysettingsitem.cpp" line="37"/>
         <location filename="../src/widgets/keysettingsitem.cpp" line="145"/>
         <source>None</source>
-        <translation>Asnjë</translation>
+        <translation>Žádný</translation>
     </message>
     <message>
         <location filename="../src/widgets/keysettingsitem.cpp" line="43"/>
         <source>Enter a new shortcut</source>
-        <translation>Jepni një shkurtore të re</translation>
+        <translation>Zadejte novou zkratku</translation>
     </message>
 </context>
 <context>
     <name>dcc_fcitx_configtool::widgets::KeyLabelWidget</name>
     <message>
         <source>Enter a new shortcut</source>
-        <translation type="vanished">Jepni një shkurtore të re</translation>
+        <translation type="vanished">Zadejte novou zkratku</translation>
     </message>
     <message>
         <source>None</source>
-        <translation type="vanished">Asnjë</translation>
+        <translation type="vanished">Žádný</translation>
     </message>
 </context>
 </TS>

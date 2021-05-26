@@ -7,7 +7,7 @@
         <location filename="../src/fcitxconfigplugin.cpp" line="86"/>
         <location filename="../src/fcitxconfigplugin.cpp" line="92"/>
         <source>Input Methods</source>
-        <translation type="unfinished"></translation>
+        <translation>Métodos de Entrada</translation>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
 </context>
@@ -17,12 +17,12 @@
         <location filename="../src/widgets/settingshead.cpp" line="48"/>
         <location filename="../src/widgets/settingshead.cpp" line="113"/>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>Editar</translation>
     </message>
     <message>
         <location filename="../src/widgets/settingshead.cpp" line="115"/>
         <source>Done</source>
-        <translation type="unfinished"></translation>
+        <translation>Concluído</translation>
     </message>
 </context>
 <context>
@@ -30,50 +30,85 @@
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="57"/>
         <source>Add Input Method</source>
-        <translation type="unfinished"></translation>
+        <translation>Adicionar Método de Entrada</translation>
     </message>
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="66"/>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Pesquisar</translation>
     </message>
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="77"/>
         <source>Find more in App Store</source>
-        <translation type="unfinished"></translation>
+        <translation>Encontre mais na Loja de Aplicativos</translation>
     </message>
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="83"/>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Adicionar</translation>
     </message>
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="85"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Cancelar</translation>
     </message>
 </context>
 <context>
     <name>IMSettingWindow</name>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="117"/>
+        <source>Default</source>
+        <translation type="vanished">Padrão</translation>
+    </message>
+    <message>
+        <location filename="../src/window/imsettingwindow.cpp" line="115"/>
         <source>Switch input methods</source>
-        <translation type="unfinished"></translation>
+        <translation>Alternar Métodos de Entrada</translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="118"/>
         <source>Switch to default input method</source>
-        <translation type="unfinished"></translation>
+        <translation>Alternar para o método de entrada padrão</translation>
+    </message>
+    <message>
+        <source>Call out Onboard</source>
+        <translation type="vanished">Abrir Teclado Virtual</translation>
+    </message>
+    <message>
+        <source>Applies to</source>
+        <translation type="vanished">Aplicável a</translation>
+    </message>
+    <message>
+        <source>System</source>
+        <translation type="vanished">Sistema</translation>
+    </message>
+    <message>
+        <source>Application</source>
+        <translation type="vanished">Aplicativo</translation>
+    </message>
+    <message>
+        <source>Input Method</source>
+        <translation type="vanished">Método de Entrada</translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="136"/>
         <source>Manage Input Methods</source>
-        <translation type="unfinished"></translation>
+        <translation>Gerenciar Métodos de Entrada</translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="140"/>
         <source>Shortcuts</source>
-        <translation type="unfinished"></translation>
+        <translation>Atalhos</translation>
+    </message>
+</context>
+<context>
+    <name>SettingsHead</name>
+    <message>
+        <source>Edit</source>
+        <translation type="vanished">Editar</translation>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation type="vanished">Concluído</translation>
     </message>
 </context>
 <context>
@@ -81,12 +116,12 @@
     <message>
         <location filename="../src/window/shortcutkeywindow.cpp" line="35"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <location filename="../src/window/shortcutkeywindow.cpp" line="54"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation type="unfinished"></translation>
+        <translation>Este atalho conflita com %1; clique em Adicionar para efetivá-lo</translation>
     </message>
 </context>
 <context>
@@ -95,12 +130,23 @@
         <location filename="../src/widgets/keysettingsitem.cpp" line="37"/>
         <location filename="../src/widgets/keysettingsitem.cpp" line="145"/>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation>Nenhum</translation>
     </message>
     <message>
         <location filename="../src/widgets/keysettingsitem.cpp" line="43"/>
         <source>Enter a new shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>Insira um novo atalho</translation>
+    </message>
+</context>
+<context>
+    <name>dcc_fcitx_configtool::widgets::KeyLabelWidget</name>
+    <message>
+        <source>Enter a new shortcut</source>
+        <translation type="vanished">Insira um novo atalho</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="vanished">Nenhum</translation>
     </message>
 </context>
 </TS>

@@ -17,12 +17,12 @@
         <location filename="../src/widgets/settingshead.cpp" line="48"/>
         <location filename="../src/widgets/settingshead.cpp" line="113"/>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">संपादन</translation>
     </message>
     <message>
         <location filename="../src/widgets/settingshead.cpp" line="115"/>
         <source>Done</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">पूर्ण</translation>
     </message>
 </context>
 <context>
@@ -30,50 +30,85 @@
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="57"/>
         <source>Add Input Method</source>
-        <translation type="unfinished"></translation>
+        <translation>इनपुट विधि जोड़ें</translation>
     </message>
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="66"/>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>खोज</translation>
     </message>
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="77"/>
         <source>Find more in App Store</source>
-        <translation type="unfinished"></translation>
+        <translation>ऐप स्टोर में खोजें</translation>
     </message>
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="83"/>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>जोड़ें</translation>
     </message>
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="85"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>रद्द करें</translation>
     </message>
 </context>
 <context>
     <name>IMSettingWindow</name>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="117"/>
+        <source>Default</source>
+        <translation type="vanished">डिफ़ॉल्ट</translation>
+    </message>
+    <message>
+        <location filename="../src/window/imsettingwindow.cpp" line="115"/>
         <source>Switch input methods</source>
-        <translation type="unfinished"></translation>
+        <translation>इनपुट विधि बदलें</translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="118"/>
         <source>Switch to default input method</source>
-        <translation type="unfinished"></translation>
+        <translation>डिफ़ॉल्ट इनपुट विधि उपयोग करें</translation>
+    </message>
+    <message>
+        <source>Call out Onboard</source>
+        <translation type="vanished">ऑनबोर्ड कुंजीपटल आरंभ करें</translation>
+    </message>
+    <message>
+        <source>Applies to</source>
+        <translation type="vanished">इन पर लागू</translation>
+    </message>
+    <message>
+        <source>System</source>
+        <translation type="vanished">सिस्टम</translation>
+    </message>
+    <message>
+        <source>Application</source>
+        <translation type="vanished">अनुप्रयोग</translation>
+    </message>
+    <message>
+        <source>Input Method</source>
+        <translation type="vanished">इनपुट विधि</translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="136"/>
         <source>Manage Input Methods</source>
-        <translation type="unfinished"></translation>
+        <translation>इनपुट विधि प्रबंधन</translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="140"/>
         <source>Shortcuts</source>
-        <translation type="unfinished"></translation>
+        <translation>शॉर्टकट</translation>
+    </message>
+</context>
+<context>
+    <name>SettingsHead</name>
+    <message>
+        <source>Edit</source>
+        <translation type="vanished">संपादन</translation>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation type="vanished">पूर्ण</translation>
     </message>
 </context>
 <context>
@@ -81,12 +116,12 @@
     <message>
         <location filename="../src/window/shortcutkeywindow.cpp" line="35"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>रद्द करें</translation>
     </message>
     <message>
         <location filename="../src/window/shortcutkeywindow.cpp" line="54"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation type="unfinished"></translation>
+        <translation>यह शॉर्टकट %1 के विरुद्ध है, &apos;जोड़ें&apos; पर क्लिक कर इसे तुरंत प्रभाव से लागू करें</translation>
     </message>
 </context>
 <context>
@@ -95,12 +130,23 @@
         <location filename="../src/widgets/keysettingsitem.cpp" line="37"/>
         <location filename="../src/widgets/keysettingsitem.cpp" line="145"/>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">कोई नहीं</translation>
     </message>
     <message>
         <location filename="../src/widgets/keysettingsitem.cpp" line="43"/>
         <source>Enter a new shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">नया शॉर्टकट दर्ज करें</translation>
+    </message>
+</context>
+<context>
+    <name>dcc_fcitx_configtool::widgets::KeyLabelWidget</name>
+    <message>
+        <source>Enter a new shortcut</source>
+        <translation type="vanished">नया शॉर्टकट दर्ज करें</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="vanished">कोई नहीं</translation>
     </message>
 </context>
 </TS>
