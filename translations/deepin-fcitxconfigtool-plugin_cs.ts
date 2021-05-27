@@ -65,9 +65,8 @@
         <translation>Přepnout vstupní metody</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="118"/>
         <source>Switch to default input method</source>
-        <translation>Přepnout na výchozí vstupní metodu</translation>
+        <translation type="vanished">Přepnout na výchozí vstupní metodu</translation>
     </message>
     <message>
         <source>Call out Onboard</source>
@@ -88,6 +87,11 @@
     <message>
         <source>Input Method</source>
         <translation type="vanished">Vstupní metoda</translation>
+    </message>
+    <message>
+        <location filename="../src/window/imsettingwindow.cpp" line="118"/>
+        <source>Switch to the first input method</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="136"/>

@@ -65,9 +65,8 @@
         <translation>Переключить метод ввода</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="118"/>
         <source>Switch to default input method</source>
-        <translation>Переключить на метод ввода по умолчанию</translation>
+        <translation type="vanished">Переключить на метод ввода по умолчанию</translation>
     </message>
     <message>
         <source>Applies to</source>
@@ -84,6 +83,11 @@
     <message>
         <source>Input Method</source>
         <translation type="vanished">Метод Ввода</translation>
+    </message>
+    <message>
+        <location filename="../src/window/imsettingwindow.cpp" line="118"/>
+        <source>Switch to the first input method</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="136"/>
@@ -117,7 +121,7 @@
     <message>
         <location filename="../src/window/shortcutkeywindow.cpp" line="54"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation type="unfinished"></translation>
+        <translation>Это сочетание клавиш конфликтует с % 1, нажмите на Добавить, чтобы выбрать именно такое сочетание клавиш</translation>
     </message>
 </context>
 <context>
@@ -138,7 +142,7 @@
     <name>dcc_fcitx_configtool::widgets::KeyLabelWidget</name>
     <message>
         <source>Enter a new shortcut</source>
-        <translation type="vanished">Добавить новое сокращение</translation>
+        <translation type="vanished">Введите новое сокращение</translation>
     </message>
     <message>
         <source>None</source>

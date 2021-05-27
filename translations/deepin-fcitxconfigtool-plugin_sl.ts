@@ -17,12 +17,12 @@
         <location filename="../src/widgets/settingshead.cpp" line="48"/>
         <location filename="../src/widgets/settingshead.cpp" line="113"/>
         <source>Edit</source>
-        <translation type="unfinished">Uredi</translation>
+        <translation>Uredi</translation>
     </message>
     <message>
         <location filename="../src/widgets/settingshead.cpp" line="115"/>
         <source>Done</source>
-        <translation type="unfinished">Končano</translation>
+        <translation>Opravljeno</translation>
     </message>
 </context>
 <context>
@@ -65,9 +65,8 @@
         <translation>Zamenjaj način vnosa</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="118"/>
         <source>Switch to default input method</source>
-        <translation>Preklopi na privzeti način vnosa</translation>
+        <translation type="vanished">Preklopi na privzeti način vnosa</translation>
     </message>
     <message>
         <source>Call out Onboard</source>
@@ -79,7 +78,7 @@
     </message>
     <message>
         <source>System</source>
-        <translation type="vanished">sistem</translation>
+        <translation type="vanished">Sistem</translation>
     </message>
     <message>
         <source>Application</source>
@@ -88,6 +87,11 @@
     <message>
         <source>Input Method</source>
         <translation type="vanished">Način vnosa</translation>
+    </message>
+    <message>
+        <location filename="../src/window/imsettingwindow.cpp" line="118"/>
+        <source>Switch to the first input method</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="136"/>
@@ -108,7 +112,7 @@
     </message>
     <message>
         <source>Done</source>
-        <translation type="vanished">Končano</translation>
+        <translation type="vanished">Opravljeno</translation>
     </message>
 </context>
 <context>
@@ -130,19 +134,19 @@
         <location filename="../src/widgets/keysettingsitem.cpp" line="37"/>
         <location filename="../src/widgets/keysettingsitem.cpp" line="145"/>
         <source>None</source>
-        <translation type="unfinished">brez</translation>
+        <translation>brez</translation>
     </message>
     <message>
         <location filename="../src/widgets/keysettingsitem.cpp" line="43"/>
         <source>Enter a new shortcut</source>
-        <translation type="unfinished">Vnesite novo bljižnico</translation>
+        <translation>Vnesite novo bližnjico</translation>
     </message>
 </context>
 <context>
     <name>dcc_fcitx_configtool::widgets::KeyLabelWidget</name>
     <message>
         <source>Enter a new shortcut</source>
-        <translation type="vanished">Vnesite novo bljižnico</translation>
+        <translation type="vanished">Vnesite novo bližnjico</translation>
     </message>
     <message>
         <source>None</source>

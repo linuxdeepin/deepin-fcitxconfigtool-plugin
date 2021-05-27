@@ -57,7 +57,7 @@
     <name>IMSettingWindow</name>
     <message>
         <source>Default</source>
-        <translation type="vanished">Типовий</translation>
+        <translation type="vanished">Типово</translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="115"/>
@@ -65,9 +65,8 @@
         <translation>Перемкнути способи введення</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="118"/>
         <source>Switch to default input method</source>
-        <translation>Перемкнутися на типовий спосіб введення</translation>
+        <translation type="vanished">Перемкнутися на типовий спосіб введення</translation>
     </message>
     <message>
         <source>Call out Onboard</source>
@@ -83,11 +82,16 @@
     </message>
     <message>
         <source>Application</source>
-        <translation type="vanished">Програма</translation>
+        <translation type="vanished">Застосунок</translation>
     </message>
     <message>
         <source>Input Method</source>
         <translation type="vanished">Спосіб введення</translation>
+    </message>
+    <message>
+        <location filename="../src/window/imsettingwindow.cpp" line="118"/>
+        <source>Switch to the first input method</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="136"/>
@@ -108,7 +112,7 @@
     </message>
     <message>
         <source>Done</source>
-        <translation type="vanished">Готово</translation>
+        <translation type="vanished">Виконано</translation>
     </message>
 </context>
 <context>
@@ -146,7 +150,7 @@
     </message>
     <message>
         <source>None</source>
-        <translation type="vanished">Немає</translation>
+        <translation type="vanished">Нічого</translation>
     </message>
 </context>
 </TS>

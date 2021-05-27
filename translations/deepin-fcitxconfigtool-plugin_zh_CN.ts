@@ -45,12 +45,12 @@
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="83"/>
         <source>Add</source>
-        <translation>添加</translation>
+        <translation>添 加</translation>
     </message>
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="85"/>
         <source>Cancel</source>
-        <translation>取消</translation>
+        <translation>取 消</translation>
     </message>
 </context>
 <context>
@@ -65,9 +65,8 @@
         <translation>切换输入法</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="118"/>
         <source>Switch to default input method</source>
-        <translation>切换至默认输入法</translation>
+        <translation type="vanished">切换至默认输入法</translation>
     </message>
     <message>
         <source>Call out Onboard</source>
@@ -79,7 +78,7 @@
     </message>
     <message>
         <source>System</source>
-        <translation type="vanished">系统</translation>
+        <translation type="vanished">系统管理</translation>
     </message>
     <message>
         <source>Application</source>
@@ -88,6 +87,11 @@
     <message>
         <source>Input Method</source>
         <translation type="vanished">输入法</translation>
+    </message>
+    <message>
+        <location filename="../src/window/imsettingwindow.cpp" line="118"/>
+        <source>Switch to the first input method</source>
+        <translation>切换至首位输入法</translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="136"/>
@@ -116,7 +120,7 @@
     <message>
         <location filename="../src/window/shortcutkeywindow.cpp" line="35"/>
         <source>Cancel</source>
-        <translation>取消</translation>
+        <translation>取 消</translation>
     </message>
     <message>
         <location filename="../src/window/shortcutkeywindow.cpp" line="54"/>

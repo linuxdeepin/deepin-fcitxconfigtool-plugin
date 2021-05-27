@@ -17,7 +17,7 @@
         <location filename="../src/widgets/settingshead.cpp" line="48"/>
         <location filename="../src/widgets/settingshead.cpp" line="113"/>
         <source>Edit</source>
-        <translation>Përpunoni</translation>
+        <translation>Përpunojeni</translation>
     </message>
     <message>
         <location filename="../src/widgets/settingshead.cpp" line="115"/>
@@ -65,9 +65,8 @@
         <translation>Ndërroni metoda dhënieje</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="118"/>
         <source>Switch to default input method</source>
-        <translation>Kalo te metoda parazgjedhje e dhënieve</translation>
+        <translation type="vanished">Kalo te metoda parazgjedhje e dhënieve</translation>
     </message>
     <message>
         <source>Applies to</source>
@@ -86,6 +85,11 @@
         <translation type="vanished">Metodë Dhënieje</translation>
     </message>
     <message>
+        <location filename="../src/window/imsettingwindow.cpp" line="118"/>
+        <source>Switch to the first input method</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../src/window/imsettingwindow.cpp" line="136"/>
         <source>Manage Input Methods</source>
         <translation>Administroni Metoda Dhënieje</translation>
@@ -100,7 +104,7 @@
     <name>SettingsHead</name>
     <message>
         <source>Edit</source>
-        <translation type="vanished">Përpunim</translation>
+        <translation type="vanished">Përpunojeni</translation>
     </message>
     <message>
         <source>Done</source>

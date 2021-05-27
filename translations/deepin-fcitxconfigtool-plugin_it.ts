@@ -57,7 +57,7 @@
     <name>IMSettingWindow</name>
     <message>
         <source>Default</source>
-        <translation type="vanished">Predefinito</translation>
+        <translation type="vanished">Default</translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="115"/>
@@ -65,9 +65,8 @@
         <translation>Cambia metodo di input</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="118"/>
         <source>Switch to default input method</source>
-        <translation>Cambia il metodo di input predefinito</translation>
+        <translation type="vanished">Cambia il metodo di input predefinito</translation>
     </message>
     <message>
         <source>Call out Onboard</source>
@@ -75,7 +74,7 @@
     </message>
     <message>
         <source>Applies to</source>
-        <translation type="vanished">Si applica a</translation>
+        <translation type="vanished">Applica a</translation>
     </message>
     <message>
         <source>System</source>
@@ -88,6 +87,11 @@
     <message>
         <source>Input Method</source>
         <translation type="vanished">Metodo di input</translation>
+    </message>
+    <message>
+        <location filename="../src/window/imsettingwindow.cpp" line="118"/>
+        <source>Switch to the first input method</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="136"/>
@@ -146,7 +150,7 @@
     </message>
     <message>
         <source>None</source>
-        <translation type="vanished">Nessuna</translation>
+        <translation type="vanished">No</translation>
     </message>
 </context>
 </TS>

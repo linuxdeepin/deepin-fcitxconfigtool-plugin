@@ -65,9 +65,8 @@
         <translation>Switch input methods</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="118"/>
         <source>Switch to default input method</source>
-        <translation>Switch to default input method</translation>
+        <translation type="vanished">Switch to default input method</translation>
     </message>
     <message>
         <source>Call out Onboard</source>
@@ -88,6 +87,11 @@
     <message>
         <source>Input Method</source>
         <translation type="vanished">Input Method</translation>
+    </message>
+    <message>
+        <location filename="../src/window/imsettingwindow.cpp" line="118"/>
+        <source>Switch to the first input method</source>
+        <translation>Switch to the first input method</translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="136"/>

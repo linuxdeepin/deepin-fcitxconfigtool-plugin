@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="pt">
+<TS version="2.1" language="de">
 <context>
     <name>FcitxConfigPlugin</name>
     <message>
         <location filename="../src/fcitxconfigplugin.cpp" line="86"/>
         <location filename="../src/fcitxconfigplugin.cpp" line="92"/>
         <source>Input Methods</source>
-        <translation>Métodos de introdução</translation>
+        <translation type="unfinished"></translation>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
 </context>
@@ -17,12 +17,12 @@
         <location filename="../src/widgets/settingshead.cpp" line="48"/>
         <location filename="../src/widgets/settingshead.cpp" line="113"/>
         <source>Edit</source>
-        <translation>Editar</translation>
+        <translation>Bearbeiten</translation>
     </message>
     <message>
         <location filename="../src/widgets/settingshead.cpp" line="115"/>
         <source>Done</source>
-        <translation>Concluído</translation>
+        <translation>Fertig</translation>
     </message>
 </context>
 <context>
@@ -30,63 +30,59 @@
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="57"/>
         <source>Add Input Method</source>
-        <translation>Adicionar método de introdução</translation>
+        <translation>Eingabemethode hinzufügen</translation>
     </message>
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="66"/>
         <source>Search</source>
-        <translation>Pesquisar</translation>
+        <translation>Suchen</translation>
     </message>
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="77"/>
         <source>Find more in App Store</source>
-        <translation>Descubra mais na Loja de Aplicações</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="83"/>
         <source>Add</source>
-        <translation>Adicionar</translation>
+        <translation>Hinzufügen</translation>
     </message>
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="85"/>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation>Abbrechen</translation>
     </message>
 </context>
 <context>
     <name>IMSettingWindow</name>
     <message>
         <source>Default</source>
-        <translation type="vanished">Predefinição</translation>
+        <translation type="vanished">Standard</translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="115"/>
         <source>Switch input methods</source>
-        <translation>Alternar métodos de introdução</translation>
+        <translation>Eingabemethoden wechseln</translation>
     </message>
     <message>
         <source>Switch to default input method</source>
-        <translation type="vanished">Trocar para o método de introdução predefinido</translation>
-    </message>
-    <message>
-        <source>Call out Onboard</source>
-        <translation type="vanished">Invocar o Onboard</translation>
+        <translation type="vanished">Auf Standard-Eingabemethode wechseln</translation>
     </message>
     <message>
         <source>Applies to</source>
-        <translation type="vanished">Aplica-se a</translation>
+        <translation type="vanished">Gültig für</translation>
     </message>
     <message>
         <source>System</source>
-        <translation type="vanished">Sistema</translation>
+        <translation type="vanished">System</translation>
     </message>
     <message>
         <source>Application</source>
-        <translation type="vanished">Aplicação</translation>
+        <translation type="vanished">Anwendung</translation>
     </message>
     <message>
         <source>Input Method</source>
-        <translation type="vanished">Método de introdução</translation>
+        <translation type="vanished">Eingabemethode</translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="118"/>
@@ -96,23 +92,23 @@
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="136"/>
         <source>Manage Input Methods</source>
-        <translation>Gerir métodos de introdução</translation>
+        <translation>Eingabemethoden verwalten</translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="140"/>
         <source>Shortcuts</source>
-        <translation>Atalhos</translation>
+        <translation>Tastenkürzel</translation>
     </message>
 </context>
 <context>
     <name>SettingsHead</name>
     <message>
         <source>Edit</source>
-        <translation type="vanished">Editar</translation>
+        <translation type="vanished">Bearbeiten</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation type="vanished">Concluído</translation>
+        <translation type="vanished">Fertig</translation>
     </message>
 </context>
 <context>
@@ -120,12 +116,12 @@
     <message>
         <location filename="../src/window/shortcutkeywindow.cpp" line="35"/>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation>Abbrechen</translation>
     </message>
     <message>
         <location filename="../src/window/shortcutkeywindow.cpp" line="54"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation>Este atalho entra em conflito com %1, clique em Adicionar para o efetivar imediatamente</translation>
+        <translation>Dieses Tastenkürzel verursacht einen Konflikt mit %1. Klicken Sie auf Hinzufügen, um dieses Tastenkürzel zu aktivieren</translation>
     </message>
 </context>
 <context>
@@ -134,23 +130,23 @@
         <location filename="../src/widgets/keysettingsitem.cpp" line="37"/>
         <location filename="../src/widgets/keysettingsitem.cpp" line="145"/>
         <source>None</source>
-        <translation>Nenhum</translation>
+        <translation>Keine</translation>
     </message>
     <message>
         <location filename="../src/widgets/keysettingsitem.cpp" line="43"/>
         <source>Enter a new shortcut</source>
-        <translation>Introduza um novo atalho</translation>
+        <translation>Geben Sie ein neues Tastenkürzel ein </translation>
     </message>
 </context>
 <context>
     <name>dcc_fcitx_configtool::widgets::KeyLabelWidget</name>
     <message>
         <source>Enter a new shortcut</source>
-        <translation type="vanished">Introduza um novo atalho</translation>
+        <translation type="vanished">Geben Sie ein neues Tastenkürzel ein </translation>
     </message>
     <message>
         <source>None</source>
-        <translation type="vanished">Nenhum</translation>
+        <translation type="vanished">Keine</translation>
     </message>
 </context>
 </TS>

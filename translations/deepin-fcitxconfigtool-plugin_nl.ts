@@ -17,7 +17,7 @@
         <location filename="../src/widgets/settingshead.cpp" line="48"/>
         <location filename="../src/widgets/settingshead.cpp" line="113"/>
         <source>Edit</source>
-        <translation>Aanpassen</translation>
+        <translation>Bewerken</translation>
     </message>
     <message>
         <location filename="../src/widgets/settingshead.cpp" line="115"/>
@@ -65,9 +65,8 @@
         <translation>Andere invoermethode kiezen</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="118"/>
         <source>Switch to default input method</source>
-        <translation>Overschakelen naar standaard invoermethode</translation>
+        <translation type="vanished">Overschakelen naar standaard invoermethode</translation>
     </message>
     <message>
         <source>Call out Onboard</source>
@@ -75,7 +74,7 @@
     </message>
     <message>
         <source>Applies to</source>
-        <translation type="vanished">Toepassen op</translation>
+        <translation type="vanished">Van toepassing op</translation>
     </message>
     <message>
         <source>System</source>
@@ -88,6 +87,11 @@
     <message>
         <source>Input Method</source>
         <translation type="vanished">Invoermethode</translation>
+    </message>
+    <message>
+        <location filename="../src/window/imsettingwindow.cpp" line="118"/>
+        <source>Switch to the first input method</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="136"/>
@@ -104,7 +108,7 @@
     <name>SettingsHead</name>
     <message>
         <source>Edit</source>
-        <translation type="vanished">Aanpassen</translation>
+        <translation type="vanished">Bewerken</translation>
     </message>
     <message>
         <source>Done</source>

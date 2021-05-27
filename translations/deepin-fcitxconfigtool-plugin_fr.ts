@@ -65,9 +65,8 @@
         <translation>Changer de méthode de saisie</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="118"/>
         <source>Switch to default input method</source>
-        <translation>Passer à la méthode de saisie par défaut</translation>
+        <translation type="vanished">Passer à la méthode de saisie par défaut</translation>
     </message>
     <message>
         <source>Call out Onboard</source>
@@ -88,6 +87,11 @@
     <message>
         <source>Input Method</source>
         <translation type="vanished">Méthode de saisie</translation>
+    </message>
+    <message>
+        <location filename="../src/window/imsettingwindow.cpp" line="118"/>
+        <source>Switch to the first input method</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="136"/>

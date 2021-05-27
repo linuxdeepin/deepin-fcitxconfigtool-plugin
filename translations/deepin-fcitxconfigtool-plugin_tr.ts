@@ -65,9 +65,8 @@
         <translation>Giriş yöntemlerini değiştir</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="118"/>
         <source>Switch to default input method</source>
-        <translation>Varsayılan giriş yöntemine geç</translation>
+        <translation type="vanished">Varsayılan giriş yöntemine geç</translation>
     </message>
     <message>
         <source>Call out Onboard</source>
@@ -90,6 +89,11 @@
         <translation type="vanished">Giriş Yöntemi</translation>
     </message>
     <message>
+        <location filename="../src/window/imsettingwindow.cpp" line="118"/>
+        <source>Switch to the first input method</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../src/window/imsettingwindow.cpp" line="136"/>
         <source>Manage Input Methods</source>
         <translation>Giriş Yöntemlerini Yönet</translation>
@@ -108,7 +112,7 @@
     </message>
     <message>
         <source>Done</source>
-        <translation type="vanished">Tamam</translation>
+        <translation type="vanished">Tamamlandı</translation>
     </message>
 </context>
 <context>

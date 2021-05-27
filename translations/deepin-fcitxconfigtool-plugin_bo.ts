@@ -65,9 +65,8 @@
         <translation>ནང་འཇུག་བྱེད་སྟངས་བརྗེ་བ།</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="118"/>
         <source>Switch to default input method</source>
-        <translation>སོར་བཞག་ནང་འཇུག་བྱེད་སྟངས་བརྗེ་བ།</translation>
+        <translation type="vanished">སོར་བཞག་ནང་འཇུག་བྱེད་སྟངས་བརྗེ་བ།</translation>
     </message>
     <message>
         <source>Call out Onboard</source>
@@ -88,6 +87,11 @@
     <message>
         <source>Input Method</source>
         <translation type="vanished">ནང་འཇུག་བྱེད་སྟངས།</translation>
+    </message>
+    <message>
+        <location filename="../src/window/imsettingwindow.cpp" line="118"/>
+        <source>Switch to the first input method</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="136"/>

@@ -62,7 +62,7 @@
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="118"/>
-        <source>Switch to default input method</source>
+        <source>Switch to the first input method</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

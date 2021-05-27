@@ -113,9 +113,9 @@ void IMSettingWindow::initUI()
     m_shortcutGroup->setSpacing(2);
 
     m_imSwitchCbox = new Fcitx_ComBoboxSettingsItem(tr("Switch input methods"), {"CTRL_SHIFT", "ALT_SHIFT", "CTRL_SUPER", "ALT_SUPER"});
-    //    m_defaultIMKey = new Fcitx_KeySettingsItem(tr("Switch to default input method"));
+    //    m_defaultIMKey = new Fcitx_KeySettingsItem(tr("Switch to the first input method"));
 //    m_imSwitchKey = new Fcitx_KeySettingsItem(tr("Switch input methods"));
-    m_defaultIMKey = new Fcitx_KeySettingsItem(tr("Switch to default input method"));
+    m_defaultIMKey = new Fcitx_KeySettingsItem(tr("Switch to the first input method"));
 //    m_virtualKey = new Fcitx_KeySettingsItem(tr("Call out Onboard"));
 //    m_systemAppCbox = new Fcitx_ComboxWidget(tr("Applies to"));
 //    m_systemAppCbox->comboBox()->addItems({tr("System"), tr("Application")});

@@ -65,9 +65,8 @@
         <translation>Beviteli mód váltása</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="118"/>
         <source>Switch to default input method</source>
-        <translation>Váltson az alapértelmezett beviteli módra</translation>
+        <translation type="vanished">Váltson az alapértelmezett beviteli módra</translation>
     </message>
     <message>
         <source>Call out Onboard</source>
@@ -75,7 +74,7 @@
     </message>
     <message>
         <source>Applies to</source>
-        <translation type="vanished">Alkalmazva ehhez:</translation>
+        <translation type="vanished">Alkalmazva ehhez</translation>
     </message>
     <message>
         <source>System</source>
@@ -88,6 +87,11 @@
     <message>
         <source>Input Method</source>
         <translation type="vanished">Beviteli mód</translation>
+    </message>
+    <message>
+        <location filename="../src/window/imsettingwindow.cpp" line="118"/>
+        <source>Switch to the first input method</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="136"/>

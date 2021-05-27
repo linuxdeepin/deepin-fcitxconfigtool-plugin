@@ -57,7 +57,7 @@
     <name>IMSettingWindow</name>
     <message>
         <source>Default</source>
-        <translation type="vanished">Oletus</translation>
+        <translation type="vanished">oletus</translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="115"/>
@@ -65,9 +65,8 @@
         <translation>Vaihda kirjoitustapaa</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="118"/>
         <source>Switch to default input method</source>
-        <translation>Vaihda oletus kirjoitustapa</translation>
+        <translation type="vanished">Vaihda oletus kirjoitustapa</translation>
     </message>
     <message>
         <source>Call out Onboard</source>
@@ -88,6 +87,11 @@
     <message>
         <source>Input Method</source>
         <translation type="vanished">Kirjoitustapa</translation>
+    </message>
+    <message>
+        <location filename="../src/window/imsettingwindow.cpp" line="118"/>
+        <source>Switch to the first input method</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="136"/>
@@ -142,7 +146,7 @@
     <name>dcc_fcitx_configtool::widgets::KeyLabelWidget</name>
     <message>
         <source>Enter a new shortcut</source>
-        <translation type="vanished">Tee uusi pikanäppäin</translation>
+        <translation type="vanished">Anna uusi pikanäppäin</translation>
     </message>
     <message>
         <source>None</source>

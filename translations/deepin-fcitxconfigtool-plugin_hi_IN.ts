@@ -17,12 +17,12 @@
         <location filename="../src/widgets/settingshead.cpp" line="48"/>
         <location filename="../src/widgets/settingshead.cpp" line="113"/>
         <source>Edit</source>
-        <translation type="unfinished">संपादन</translation>
+        <translation>संपादन</translation>
     </message>
     <message>
         <location filename="../src/widgets/settingshead.cpp" line="115"/>
         <source>Done</source>
-        <translation type="unfinished">पूर्ण</translation>
+        <translation>पूर्ण</translation>
     </message>
 </context>
 <context>
@@ -65,9 +65,8 @@
         <translation>इनपुट विधि बदलें</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="118"/>
         <source>Switch to default input method</source>
-        <translation>डिफ़ॉल्ट इनपुट विधि उपयोग करें</translation>
+        <translation type="vanished">डिफ़ॉल्ट इनपुट विधि उपयोग करें</translation>
     </message>
     <message>
         <source>Call out Onboard</source>
@@ -88,6 +87,11 @@
     <message>
         <source>Input Method</source>
         <translation type="vanished">इनपुट विधि</translation>
+    </message>
+    <message>
+        <location filename="../src/window/imsettingwindow.cpp" line="118"/>
+        <source>Switch to the first input method</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="136"/>
@@ -130,12 +134,12 @@
         <location filename="../src/widgets/keysettingsitem.cpp" line="37"/>
         <location filename="../src/widgets/keysettingsitem.cpp" line="145"/>
         <source>None</source>
-        <translation type="unfinished">कोई नहीं</translation>
+        <translation>कोई नहीं</translation>
     </message>
     <message>
         <location filename="../src/widgets/keysettingsitem.cpp" line="43"/>
         <source>Enter a new shortcut</source>
-        <translation type="unfinished">नया शॉर्टकट दर्ज करें</translation>
+        <translation>नया शॉर्टकट दर्ज करें</translation>
     </message>
 </context>
 <context>

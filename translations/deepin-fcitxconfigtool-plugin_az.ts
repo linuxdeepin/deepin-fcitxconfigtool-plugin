@@ -57,7 +57,7 @@
     <name>IMSettingWindow</name>
     <message>
         <source>Default</source>
-        <translation type="vanished">Standart</translation>
+        <translation type="vanished">Varsayılan</translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="115"/>
@@ -65,9 +65,8 @@
         <translation>Daxiletmə üsullarını dəyişin</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="118"/>
         <source>Switch to default input method</source>
-        <translation>Standart daxietmə üsuluna keçin</translation>
+        <translation type="vanished">Standart daxietmə üsuluna keçin</translation>
     </message>
     <message>
         <source>Call out Onboard</source>
@@ -90,6 +89,11 @@
         <translation type="vanished">Daxiletmə üsulu</translation>
     </message>
     <message>
+        <location filename="../src/window/imsettingwindow.cpp" line="118"/>
+        <source>Switch to the first input method</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../src/window/imsettingwindow.cpp" line="136"/>
         <source>Manage Input Methods</source>
         <translation>Daxiletmə üsulunun idarə edilməsi</translation>
@@ -104,11 +108,11 @@
     <name>SettingsHead</name>
     <message>
         <source>Edit</source>
-        <translation type="vanished">Düzəlt</translation>
+        <translation type="vanished">Düzəliş edin</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation type="vanished">Tamamlandı</translation>
+        <translation type="vanished">Hazır</translation>
     </message>
 </context>
 <context>
