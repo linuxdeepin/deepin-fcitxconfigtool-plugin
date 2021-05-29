@@ -91,7 +91,7 @@ void IMSettingWindow::initUI()
 
     QWidget *scrollAreaWidgetContents = new QWidget(scrollArea);
     QVBoxLayout *scrollAreaLayout = new QVBoxLayout(scrollAreaWidgetContents);
-    scrollAreaLayout->setContentsMargins(10, 4, 10, 0);
+    scrollAreaLayout->setContentsMargins(10, 0, 10, 0);
     scrollAreaLayout->setSpacing(0);
     scrollArea->setContent(scrollAreaWidgetContents);
     scrollAreaWidgetContents->setLayout(scrollAreaLayout);
@@ -136,7 +136,7 @@ void IMSettingWindow::initUI()
     scrollAreaLayout->addWidget(newTitleHead(tr("Manage Input Methods"), true));
     scrollAreaLayout->addSpacing(10);
     scrollAreaLayout->addWidget(m_IMListGroup);
-    scrollAreaLayout->addSpacing(15);
+    scrollAreaLayout->addSpacing(10);
     scrollAreaLayout->addWidget(newTitleHead(tr("Shortcuts")));
     scrollAreaLayout->addSpacing(10);
     scrollAreaLayout->addWidget(m_shortcutGroup);

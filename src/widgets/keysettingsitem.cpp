@@ -162,7 +162,13 @@ void Fcitx_KeyLabelWidget::keyPressEvent(QKeyEvent *event)
 {
     if (!m_eidtFlag)
         return;
-    m_newlist << publisherFunc::getKeyValue(event->key());
+    quint32 tmpScanCode = event->nativeScanCode();
+    if(tmpScanCode == 64){
+        m_newlist << publisherFunc::getKeyValue( Qt::Key_Alt);
+    }
+    else{
+        m_newlist << publisherFunc::getKeyValue( event->key());
+    }
     initLableList(m_newlist);
     if (m_newlist.count() >= 2 && !checkNewKey()) {
         initLableList(m_curlist);
