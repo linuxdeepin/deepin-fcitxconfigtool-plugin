@@ -68,7 +68,7 @@ void IMSettingWindow::initUI()
         head->setParent(this);
         head->setTitle(str);
         head->setEditEnable(isEdit);
-        head->layout()->setContentsMargins(10, 0, 10, 0);
+        head->layout()->setContentsMargins(10, 4, 10, 0);
         if (isEdit) {
             m_editHead = head;
         }
@@ -137,7 +137,7 @@ void IMSettingWindow::initUI()
     scrollAreaLayout->addWidget(newTitleHead(tr("Manage Input Methods"), true));
     scrollAreaLayout->addSpacing(10);
     scrollAreaLayout->addWidget(m_IMListGroup);
-    scrollAreaLayout->addSpacing(10);
+    scrollAreaLayout->addSpacing(11);
     scrollAreaLayout->addWidget(newTitleHead(tr("Shortcuts")));
     scrollAreaLayout->addSpacing(10);
     scrollAreaLayout->addWidget(m_shortcutGroup);
