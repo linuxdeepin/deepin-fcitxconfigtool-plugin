@@ -41,6 +41,10 @@ IMAddWindow::IMAddWindow(QWidget *parent)
 
 IMAddWindow::~IMAddWindow()
 {
+    DeleteObject_Null(m_searchLEdit);
+    DeleteObject_Null(m_availWidget);
+    DeleteObject_Null(m_storeBtn);
+    DeleteObject_Null(m_buttonTuple);
     DeleteObject_Null(m_mainLayout);
 }
 

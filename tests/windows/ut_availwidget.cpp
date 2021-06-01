@@ -100,7 +100,7 @@ TEST_F(ut_availwidget, onUpdateUI)
 TEST_F(ut_availwidget, initUI)
 {
     AvailWidget availWidget;
-    availWidget.initUI();
+//    availWidget.initUI();
 }
 
 TEST_F(ut_availwidget, initConnect)

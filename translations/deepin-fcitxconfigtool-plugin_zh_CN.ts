@@ -28,27 +28,27 @@
 <context>
     <name>IMAddWindow</name>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="57"/>
+        <location filename="../src/window/imaddwindow.cpp" line="61"/>
         <source>Add Input Method</source>
         <translation>添加输入法</translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="66"/>
+        <location filename="../src/window/imaddwindow.cpp" line="70"/>
         <source>Search</source>
         <translation>搜索</translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="77"/>
+        <location filename="../src/window/imaddwindow.cpp" line="81"/>
         <source>Find more in App Store</source>
         <translation>前往商店下载</translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="83"/>
+        <location filename="../src/window/imaddwindow.cpp" line="87"/>
         <source>Add</source>
         <translation>添 加</translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="85"/>
+        <location filename="../src/window/imaddwindow.cpp" line="89"/>
         <source>Cancel</source>
         <translation>取 消</translation>
     </message>
@@ -60,7 +60,7 @@
         <translation type="vanished">默认</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="115"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="116"/>
         <source>Switch input methods</source>
         <translation>切换输入法</translation>
     </message>
@@ -89,17 +89,17 @@
         <translation type="vanished">输入法</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="118"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="119"/>
         <source>Switch to the first input method</source>
         <translation>切换至首位输入法</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="136"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="137"/>
         <source>Manage Input Methods</source>
         <translation>输入法管理</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="140"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="141"/>
         <source>Shortcuts</source>
         <translation>快捷键</translation>
     </message>

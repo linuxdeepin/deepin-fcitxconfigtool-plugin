@@ -23,6 +23,7 @@
 #include "imsettingwindow.h"
 #include "shortcutkeywindow.h"
 #include "immodel/immodel.h"
+#include "publisher/publisherdef.h"
 #include "fcitxInterface/config.h"
 #include <QStackedWidget>
 #include <QVBoxLayout>
@@ -40,6 +41,11 @@ IMWindow::IMWindow(QWidget *parent)
 IMWindow::~IMWindow()
 {
     IMModel::instance()->deleteIMModel();
+    DeleteObject_Null(m_stackedWidget);
+//    DeleteObject_Null(m_settingWindow);
+//    DeleteObject_Null(m_addWindow);
+//    DeleteObject_Null(m_shortcutKeyWindow);
+    DeleteObject_Null(m_pLayout);
 }
 
 void IMWindow::initFcitxInterface()
@@ -65,11 +71,10 @@ void IMWindow::initUI()
     m_stackedWidget->addWidget(m_shortcutKeyWindow);
     m_stackedWidget->setCurrentIndex(0);
     //界面布局
-    QVBoxLayout *pLayout = new QVBoxLayout(this);
-    pLayout->addWidget(m_stackedWidget);
-    pLayout->setMargin(0);
-    pLayout->setSpacing(0);
-//    setLayout(pLayout);
+    m_pLayout = new QVBoxLayout(this);
+    m_pLayout->addWidget(m_stackedWidget);
+    m_pLayout->setMargin(0);
+    m_pLayout->setSpacing(0);
 }
 
 void IMWindow::initConnect()

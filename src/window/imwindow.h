@@ -22,6 +22,7 @@
 #define IMWIDOW_H
 
 #include <QWidget>
+#include <QVBoxLayout>
 
 class IMAddWindow;
 class IMSettingWindow;
@@ -49,6 +50,7 @@ private:
     IMSettingWindow *m_settingWindow {nullptr}; //输入法编辑窗口
     IMAddWindow *m_addWindow {nullptr}; //输入法添加窗口
     ShortcutKeyWindow *m_shortcutKeyWindow {nullptr}; //快捷键冲突提示界面
+    QVBoxLayout *m_pLayout {nullptr};
 };
 
 #endif // IMWIDOW_H

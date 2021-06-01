@@ -49,14 +49,15 @@ IMSettingWindow::IMSettingWindow(QWidget *parent)
 
 IMSettingWindow::~IMSettingWindow()
 {
-//    m_defaultIMGroup->clear();
     m_IMListGroup->clear();
     m_shortcutGroup->clear();
-//    DeleteObject_Null(m_defaultIMGroup);
     DeleteObject_Null(m_IMListGroup);
     DeleteObject_Null(m_shortcutGroup);
     DeleteObject_Null(m_editHead);
     DeleteObject_Null(m_mainLayout);
+    DeleteObject_Null(m_imSwitchCbox);
+    DeleteObject_Null(m_defaultIMKey);
+//    DeleteObject_Null(m_addIMBtn);
 }
 
 void IMSettingWindow::initUI()

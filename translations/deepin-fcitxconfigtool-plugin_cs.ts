@@ -28,27 +28,27 @@
 <context>
     <name>IMAddWindow</name>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="57"/>
+        <location filename="../src/window/imaddwindow.cpp" line="61"/>
         <source>Add Input Method</source>
         <translation>Přidat vstupní metodu</translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="66"/>
+        <location filename="../src/window/imaddwindow.cpp" line="70"/>
         <source>Search</source>
         <translation>Hledat</translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="77"/>
+        <location filename="../src/window/imaddwindow.cpp" line="81"/>
         <source>Find more in App Store</source>
         <translation>Najít více v katalogu aplikací</translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="83"/>
+        <location filename="../src/window/imaddwindow.cpp" line="87"/>
         <source>Add</source>
         <translation>Přidat</translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="85"/>
+        <location filename="../src/window/imaddwindow.cpp" line="89"/>
         <source>Cancel</source>
         <translation>Zrušit</translation>
     </message>
@@ -60,7 +60,7 @@
         <translation type="vanished">Výchozí</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="115"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="116"/>
         <source>Switch input methods</source>
         <translation>Přepnout vstupní metody</translation>
     </message>
@@ -89,17 +89,17 @@
         <translation type="vanished">Vstupní metoda</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="118"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="119"/>
         <source>Switch to the first input method</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="136"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="137"/>
         <source>Manage Input Methods</source>
         <translation>Spravovat vstupní metody</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="140"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="141"/>
         <source>Shortcuts</source>
         <translation>Klávesové zkratky</translation>
     </message>

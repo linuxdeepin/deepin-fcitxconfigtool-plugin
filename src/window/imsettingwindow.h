@@ -72,17 +72,17 @@ private slots:
 
 private:
 //    dcc_fcitx_configtool::widgets::Fcitx_SettingsGroup *m_defaultIMGroup {nullptr}; //默认输入法容器
-    dcc_fcitx_configtool::widgets::Fcitx_SettingsGroup *m_IMListGroup {nullptr}; //输入法列表容器
-    dcc_fcitx_configtool::widgets::Fcitx_SettingsGroup *m_shortcutGroup {nullptr}; //输入法快捷键容器
-    dcc_fcitx_configtool::widgets::Fcitx_SettingsHead *m_editHead {nullptr}; //编辑按钮
 //    dcc_fcitx_configtool::widgets::Fcitx_ComboxWidget *m_defaultIMCbox {nullptr}; //选择默认输入法
-    dcc_fcitx_configtool::widgets::Fcitx_ComBoboxSettingsItem *m_imSwitchCbox {nullptr}; //切换输入法（快捷键）
 //    dcc_fcitx_configtool::widgets::Fcitx_KeySettingsItem *m_imSwitchKey {nullptr}; //切换输入法（快捷键）
-    dcc_fcitx_configtool::widgets::Fcitx_KeySettingsItem *m_defaultIMKey {nullptr}; //默认输入法（快捷键）
-
 //    dcc_fcitx_configtool::widgets::Fcitx_KeySettingsItem *m_virtualKey {nullptr}; //虚拟键盘 （快捷键）
 //    dcc_fcitx_configtool::widgets::Fcitx_KeySettingsItem *m_defaultIMKey {nullptr}; //默认输入法 （快捷键）
 //    dcc_fcitx_configtool::widgets::Fcitx_ComboxWidget *m_systemAppCbox {nullptr}; //切换系统/应用
+
+    dcc_fcitx_configtool::widgets::Fcitx_SettingsGroup *m_IMListGroup {nullptr}; //输入法列表容器
+    dcc_fcitx_configtool::widgets::Fcitx_SettingsGroup *m_shortcutGroup {nullptr}; //输入法快捷键容器
+    dcc_fcitx_configtool::widgets::Fcitx_SettingsHead *m_editHead {nullptr}; //编辑按钮
+    dcc_fcitx_configtool::widgets::Fcitx_ComBoboxSettingsItem *m_imSwitchCbox {nullptr}; //切换输入法（快捷键）
+    dcc_fcitx_configtool::widgets::Fcitx_KeySettingsItem *m_defaultIMKey {nullptr}; //默认输入法（快捷键）
     Dtk::Widget::DFloatingButton *m_addIMBtn {nullptr}; //添加输入法
     QVBoxLayout *m_mainLayout;
 };

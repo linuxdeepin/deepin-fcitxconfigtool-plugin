@@ -28,27 +28,27 @@
 <context>
     <name>IMAddWindow</name>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="57"/>
+        <location filename="../src/window/imaddwindow.cpp" line="61"/>
         <source>Add Input Method</source>
         <translation>Ajouter une méthode de saisie</translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="66"/>
+        <location filename="../src/window/imaddwindow.cpp" line="70"/>
         <source>Search</source>
         <translation>Rechercher</translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="77"/>
+        <location filename="../src/window/imaddwindow.cpp" line="81"/>
         <source>Find more in App Store</source>
         <translation>En savoir plus sur l&apos;App Store</translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="83"/>
+        <location filename="../src/window/imaddwindow.cpp" line="87"/>
         <source>Add</source>
         <translation>Ajouter</translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="85"/>
+        <location filename="../src/window/imaddwindow.cpp" line="89"/>
         <source>Cancel</source>
         <translation>Annuler</translation>
     </message>
@@ -60,7 +60,7 @@
         <translation type="vanished">Par défaut</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="115"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="116"/>
         <source>Switch input methods</source>
         <translation>Changer de méthode de saisie</translation>
     </message>
@@ -89,17 +89,17 @@
         <translation type="vanished">Méthode de saisie</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="118"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="119"/>
         <source>Switch to the first input method</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="136"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="137"/>
         <source>Manage Input Methods</source>
         <translation>Gérer les méthodes de saisie</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="140"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="141"/>
         <source>Shortcuts</source>
         <translation>Raccourcis</translation>
     </message>

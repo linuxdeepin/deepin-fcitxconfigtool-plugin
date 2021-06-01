@@ -46,7 +46,7 @@ protected:
 TEST_F(ut_shortcutkeywindow, initUI)
 {
     ShortcutKeyWindow shortcutkeyWindow;
-    shortcutkeyWindow.initUI();
+//    shortcutkeyWindow.initUI();
 }
 
 TEST_F(ut_shortcutkeywindow, initConnect)
