@@ -1,0 +1,140 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "03880c11_21b2b78f",
+        "filename": "src/window/imaddwindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-06-01T03:25:02Z",
+      "side": 1,
+      "message": "注释行数: 0; 改动行数(修改和新增): 4; 注释率: 0.0%",
+      "revId": "e5b87950fcb55ecb6f7aa04295e90abfa3b5ac99",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c7fa62d7_1199f066",
+        "filename": "src/window/imsettingwindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-06-01T03:25:02Z",
+      "side": 1,
+      "message": "注释行数: 1; 改动行数(修改和新增): 3; 注释率: 33.3%",
+      "revId": "e5b87950fcb55ecb6f7aa04295e90abfa3b5ac99",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a04a47f4_80fe3445",
+        "filename": "src/window/imsettingwindow.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-06-01T03:25:02Z",
+      "side": 1,
+      "message": "注释行数: 5; 改动行数(修改和新增): 5; 注释率: 100.0%",
+      "revId": "e5b87950fcb55ecb6f7aa04295e90abfa3b5ac99",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8b622764_760c2bc7",
+        "filename": "src/window/imwindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-06-01T03:25:02Z",
+      "side": 1,
+      "message": "注释行数: 3; 改动行数(修改和新增): 10; 注释率: 30.0%",
+      "revId": "e5b87950fcb55ecb6f7aa04295e90abfa3b5ac99",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1da82820_57213213",
+        "filename": "src/window/imwindow.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-06-01T03:25:02Z",
+      "side": 1,
+      "message": "注释行数: 0; 改动行数(修改和新增): 2; 注释率: 0.0%",
+      "revId": "e5b87950fcb55ecb6f7aa04295e90abfa3b5ac99",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a4a857d4_277d4b04",
+        "filename": "tests/windows/imconfig/ut_immodel.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-06-01T03:25:02Z",
+      "side": 1,
+      "message": "注释行数: 9; 改动行数(修改和新增): 9; 注释率: 100.0%",
+      "revId": "e5b87950fcb55ecb6f7aa04295e90abfa3b5ac99",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e950ab7_81ccce90",
+        "filename": "tests/windows/ut_availwidget.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-06-01T03:25:02Z",
+      "side": 1,
+      "message": "注释行数: 1; 改动行数(修改和新增): 1; 注释率: 100.0%",
+      "revId": "e5b87950fcb55ecb6f7aa04295e90abfa3b5ac99",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "83ae1664_7676b2f1",
+        "filename": "tests/windows/ut_imsettingwindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-06-01T03:25:02Z",
+      "side": 1,
+      "message": "注释行数: 2; 改动行数(修改和新增): 263; 注释率: 0.8%",
+      "revId": "e5b87950fcb55ecb6f7aa04295e90abfa3b5ac99",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    }
+  ]
+}
