@@ -57,7 +57,12 @@ bool IMConfig::setVirtualKey(const QString &str)
 
 QString IMConfig::defaultIMKey()
 {
-    return configFile(prefix + "/.config/fcitx/config", QString("TriggerKey"));
+    QString ret = configFile(prefix + "/.config/fcitx/config", QString("TriggerKey"));
+    if(ret.isEmpty())
+    {
+        ret = "CTRL_SPACE";
+    }
+    return ret;
 }
 
 bool IMConfig::setDefaultIMKey(const QString &str)
