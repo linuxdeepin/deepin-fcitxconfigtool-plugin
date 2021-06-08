@@ -42,7 +42,7 @@ class Fcitx_SettingsHeaderItem : public Fcitx_SettingsItem
 public:
     explicit Fcitx_SettingsHeaderItem(QWidget *parent = 0);
 
-    Fcitx_TitleLabel *textLabel() const { return m_headerText; }
+    Fcitx_TitleLabel *textLabel() { return m_headerText; }
     QHBoxLayout *layout() const { return m_mainLayout; }
 
     void setTitle(const QString &title);

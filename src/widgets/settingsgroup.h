@@ -59,7 +59,7 @@ public:
     explicit Fcitx_SettingsGroup(const QString &title, QFrame *parent = nullptr);
     ~Fcitx_SettingsGroup();
 
-    Fcitx_SettingsHeaderItem *headerItem() const { return m_headerItem; }
+    Fcitx_SettingsHeaderItem *headerItem() { return m_headerItem; }
     void setHeaderVisible(const bool visible);
 
     Fcitx_SettingsItem *getItem(int index);

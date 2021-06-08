@@ -22,6 +22,7 @@
 #include "immodel/immodel.h"
 #include "immodel/imconfig.h"
 
+#include "widgets/settingsheaderitem.h"
 #include "widgets/settingsgroup.h"
 #include "widgets/comboxwidget.h"
 #include "widgets/keysettingsitem.h"
@@ -71,6 +72,7 @@ void IMSettingWindow::initUI()
         head->layout()->setContentsMargins(10, 4, 10, 0);
         if (isEdit) {
             m_editHead = head;
+            m_editHead->getTitleLabel()->setAccessibleName("Edit");;
         }
         return head;
     };

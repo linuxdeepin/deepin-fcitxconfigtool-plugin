@@ -115,3 +115,8 @@ void Fcitx_SettingsHead::refershButton()
         m_edit->setText(qApp->translate("Fcitx_SettingsHead", "Done"));
     }
 }
+
+Fcitx_TitleLabel* Fcitx_SettingsHead::getTitleLabel()
+{
+    return m_title;
+}

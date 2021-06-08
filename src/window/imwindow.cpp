@@ -30,6 +30,25 @@
 #include <QTranslator>
 #include <libintl.h>
 
+#include <QAccessible>
+#include "widgets/accessiblewidget.h"
+
+// 接口工厂
+QAccessibleInterface *accessibleFactory(const QString &classname, QObject *object)
+{
+    QAccessibleInterface *interface = nullptr;
+
+    if (object && object->isWidgetType()) {
+        if (classname == "QLabel")
+            interface = new AccessibleLabel(qobject_cast<QLabel *>(object));
+
+        if (classname == "QPushButton")
+            interface = new AccessibleButton(qobject_cast<QPushButton *>(object));
+    }
+
+    return interface;
+}
+
 IMWindow::IMWindow(QWidget *parent)
     : DWidget(parent)
 {
@@ -58,6 +77,9 @@ void IMWindow::initFcitxInterface()
     if (!Fcitx::Global::instance()->inputMethodProxy()) {
         QProcess::startDetached("fcitx -r");
     }
+
+    // 安装工厂
+    QAccessible::installFactory(accessibleFactory);
 }
 
 void IMWindow::initUI()

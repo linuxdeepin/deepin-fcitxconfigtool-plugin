@@ -53,7 +53,7 @@ public:
 
     void setTitle(const QString &title);
     void setEditEnable(bool state = true);
-
+    Fcitx_TitleLabel* getTitleLabel();
 public Q_SLOTS:
     void toEdit();
     void toCancel();
