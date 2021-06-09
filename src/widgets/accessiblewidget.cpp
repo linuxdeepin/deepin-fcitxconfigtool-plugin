@@ -268,20 +268,6 @@ QString AccessibleKeySettingsItem::text(int startOffset, int endOffset) const
     return AccessibleKeySettingsItem::text(startOffset, endOffset);
 }
 
-
-//// 可访问的按钮
-//class AccessibleDFloatingButton: public AccessibleWidget
-//{
-//public:
-//    explicit AccessibleDFloatingButton(DFloatingButton *button);
-//    ~AccessibleDFloatingButton();
-
-//    QString text(int startOffset, int endOffset) const Q_DECL_OVERRIDE;
-
-//private:
-//    DFloatingButton *m_button;
-//};
-
 AccessibleDFloatingButton::AccessibleDFloatingButton(DFloatingButton *button)
     : AccessibleWidget(button)
     , m_button(button)
@@ -300,6 +286,46 @@ QString AccessibleDFloatingButton::text(int startOffset, int endOffset) const
         return "DFloatingButton";
 
     return AccessibleDFloatingButton::text(startOffset, endOffset);
+}
+
+AccessibleDSearchEdit::AccessibleDSearchEdit(DSearchEdit *searchedit)
+    : AccessibleWidget(searchedit)
+    , m_searchedit(searchedit)
+{
+
+}
+
+AccessibleDSearchEdit::~AccessibleDSearchEdit()
+{
+
+}
+
+QString AccessibleDSearchEdit::text(int startOffset, int endOffset) const
+{
+    if (Q_NULLPTR != m_searchedit)
+        return m_searchedit->text();
+
+    return AccessibleDSearchEdit::text(startOffset, endOffset);
+}
+
+AccessibleDCommandLinkButton::AccessibleDCommandLinkButton(DCommandLinkButton *commandLinkbutton)
+    : AccessibleWidget(commandLinkbutton)
+    , m_commandLinkbutton(commandLinkbutton)
+{
+
+}
+
+AccessibleDCommandLinkButton::~AccessibleDCommandLinkButton()
+{
+
+}
+
+QString AccessibleDCommandLinkButton::text(int startOffset, int endOffset) const
+{
+    if (Q_NULLPTR != m_commandLinkbutton)
+        return m_commandLinkbutton->text();
+
+    return AccessibleDCommandLinkButton::text(startOffset, endOffset);
 }
 
 

@@ -79,14 +79,19 @@ void IMAddWindow::initUI()
     QHBoxLayout *hlayout3 = new QHBoxLayout(this);
     hlayout3->addStretch();
     m_storeBtn = new DCommandLinkButton(tr("Find more in App Store"), this);
+    m_storeBtn->setAccessibleName("Find more in App Store");
+    m_buttonTuple->leftButton()->setAccessibleName(tr("Cancel"));
+
     hlayout3->addWidget(m_storeBtn);
     hlayout3->addSpacing(10);
 
     //添加 取消按钮
     m_buttonTuple = new Fcitx_ButtonTuple(Fcitx_ButtonTuple::Save);
     m_buttonTuple->rightButton()->setText(tr("Add"));
-    m_buttonTuple->rightButton()->setEnabled(false);
+    m_buttonTuple->rightButton()->setAccessibleName(tr("Add"));
     m_buttonTuple->leftButton()->setText(tr("Cancel"));
+    m_buttonTuple->leftButton()->setAccessibleName(tr("Cancel"));
+
     QHBoxLayout *hlayout4 = new QHBoxLayout(this);
     hlayout4->addSpacing(10);
     hlayout4->addWidget(m_buttonTuple, 0, Qt::AlignBottom);
