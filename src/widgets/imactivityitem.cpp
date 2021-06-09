@@ -38,15 +38,20 @@ Fcitx_IMActivityItem::Fcitx_IMActivityItem(FcitxQtInputMethodItem item, QFrame *
     m_labelText = new Fcitx_ShortenLabel("", this);
     DFontSizeManager::instance()->bind(m_labelText, DFontSizeManager::T6);
     m_labelText->setShortenText(item.name());
+    m_labelText->setAccessibleName(item.name());
     m_layout->addWidget(m_labelText);
     m_upBtn = new DToolButton(this);
     m_downBtn = new DToolButton(this);
     m_configBtn = new DToolButton(this);
     m_deleteBtn = new DToolButton(this);
     m_upBtn->setIcon(QIcon::fromTheme("arrow_up"));
+    m_upBtn->setAccessibleName(item.name()+":arrow_up");
     m_downBtn->setIcon(QIcon::fromTheme("arrow_down"));
+    m_downBtn->setAccessibleName(item.name()+":arrow_down");
     m_configBtn->setIcon(QIcon::fromTheme("setting"));
+    m_configBtn->setAccessibleName(item.name()+":setting");
     m_deleteBtn->setIcon(DStyle::standardIcon(QApplication::style(), DStyle::SP_DeleteButton));
+    m_deleteBtn->setAccessibleName(item.name()+":delete");
 
     m_layout->addWidget(m_downBtn);
     m_layout->addWidget(m_upBtn);

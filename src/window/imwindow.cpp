@@ -29,7 +29,8 @@
 #include <QVBoxLayout>
 #include <QTranslator>
 #include <libintl.h>
-
+#include <QToolButton>
+#include <QComboBox>
 #include <QAccessible>
 #include "widgets/accessiblewidget.h"
 
@@ -43,7 +44,13 @@ QAccessibleInterface *accessibleFactory(const QString &classname, QObject *objec
             interface = new AccessibleLabel(qobject_cast<QLabel *>(object));
 
         if (classname == "QPushButton")
-            interface = new AccessibleButton(qobject_cast<QPushButton *>(object));
+            interface = new AccessiblePButton(qobject_cast<QPushButton *>(object));
+
+        if (classname == "QToolButton")
+            interface = new AccessibleTButton(qobject_cast<QToolButton *>(object));
+
+        if (classname == "QComboBox")
+            interface = new AccessibleComboBox(qobject_cast<QComboBox *>(object));
     }
 
     return interface;

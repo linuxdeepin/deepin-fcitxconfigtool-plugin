@@ -3,10 +3,14 @@
 
 #include <QAccessibleInterface>
 #include <QAccessibleWidget>
+#include "keysettingsitem.h"
+#include <DFloatingButton>
 
 class Fcitx_TitleLabel;
 class QLabel;
 class QPushButton;
+class QToolButton;
+class QComboBox;
 
 class AccessibleWidget : public QAccessibleWidget
         , public QAccessibleTextInterface
@@ -50,11 +54,11 @@ private:
 };
 
 // 可访问的按钮
-class AccessibleButton : public AccessibleWidget
+class AccessiblePButton : public AccessibleWidget
 {
 public:
-    explicit AccessibleButton(QPushButton *button);
-    ~AccessibleButton();
+    explicit AccessiblePButton(QPushButton *button);
+    ~AccessiblePButton();
 
     QString text(int startOffset, int endOffset) const Q_DECL_OVERRIDE;
 
@@ -62,6 +66,85 @@ private:
     QPushButton *m_button;
 };
 
+// 可访问的按钮
+class AccessibleTButton : public AccessibleWidget
+{
+public:
+    explicit AccessibleTButton(QToolButton *button);
+    ~AccessibleTButton();
+
+    QString text(int startOffset, int endOffset) const Q_DECL_OVERRIDE;
+
+private:
+    QToolButton *m_button;
+};
+
+// 可访问的按钮
+class AccessibleComboBox : public AccessibleWidget
+{
+public:
+    explicit AccessibleComboBox(QComboBox *combobox);
+    ~AccessibleComboBox();
+
+    QString text(int startOffset, int endOffset) const Q_DECL_OVERRIDE;
+
+private:
+    QComboBox *m_combobox;
+};
+
+// 可访问的按钮
+class AccessibleKeyLabelWidget: public AccessibleWidget
+{
+public:
+    explicit AccessibleKeyLabelWidget(dcc_fcitx_configtool::widgets::Fcitx_KeyLabelWidget *keylablewidget);
+    ~AccessibleKeyLabelWidget();
+
+    QString text(int startOffset, int endOffset) const Q_DECL_OVERRIDE;
+
+private:
+    dcc_fcitx_configtool::widgets::Fcitx_KeyLabelWidget *m_keylablewidget;
+};
+
+// 可访问的按钮
+class AccessibleKeySettingsItem: public AccessibleWidget
+{
+public:
+    explicit AccessibleKeySettingsItem(dcc_fcitx_configtool::widgets::Fcitx_KeySettingsItem *keysettingsitem);
+    ~AccessibleKeySettingsItem();
+
+    QString text(int startOffset, int endOffset) const Q_DECL_OVERRIDE;
+
+private:
+    dcc_fcitx_configtool::widgets::Fcitx_KeySettingsItem *m_keysettingsitem;
+};
+
+// 可访问的按钮
+class AccessibleComBoboxSettingsItem: public AccessibleWidget
+{
+public:
+    explicit AccessibleComBoboxSettingsItem(dcc_fcitx_configtool::widgets::Fcitx_ComBoboxSettingsItem *comboboxsettingsitem);
+    ~AccessibleComBoboxSettingsItem();
+
+    QString text(int startOffset, int endOffset) const Q_DECL_OVERRIDE;
+
+private:
+    dcc_fcitx_configtool::widgets::Fcitx_ComBoboxSettingsItem *m_comboboxsettingsitem;
+};
+
+// 可访问的按钮
+class AccessibleDFloatingButton: public AccessibleWidget
+{
+public:
+    explicit AccessibleDFloatingButton(DFloatingButton *button);
+    ~AccessibleDFloatingButton();
+
+    QString text(int startOffset, int endOffset) const Q_DECL_OVERRIDE;
+
+private:
+    DFloatingButton *m_button;
+};
+
+//
 // 可访问的按钮
 class AccessibleTitleLabel : public AccessibleWidget
 {

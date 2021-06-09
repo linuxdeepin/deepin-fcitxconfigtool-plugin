@@ -26,6 +26,7 @@
 #include <QComboBox>
 #include <QMouseEvent>
 #include <QLineEdit>
+
 namespace dcc_fcitx_configtool {
 namespace widgets {
 Fcitx_KeyLabelWidget::Fcitx_KeyLabelWidget(QStringList list, QWidget *p)
@@ -78,10 +79,12 @@ void Fcitx_KeyLabelWidget::initLableList(const QStringList &list)
             tmpKey[0] = tmpKey[0].toUpper();
         }
         Fcitx_KeyLabel *label = new Fcitx_KeyLabel(tmpKey);
+        label->setAccessibleName(tmpKey);
         label->setBackgroundRole(DPalette::DarkLively);
         m_list << label;
         m_mainLayout->addWidget(label);
     }
+
 }
 
 QString Fcitx_KeyLabelWidget::getKeyToStr()
@@ -293,6 +296,7 @@ Fcitx_KeySettingsItem::Fcitx_KeySettingsItem(const QString &text, const QStringL
     m_hLayout->setAlignment(m_label, Qt::AlignLeft);
     m_hLayout->addWidget(m_keyWidget, 0, Qt::AlignVCenter | Qt::AlignRight);
     setFixedHeight(48);
+    setAccessibleName(text);
     setLayout(m_hLayout);
     connect(m_keyWidget, &Fcitx_KeyLabelWidget::editedFinish, this, &Fcitx_KeySettingsItem::editedFinish);
     connect(m_keyWidget, &Fcitx_KeyLabelWidget::shortCutError, this, &Fcitx_KeySettingsItem::doShortCutError);

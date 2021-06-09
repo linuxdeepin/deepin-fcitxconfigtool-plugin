@@ -2,6 +2,11 @@
 #include "titlelabel.h"
 #include <QLabel>
 #include <QPushButton>
+#include <QToolButton>
+#include <QComboBox>
+
+using namespace Dtk::Widget;
+using namespace dcc_fcitx_configtool::widgets;
 
 AccessibleWidget::AccessibleWidget(QWidget *widget)
     : QAccessibleWidget(widget)
@@ -141,19 +146,19 @@ QString AccessibleLabel::text(int startOffset, int endOffset) const
     return AccessibleWidget::text(startOffset, endOffset);
 }
 
-AccessibleButton::AccessibleButton(QPushButton *button)
+AccessiblePButton::AccessiblePButton(QPushButton *button)
     : AccessibleWidget(button)
     , m_button(button)
 {
 
 }
 
-AccessibleButton::~AccessibleButton()
+AccessiblePButton::~AccessiblePButton()
 {
 
 }
 
-QString AccessibleButton::text(int startOffset, int endOffset) const
+QString AccessiblePButton::text(int startOffset, int endOffset) const
 {
     if (Q_NULLPTR != m_button)
         return m_button->text();
@@ -162,6 +167,140 @@ QString AccessibleButton::text(int startOffset, int endOffset) const
 }
 
 
+
+AccessibleTButton::AccessibleTButton(QToolButton *button)
+    : AccessibleWidget(button)
+    , m_button(button)
+{
+
+}
+
+AccessibleTButton::~AccessibleTButton()
+{
+
+}
+
+QString AccessibleTButton::text(int startOffset, int endOffset) const
+{
+    if (Q_NULLPTR != m_button)
+        return m_button->text();
+
+    return AccessibleWidget::text(startOffset, endOffset);
+}
+
+AccessibleComboBox::AccessibleComboBox(QComboBox *combobox)
+    : AccessibleWidget(combobox)
+    , m_combobox(combobox)
+{
+
+}
+
+AccessibleComboBox::~AccessibleComboBox()
+{
+
+}
+
+QString AccessibleComboBox::text(int startOffset, int endOffset) const
+{
+    if (Q_NULLPTR != m_combobox)
+        return m_combobox->currentText();
+
+    return AccessibleWidget::text(startOffset, endOffset);
+}
+
+AccessibleKeyLabelWidget::AccessibleKeyLabelWidget(dcc_fcitx_configtool::widgets::Fcitx_KeyLabelWidget *keylablewidget)
+    : AccessibleWidget(keylablewidget)
+    , m_keylablewidget(keylablewidget)
+{
+
+}
+
+AccessibleKeyLabelWidget::~AccessibleKeyLabelWidget()
+{
+
+}
+
+QString AccessibleKeyLabelWidget::text(int startOffset, int endOffset) const
+{
+    if (Q_NULLPTR != m_keylablewidget)
+        return m_keylablewidget->getKeyToStr();
+
+    return AccessibleKeyLabelWidget::text(startOffset, endOffset);
+}
+
+AccessibleComBoboxSettingsItem::AccessibleComBoboxSettingsItem(dcc_fcitx_configtool::widgets::Fcitx_ComBoboxSettingsItem *comboboxsettingsitem)
+    : AccessibleWidget(comboboxsettingsitem)
+    , m_comboboxsettingsitem(comboboxsettingsitem)
+{
+
+}
+
+AccessibleComBoboxSettingsItem::~AccessibleComBoboxSettingsItem()
+{
+
+}
+
+QString AccessibleComBoboxSettingsItem::text(int startOffset, int endOffset) const
+{
+    if (Q_NULLPTR != m_comboboxsettingsitem)
+        return m_comboboxsettingsitem->getLabelText();
+
+    return AccessibleComBoboxSettingsItem::text(startOffset, endOffset);
+}
+
+AccessibleKeySettingsItem::AccessibleKeySettingsItem(dcc_fcitx_configtool::widgets::Fcitx_KeySettingsItem *keysettingsitem)
+    : AccessibleWidget(keysettingsitem)
+    , m_keysettingsitem(keysettingsitem)
+{
+
+}
+
+AccessibleKeySettingsItem::~AccessibleKeySettingsItem()
+{
+
+}
+
+QString AccessibleKeySettingsItem::text(int startOffset, int endOffset) const
+{
+    if (Q_NULLPTR != m_keysettingsitem)
+        return m_keysettingsitem->getLabelText();
+
+    return AccessibleKeySettingsItem::text(startOffset, endOffset);
+}
+
+
+//// 可访问的按钮
+//class AccessibleDFloatingButton: public AccessibleWidget
+//{
+//public:
+//    explicit AccessibleDFloatingButton(DFloatingButton *button);
+//    ~AccessibleDFloatingButton();
+
+//    QString text(int startOffset, int endOffset) const Q_DECL_OVERRIDE;
+
+//private:
+//    DFloatingButton *m_button;
+//};
+
+AccessibleDFloatingButton::AccessibleDFloatingButton(DFloatingButton *button)
+    : AccessibleWidget(button)
+    , m_button(button)
+{
+
+}
+
+AccessibleDFloatingButton::~AccessibleDFloatingButton()
+{
+
+}
+
+QString AccessibleDFloatingButton::text(int startOffset, int endOffset) const
+{
+    if (Q_NULLPTR != m_button)
+        return "DFloatingButton";
+
+    return AccessibleDFloatingButton::text(startOffset, endOffset);
+}
 
 
 AccessibleTitleLabel::AccessibleTitleLabel(Fcitx_TitleLabel *label)

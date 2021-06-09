@@ -72,7 +72,7 @@ void IMSettingWindow::initUI()
         head->layout()->setContentsMargins(10, 4, 10, 0);
         if (isEdit) {
             m_editHead = head;
-            m_editHead->getTitleLabel()->setAccessibleName("Edit");;
+            m_editHead->getTitleLabel()->setAccessibleName("Edit");
         }
         return head;
     };
@@ -190,6 +190,7 @@ void IMSettingWindow::initConnect()
 //    connect(m_virtualKey, &Fcitx_KeySettingsItem::shortCutError, this, &IMSettingWindow::popShortKeyListWindow);
 
     connect(m_imSwitchCbox->comboBox(), &QComboBox::currentTextChanged, [=]() {
+        m_imSwitchCbox->comboBox()->setAccessibleName(m_imSwitchCbox->comboBox()->currentText());
         reloadFcitx(IMConfig::setIMSwitchKey(m_imSwitchCbox->comboBox()->currentText()));
     });
 
@@ -216,11 +217,9 @@ void IMSettingWindow::readConfig()
 
     int index = m_imSwitchCbox->comboBox()->findText(IMConfig::IMSwitchKey());
     m_imSwitchCbox->comboBox()->setCurrentIndex(index < 0 ? 0 : index);
-
 //    index = IMModel::instance()->getIMIndex(IMConfig::defaultIM());
 //    m_defaultIMCbox->comboBox()->setCurrentIndex(index < 0 ? 0 : index);
     m_defaultIMKey->setList(IMConfig::defaultIMKey().split("_"));
-
 //    m_virtualKey->setList(IMConfig::virtualKey().split("_"));
 }
 
