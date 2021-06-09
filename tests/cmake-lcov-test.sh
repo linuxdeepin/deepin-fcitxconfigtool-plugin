@@ -10,7 +10,7 @@ cmake .. -DCMAKE_INSTALL_PREFIX="/usr"
 make -j4
 
 touch ./tests/utcase.log
-./tests/deepin-fcitxconfigtool-plugin_test --gtest_output=xml:./report/report.xml | tee ./bin/utcase.log
+./tests/deepin-fcitxconfigtool-plugin_test --gtest_output=xml:./report.xml 
 
 workdir=$(cd ../$(dirname $0)/$utdir; pwd)
 
