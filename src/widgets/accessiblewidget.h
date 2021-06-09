@@ -5,6 +5,8 @@
 #include <QAccessibleWidget>
 #include "keysettingsitem.h"
 #include <DFloatingButton>
+#include <DSearchEdit>
+#include <DCommandLinkButton>
 
 class Fcitx_TitleLabel;
 class QLabel;
@@ -144,7 +146,32 @@ private:
     DFloatingButton *m_button;
 };
 
-//
+// 可访问的按钮
+class AccessibleDSearchEdit: public AccessibleWidget
+{
+public:
+    explicit AccessibleDSearchEdit(DSearchEdit *searchedit);
+    ~AccessibleDSearchEdit();
+
+    QString text(int startOffset, int endOffset) const Q_DECL_OVERRIDE;
+
+private:
+    DSearchEdit *m_searchedit;
+};
+
+// 可访问的按钮
+class AccessibleDCommandLinkButton: public AccessibleWidget
+{
+public:
+    explicit AccessibleDCommandLinkButton(DCommandLinkButton *commandLinkbutton);
+    ~AccessibleDCommandLinkButton();
+
+    QString text(int startOffset, int endOffset) const Q_DECL_OVERRIDE;
+
+private:
+    DCommandLinkButton *m_commandLinkbutton;
+};
+
 // 可访问的按钮
 class AccessibleTitleLabel : public AccessibleWidget
 {

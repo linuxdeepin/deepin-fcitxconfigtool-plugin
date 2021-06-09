@@ -43,12 +43,15 @@
         <translation>Najít více v katalogu aplikací</translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="87"/>
+        <location filename="../src/window/imaddwindow.cpp" line="90"/>
+        <location filename="../src/window/imaddwindow.cpp" line="91"/>
         <source>Add</source>
         <translation>Přidat</translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="89"/>
+        <location filename="../src/window/imaddwindow.cpp" line="83"/>
+        <location filename="../src/window/imaddwindow.cpp" line="92"/>
+        <location filename="../src/window/imaddwindow.cpp" line="93"/>
         <source>Cancel</source>
         <translation>Zrušit</translation>
     </message>
@@ -60,7 +63,7 @@
         <translation type="vanished">Výchozí</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="116"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="118"/>
         <source>Switch input methods</source>
         <translation>Přepnout vstupní metody</translation>
     </message>
@@ -89,17 +92,17 @@
         <translation type="vanished">Vstupní metoda</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="119"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="121"/>
         <source>Switch to the first input method</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="137"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="139"/>
         <source>Manage Input Methods</source>
         <translation>Spravovat vstupní metody</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="141"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="143"/>
         <source>Shortcuts</source>
         <translation>Klávesové zkratky</translation>
     </message>
@@ -131,13 +134,13 @@
 <context>
     <name>dcc_fcitx_configtool::widgets::Fcitx_KeyLabelWidget</name>
     <message>
-        <location filename="../src/widgets/keysettingsitem.cpp" line="37"/>
-        <location filename="../src/widgets/keysettingsitem.cpp" line="145"/>
+        <location filename="../src/widgets/keysettingsitem.cpp" line="38"/>
+        <location filename="../src/widgets/keysettingsitem.cpp" line="148"/>
         <source>None</source>
         <translation>Žádný</translation>
     </message>
     <message>
-        <location filename="../src/widgets/keysettingsitem.cpp" line="43"/>
+        <location filename="../src/widgets/keysettingsitem.cpp" line="44"/>
         <source>Enter a new shortcut</source>
         <translation>Zadejte novou zkratku</translation>
     </message>

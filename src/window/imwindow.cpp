@@ -33,7 +33,7 @@
 #include <QComboBox>
 #include <QAccessible>
 #include "widgets/accessiblewidget.h"
-
+#include "widgets/titlelabel.h"
 // 接口工厂
 QAccessibleInterface *accessibleFactory(const QString &classname, QObject *object)
 {
@@ -51,6 +51,27 @@ QAccessibleInterface *accessibleFactory(const QString &classname, QObject *objec
 
         if (classname == "QComboBox")
             interface = new AccessibleComboBox(qobject_cast<QComboBox *>(object));
+
+        if (classname == "Fcitx_KeyLabelWidget")
+            interface = new AccessibleKeyLabelWidget(qobject_cast<Fcitx_KeyLabelWidget *>(object));
+
+        if (classname == "Fcitx_KeySettingsItem")
+            interface = new AccessibleKeySettingsItem(qobject_cast<Fcitx_KeySettingsItem *>(object));
+
+        if (classname == "Fcitx_ComBoboxSettingsItem")
+            interface = new AccessibleComBoboxSettingsItem(qobject_cast<Fcitx_ComBoboxSettingsItem *>(object));
+
+        if (classname == "DFloatingButton")
+            interface = new AccessibleDFloatingButton(qobject_cast<DFloatingButton *>(object));
+
+        if (classname == "DSearchEdit")
+            interface = new AccessibleDSearchEdit(qobject_cast<DSearchEdit *>(object));
+
+        if (classname == "DCommandLinkButton")
+            interface = new AccessibleDCommandLinkButton(qobject_cast<DCommandLinkButton *>(object));
+
+        if (classname == "Fcitx_TitleLabel")
+            interface = new AccessibleTitleLabel(qobject_cast<Fcitx_TitleLabel *>(object));
     }
 
     return interface;

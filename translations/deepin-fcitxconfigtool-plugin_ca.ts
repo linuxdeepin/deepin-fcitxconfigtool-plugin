@@ -43,12 +43,15 @@
         <translation>Trobeu-ne més a la Botiga d&apos;aplicacions</translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="87"/>
+        <location filename="../src/window/imaddwindow.cpp" line="90"/>
+        <location filename="../src/window/imaddwindow.cpp" line="91"/>
         <source>Add</source>
         <translation>Afegeix</translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="89"/>
+        <location filename="../src/window/imaddwindow.cpp" line="83"/>
+        <location filename="../src/window/imaddwindow.cpp" line="92"/>
+        <location filename="../src/window/imaddwindow.cpp" line="93"/>
         <source>Cancel</source>
         <translation>Cancel·la</translation>
     </message>
@@ -60,7 +63,7 @@
         <translation type="vanished">Per defecte</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="116"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="118"/>
         <source>Switch input methods</source>
         <translation>Canvia el mètode d&apos;entrada</translation>
     </message>
@@ -89,17 +92,17 @@
         <translation type="vanished">Mètode d&apos;entrada</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="119"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="121"/>
         <source>Switch to the first input method</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="137"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="139"/>
         <source>Manage Input Methods</source>
         <translation>Gestió dels mètodes d&apos;entrada</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="141"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="143"/>
         <source>Shortcuts</source>
         <translation>Dreceres</translation>
     </message>
@@ -131,13 +134,13 @@
 <context>
     <name>dcc_fcitx_configtool::widgets::Fcitx_KeyLabelWidget</name>
     <message>
-        <location filename="../src/widgets/keysettingsitem.cpp" line="37"/>
-        <location filename="../src/widgets/keysettingsitem.cpp" line="145"/>
+        <location filename="../src/widgets/keysettingsitem.cpp" line="38"/>
+        <location filename="../src/widgets/keysettingsitem.cpp" line="148"/>
         <source>None</source>
         <translation>Cap</translation>
     </message>
     <message>
-        <location filename="../src/widgets/keysettingsitem.cpp" line="43"/>
+        <location filename="../src/widgets/keysettingsitem.cpp" line="44"/>
         <source>Enter a new shortcut</source>
         <translation>Introduïu una drecera nova</translation>
     </message>

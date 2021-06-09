@@ -56,6 +56,7 @@ void Fcitx_IMSettingsItem::setFcitxItem(const FcitxQtInputMethodItem &item)
 {
     m_item = item;
     m_labelText->setShortenText(m_item.name());
+    setAccessibleName(m_item.name());
 }
 
 void Fcitx_IMSettingsItem::setFilterStr(QString str)
