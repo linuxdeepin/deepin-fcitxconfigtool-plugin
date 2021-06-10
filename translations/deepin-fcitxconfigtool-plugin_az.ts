@@ -43,15 +43,14 @@
         <translation>Tətbiq Mağazasında daha çox tapın</translation>
     </message>
     <message>
+        <location filename="../src/window/imaddwindow.cpp" line="89"/>
         <location filename="../src/window/imaddwindow.cpp" line="90"/>
-        <location filename="../src/window/imaddwindow.cpp" line="91"/>
         <source>Add</source>
         <translation>Əlavə edin</translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="83"/>
+        <location filename="../src/window/imaddwindow.cpp" line="91"/>
         <location filename="../src/window/imaddwindow.cpp" line="92"/>
-        <location filename="../src/window/imaddwindow.cpp" line="93"/>
         <source>Cancel</source>
         <translation>İmtina</translation>
     </message>

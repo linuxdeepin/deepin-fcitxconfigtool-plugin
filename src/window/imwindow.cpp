@@ -93,6 +93,7 @@ IMWindow::~IMWindow()
 //    DeleteObject_Null(m_addWindow);
 //    DeleteObject_Null(m_shortcutKeyWindow);
     DeleteObject_Null(m_pLayout);
+    QAccessible::removeFactory(accessibleFactory);
 }
 
 void IMWindow::initFcitxInterface()

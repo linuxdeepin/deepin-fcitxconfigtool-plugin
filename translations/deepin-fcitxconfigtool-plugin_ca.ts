@@ -43,15 +43,14 @@
         <translation>Trobeu-ne més a la Botiga d&apos;aplicacions</translation>
     </message>
     <message>
+        <location filename="../src/window/imaddwindow.cpp" line="89"/>
         <location filename="../src/window/imaddwindow.cpp" line="90"/>
-        <location filename="../src/window/imaddwindow.cpp" line="91"/>
         <source>Add</source>
         <translation>Afegeix</translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="83"/>
+        <location filename="../src/window/imaddwindow.cpp" line="91"/>
         <location filename="../src/window/imaddwindow.cpp" line="92"/>
-        <location filename="../src/window/imaddwindow.cpp" line="93"/>
         <source>Cancel</source>
         <translation>Cancel·la</translation>
     </message>

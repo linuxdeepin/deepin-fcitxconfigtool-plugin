@@ -43,15 +43,14 @@
         <translation>További megoldásokat az Áruházban talál</translation>
     </message>
     <message>
+        <location filename="../src/window/imaddwindow.cpp" line="89"/>
         <location filename="../src/window/imaddwindow.cpp" line="90"/>
-        <location filename="../src/window/imaddwindow.cpp" line="91"/>
         <source>Add</source>
         <translation>Hozzáadás</translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="83"/>
+        <location filename="../src/window/imaddwindow.cpp" line="91"/>
         <location filename="../src/window/imaddwindow.cpp" line="92"/>
-        <location filename="../src/window/imaddwindow.cpp" line="93"/>
         <source>Cancel</source>
         <translation>Mégsem</translation>
     </message>
