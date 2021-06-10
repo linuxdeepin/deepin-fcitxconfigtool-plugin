@@ -93,7 +93,9 @@ IMWindow::~IMWindow()
 //    DeleteObject_Null(m_addWindow);
 //    DeleteObject_Null(m_shortcutKeyWindow);
     DeleteObject_Null(m_pLayout);
+#ifndef USE_GOOGLETEST
     QAccessible::removeFactory(accessibleFactory);
+#endif
 }
 
 void IMWindow::initFcitxInterface()
@@ -106,9 +108,11 @@ void IMWindow::initFcitxInterface()
     if (!Fcitx::Global::instance()->inputMethodProxy()) {
         QProcess::startDetached("fcitx -r");
     }
-
     // 安装工厂
+#ifndef USE_GOOGLETEST
     QAccessible::installFactory(accessibleFactory);
+#endif
+
 }
 
 void IMWindow::initUI()

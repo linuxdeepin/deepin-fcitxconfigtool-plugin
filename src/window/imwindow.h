@@ -45,6 +45,7 @@ private:
     void initUI(); //初始化界面
     void initConnect(); //初始化信号槽
     void initFcitxInterface(); //初始化fcitx接口
+
 private:
     QStackedWidget *m_stackedWidget {nullptr}; //栈窗口
     IMSettingWindow *m_settingWindow {nullptr}; //输入法编辑窗口
