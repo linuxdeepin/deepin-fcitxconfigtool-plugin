@@ -32,6 +32,7 @@
 using namespace Fcitx;
 using namespace dcc_fcitx_configtool::widgets;
 bool operator==(const FcitxQtInputMethodItem &item, const FcitxQtInputMethodItem &item2);
+
 // kcm代码 获取语言名称 简体中文 繁体中文 英文等 需要优化
 QString languageName(const QString &langCode)
 {
