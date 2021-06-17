@@ -1,13 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="de">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="de" version="2.1">
 <context>
     <name>FcitxConfigPlugin</name>
     <message>
         <location filename="../src/fcitxconfigplugin.cpp" line="86"/>
         <location filename="../src/fcitxconfigplugin.cpp" line="92"/>
         <source>Input Methods</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
 </context>
@@ -40,7 +38,7 @@
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="81"/>
         <source>Find more in App Store</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="89"/>
@@ -71,6 +69,10 @@
         <translation type="vanished">Auf Standard-Eingabemethode wechseln</translation>
     </message>
     <message>
+        <source>Call out Onboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Applies to</source>
         <translation type="vanished">Gültig für</translation>
     </message>
@@ -89,7 +91,7 @@
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="121"/>
         <source>Switch to the first input method</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="139"/>

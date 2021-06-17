@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="sq">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="sq" version="2.1">
 <context>
     <name>FcitxConfigPlugin</name>
     <message>
@@ -71,6 +69,10 @@
         <translation type="vanished">Kalo te metoda parazgjedhje e dhënieve</translation>
     </message>
     <message>
+        <source>Call out Onboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Applies to</source>
         <translation type="vanished">Vlen për</translation>
     </message>
@@ -89,7 +91,7 @@
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="121"/>
         <source>Switch to the first input method</source>
-        <translation type="unfinished"></translation>
+        <translation>Kalo te metoda e parë e dhënieve</translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="139"/>

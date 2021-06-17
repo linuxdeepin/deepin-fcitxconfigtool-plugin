@@ -1,13 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="pt">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="pt" version="2.1">
 <context>
     <name>FcitxConfigPlugin</name>
     <message>
         <location filename="../src/fcitxconfigplugin.cpp" line="86"/>
         <location filename="../src/fcitxconfigplugin.cpp" line="92"/>
         <source>Input Methods</source>
-        <translation>Métodos de introdução</translation>
+        <translation>Métodos de entrada</translation>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
 </context>
@@ -30,7 +28,7 @@
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="61"/>
         <source>Add Input Method</source>
-        <translation>Adicionar método de introdução</translation>
+        <translation>Adicionar método de entrada</translation>
     </message>
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="70"/>
@@ -64,11 +62,11 @@
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="118"/>
         <source>Switch input methods</source>
-        <translation>Alternar métodos de introdução</translation>
+        <translation>Mudar métodos de entrada</translation>
     </message>
     <message>
         <source>Switch to default input method</source>
-        <translation type="vanished">Trocar para o método de introdução predefinido</translation>
+        <translation type="vanished">Mudar para o método de entrada predefinido</translation>
     </message>
     <message>
         <source>Call out Onboard</source>
@@ -88,17 +86,17 @@
     </message>
     <message>
         <source>Input Method</source>
-        <translation type="vanished">Método de introdução</translation>
+        <translation type="vanished">Método de entrada</translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="121"/>
         <source>Switch to the first input method</source>
-        <translation type="unfinished"></translation>
+        <translation>Mudar para o primeiro método de entrada</translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="139"/>
         <source>Manage Input Methods</source>
-        <translation>Gerir métodos de introdução</translation>
+        <translation>Gerir métodos de entrada</translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="143"/>

@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="it">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="it" version="2.1">
 <context>
     <name>FcitxConfigPlugin</name>
     <message>
@@ -93,7 +91,7 @@
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="121"/>
         <source>Switch to the first input method</source>
-        <translation type="unfinished"></translation>
+        <translation>Cambia il metodo di input predefinito</translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="139"/>
