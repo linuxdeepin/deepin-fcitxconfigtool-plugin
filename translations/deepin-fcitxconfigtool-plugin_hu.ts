@@ -28,29 +28,29 @@
 <context>
     <name>IMAddWindow</name>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="61"/>
+        <location filename="../src/window/imaddwindow.cpp" line="60"/>
         <source>Add Input Method</source>
         <translation>Beviteli mód hozzáadása</translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="70"/>
+        <location filename="../src/window/imaddwindow.cpp" line="69"/>
         <source>Search</source>
         <translation>Keresés</translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="81"/>
+        <location filename="../src/window/imaddwindow.cpp" line="80"/>
         <source>Find more in App Store</source>
         <translation>További megoldásokat az Áruházban talál</translation>
     </message>
     <message>
+        <location filename="../src/window/imaddwindow.cpp" line="88"/>
         <location filename="../src/window/imaddwindow.cpp" line="89"/>
-        <location filename="../src/window/imaddwindow.cpp" line="90"/>
         <source>Add</source>
         <translation>Hozzáadás</translation>
     </message>
     <message>
+        <location filename="../src/window/imaddwindow.cpp" line="90"/>
         <location filename="../src/window/imaddwindow.cpp" line="91"/>
-        <location filename="../src/window/imaddwindow.cpp" line="92"/>
         <source>Cancel</source>
         <translation>Mégsem</translation>
     </message>
@@ -91,17 +91,17 @@
         <translation type="vanished">Beviteli mód</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="121"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="122"/>
         <source>Switch to the first input method</source>
-        <translation type="unfinished"></translation>
+        <translation>Váltson az első beviteli módra</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="139"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="140"/>
         <source>Manage Input Methods</source>
         <translation>Beviteli módok kezelése</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="143"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="144"/>
         <source>Shortcuts</source>
         <translation>Gyorsbillentyűk</translation>
     </message>

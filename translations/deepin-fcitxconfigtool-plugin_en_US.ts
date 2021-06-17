@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="en_US">
+<TS version="2.0" language="en_US">
 <context>
     <name>FcitxConfigPlugin</name>
     <message>
@@ -28,29 +28,29 @@
 <context>
     <name>IMAddWindow</name>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="61"/>
+        <location filename="../src/window/imaddwindow.cpp" line="60"/>
         <source>Add Input Method</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="70"/>
+        <location filename="../src/window/imaddwindow.cpp" line="69"/>
         <source>Search</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="81"/>
+        <location filename="../src/window/imaddwindow.cpp" line="80"/>
         <source>Find more in App Store</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../src/window/imaddwindow.cpp" line="88"/>
         <location filename="../src/window/imaddwindow.cpp" line="89"/>
-        <location filename="../src/window/imaddwindow.cpp" line="90"/>
         <source>Add</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../src/window/imaddwindow.cpp" line="90"/>
         <location filename="../src/window/imaddwindow.cpp" line="91"/>
-        <location filename="../src/window/imaddwindow.cpp" line="92"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
@@ -63,17 +63,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="121"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="122"/>
         <source>Switch to the first input method</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="139"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="140"/>
         <source>Manage Input Methods</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="143"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="144"/>
         <source>Shortcuts</source>
         <translation type="unfinished"></translation>
     </message>

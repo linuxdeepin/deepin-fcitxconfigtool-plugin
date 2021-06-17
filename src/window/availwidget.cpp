@@ -77,7 +77,8 @@ AvailWidget::AvailWidget(QWidget *parent)
     : QWidget(parent)
 {
     initUI();
-    onUpdateUI(IMModel::instance()->getAvailIMList());
+//    onUpdateUI(IMModel::instance()->getAvailIMList());
+    QTimer::singleShot(200, this, SLOT(updateUI()));
     initConnect();
 }
 
@@ -118,6 +119,11 @@ void AvailWidget::initUI()
 void AvailWidget::initConnect()
 {
     connect(IMModel::instance(), &IMModel::availIMListChanged, this, &AvailWidget::onUpdateUI);
+}
+
+void AvailWidget::updateUI()
+{
+    onUpdateUI(IMModel::instance()->getAvailIMList());
 }
 
 void AvailWidget::onUpdateUI(FcitxQtInputMethodItemList IMlist)

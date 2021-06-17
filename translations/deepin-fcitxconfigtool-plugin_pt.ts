@@ -7,7 +7,7 @@
         <location filename="../src/fcitxconfigplugin.cpp" line="86"/>
         <location filename="../src/fcitxconfigplugin.cpp" line="92"/>
         <source>Input Methods</source>
-        <translation>Métodos de introdução</translation>
+        <translation>Métodos de entrada</translation>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
 </context>
@@ -28,29 +28,29 @@
 <context>
     <name>IMAddWindow</name>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="61"/>
+        <location filename="../src/window/imaddwindow.cpp" line="60"/>
         <source>Add Input Method</source>
-        <translation>Adicionar método de introdução</translation>
+        <translation>Adicionar método de entrada</translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="70"/>
+        <location filename="../src/window/imaddwindow.cpp" line="69"/>
         <source>Search</source>
         <translation>Pesquisar</translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="81"/>
+        <location filename="../src/window/imaddwindow.cpp" line="80"/>
         <source>Find more in App Store</source>
         <translation>Descubra mais na Loja de Aplicações</translation>
     </message>
     <message>
+        <location filename="../src/window/imaddwindow.cpp" line="88"/>
         <location filename="../src/window/imaddwindow.cpp" line="89"/>
-        <location filename="../src/window/imaddwindow.cpp" line="90"/>
         <source>Add</source>
         <translation>Adicionar</translation>
     </message>
     <message>
+        <location filename="../src/window/imaddwindow.cpp" line="90"/>
         <location filename="../src/window/imaddwindow.cpp" line="91"/>
-        <location filename="../src/window/imaddwindow.cpp" line="92"/>
         <source>Cancel</source>
         <translation>Cancelar</translation>
     </message>
@@ -64,11 +64,11 @@
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="118"/>
         <source>Switch input methods</source>
-        <translation>Alternar métodos de introdução</translation>
+        <translation>Mudar métodos de entrada</translation>
     </message>
     <message>
         <source>Switch to default input method</source>
-        <translation type="vanished">Trocar para o método de introdução predefinido</translation>
+        <translation type="vanished">Mudar para o método de entrada predefinido</translation>
     </message>
     <message>
         <source>Call out Onboard</source>
@@ -88,20 +88,20 @@
     </message>
     <message>
         <source>Input Method</source>
-        <translation type="vanished">Método de introdução</translation>
+        <translation type="vanished">Método de entrada</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="121"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="122"/>
         <source>Switch to the first input method</source>
-        <translation type="unfinished"></translation>
+        <translation>Mudar para o primeiro método de entrada</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="139"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="140"/>
         <source>Manage Input Methods</source>
-        <translation>Gerir métodos de introdução</translation>
+        <translation>Gerir métodos de entrada</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="143"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="144"/>
         <source>Shortcuts</source>
         <translation>Atalhos</translation>
     </message>

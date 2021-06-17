@@ -28,29 +28,29 @@
 <context>
     <name>IMAddWindow</name>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="61"/>
+        <location filename="../src/window/imaddwindow.cpp" line="60"/>
         <source>Add Input Method</source>
         <translation>Aggiungi metodi di input</translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="70"/>
+        <location filename="../src/window/imaddwindow.cpp" line="69"/>
         <source>Search</source>
         <translation>Cerca</translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="81"/>
+        <location filename="../src/window/imaddwindow.cpp" line="80"/>
         <source>Find more in App Store</source>
         <translation>Prosegui la ricerca nell&apos;App Store</translation>
     </message>
     <message>
+        <location filename="../src/window/imaddwindow.cpp" line="88"/>
         <location filename="../src/window/imaddwindow.cpp" line="89"/>
-        <location filename="../src/window/imaddwindow.cpp" line="90"/>
         <source>Add</source>
         <translation>Aggiungi</translation>
     </message>
     <message>
+        <location filename="../src/window/imaddwindow.cpp" line="90"/>
         <location filename="../src/window/imaddwindow.cpp" line="91"/>
-        <location filename="../src/window/imaddwindow.cpp" line="92"/>
         <source>Cancel</source>
         <translation>Annulla</translation>
     </message>
@@ -91,17 +91,17 @@
         <translation type="vanished">Metodo di input</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="121"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="122"/>
         <source>Switch to the first input method</source>
-        <translation type="unfinished"></translation>
+        <translation>Cambia il metodo di input predefinito</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="139"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="140"/>
         <source>Manage Input Methods</source>
         <translation>Gestisci metodi di input</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="143"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="144"/>
         <source>Shortcuts</source>
         <translation>Scorciatoie</translation>
     </message>

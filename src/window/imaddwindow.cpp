@@ -25,7 +25,6 @@
 #include "immodel/immodel.h"
 #include "widgets/titlelabel.h"
 #include "widgets/buttontuple.h"
-
 #include <DCommandLinkButton>
 #include <DSearchEdit>
 #include <DFontSizeManager>
@@ -135,5 +134,7 @@ void IMAddWindow::onAddIM()
 
 void IMAddWindow::onOpenStore()
 {
-    QProcess::startDetached("deepin-app-store");
+    QProcess p;
+    p.start("sh -c deepin-app-store");
+    p.waitForFinished(10);
 }
