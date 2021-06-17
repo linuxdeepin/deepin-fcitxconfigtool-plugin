@@ -1,8 +1,15 @@
+
+deepin-fcitxconfigtool-plugin (0.1.35) unstable; urgency=medium
+
+ * 1040 集成版本
+
+ -- <chenshijie@uniontech.com> Thu Jun 17 10:00:00 2021 +0800
+
 deepin-fcitxconfigtool-plugin (0.1.9) unstable; urgency=medium
 
  * 除整体逻辑外功能部分大体完毕
 
- -- <chenshijie@uniontech.com> Thur, 4 Mar 2021 09:39:00 +0800
+ -- <chenshijie@uniontech.com> Thu, 4 Mar 2021 09:39:00 +0800
 
 deepin-fcitxconfigtool-plugin (0.1.2) unstable; urgency=medium
 
