@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="hr" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="hr">
 <context>
     <name>FcitxConfigPlugin</name>
     <message>
@@ -69,14 +71,6 @@
         <translation type="vanished">Prebaci na zadani način unosa</translation>
     </message>
     <message>
-        <source>Call out Onboard</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Applies to</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>System</source>
         <translation type="vanished">Sustav</translation>
     </message>
@@ -125,7 +119,7 @@
     <message>
         <location filename="../src/window/shortcutkeywindow.cpp" line="54"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

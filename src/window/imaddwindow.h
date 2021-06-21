@@ -23,6 +23,7 @@
 
 #include <QVBoxLayout>
 #include <QWidget>
+#include <QProcess>
 #include <fcitxqtinputmethoditem.h>
 namespace dcc_fcitx_configtool {
 namespace widgets {

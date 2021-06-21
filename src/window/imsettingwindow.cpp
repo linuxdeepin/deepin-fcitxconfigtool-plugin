@@ -116,6 +116,7 @@ void IMSettingWindow::initUI()
     m_shortcutGroup->setSpacing(2);
 
     m_imSwitchCbox = new Fcitx_ComBoboxSettingsItem(tr("Switch input methods"), {"CTRL_SHIFT", "ALT_SHIFT", "CTRL_SUPER", "ALT_SUPER"});
+    m_imSwitchCbox->comboBox()->setAccessibleName("Switch input methods");
     //    m_defaultIMKey = new Fcitx_KeySettingsItem(tr("Switch to the first input method"));
 //    m_imSwitchKey = new Fcitx_KeySettingsItem(tr("Switch input methods"));
     m_defaultIMKey = new Fcitx_KeySettingsItem(tr("Switch to the first input method"));

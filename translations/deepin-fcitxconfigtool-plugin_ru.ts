@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="ru" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="ru">
 <context>
     <name>FcitxConfigPlugin</name>
     <message>
@@ -69,10 +71,6 @@
         <translation type="vanished">Переключить на метод ввода по умолчанию</translation>
     </message>
     <message>
-        <source>Call out Onboard</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Applies to</source>
         <translation type="vanished">Применить к</translation>
     </message>
@@ -91,12 +89,12 @@
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="121"/>
         <source>Switch to the first input method</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="139"/>
         <source>Manage Input Methods</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="143"/>

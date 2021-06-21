@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="sq" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="sq">
 <context>
     <name>FcitxConfigPlugin</name>
     <message>
@@ -67,10 +69,6 @@
     <message>
         <source>Switch to default input method</source>
         <translation type="vanished">Kalo te metoda parazgjedhje e dhënieve</translation>
-    </message>
-    <message>
-        <source>Call out Onboard</source>
-        <translation type="unfinished"/>
     </message>
     <message>
         <source>Applies to</source>
