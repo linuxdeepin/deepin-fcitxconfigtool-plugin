@@ -38,7 +38,7 @@
 QAccessibleInterface *accessibleFactory(const QString &classname, QObject *object)
 {
     QAccessibleInterface *interface = nullptr;
-
+#ifndef USE_GOOGLETEST
     if (object && object->isWidgetType()) {
         if (classname == "QLabel")
             interface = new AccessibleLabel(qobject_cast<QLabel *>(object));
@@ -73,7 +73,7 @@ QAccessibleInterface *accessibleFactory(const QString &classname, QObject *objec
         if (classname == "Fcitx_TitleLabel")
             interface = new AccessibleTitleLabel(qobject_cast<Fcitx_TitleLabel *>(object));
     }
-
+#endif
     return interface;
 }
 
