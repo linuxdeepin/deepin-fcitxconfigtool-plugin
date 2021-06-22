@@ -55,8 +55,8 @@ TEST_F(ut_imwindow, initConnect)
     imwindow.initConnect();
 }
 
-TEST_F(ut_imwindow, initFcitxInterface)
-{
-    IMWindow imwindow;
-    imwindow.initFcitxInterface();
-}
+//TEST_F(ut_imwindow, initFcitxInterface)
+//{
+//    IMWindow imwindow;
+//    imwindow.initFcitxInterface();
+//}
