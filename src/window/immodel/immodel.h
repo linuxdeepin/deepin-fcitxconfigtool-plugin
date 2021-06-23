@@ -62,6 +62,8 @@ public slots:
     void onItemUp(FcitxQtInputMethodItem item); //item上移
     void onItemDown(FcitxQtInputMethodItem item); //item下移
     void onConfigShow(const FcitxQtInputMethodItem &item); //显示输入法设置界面
+    void addIMItem();
+
 signals:
     void availIMListChanged(FcitxQtInputMethodItemList);
     void curIMListChanaged(FcitxQtInputMethodItemList);

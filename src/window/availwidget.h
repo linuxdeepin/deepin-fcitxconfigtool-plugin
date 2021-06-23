@@ -42,6 +42,7 @@ public:
 public slots:
     void onSearchIM(const QString &str); //搜索输入法
     void onUpdateUI(FcitxQtInputMethodItemList); //更新界面
+    void updateUI(); //更新界面
 signals:
     void seleteIM(bool); //选中状态信号 true 选中 false 未选中
 
