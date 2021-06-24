@@ -29,6 +29,8 @@
 #include <DSearchEdit>
 #include <DFontSizeManager>
 #include <QProcess>
+#include <QTimer>
+
 using namespace dcc_fcitx_configtool::widgets;
 
 IMAddWindow::IMAddWindow(QWidget *parent)
@@ -118,12 +120,17 @@ void IMAddWindow::initConnect()
 
 void IMAddWindow::updateUI()
 {
+    QTimer::singleShot(1, this, [&](){
+        m_availWidget->updateUI();
+        m_availWidget->clearItemStatus();
+
+    });
+
     m_buttonTuple->rightButton()->setEnabled(false);
     m_buttonTuple->leftButton()->setDefault(true);
     if (!m_searchLEdit->text().isEmpty()) {
         m_searchLEdit->clear();
     }
-    m_availWidget->clearItemStatus();
 }
 
 void IMAddWindow::onAddIM()

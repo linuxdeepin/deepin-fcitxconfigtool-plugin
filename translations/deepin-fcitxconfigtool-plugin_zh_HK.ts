@@ -4,8 +4,8 @@
 <context>
     <name>FcitxConfigPlugin</name>
     <message>
-        <location filename="../src/fcitxconfigplugin.cpp" line="86"/>
-        <location filename="../src/fcitxconfigplugin.cpp" line="92"/>
+        <location filename="../src/fcitxconfigplugin.cpp" line="88"/>
+        <location filename="../src/fcitxconfigplugin.cpp" line="94"/>
         <source>Input Methods</source>
         <translation>輸入法</translation>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
