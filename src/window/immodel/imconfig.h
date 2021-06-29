@@ -22,12 +22,12 @@
 #define IMCONFIG_H
 #include <QString>
 
-struct Fcitx_ShortcutInfo {
+struct FcitxShortcutInfo {
     QString accels;
     QString id;
     QString name;
     int type;
-    bool operator==(const Fcitx_ShortcutInfo &info) const
+    bool operator==(const FcitxShortcutInfo &info) const
     {
         return id == info.id && type == info.type;
     }
@@ -53,7 +53,7 @@ public:
     static QString IMPluginKey(const QString &);
     static QString IMPluginPar(const QString &);
 
-    static Fcitx_ShortcutInfo findIdKey(const QString &);
+    static FcitxShortcutInfo findIdKey(const QString &);
 
     static bool checkShortKey(const QStringList &str, QString &configName);
     static bool checkShortKey(const QString &str, QString &configName);

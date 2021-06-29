@@ -35,14 +35,14 @@
 namespace dcc_fcitx_configtool {
 namespace widgets {
 
-class Fcitx_SettingsHeaderItem : public Fcitx_SettingsItem
+class FcitxSettingsHeaderItem : public FcitxSettingsItem
 {
     Q_OBJECT
 
 public:
-    explicit Fcitx_SettingsHeaderItem(QWidget *parent = 0);
+    explicit FcitxSettingsHeaderItem(QWidget *parent = 0);
 
-    Fcitx_TitleLabel *textLabel() { return m_headerText; }
+    FcitxTitleLabel *textLabel() { return m_headerText; }
     QHBoxLayout *layout() const { return m_mainLayout; }
 
     void setTitle(const QString &title);
@@ -50,7 +50,7 @@ public:
 
 private:
     QHBoxLayout *m_mainLayout;
-    Fcitx_TitleLabel *m_headerText;
+    FcitxTitleLabel *m_headerText;
 };
 
 } // namespace widgets

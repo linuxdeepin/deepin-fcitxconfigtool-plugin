@@ -208,7 +208,7 @@ QString AccessibleComboBox::text(int startOffset, int endOffset) const
     return AccessibleWidget::text(startOffset, endOffset);
 }
 
-AccessibleKeyLabelWidget::AccessibleKeyLabelWidget(dcc_fcitx_configtool::widgets::Fcitx_KeyLabelWidget *keylablewidget)
+AccessibleKeyLabelWidget::AccessibleKeyLabelWidget(dcc_fcitx_configtool::widgets::FcitxKeyLabelWidget *keylablewidget)
     : AccessibleWidget(keylablewidget)
     , m_keylablewidget(keylablewidget)
 {
@@ -228,7 +228,7 @@ QString AccessibleKeyLabelWidget::text(int startOffset, int endOffset) const
     return AccessibleKeyLabelWidget::text(startOffset, endOffset);
 }
 
-AccessibleComBoboxSettingsItem::AccessibleComBoboxSettingsItem(dcc_fcitx_configtool::widgets::Fcitx_ComBoboxSettingsItem *comboboxsettingsitem)
+AccessibleComBoboxSettingsItem::AccessibleComBoboxSettingsItem(dcc_fcitx_configtool::widgets::FcitxComBoboxSettingsItem *comboboxsettingsitem)
     : AccessibleWidget(comboboxsettingsitem)
     , m_comboboxsettingsitem(comboboxsettingsitem)
 {
@@ -248,7 +248,7 @@ QString AccessibleComBoboxSettingsItem::text(int startOffset, int endOffset) con
     return AccessibleComBoboxSettingsItem::text(startOffset, endOffset);
 }
 
-AccessibleKeySettingsItem::AccessibleKeySettingsItem(dcc_fcitx_configtool::widgets::Fcitx_KeySettingsItem *keysettingsitem)
+AccessibleKeySettingsItem::AccessibleKeySettingsItem(dcc_fcitx_configtool::widgets::FcitxKeySettingsItem *keysettingsitem)
     : AccessibleWidget(keysettingsitem)
     , m_keysettingsitem(keysettingsitem)
 {
@@ -329,7 +329,7 @@ QString AccessibleDCommandLinkButton::text(int startOffset, int endOffset) const
 }
 
 
-AccessibleTitleLabel::AccessibleTitleLabel(Fcitx_TitleLabel *label)
+AccessibleTitleLabel::AccessibleTitleLabel(FcitxTitleLabel *label)
     : AccessibleWidget(label)
     , m_label(label)
 {

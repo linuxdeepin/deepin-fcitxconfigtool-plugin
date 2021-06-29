@@ -24,12 +24,12 @@
 
 #include <QLabel>
 
-class Fcitx_TitleLabel : public QLabel
+class FcitxTitleLabel : public QLabel
 {
     Q_OBJECT
 public:
-    Fcitx_TitleLabel(QWidget *parent = nullptr, Qt::WindowFlags f = Qt::WindowFlags());
-    Fcitx_TitleLabel(const QString &text, QWidget *parent = nullptr, Qt::WindowFlags f = Qt::WindowFlags());
+    FcitxTitleLabel(QWidget *parent = nullptr, Qt::WindowFlags f = Qt::WindowFlags());
+    FcitxTitleLabel(const QString &text, QWidget *parent = nullptr, Qt::WindowFlags f = Qt::WindowFlags());
 
 protected:
     bool event(QEvent *e) override;

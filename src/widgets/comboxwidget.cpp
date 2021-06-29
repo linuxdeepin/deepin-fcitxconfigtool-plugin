@@ -32,9 +32,9 @@
 namespace dcc_fcitx_configtool {
 namespace widgets {
 
-Fcitx_ComboxWidget::Fcitx_ComboxWidget(QFrame *parent)
-//    : Fcitx_ComboxWidget(new QLabel, parent)
-    : Fcitx_SettingsItem(parent)
+FcitxComboxWidget::FcitxComboxWidget(QFrame *parent)
+//    : FcitxComboxWidget(new QLabel, parent)
+    : FcitxSettingsItem(parent)
     , m_leftWidget(new QLabel)
     , m_switchComboBox(new QComboBox)
     , m_str("")
@@ -54,16 +54,16 @@ Fcitx_ComboxWidget::Fcitx_ComboxWidget(QFrame *parent)
     m_leftWidget->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
     setLayout(mainLayout);
 
-    connect(m_switchComboBox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &Fcitx_ComboxWidget::onIndexChanged);
-    connect(m_switchComboBox, &QComboBox::currentTextChanged, this, &Fcitx_ComboxWidget::onSelectChanged);
+    connect(m_switchComboBox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &FcitxComboxWidget::onIndexChanged);
+    connect(m_switchComboBox, &QComboBox::currentTextChanged, this, &FcitxComboxWidget::onSelectChanged);
     connect(m_switchComboBox, &QComboBox::currentTextChanged, this, [this] {
         Q_EMIT dataChanged(m_switchComboBox->currentData());
     });
 }
 
-Fcitx_ComboxWidget::Fcitx_ComboxWidget(const QString &title, QFrame *parent)
-//    : Fcitx_ComboxWidget(new QLabel(title), parent)
-    : Fcitx_SettingsItem(parent)
+FcitxComboxWidget::FcitxComboxWidget(const QString &title, QFrame *parent)
+//    : FcitxComboxWidget(new QLabel(title), parent)
+    : FcitxSettingsItem(parent)
     , m_leftWidget(new QLabel(title))
     , m_switchComboBox(new QComboBox)
     , m_str("")
@@ -83,15 +83,15 @@ Fcitx_ComboxWidget::Fcitx_ComboxWidget(const QString &title, QFrame *parent)
     m_leftWidget->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
     setLayout(mainLayout);
 
-    connect(m_switchComboBox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &Fcitx_ComboxWidget::onIndexChanged);
-    connect(m_switchComboBox, &QComboBox::currentTextChanged, this, &Fcitx_ComboxWidget::onSelectChanged);
+    connect(m_switchComboBox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &FcitxComboxWidget::onIndexChanged);
+    connect(m_switchComboBox, &QComboBox::currentTextChanged, this, &FcitxComboxWidget::onSelectChanged);
     connect(m_switchComboBox, &QComboBox::currentTextChanged, this, [this] {
         Q_EMIT dataChanged(m_switchComboBox->currentData());
     });
 }
 
-Fcitx_ComboxWidget::Fcitx_ComboxWidget(QWidget *widget, QFrame *parent)
-    : Fcitx_SettingsItem(parent)
+FcitxComboxWidget::FcitxComboxWidget(QWidget *widget, QFrame *parent)
+    : FcitxSettingsItem(parent)
     , m_leftWidget(widget)
     , m_switchComboBox(new QComboBox)
     , m_str("")
@@ -111,14 +111,14 @@ Fcitx_ComboxWidget::Fcitx_ComboxWidget(QWidget *widget, QFrame *parent)
     m_leftWidget->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
     setLayout(mainLayout);
 
-    connect(m_switchComboBox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &Fcitx_ComboxWidget::onIndexChanged);
-    connect(m_switchComboBox, &QComboBox::currentTextChanged, this, &Fcitx_ComboxWidget::onSelectChanged);
+    connect(m_switchComboBox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &FcitxComboxWidget::onIndexChanged);
+    connect(m_switchComboBox, &QComboBox::currentTextChanged, this, &FcitxComboxWidget::onSelectChanged);
     connect(m_switchComboBox, &QComboBox::currentTextChanged, this, [this] {
         Q_EMIT dataChanged(m_switchComboBox->currentData());
     });
 }
 
-void Fcitx_ComboxWidget::setComboxOption(const QStringList &options)
+void FcitxComboxWidget::setComboxOption(const QStringList &options)
 {
     m_switchComboBox->blockSignals(true);
     for (QString item : options) {
@@ -127,14 +127,14 @@ void Fcitx_ComboxWidget::setComboxOption(const QStringList &options)
     m_switchComboBox->blockSignals(false);
 }
 
-void Fcitx_ComboxWidget::setCurrentText(const QString &curText)
+void FcitxComboxWidget::setCurrentText(const QString &curText)
 {
     m_switchComboBox->blockSignals(true);
     m_switchComboBox->setCurrentText(curText);
     m_switchComboBox->blockSignals(false);
 }
 
-void Fcitx_ComboxWidget::setTitle(const QString &title)
+void FcitxComboxWidget::setTitle(const QString &title)
 {
     QLabel *label = qobject_cast<QLabel *>(m_leftWidget);
     if (label) {
@@ -146,21 +146,21 @@ void Fcitx_ComboxWidget::setTitle(const QString &title)
     setAccessibleName(m_str);
 }
 
-QComboBox *Fcitx_ComboxWidget::comboBox()
+QComboBox *FcitxComboxWidget::comboBox()
 {
     return m_switchComboBox;
 }
 
-void Fcitx_ComboxWidget::mouseReleaseEvent(QMouseEvent *event)
+void FcitxComboxWidget::mouseReleaseEvent(QMouseEvent *event)
 {
     if (!m_switchComboBox->geometry().contains(event->pos())) {
         Q_EMIT clicked();
     }
 
-    return Fcitx_SettingsItem::mouseReleaseEvent(event);
+    return FcitxSettingsItem::mouseReleaseEvent(event);
 }
 
-void Fcitx_ComboxWidget::resizeEvent(QResizeEvent *event)
+void FcitxComboxWidget::resizeEvent(QResizeEvent *event)
 {
     Q_UNUSED(event);
     if (event->type() == QEvent::Resize) {
@@ -177,7 +177,7 @@ void Fcitx_ComboxWidget::resizeEvent(QResizeEvent *event)
             }
         }
     }
-    Fcitx_SettingsItem::resizeEvent(event);
+    FcitxSettingsItem::resizeEvent(event);
 }
 
 } // namespace widgets

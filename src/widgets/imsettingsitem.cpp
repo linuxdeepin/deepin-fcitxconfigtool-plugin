@@ -31,12 +31,12 @@
 DWIDGET_USE_NAMESPACE
 namespace dcc_fcitx_configtool {
 namespace widgets {
-Fcitx_IMSettingsItem::Fcitx_IMSettingsItem(QString str, QFrame *parent)
-    : Fcitx_SettingsItem(parent)
+FcitxIMSettingsItem::FcitxIMSettingsItem(QString str, QFrame *parent)
+    : FcitxSettingsItem(parent)
 {
     m_layout = new QHBoxLayout(this);
     m_layout->setContentsMargins(10, 0, 10, 0);
-    m_labelText = new Fcitx_ShortenLabel(str, this);
+    m_labelText = new FcitxShortenLabel(str, this);
     DFontSizeManager::instance()->bind(m_labelText, DFontSizeManager::T6);
     m_labelIcon = new QLabel(this);
     QIcon icon = DStyle::standardIcon(QApplication::style(), DStyle::SP_IndicatorChecked);
@@ -48,18 +48,18 @@ Fcitx_IMSettingsItem::Fcitx_IMSettingsItem(QString str, QFrame *parent)
     this->setLayout(m_layout);
 }
 
-Fcitx_IMSettingsItem::~Fcitx_IMSettingsItem()
+FcitxIMSettingsItem::~FcitxIMSettingsItem()
 {
 }
 
-void Fcitx_IMSettingsItem::setFcitxItem(const FcitxQtInputMethodItem &item)
+void FcitxIMSettingsItem::setFcitxItem(const FcitxQtInputMethodItem &item)
 {
     m_item = item;
     m_labelText->setShortenText(m_item.name());
     setAccessibleName(m_item.name());
 }
 
-void Fcitx_IMSettingsItem::setFilterStr(QString str)
+void FcitxIMSettingsItem::setFilterStr(QString str)
 {
     if (!(m_item.name().indexOf(str, Qt::CaseInsensitive) != -1
           || m_item.uniqueName().indexOf(str, Qt::CaseInsensitive) != -1
@@ -70,7 +70,7 @@ void Fcitx_IMSettingsItem::setFilterStr(QString str)
     }
 }
 
-void Fcitx_IMSettingsItem::setItemSelected(bool status)
+void FcitxIMSettingsItem::setItemSelected(bool status)
 {
     if (status) {
         m_labelIcon->show();
@@ -79,28 +79,28 @@ void Fcitx_IMSettingsItem::setItemSelected(bool status)
     }
 }
 
-void Fcitx_IMSettingsItem::mousePressEvent(QMouseEvent *event)
+void FcitxIMSettingsItem::mousePressEvent(QMouseEvent *event)
 {
     setItemSelected(true);
     emit itemClicked(this);
 
-    Fcitx_SettingsItem::mousePressEvent(event);
+    FcitxSettingsItem::mousePressEvent(event);
 }
 
-void Fcitx_IMSettingsItem::enterEvent(QEvent *event)
+void FcitxIMSettingsItem::enterEvent(QEvent *event)
 {
     if (m_bgGroup)
         m_bgGroup->setBackgroundRole(DPalette::ObviousBackground);
 
-    Fcitx_SettingsItem::enterEvent(event);
+    FcitxSettingsItem::enterEvent(event);
 }
 
-void Fcitx_IMSettingsItem::leaveEvent(QEvent *event)
+void FcitxIMSettingsItem::leaveEvent(QEvent *event)
 {
     if (m_bgGroup)
         m_bgGroup->setBackgroundRole(DPalette::ItemBackground);
 
-    Fcitx_SettingsItem::leaveEvent(event);
+    FcitxSettingsItem::leaveEvent(event);
 }
 
 } // namespace widgets

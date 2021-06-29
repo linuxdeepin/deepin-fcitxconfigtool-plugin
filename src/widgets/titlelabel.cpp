@@ -28,7 +28,7 @@
 
 DWIDGET_USE_NAMESPACE
 
-Fcitx_TitleLabel::Fcitx_TitleLabel(QWidget *parent, Qt::WindowFlags f)
+FcitxTitleLabel::FcitxTitleLabel(QWidget *parent, Qt::WindowFlags f)
     : QLabel(parent, f)
 {
     auto tf = this->font();
@@ -38,13 +38,13 @@ Fcitx_TitleLabel::Fcitx_TitleLabel(QWidget *parent, Qt::WindowFlags f)
     DFontSizeManager::instance()->bind(this, DFontSizeManager::T5);
 }
 
-Fcitx_TitleLabel::Fcitx_TitleLabel(const QString &text, QWidget *parent, Qt::WindowFlags f)
-    : Fcitx_TitleLabel(parent, f)
+FcitxTitleLabel::FcitxTitleLabel(const QString &text, QWidget *parent, Qt::WindowFlags f)
+    : FcitxTitleLabel(parent, f)
 {
     setText(text);
 }
 
-bool Fcitx_TitleLabel::event(QEvent *e)
+bool FcitxTitleLabel::event(QEvent *e)
 {
     if (e->type() == QEvent::ApplicationFontChange) {
         auto tf = this->font();

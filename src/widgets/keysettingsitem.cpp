@@ -29,7 +29,7 @@
 
 namespace dcc_fcitx_configtool {
 namespace widgets {
-Fcitx_KeyLabelWidget::Fcitx_KeyLabelWidget(QStringList list, QWidget *p)
+FcitxKeyLabelWidget::FcitxKeyLabelWidget(QStringList list, QWidget *p)
     : QWidget(p)
     , m_curlist(list)
 {
@@ -51,23 +51,23 @@ Fcitx_KeyLabelWidget::Fcitx_KeyLabelWidget(QStringList list, QWidget *p)
     setShortcutShow(true);
 }
 
-Fcitx_KeyLabelWidget::~Fcitx_KeyLabelWidget()
+FcitxKeyLabelWidget::~FcitxKeyLabelWidget()
 {
     clearShortcutKey();
 }
 
-void Fcitx_KeyLabelWidget::setKeyId(const QString &id)
+void FcitxKeyLabelWidget::setKeyId(const QString &id)
 {
     m_id = id;
 }
 
-void Fcitx_KeyLabelWidget::setList(const QStringList &list)
+void FcitxKeyLabelWidget::setList(const QStringList &list)
 {
     m_curlist = list;
     initLableList(m_curlist);
 }
 
-void Fcitx_KeyLabelWidget::initLableList(const QStringList &list)
+void FcitxKeyLabelWidget::initLableList(const QStringList &list)
 {
     clearShortcutKey();
     for (const QString &key : list) {
@@ -78,7 +78,7 @@ void Fcitx_KeyLabelWidget::initLableList(const QStringList &list)
         if (!tmpKey.isEmpty()) {
             tmpKey[0] = tmpKey[0].toUpper();
         }
-        Fcitx_KeyLabel *label = new Fcitx_KeyLabel(tmpKey);
+        FcitxKeyLabel *label = new FcitxKeyLabel(tmpKey);
         label->setAccessibleName(tmpKey);
         label->setBackgroundRole(DPalette::DarkLively);
         m_list << label;
@@ -87,7 +87,7 @@ void Fcitx_KeyLabelWidget::initLableList(const QStringList &list)
 
 }
 
-QString Fcitx_KeyLabelWidget::getKeyToStr()
+QString FcitxKeyLabelWidget::getKeyToStr()
 {
     QString key;
     for (int i = 0; i < m_list.count(); ++i) {
@@ -100,12 +100,12 @@ QString Fcitx_KeyLabelWidget::getKeyToStr()
     return key.toUpper();
 }
 
-void Fcitx_KeyLabelWidget::setEnableEdit(bool flag)
+void FcitxKeyLabelWidget::setEnableEdit(bool flag)
 {
     m_eidtFlag = flag;
 }
 
-void Fcitx_KeyLabelWidget::mousePressEvent(QMouseEvent *event)
+void FcitxKeyLabelWidget::mousePressEvent(QMouseEvent *event)
 {
     if (!m_eidtFlag)
         return;
@@ -113,7 +113,7 @@ void Fcitx_KeyLabelWidget::mousePressEvent(QMouseEvent *event)
     QWidget::mousePressEvent(event);
 }
 
-void Fcitx_KeyLabelWidget::resizeEvent(QResizeEvent *event)
+void FcitxKeyLabelWidget::resizeEvent(QResizeEvent *event)
 {
     if (!m_eidtFlag)
         return;
@@ -121,7 +121,7 @@ void Fcitx_KeyLabelWidget::resizeEvent(QResizeEvent *event)
     QWidget::resizeEvent(event);
 }
 
-bool Fcitx_KeyLabelWidget::eventFilter(QObject *watched, QEvent *event)
+bool FcitxKeyLabelWidget::eventFilter(QObject *watched, QEvent *event)
 {
     if (m_keyEdit == watched) {
         if (event->type() == QEvent::Hide || event->type() == QEvent::MouseButtonPress || event->type() == QEvent::FocusOut) {
@@ -161,7 +161,7 @@ bool Fcitx_KeyLabelWidget::eventFilter(QObject *watched, QEvent *event)
     return false;
 }
 
-void Fcitx_KeyLabelWidget::keyPressEvent(QKeyEvent *event)
+void FcitxKeyLabelWidget::keyPressEvent(QKeyEvent *event)
 {
     if (!m_eidtFlag)
         return;
@@ -180,7 +180,7 @@ void Fcitx_KeyLabelWidget::keyPressEvent(QKeyEvent *event)
     QWidget::keyPressEvent(event);
 }
 
-void Fcitx_KeyLabelWidget::keyReleaseEvent(QKeyEvent *event)
+void FcitxKeyLabelWidget::keyReleaseEvent(QKeyEvent *event)
 {
     if (!m_eidtFlag)
         return;
@@ -191,29 +191,29 @@ void Fcitx_KeyLabelWidget::keyReleaseEvent(QKeyEvent *event)
     //    QWidget::keyReleaseEvent(event);
 }
 
-void Fcitx_KeyLabelWidget::clearShortcutKey()
+void FcitxKeyLabelWidget::clearShortcutKey()
 {
-    for (Fcitx_KeyLabel *label : m_list) {
+    for (FcitxKeyLabel *label : m_list) {
         m_mainLayout->removeWidget(label);
         label->deleteLater();
     }
     m_list.clear();
 }
 
-void Fcitx_KeyLabelWidget::setShortcutShow(bool flag)
+void FcitxKeyLabelWidget::setShortcutShow(bool flag)
 {
     if (flag) {
         m_mainLayout->setContentsMargins(0, 9, 0, 9);
         m_keyEdit->hide();
         int w = 0;
-        for (Fcitx_KeyLabel *label : m_list) {
+        for (FcitxKeyLabel *label : m_list) {
             w += label->width() + 9;
             label->show();
         }
         setMaximumWidth(w);
 
     } else {
-        for (Fcitx_KeyLabel *label : m_list) {
+        for (FcitxKeyLabel *label : m_list) {
             label->hide();
         }
         m_mainLayout->setContentsMargins(0, 0, 0, 0);
@@ -225,7 +225,7 @@ void Fcitx_KeyLabelWidget::setShortcutShow(bool flag)
     update();
 }
 
-bool Fcitx_KeyLabelWidget::checkNewKey(bool isRelease)
+bool FcitxKeyLabelWidget::checkNewKey(bool isRelease)
 {
     QStringList list {publisherFunc::getKeyValue(Qt::Key_Control),
                       publisherFunc::getKeyValue(Qt::Key_Alt),
@@ -284,11 +284,11 @@ bool Fcitx_KeyLabelWidget::checkNewKey(bool isRelease)
     return true;
 }
 
-Fcitx_KeySettingsItem::Fcitx_KeySettingsItem(const QString &text, const QStringList &list, QFrame *parent)
-    : Fcitx_SettingsItem(parent)
+FcitxKeySettingsItem::FcitxKeySettingsItem(const QString &text, const QStringList &list, QFrame *parent)
+    : FcitxSettingsItem(parent)
 {
-    m_label = new Fcitx_ShortenLabel(text, this);
-    m_keyWidget = new Fcitx_KeyLabelWidget(list, parent);
+    m_label = new FcitxShortenLabel(text, this);
+    m_keyWidget = new FcitxKeyLabelWidget(list, parent);
     m_hLayout = new QHBoxLayout(this);
     m_hLayout->setContentsMargins(10, 0, 10, 0);
     m_hLayout->addWidget(m_label);
@@ -298,53 +298,53 @@ Fcitx_KeySettingsItem::Fcitx_KeySettingsItem(const QString &text, const QStringL
     setFixedHeight(48);
     setAccessibleName(text);
     setLayout(m_hLayout);
-    connect(m_keyWidget, &Fcitx_KeyLabelWidget::editedFinish, this, &Fcitx_KeySettingsItem::editedFinish);
-    connect(m_keyWidget, &Fcitx_KeyLabelWidget::shortCutError, this, &Fcitx_KeySettingsItem::doShortCutError);
+    connect(m_keyWidget, &FcitxKeyLabelWidget::editedFinish, this, &FcitxKeySettingsItem::editedFinish);
+    connect(m_keyWidget, &FcitxKeyLabelWidget::shortCutError, this, &FcitxKeySettingsItem::doShortCutError);
 }
 
-void Fcitx_KeySettingsItem::setText(const QString &text)
+void FcitxKeySettingsItem::setText(const QString &text)
 {
     m_label->setShortenText(text);
 }
 
-QString Fcitx_KeySettingsItem::getLabelText()
+QString FcitxKeySettingsItem::getLabelText()
 {
     return m_label->text();
 }
 
-void Fcitx_KeySettingsItem::setEnableEdit(bool flag)
+void FcitxKeySettingsItem::setEnableEdit(bool flag)
 {
     m_keyWidget->setEnableEdit(flag);
 }
 
-void Fcitx_KeySettingsItem::setKeyId(const QString &id)
+void FcitxKeySettingsItem::setKeyId(const QString &id)
 {
     m_keyWidget->setKeyId(id);
 }
 
-void Fcitx_KeySettingsItem::setList(const QStringList &list)
+void FcitxKeySettingsItem::setList(const QStringList &list)
 {
     m_keyWidget->setList(list);
 }
 
-void Fcitx_KeySettingsItem::resizeEvent(QResizeEvent *event)
+void FcitxKeySettingsItem::resizeEvent(QResizeEvent *event)
 {
     updateSize();
-    Fcitx_SettingsItem::resizeEvent(event);
+    FcitxSettingsItem::resizeEvent(event);
 }
 
-void Fcitx_KeySettingsItem::paintEvent(QPaintEvent *event)
+void FcitxKeySettingsItem::paintEvent(QPaintEvent *event)
 {
     updateSize();
-    Fcitx_SettingsItem::paintEvent(event);
+    FcitxSettingsItem::paintEvent(event);
 }
 
-void Fcitx_KeySettingsItem::doShortCutError(const QStringList &list, QString &name)
+void FcitxKeySettingsItem::doShortCutError(const QStringList &list, QString &name)
 {
-    emit Fcitx_KeySettingsItem::shortCutError(m_label->text(), list, name);
+    emit FcitxKeySettingsItem::shortCutError(m_label->text(), list, name);
 }
 
-void Fcitx_KeySettingsItem::updateSize()
+void FcitxKeySettingsItem::updateSize()
 {
     int v = width() - m_keyWidget->width() - 32;
     int titleWidth = publisherFunc::fontSize(m_label->text());
@@ -355,13 +355,13 @@ void Fcitx_KeySettingsItem::updateSize()
     }
 }
 
-Fcitx_ComBoboxSettingsItem::Fcitx_ComBoboxSettingsItem(const QString &text, const QStringList &list, QFrame *parent)
-    : Fcitx_SettingsItem(parent)
+FcitxComBoboxSettingsItem::FcitxComBoboxSettingsItem(const QString &text, const QStringList &list, QFrame *parent)
+    : FcitxSettingsItem(parent)
 {
     m_combox = new QComboBox(this);
     m_combox->setFixedHeight(36);
     m_combox->addItems(list);
-    m_label = new Fcitx_ShortenLabel(text, this);
+    m_label = new FcitxShortenLabel(text, this);
     DFontSizeManager::instance()->bind(m_label, DFontSizeManager::T6);
     m_mainLayout = new QHBoxLayout(this);
     m_mainLayout->addWidget(m_label);
@@ -371,12 +371,12 @@ Fcitx_ComBoboxSettingsItem::Fcitx_ComBoboxSettingsItem(const QString &text, cons
     setFixedHeight(48);
 }
 
-QString Fcitx_ComBoboxSettingsItem::getLabelText()
+QString FcitxComBoboxSettingsItem::getLabelText()
 {
     return m_label->text();
 }
 
-Fcitx_ComBoboxSettingsItem::~Fcitx_ComBoboxSettingsItem()
+FcitxComBoboxSettingsItem::~FcitxComBoboxSettingsItem()
 {
 }
 
