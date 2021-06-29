@@ -54,7 +54,7 @@ TEST_F(ut_availwidget, clearItemStatusAndFilter)
 {
     AvailWidget availWidget;
 
-    dcc_fcitx_configtool::widgets::Fcitx_SettingsGroup group;
+    dcc_fcitx_configtool::widgets::FcitxSettingsGroup group;
     availWidget.clearItemStatusAndFilter(&group);
     EXPECT_TRUE(true);
 }

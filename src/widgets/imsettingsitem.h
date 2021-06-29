@@ -29,18 +29,18 @@
 namespace dcc_fcitx_configtool {
 namespace widgets {
 
-class Fcitx_IMSettingsItem : public Fcitx_SettingsItem
+class FcitxIMSettingsItem : public FcitxSettingsItem
 {
     Q_OBJECT
 
 public:
-    explicit Fcitx_IMSettingsItem(QString str = QString(), QFrame *parent = nullptr);
-    ~Fcitx_IMSettingsItem();
+    explicit FcitxIMSettingsItem(QString str = QString(), QFrame *parent = nullptr);
+    ~FcitxIMSettingsItem();
     void setFcitxItem(const FcitxQtInputMethodItem &item);
     void setFilterStr(QString str);
     void setItemSelected(bool status);
 signals:
-    void itemClicked(Fcitx_IMSettingsItem *item);
+    void itemClicked(FcitxIMSettingsItem *item);
 
 protected:
     void mousePressEvent(QMouseEvent *event) override;
@@ -48,7 +48,7 @@ protected:
     void leaveEvent(QEvent *event) override;
 
 public:
-    Fcitx_ShortenLabel *m_labelText {nullptr};
+    FcitxShortenLabel *m_labelText {nullptr};
     QLabel *m_labelIcon {nullptr};
     QHBoxLayout *m_layout {nullptr};
     FcitxQtInputMethodItem m_item;

@@ -47,13 +47,13 @@ class BackButton;
 
 namespace dcc_fcitx_configtool {
 namespace widgets {
-class Fcitx_ContentWidget : public QWidget
+class FcitxContentWidget : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit Fcitx_ContentWidget(QWidget *parent = 0);
-    ~Fcitx_ContentWidget();
+    explicit FcitxContentWidget(QWidget *parent = 0);
+    ~FcitxContentWidget();
 
     QWidget *content() const { return m_content; }
     QWidget *setContent(QWidget *const w);

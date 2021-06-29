@@ -40,8 +40,8 @@ DWIDGET_USE_NAMESPACE
 namespace dcc_fcitx_configtool {
 namespace widgets {
 
-Fcitx_SettingsGroup::Fcitx_SettingsGroup(QFrame *parent, BackgroundStyle bgStyle)
-    : Fcitx_TranslucentFrame(parent)
+FcitxSettingsGroup::FcitxSettingsGroup(QFrame *parent, BackgroundStyle bgStyle)
+    : FcitxTranslucentFrame(parent)
     , m_layout(new QVBoxLayout)
     , m_headerItem(nullptr)
 {
@@ -63,8 +63,8 @@ Fcitx_SettingsGroup::Fcitx_SettingsGroup(QFrame *parent, BackgroundStyle bgStyle
     setLayout(vLayout);
 }
 
-Fcitx_SettingsGroup::Fcitx_SettingsGroup(const QString &title, QFrame *parent)
-    : Fcitx_SettingsGroup(parent)
+FcitxSettingsGroup::FcitxSettingsGroup(const QString &title, QFrame *parent)
+    : FcitxSettingsGroup(parent)
 {
     setHeaderVisible(!title.isEmpty());
     setAccessibleName(title);
@@ -72,17 +72,17 @@ Fcitx_SettingsGroup::Fcitx_SettingsGroup(const QString &title, QFrame *parent)
     m_headerItem->setTitle(title);
 }
 
-Fcitx_SettingsGroup::~Fcitx_SettingsGroup()
+FcitxSettingsGroup::~FcitxSettingsGroup()
 {
     if (m_headerItem)
         m_headerItem->deleteLater();
 }
 
-void Fcitx_SettingsGroup::setHeaderVisible(const bool visible)
+void FcitxSettingsGroup::setHeaderVisible(const bool visible)
 {
     if (visible) {
         if (!m_headerItem)
-            m_headerItem = new Fcitx_SettingsHeaderItem;
+            m_headerItem = new FcitxSettingsHeaderItem;
         insertItem(0, m_headerItem);
     } else {
         if (m_headerItem) {
@@ -92,23 +92,23 @@ void Fcitx_SettingsGroup::setHeaderVisible(const bool visible)
     }
 }
 
-void Fcitx_SettingsGroup::insertItem(const int index, Fcitx_SettingsItem *item)
+void FcitxSettingsGroup::insertItem(const int index, FcitxSettingsItem *item)
 {
     if (ItemBackground == m_bgStyle) {
-        //当SettingsItem 被加入　Fcitx_SettingsGroup　时，为其加入背景
+        //当SettingsItem 被加入　FcitxSettingsGroup　时，为其加入背景
         item->addBackground();
     }
 
     m_layout->insertWidget(index, item);
     item->installEventFilter(this);
 
-    Fcitx_IMSettingsItem *mItem = dynamic_cast<Fcitx_IMSettingsItem *>(item);
+    FcitxIMSettingsItem *mItem = dynamic_cast<FcitxIMSettingsItem *>(item);
     if (mItem)
-        connect(mItem, &Fcitx_IMSettingsItem::itemClicked, [=](Fcitx_IMSettingsItem *myItem) {
+        connect(mItem, &FcitxIMSettingsItem::itemClicked, [=](FcitxIMSettingsItem *myItem) {
             int i = itemCount();
             for (int j = 0; j < i; ++j) {
                 if (this->getItem(j) != myItem) {
-                    Fcitx_IMSettingsItem *Titem = dynamic_cast<Fcitx_IMSettingsItem *>(this->getItem(j));
+                    FcitxIMSettingsItem *Titem = dynamic_cast<FcitxIMSettingsItem *>(this->getItem(j));
                     if (Titem) {
                         Titem->setItemSelected(false);
                     }
@@ -117,28 +117,28 @@ void Fcitx_SettingsGroup::insertItem(const int index, Fcitx_SettingsItem *item)
         });
 }
 
-void Fcitx_SettingsGroup::appendItem(Fcitx_SettingsItem *item)
+void FcitxSettingsGroup::appendItem(FcitxSettingsItem *item)
 {
     insertItem(m_layout->count(), item);
 }
 
-void Fcitx_SettingsGroup::appendItem(Fcitx_SettingsItem *item, BackgroundStyle bgStyle)
+void FcitxSettingsGroup::appendItem(FcitxSettingsItem *item, BackgroundStyle bgStyle)
 {
     if ((ItemBackground == bgStyle) && (m_bgStyle == ItemBackground)) {
-        //当SettingsItem 被加入　Fcitx_SettingsGroup　时，为其加入背景
+        //当SettingsItem 被加入　FcitxSettingsGroup　时，为其加入背景
         item->addBackground();
     }
 
     m_layout->insertWidget(m_layout->count(), item);
     item->installEventFilter(this);
 
-    Fcitx_IMSettingsItem *mItem = dynamic_cast<Fcitx_IMSettingsItem *>(item);
+    FcitxIMSettingsItem *mItem = dynamic_cast<FcitxIMSettingsItem *>(item);
     if (mItem)
-        connect(mItem, &Fcitx_IMSettingsItem::itemClicked, [=](Fcitx_IMSettingsItem *myItem) {
+        connect(mItem, &FcitxIMSettingsItem::itemClicked, [=](FcitxIMSettingsItem *myItem) {
             int i = itemCount();
             for (int j = 0; j < i; ++j) {
                 if (this->getItem(j) != myItem) {
-                    Fcitx_IMSettingsItem *Titem = dynamic_cast<Fcitx_IMSettingsItem *>(this->getItem(j));
+                    FcitxIMSettingsItem *Titem = dynamic_cast<FcitxIMSettingsItem *>(this->getItem(j));
                     if (Titem) {
                         Titem->setItemSelected(false);
                     }
@@ -147,7 +147,7 @@ void Fcitx_SettingsGroup::appendItem(Fcitx_SettingsItem *item, BackgroundStyle b
         });
 }
 
-void Fcitx_SettingsGroup::removeItem(Fcitx_SettingsItem *item)
+void FcitxSettingsGroup::removeItem(FcitxSettingsItem *item)
 {
     if (!item)
         return;
@@ -155,7 +155,7 @@ void Fcitx_SettingsGroup::removeItem(Fcitx_SettingsItem *item)
     item->removeEventFilter(this);
 }
 
-void Fcitx_SettingsGroup::moveItem(Fcitx_SettingsItem *item, const int index)
+void FcitxSettingsGroup::moveItem(FcitxSettingsItem *item, const int index)
 {
     const int oldIndex = m_layout->indexOf(item);
     if (oldIndex == index)
@@ -165,19 +165,19 @@ void Fcitx_SettingsGroup::moveItem(Fcitx_SettingsItem *item, const int index)
     m_layout->insertWidget(index, item);
 }
 
-void Fcitx_SettingsGroup::setSpacing(const int spaceing)
+void FcitxSettingsGroup::setSpacing(const int spaceing)
 {
     m_layout->setSpacing(spaceing);
     if (m_bggroup)
         m_bggroup->setItemSpacing(spaceing);
 }
 
-int Fcitx_SettingsGroup::itemCount() const
+int FcitxSettingsGroup::itemCount() const
 {
     return m_layout->count();
 }
 
-void Fcitx_SettingsGroup::clear()
+void FcitxSettingsGroup::clear()
 {
     const int index = m_headerItem ? 1 : 0;
     const int count = m_layout->count();
@@ -192,19 +192,19 @@ void Fcitx_SettingsGroup::clear()
     }
 }
 
-Fcitx_SettingsItem *Fcitx_SettingsGroup::getItem(int index)
+FcitxSettingsItem *FcitxSettingsGroup::getItem(int index)
 {
     if (index < 0)
         return nullptr;
 
     if (index < itemCount()) {
-        return qobject_cast<Fcitx_SettingsItem *>(m_layout->itemAt(index)->widget());
+        return qobject_cast<FcitxSettingsItem *>(m_layout->itemAt(index)->widget());
     }
 
     return nullptr;
 }
 
-void Fcitx_SettingsGroup::insertWidget(QWidget *widget)
+void FcitxSettingsGroup::insertWidget(QWidget *widget)
 {
     m_layout->insertWidget(m_layout->count(), widget);
 }

@@ -37,23 +37,23 @@ DWIDGET_USE_NAMESPACE
 namespace dcc_fcitx_configtool {
 namespace widgets {
 
-class Fcitx_LeftButton : public DPushButton
+class FcitxLeftButton : public DPushButton
 {
     Q_OBJECT
 public:
-    Fcitx_LeftButton() {}
-    virtual ~Fcitx_LeftButton() {}
+    FcitxLeftButton() {}
+    virtual ~FcitxLeftButton() {}
 };
 
-class Fcitx_RightButton : public DSuggestButton
+class FcitxRightButton : public DSuggestButton
 {
     Q_OBJECT
 public:
-    Fcitx_RightButton() {}
-    virtual ~Fcitx_RightButton() {}
+    FcitxRightButton() {}
+    virtual ~FcitxRightButton() {}
 };
 
-class Fcitx_ButtonTuple : public QWidget
+class FcitxButtonTuple : public QWidget
 {
     Q_OBJECT
 public:
@@ -64,7 +64,7 @@ public:
         None = 3,
     };
 
-    explicit Fcitx_ButtonTuple(ButtonType type = Normal, QWidget *parent = nullptr);
+    explicit FcitxButtonTuple(ButtonType type = Normal, QWidget *parent = nullptr);
 
     QPushButton *leftButton();
     QPushButton *rightButton();

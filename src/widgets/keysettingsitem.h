@@ -31,12 +31,12 @@ using namespace dcc_fcitx_configtool::widgets;
 namespace dcc_fcitx_configtool {
 namespace widgets {
 
-class Fcitx_KeyLabelWidget : public QWidget
+class FcitxKeyLabelWidget : public QWidget
 {
     Q_OBJECT
 public:
-    Fcitx_KeyLabelWidget(QStringList list = {}, QWidget *p = nullptr);
-    virtual ~Fcitx_KeyLabelWidget();
+    FcitxKeyLabelWidget(QStringList list = {}, QWidget *p = nullptr);
+    virtual ~FcitxKeyLabelWidget();
     void setKeyId(const QString &id);
     void setList(const QStringList &list);
     QString getKeyToStr();
@@ -62,18 +62,18 @@ private:
 private:
     QHBoxLayout *m_mainLayout {nullptr};
     QLineEdit *m_keyEdit {nullptr};
-    QList<Fcitx_KeyLabel *> m_list;
+    QList<FcitxKeyLabel *> m_list;
     QString m_id;
     QStringList m_curlist;
     QStringList m_newlist;
     bool m_eidtFlag;
 };
 
-class Fcitx_KeySettingsItem : public Fcitx_SettingsItem
+class FcitxKeySettingsItem : public FcitxSettingsItem
 {
     Q_OBJECT
 public:
-    Fcitx_KeySettingsItem(const QString &text = "", const QStringList &list = {}, QFrame *parent = nullptr);
+    FcitxKeySettingsItem(const QString &text = "", const QStringList &list = {}, QFrame *parent = nullptr);
     void setKeyId(const QString &id);
     void setList(const QStringList &list);
     QString getKeyToStr() { return m_keyWidget->getKeyToStr(); }
@@ -96,24 +96,24 @@ private:
     void updateSize();
 
 private:
-    Fcitx_ShortenLabel *m_label {nullptr};
+    FcitxShortenLabel *m_label {nullptr};
     QHBoxLayout *m_hLayout {nullptr};
-    Fcitx_KeyLabelWidget *m_keyWidget {nullptr};
+    FcitxKeyLabelWidget *m_keyWidget {nullptr};
 };
 
-class Fcitx_ComBoboxSettingsItem : public Fcitx_SettingsItem
+class FcitxComBoboxSettingsItem : public FcitxSettingsItem
 {
     Q_OBJECT
 public:
-    Fcitx_ComBoboxSettingsItem(const QString &text, const QStringList &list = {}, QFrame *parent = nullptr);
-    virtual ~Fcitx_ComBoboxSettingsItem();
+    FcitxComBoboxSettingsItem(const QString &text, const QStringList &list = {}, QFrame *parent = nullptr);
+    virtual ~FcitxComBoboxSettingsItem();
     QComboBox *comboBox() { return m_combox; }
     QString getLabelText();
 
 private:
     QHBoxLayout *m_mainLayout {nullptr};
     QComboBox *m_combox {nullptr};
-    Fcitx_ShortenLabel *m_label {nullptr};
+    FcitxShortenLabel *m_label {nullptr};
 };
 } // namespace widgets
 } // namespace dcc_fcitx_configtool

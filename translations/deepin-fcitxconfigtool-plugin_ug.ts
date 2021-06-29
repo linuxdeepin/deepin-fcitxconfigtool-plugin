@@ -4,15 +4,15 @@
 <context>
     <name>FcitxConfigPlugin</name>
     <message>
-        <location filename="../src/fcitxconfigplugin.cpp" line="88"/>
-        <location filename="../src/fcitxconfigplugin.cpp" line="94"/>
+        <location filename="../src/fcitxconfigplugin.cpp" line="83"/>
+        <location filename="../src/fcitxconfigplugin.cpp" line="90"/>
         <source>Input Methods</source>
         <translation>كىرگۈزگۈچ</translation>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
 </context>
 <context>
-    <name>Fcitx_SettingsHead</name>
+    <name>FcitxSettingsHead</name>
     <message>
         <location filename="../src/widgets/settingshead.cpp" line="48"/>
         <location filename="../src/widgets/settingshead.cpp" line="113"/>
@@ -28,29 +28,29 @@
 <context>
     <name>IMAddWindow</name>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="60"/>
+        <location filename="../src/window/imaddwindow.cpp" line="62"/>
         <source>Add Input Method</source>
         <translation>كىرگۈزگۈچ قوشۇش</translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="69"/>
+        <location filename="../src/window/imaddwindow.cpp" line="71"/>
         <source>Search</source>
         <translation>ئىزدەش</translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="80"/>
+        <location filename="../src/window/imaddwindow.cpp" line="82"/>
         <source>Find more in App Store</source>
         <translation>ئەپ بازىرىدىن چۈشۈرۈش</translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="88"/>
-        <location filename="../src/window/imaddwindow.cpp" line="89"/>
+        <location filename="../src/window/imaddwindow.cpp" line="90"/>
+        <location filename="../src/window/imaddwindow.cpp" line="91"/>
         <source>Add</source>
         <translation>قوشۇش</translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="90"/>
-        <location filename="../src/window/imaddwindow.cpp" line="91"/>
+        <location filename="../src/window/imaddwindow.cpp" line="92"/>
+        <location filename="../src/window/imaddwindow.cpp" line="93"/>
         <source>Cancel</source>
         <translation>بىكار قىلىش</translation>
     </message>
@@ -131,7 +131,7 @@
     </message>
 </context>
 <context>
-    <name>dcc_fcitx_configtool::widgets::Fcitx_KeyLabelWidget</name>
+    <name>dcc_fcitx_configtool::widgets::FcitxKeyLabelWidget</name>
     <message>
         <location filename="../src/widgets/keysettingsitem.cpp" line="38"/>
         <location filename="../src/widgets/keysettingsitem.cpp" line="148"/>

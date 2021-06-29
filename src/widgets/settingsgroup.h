@@ -40,11 +40,11 @@ DWIDGET_USE_NAMESPACE
 namespace dcc_fcitx_configtool {
 namespace widgets {
 
-class Fcitx_SettingsItem;
-class Fcitx_SettingsHeaderItem;
-class Fcitx_SettingsHead;
+class FcitxSettingsItem;
+class FcitxSettingsHeaderItem;
+class FcitxSettingsHead;
 
-class Fcitx_SettingsGroup : public Fcitx_TranslucentFrame
+class FcitxSettingsGroup : public FcitxTranslucentFrame
 {
     Q_OBJECT
 
@@ -55,20 +55,20 @@ public:
         NoneBackground
     };
 
-    explicit Fcitx_SettingsGroup(QFrame *parent = nullptr, BackgroundStyle bgStyle = ItemBackground);
-    explicit Fcitx_SettingsGroup(const QString &title, QFrame *parent = nullptr);
-    ~Fcitx_SettingsGroup();
+    explicit FcitxSettingsGroup(QFrame *parent = nullptr, BackgroundStyle bgStyle = ItemBackground);
+    explicit FcitxSettingsGroup(const QString &title, QFrame *parent = nullptr);
+    ~FcitxSettingsGroup();
 
-    Fcitx_SettingsHeaderItem *headerItem() { return m_headerItem; }
+    FcitxSettingsHeaderItem *headerItem() { return m_headerItem; }
     void setHeaderVisible(const bool visible);
 
-    Fcitx_SettingsItem *getItem(int index);
+    FcitxSettingsItem *getItem(int index);
     void insertWidget(QWidget *widget);
-    void insertItem(const int index, Fcitx_SettingsItem *item);
-    void appendItem(Fcitx_SettingsItem *item);
-    void appendItem(Fcitx_SettingsItem *item, BackgroundStyle bgStyle);
-    void removeItem(Fcitx_SettingsItem *item);
-    void moveItem(Fcitx_SettingsItem *item, const int index);
+    void insertItem(const int index, FcitxSettingsItem *item);
+    void appendItem(FcitxSettingsItem *item);
+    void appendItem(FcitxSettingsItem *item, BackgroundStyle bgStyle);
+    void removeItem(FcitxSettingsItem *item);
+    void moveItem(FcitxSettingsItem *item, const int index);
     void setSpacing(const int spaceing);
 
     int itemCount() const;
@@ -78,7 +78,7 @@ public:
 private:
     BackgroundStyle m_bgStyle {ItemBackground};
     QVBoxLayout *m_layout;
-    Fcitx_SettingsHeaderItem *m_headerItem;
+    FcitxSettingsHeaderItem *m_headerItem;
     DTK_WIDGET_NAMESPACE::DBackgroundGroup *m_bggroup {nullptr};
 };
 

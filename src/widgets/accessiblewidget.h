@@ -8,7 +8,7 @@
 #include <DSearchEdit>
 #include <DCommandLinkButton>
 
-class Fcitx_TitleLabel;
+class FcitxTitleLabel;
 class QLabel;
 class QPushButton;
 class QToolButton;
@@ -98,39 +98,39 @@ private:
 class AccessibleKeyLabelWidget: public AccessibleWidget
 {
 public:
-    explicit AccessibleKeyLabelWidget(dcc_fcitx_configtool::widgets::Fcitx_KeyLabelWidget *keylablewidget);
+    explicit AccessibleKeyLabelWidget(dcc_fcitx_configtool::widgets::FcitxKeyLabelWidget *keylablewidget);
     ~AccessibleKeyLabelWidget();
 
     QString text(int startOffset, int endOffset) const Q_DECL_OVERRIDE;
 
 private:
-    dcc_fcitx_configtool::widgets::Fcitx_KeyLabelWidget *m_keylablewidget;
+    dcc_fcitx_configtool::widgets::FcitxKeyLabelWidget *m_keylablewidget;
 };
 
 // 可访问的按钮
 class AccessibleKeySettingsItem: public AccessibleWidget
 {
 public:
-    explicit AccessibleKeySettingsItem(dcc_fcitx_configtool::widgets::Fcitx_KeySettingsItem *keysettingsitem);
+    explicit AccessibleKeySettingsItem(dcc_fcitx_configtool::widgets::FcitxKeySettingsItem *keysettingsitem);
     ~AccessibleKeySettingsItem();
 
     QString text(int startOffset, int endOffset) const Q_DECL_OVERRIDE;
 
 private:
-    dcc_fcitx_configtool::widgets::Fcitx_KeySettingsItem *m_keysettingsitem;
+    dcc_fcitx_configtool::widgets::FcitxKeySettingsItem *m_keysettingsitem;
 };
 
 // 可访问的按钮
 class AccessibleComBoboxSettingsItem: public AccessibleWidget
 {
 public:
-    explicit AccessibleComBoboxSettingsItem(dcc_fcitx_configtool::widgets::Fcitx_ComBoboxSettingsItem *comboboxsettingsitem);
+    explicit AccessibleComBoboxSettingsItem(dcc_fcitx_configtool::widgets::FcitxComBoboxSettingsItem *comboboxsettingsitem);
     ~AccessibleComBoboxSettingsItem();
 
     QString text(int startOffset, int endOffset) const Q_DECL_OVERRIDE;
 
 private:
-    dcc_fcitx_configtool::widgets::Fcitx_ComBoboxSettingsItem *m_comboboxsettingsitem;
+    dcc_fcitx_configtool::widgets::FcitxComBoboxSettingsItem *m_comboboxsettingsitem;
 };
 
 // 可访问的按钮
@@ -176,13 +176,13 @@ private:
 class AccessibleTitleLabel : public AccessibleWidget
 {
 public:
-    explicit AccessibleTitleLabel(Fcitx_TitleLabel *label);
+    explicit AccessibleTitleLabel(FcitxTitleLabel *label);
     ~AccessibleTitleLabel();
 
     QString text(int startOffset, int endOffset) const Q_DECL_OVERRIDE;
 
 private:
-    Fcitx_TitleLabel *m_label;
+    FcitxTitleLabel *m_label;
 };
 
 

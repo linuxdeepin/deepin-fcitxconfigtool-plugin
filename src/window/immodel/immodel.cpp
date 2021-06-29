@@ -75,8 +75,8 @@ int IMModel::getIMIndex(const QString &IM) const
 
     for (int i = 0; i < m_curIMList.count(); ++i) {
         if (m_curIMList[i].name() == IM
-            || m_curIMList[i].uniqueName().indexOf(IM, Qt::CaseInsensitive) != -1
-            || m_curIMList[i].langCode().indexOf(IM, Qt::CaseInsensitive) != -1) {
+                || m_curIMList[i].uniqueName().indexOf(IM, Qt::CaseInsensitive) != -1
+                || m_curIMList[i].langCode().indexOf(IM, Qt::CaseInsensitive) != -1) {
             return i;
         }
     }
@@ -211,7 +211,7 @@ void IMModel::onConfigShow(const FcitxQtInputMethodItem &item)
         p.start(IMConfig::IMPluginKey(imUniqueName) + " " + IMConfig::IMPluginPar(imUniqueName));
     } else {
         QDBusPendingReply<QString>
-            result = Global::instance()->inputMethodProxy()->GetIMAddon(imUniqueName);
+        result = Global::instance()->inputMethodProxy()->GetIMAddon(imUniqueName);
         result.waitForFinished();
         if (result.isValid()) {
             p.start("fcitx-config-gtk3 " + result.value());

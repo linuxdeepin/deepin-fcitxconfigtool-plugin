@@ -23,8 +23,6 @@
 
 #include "window/imwindow.h"
 
-#include <QProcess>
-
 FcitxConfigPlugin::FcitxConfigPlugin()
 {
     m_translator.load(QLocale::system(),
@@ -32,53 +30,48 @@ FcitxConfigPlugin::FcitxConfigPlugin()
                       QStringLiteral("_"),
                       QStringLiteral("/usr/share/deepin-fcitxconfigtool-plugin/translations"));
     qApp->installTranslator(&m_translator);
-    imWindow = nullptr;
+    m_imWindow = nullptr;
 }
 
 FcitxConfigPlugin::~FcitxConfigPlugin()
 {
     qApp->removeTranslator(&m_translator);
-    if (imWindow) {
-        imWindow->deleteLater();
-        imWindow = nullptr;
-    }
+    deleteImWindow();
 }
 
 void FcitxConfigPlugin::preInitialize(bool sync)
 {
     Q_UNUSED(sync);
-    qDebug()<<__FUNCTION__;
-
+    qDebug() << __FUNCTION__;
 }
 
 QString FcitxConfigPlugin::path() const
 {
+    //返回控制中心键盘模块
     return KEYBOARD;
 }
 
 QString FcitxConfigPlugin::follow() const
 {
+    //返回三级菜单插入位置
     return "3";
 }
 
 void FcitxConfigPlugin::deactive()
 {
-    if (imWindow) {
-        imWindow->deleteLater();
-        imWindow = nullptr;
-    }
+    deleteImWindow();
 }
 
 void FcitxConfigPlugin::initialize()
 {
-    qDebug()<<__FUNCTION__<<QLocale::system().name();
+    qDebug() << __FUNCTION__ << QLocale::system().name();
 }
 
 void FcitxConfigPlugin::active()
 {
-    qDebug()<<__FUNCTION__;
-    imWindow = new IMWindow();
-    m_frameProxy->pushWidget(this, imWindow, dccV20::FrameProxyInterface::PushType::Normal);
+    qDebug() << __FUNCTION__;
+    m_imWindow = new IMWindow();
+    m_frameProxy->pushWidget(this, m_imWindow, dccV20::FrameProxyInterface::PushType::Normal);
 }
 
 const QString FcitxConfigPlugin::name() const
@@ -86,6 +79,7 @@ const QString FcitxConfigPlugin::name() const
     return tr("Input Methods");
 }
 
+//这个注释和翻译和使用控制台启动有关
 const QString FcitxConfigPlugin::displayName() const
 {
     //~ contents_path /keyboard/Manage Input Methods
@@ -101,3 +95,12 @@ QString FcitxConfigPlugin::translationPath() const
 {
     return QStringLiteral(":/translations/deepin-fcitxconfigtool-plugin_%1.ts");
 }
+
+void FcitxConfigPlugin::deleteImWindow()
+{
+    if (m_imWindow) {
+        m_imWindow->deleteLater();
+        m_imWindow = nullptr;
+    }
+}
+

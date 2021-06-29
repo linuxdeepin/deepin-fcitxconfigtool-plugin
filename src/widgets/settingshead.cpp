@@ -36,16 +36,16 @@
 using namespace dcc_fcitx_configtool::widgets;
 DWIDGET_USE_NAMESPACE
 
-Fcitx_SettingsHead::Fcitx_SettingsHead(QFrame *parent)
-    : Fcitx_SettingsItem(parent)
-    , m_title(new Fcitx_TitleLabel)
+FcitxSettingsHead::FcitxSettingsHead(QFrame *parent)
+    : FcitxSettingsItem(parent)
+    , m_title(new FcitxTitleLabel)
     , m_edit(new DCommandLinkButton(""))
     , m_state(Cancel)
 {
     m_title->setObjectName("SettingsHeadTitle");
 
     // can not translate correctly just using tr()
-    m_edit->setText(qApp->translate("Fcitx_SettingsHead", "Edit"));
+    m_edit->setText(qApp->translate("FcitxSettingsHead", "Edit"));
     DFontSizeManager::instance()->bind(m_title, DFontSizeManager::T5, QFont::DemiBold);
     QHBoxLayout *mainLayout = new QHBoxLayout;
     mainLayout->setMargin(0);
@@ -57,21 +57,21 @@ Fcitx_SettingsHead::Fcitx_SettingsHead(QFrame *parent)
 
     setLayout(mainLayout);
 
-    connect(m_edit, &DCommandLinkButton::clicked, this, &Fcitx_SettingsHead::onClicked);
+    connect(m_edit, &DCommandLinkButton::clicked, this, &FcitxSettingsHead::onClicked);
 }
 
-void Fcitx_SettingsHead::setTitle(const QString &title)
+void FcitxSettingsHead::setTitle(const QString &title)
 {
     m_title->setText(title);
     m_edit->setAccessibleName(title);
 }
 
-void Fcitx_SettingsHead::setEditEnable(bool state)
+void FcitxSettingsHead::setEditEnable(bool state)
 {
     m_edit->setVisible(state);
 }
 
-void Fcitx_SettingsHead::toEdit()
+void FcitxSettingsHead::toEdit()
 {
     m_state = Edit;
     refershButton();
@@ -79,7 +79,7 @@ void Fcitx_SettingsHead::toEdit()
     Q_EMIT editChanged(true);
 }
 
-void Fcitx_SettingsHead::toCancel()
+void FcitxSettingsHead::toCancel()
 {
     m_state = Cancel;
     refershButton();
@@ -87,7 +87,7 @@ void Fcitx_SettingsHead::toCancel()
     Q_EMIT editChanged(false);
 }
 
-void Fcitx_SettingsHead::setEdit(bool flag)
+void FcitxSettingsHead::setEdit(bool flag)
 {
     if (flag) {
         m_state = Edit;
@@ -98,7 +98,7 @@ void Fcitx_SettingsHead::setEdit(bool flag)
     }
 }
 
-void Fcitx_SettingsHead::onClicked()
+void FcitxSettingsHead::onClicked()
 {
     if (m_state == Cancel) {
         toEdit();
@@ -107,16 +107,16 @@ void Fcitx_SettingsHead::onClicked()
     }
 }
 
-void Fcitx_SettingsHead::refershButton()
+void FcitxSettingsHead::refershButton()
 {
     if (m_state == Cancel) {
-        m_edit->setText(qApp->translate("Fcitx_SettingsHead", "Edit"));
+        m_edit->setText(qApp->translate("FcitxSettingsHead", "Edit"));
     } else {
-        m_edit->setText(qApp->translate("Fcitx_SettingsHead", "Done"));
+        m_edit->setText(qApp->translate("FcitxSettingsHead", "Done"));
     }
 }
 
-Fcitx_TitleLabel* Fcitx_SettingsHead::getTitleLabel()
+FcitxTitleLabel* FcitxSettingsHead::getTitleLabel()
 {
     return m_title;
 }

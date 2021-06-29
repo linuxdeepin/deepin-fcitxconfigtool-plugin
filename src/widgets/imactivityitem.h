@@ -40,12 +40,12 @@ protected:
     void paintEvent(QPaintEvent *e) override;
 };
 
-class Fcitx_IMActivityItem : public Fcitx_SettingsItem
+class FcitxIMActivityItem : public FcitxSettingsItem
 {
     Q_OBJECT
 public:
-    Fcitx_IMActivityItem(FcitxQtInputMethodItem item, QFrame *parent = nullptr);
-    ~Fcitx_IMActivityItem();
+    FcitxIMActivityItem(FcitxQtInputMethodItem item, QFrame *parent = nullptr);
+    ~FcitxIMActivityItem();
     void editSwitch(const bool &flag);
     void setSelectStatus(const bool &flag);
 
@@ -67,7 +67,7 @@ private slots:
 
 public:
     FcitxQtInputMethodItem m_item;
-    Fcitx_ShortenLabel *m_labelText {nullptr};
+    FcitxShortenLabel *m_labelText {nullptr};
     QHBoxLayout *m_layout {nullptr};
     DToolButton *m_upBtn {nullptr};
     DToolButton *m_downBtn {nullptr};
