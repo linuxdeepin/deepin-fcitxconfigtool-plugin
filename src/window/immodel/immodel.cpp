@@ -202,7 +202,7 @@ void IMModel::onConfigShow(const FcitxQtInputMethodItem &item)
     QString imUniqueName = item.uniqueName();
 
     QStringList closeSrcImList {
-        "chineseime", "iflyime", "sogoupinyin", "baidupinyin"};
+        "chineseime", "iflyime", "sogoupinyin", "sogoupinyinuos", "baidupinyin"};
 
     QProcess p;
     if (closeSrcImList.contains(imUniqueName)) {
