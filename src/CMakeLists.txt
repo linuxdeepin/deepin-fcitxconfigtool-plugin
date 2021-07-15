@@ -1,9 +1,16 @@
 #版本设置
-set(VERSION 0.1)
+#set(VERSION 0.1)
 #二进制名称
 set(BIN_NAME deepin-fcitxconfigtool-plugin)
 #项目名称设置
 project(${BIN_NAME})
+
+find_package(ECM REQUIRED NO_MODULE)
+set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
+
+include(KDEInstallDirs)
+include(KDECMakeSettings)
+include(KDECompilerSettings)
 
 if (CMAKE_BUILD_TYPE MATCHES Debug)
   set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -g -Wall -Wextra")
@@ -42,12 +49,14 @@ find_package(Qt5 COMPONENTS Widgets REQUIRED)
 find_package(Fcitx REQUIRED)
 find_package(FcitxQt5DBusAddons REQUIRED)
 find_package(FcitxQt5WidgetsAddons REQUIRED)
+find_package(KF5 REQUIRED COMPONENTS I18n)
 pkg_check_modules(DFrameworkDBus REQUIRED dframeworkdbus)
 
 #设置资源目录 加载资源文件 翻译文件 源码
 set(APP_RES_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../res")
 set(APP_QRC "${APP_RES_DIR}/fcitxconfig.qrc")
 #创建翻译文件 
+#set(APP_QRC "${TS_DIR}/translations.qrc")
 set(TS_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../translations")
 set(TS_FILES "${TS_DIR}/${PROJECT_NAME}_en_US.ts")
 #更新翻译
@@ -66,7 +75,6 @@ FILE(GLOB_RECURSE HEAD_FILES
     ${CMAKE_CURRENT_SOURCE_DIR}/fcitxInterface/*.h
     ${CMAKE_CURRENT_SOURCE_DIR}/widgets/*.h
     ${CMAKE_CURRENT_SOURCE_DIR}/window/*.h
-    ${CMAKE_CURRENT_SOURCE_DIR}/i18n.h
     ${CMAKE_CURRENT_SOURCE_DIR}/fcitxconfigplugin.h
     ${CMAKE_CURRENT_SOURCE_DIR}/publisher/*.h)
 
@@ -74,7 +82,6 @@ FILE(GLOB_RECURSE SOURCE_FILES
     ${CMAKE_CURRENT_SOURCE_DIR}/fcitxInterface/*.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/widgets/*.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/window/*.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/i18n.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/fcitxconfigplugin.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/publisher/*.cpp)
 
@@ -89,7 +96,7 @@ set(ALL_SRCS
     ${SOURCE_FILES}
     ${APP_QRC}
     ${DTNG_QM_FILES}
-    ${TS_DIR}/translations.qrc
+#    ${TS_DIR}/translations.qrc
     )
 
 set(TEST_SRCS
@@ -104,29 +111,34 @@ set(TEST_SRCS
 #        )
 
 add_library(${PROJECT_NAME}
-        MODULE
+#        MODULE
         ${ALL_SRCS}
         ${DTNG_QM_FILES}
+        ${TS_DIR}/translations.qrc
         )
 
 target_include_directories(${PROJECT_NAME} PUBLIC
         "/usr/include/dde-control-center"
-#${DdeControlCenter_INCLUDE_DIR}
+        #${DdeControlCenter_INCLUDE_DIR}
         ${DtkCore_INCLUDE_DIRS}
         ${DtkWidget_INCLUDE_DIRS}
         ${DFrameworkDBus_INCLUDE_DIRS}
         ${Qt5Gui_PRIVATE_INCLUDE_DIRS}
+        ${FCITX4_FCITX_INCLUDE_DIRS}
+        ${FCITX4_FCITX_UTILS_INCLUDE_DIRS}
+        ${FCITX4_FCITX_CONFIG_INCLUDE_DIRS}
         )
 
 target_link_libraries(${PROJECT_NAME} PRIVATE
-        "/usr/include/dde-control-center"
-#${DdeControlCenter_LIBRARIES}
+        KF5::I18n
+        "/usr/lib/dde-control-center"
+        #${DdeControlCenter_LIBRARIES}
         ${DFrameworkDBus_LIBRARIES}
         ${DtkWidget_LIBRARIES}
+        ${DtkCore_ILIBRARIES}
         ${Qt5Widgets_LIBRARIES}
         ${Qt5DBus_LIBRARIES}
         ${Qt5Concurrent_LIBRARIES}
-        ${DtkCore_INCLUDE_DIRS}
         ${OBJECT_BINARY_DIR}
         ${FCITX4_FCITX_UTILS_LIBRARIES}
         ${FCITX4_FCITX_CONFIG_LIBRARIES}
