@@ -26,8 +26,8 @@
 #include "widgets/contentwidget.h"
 #include "publisher/publisherdef.h"
 #include "fcitxInterface/global.h"
-#include "fcitxInterface/i18n.h"
 #include <QVBoxLayout>
+#include <KLocalizedString>
 
 using namespace Fcitx;
 using namespace dcc_fcitx_configtool::widgets;
@@ -38,38 +38,23 @@ QString languageName(const QString &langCode)
 {
     if (langCode.isEmpty()) {
         return QString("Unknown");
-    } else if (langCode == "*")
-        return QString("Multilingual");
+    }
+    else if (langCode == "*"){
+        return QString("Unknown");
+    }
     else {
         QLocale locale(langCode);
         if (locale.language() == QLocale::C) {
-            return langCode;
+            return QString("Unknown");
         }
-        const bool hasCountry = langCode.indexOf("_") != -1 && locale.country() != QLocale::AnyCountry;
         QString languageName;
-        if (hasCountry) {
-            languageName = locale.nativeLanguageName();
+        if (languageName.isEmpty()) {
+            languageName = i18nd("iso_639", QLocale::languageToString(locale.language()).toUtf8());
         }
         if (languageName.isEmpty()) {
-            languageName = fcitx::translateDomain("iso_639", QLocale::languageToString(locale.language()).toUtf8());
+            languageName = QString("Unknown");
         }
-        if (languageName.isEmpty()) {
-            languageName = QString("Other");
-        }
-        QString countryName;
-        // QLocale will always assign a default country for us, check if our lang code
-
-        if (langCode.indexOf("_") != -1 && locale.country() != QLocale::AnyCountry) {
-            countryName = locale.nativeCountryName();
-            if (countryName.isEmpty()) {
-                countryName = QLocale::countryToString(locale.country());
-            }
-        }
-        if (countryName.isEmpty()) {
-            return languageName;
-        } else {
-            return languageName + " (" + countryName + ")";
-        }
+        return languageName;
     }
 }
 
@@ -169,10 +154,13 @@ void AvailWidget::onUpdateUI(FcitxQtInputMethodItemList IMlist)
     for (auto it = filteredIMEntryList.begin(); it != filteredIMEntryList.end(); ++it) {
         for (auto it2 = it->second.begin(); it2 != it->second.end(); ++it2) {
             QString imcodeName = languageName(it2->langCode());
-            if (tmpIM.find(imcodeName) == tmpIM.end()) {
-                tmpIM.insert(std::pair<QString, FcitxQtInputMethodItemList>(imcodeName, FcitxQtInputMethodItemList()));
+            if(imcodeName != QString("Unknown"))
+            {
+                if (tmpIM.find(imcodeName) == tmpIM.end()) {
+                    tmpIM.insert(std::pair<QString, FcitxQtInputMethodItemList>(imcodeName, FcitxQtInputMethodItemList()));
+                }
+                tmpIM[imcodeName].push_back(*it2);
             }
-            tmpIM[imcodeName].push_back(*it2);
         }
     }
     //fcitx原有逻辑 不需要修改 __end

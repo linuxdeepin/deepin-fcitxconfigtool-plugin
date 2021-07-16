@@ -4,6 +4,13 @@ set(VERSION 0.1)
 set(PROJECT_NAME_TEST
     ${PROJECT_NAME}_test)#项目名称设置
 
+find_package(ECM REQUIRED NO_MODULE)
+set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/../cmake)
+
+include(KDEInstallDirs)
+include(KDECMakeSettings)
+include(KDECompilerSettings)
+
 if (${CMAKE_SYSTEM_PROCESSOR} STREQUAL "x86_64")
     set(CMAKE_SAFETYTEST "${CMAKE_SAFETYTEST_ARG}")
     if(CMAKE_SAFETYTEST STREQUAL "")
@@ -63,6 +70,7 @@ find_package(Qt5 COMPONENTS Widgets REQUIRED)
 find_package(Fcitx REQUIRED)
 find_package(FcitxQt5DBusAddons REQUIRED)
 find_package(FcitxQt5WidgetsAddons REQUIRED)
+find_package(KF5 REQUIRED COMPONENTS I18n)
 
 option (USE_GOOGLETEST "use google test" ON)
 
@@ -95,7 +103,6 @@ FILE(GLOB_RECURSE HEAD_FILES
     ${CMAKE_CURRENT_SOURCE_DIR}/../src/fcitxInterface/*.h
     ${CMAKE_CURRENT_SOURCE_DIR}/../src/widgets/*.h
     ${CMAKE_CURRENT_SOURCE_DIR}/../src/window/*.h
-    ${CMAKE_CURRENT_SOURCE_DIR}/../src/i18n.h
     ${CMAKE_CURRENT_SOURCE_DIR}/../src/fcitxconfigplugin.h
     ${CMAKE_CURRENT_SOURCE_DIR}/../src/publisher/*.h)
 
@@ -104,7 +111,6 @@ FILE(GLOB_RECURSE SOURCE_FILES
     ${CMAKE_CURRENT_SOURCE_DIR}/../src/fcitxInterface/*.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/../src/widgets/*.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/../src/window/*.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/../src/i18n.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/../src/fcitxconfigplugin.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/../src/publisher/*.cpp)
 
@@ -140,8 +146,9 @@ target_include_directories(${PROJECT_NAME_TEST} PUBLIC
         )
 
 target_link_libraries(${PROJECT_NAME_TEST} PRIVATE
-        "/usr/include/dde-control-center"
+        "/usr/lib/dde-control-center"
 #${DdeControlCenter_LIBRARIES}
+        KF5::I18n
         ${DFrameworkDBus_LIBRARIES}
         ${DtkWidget_LIBRARIES}
         ${Qt5Widgets_LIBRARIES}

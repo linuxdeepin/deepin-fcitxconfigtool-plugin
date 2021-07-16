@@ -58,7 +58,6 @@ IMSettingWindow::~IMSettingWindow()
     DeleteObject_Null(m_mainLayout);
     DeleteObject_Null(m_imSwitchCbox);
     DeleteObject_Null(m_defaultIMKey);
-//    DeleteObject_Null(m_addIMBtn);
 }
 
 void IMSettingWindow::initUI()

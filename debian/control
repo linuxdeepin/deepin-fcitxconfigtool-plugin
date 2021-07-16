@@ -23,6 +23,7 @@ Build-Depends:
  libfcitx-qt5-data,
  libfcitx-qt5-dev,
  iso-codes,
+ libkf5i18n-dev,
  libdbus-glib-1-dev,
  libgtk-3-dev (>= 3.20),
  libgtk2.0-dev (>= 2.22),
