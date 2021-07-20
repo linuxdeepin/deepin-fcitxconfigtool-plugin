@@ -62,7 +62,7 @@
         <translation type="vanished">Типово</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="118"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="117"/>
         <source>Switch input methods</source>
         <translation>Перемкнути способи введення</translation>
     </message>
@@ -91,17 +91,17 @@
         <translation type="vanished">Спосіб введення</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="122"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="121"/>
         <source>Switch to the first input method</source>
         <translation>Перемкнутися на перший спосіб введення</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="140"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="139"/>
         <source>Manage Input Methods</source>
         <translation>Керування способами введення</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="144"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="143"/>
         <source>Shortcuts</source>
         <translation>Скорочення</translation>
     </message>

@@ -62,7 +62,7 @@
         <translation type="vanished">Alapértelmezett</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="118"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="117"/>
         <source>Switch input methods</source>
         <translation>Beviteli mód váltása</translation>
     </message>
@@ -91,17 +91,17 @@
         <translation type="vanished">Beviteli mód</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="122"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="121"/>
         <source>Switch to the first input method</source>
         <translation>Váltson az első beviteli módra</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="140"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="139"/>
         <source>Manage Input Methods</source>
         <translation>Beviteli módok kezelése</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="144"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="143"/>
         <source>Shortcuts</source>
         <translation>Gyorsbillentyűk</translation>
     </message>

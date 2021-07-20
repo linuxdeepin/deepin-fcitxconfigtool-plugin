@@ -62,7 +62,7 @@
         <translation type="vanished">Zadano</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="118"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="117"/>
         <source>Switch input methods</source>
         <translation>Zamijeni načine unosa</translation>
     </message>
@@ -83,17 +83,17 @@
         <translation type="vanished">Način unosa</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="122"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="121"/>
         <source>Switch to the first input method</source>
         <translation>Prebaci na prvi način unosa</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="140"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="139"/>
         <source>Manage Input Methods</source>
         <translation>Upravljaj načinima unosa</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="144"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="143"/>
         <source>Shortcuts</source>
         <translation>Prečaci</translation>
     </message>

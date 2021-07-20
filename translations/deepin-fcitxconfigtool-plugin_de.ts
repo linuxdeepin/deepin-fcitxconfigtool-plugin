@@ -62,7 +62,7 @@
         <translation type="vanished">Standard</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="118"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="117"/>
         <source>Switch input methods</source>
         <translation>Eingabemethoden wechseln</translation>
     </message>
@@ -87,17 +87,17 @@
         <translation type="vanished">Eingabemethode</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="122"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="121"/>
         <source>Switch to the first input method</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="140"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="139"/>
         <source>Manage Input Methods</source>
         <translation>Eingabemethoden verwalten</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="144"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="143"/>
         <source>Shortcuts</source>
         <translation>Tastenkürzel</translation>
     </message>

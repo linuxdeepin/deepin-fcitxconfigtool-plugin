@@ -62,7 +62,7 @@
         <translation type="vanished">默认</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="118"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="117"/>
         <source>Switch input methods</source>
         <translation>切换输入法</translation>
     </message>
@@ -91,17 +91,17 @@
         <translation type="vanished">输入法</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="122"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="121"/>
         <source>Switch to the first input method</source>
         <translation>切换至首位输入法</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="140"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="139"/>
         <source>Manage Input Methods</source>
         <translation>输入法管理</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="144"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="143"/>
         <source>Shortcuts</source>
         <translation>快捷键</translation>
     </message>
