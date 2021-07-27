@@ -135,7 +135,7 @@ QString Global::testWrapper(const QString &path) const
             QStringList args;
             args << QLatin1String("--test");
             args << path;
-            int exit_status = QProcess::execute(QString::fromLocal8Bit(qtguiwrapper[i]), args);
+            int exit_status = QProcess::execute("sh -c " + QString::fromLocal8Bit(qtguiwrapper[i]), args);
             if (exit_status == 0) {
                 wrapper = QString::fromLatin1(qtguiwrapper[i]);
                 break;
