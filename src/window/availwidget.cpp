@@ -36,13 +36,9 @@ bool operator==(const FcitxQtInputMethodItem &item, const FcitxQtInputMethodItem
 // kcm代码 获取语言名称 简体中文 繁体中文 英文等 需要优化
 QString languageName(const QString &langCode)
 {
-    if (langCode.isEmpty()) {
-        return QString("Unknown");
-    }
-    else if (langCode == "*"){
-        return QString("Unknown");
-    }
-    else {
+    if (langCode.isEmpty() || (langCode == "*")) {
+        return QString("Unknown");;
+    } else {
         QLocale locale(langCode);
         if (locale.language() == QLocale::C) {
             return QString("Unknown");
@@ -50,9 +46,9 @@ QString languageName(const QString &langCode)
         QString languageName;
         if (languageName.isEmpty()) {
             languageName = i18nd("iso_639", QLocale::languageToString(locale.language()).toUtf8());
-        }
-        if (languageName.isEmpty()) {
-            languageName = QString("Unknown");
+            if (languageName.isEmpty()) {
+                languageName = QString("Unknown");
+            }
         }
         return languageName;
     }
