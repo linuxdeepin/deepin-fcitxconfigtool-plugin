@@ -202,19 +202,19 @@ void IMModel::onConfigShow(const FcitxQtInputMethodItem &item)
     QString imUniqueName = item.uniqueName();
 
     QStringList closeSrcImList {
-        "chineseime", "iflyime", "sogoupinyin", "sogoupinyinuos", "baidupinyin"};
+        "chineseime", "iflyime", "sogoupinyin", "baidupinyin"};
 
     QProcess p;
     if (closeSrcImList.contains(imUniqueName)) {
         p.start("sh -c " + IMConfig::IMPluginKey(imUniqueName));
     } else if (imUniqueName.compare("huayupy") == 0) {
-        p.start("sh -c " + IMConfig::IMPluginKey(imUniqueName) + " " + IMConfig::IMPluginPar(imUniqueName));
+        p.start("sh -c \"" + IMConfig::IMPluginKey(imUniqueName) + " " + IMConfig::IMPluginPar(imUniqueName)+"\"");
     } else {
         QDBusPendingReply<QString>
         result = Global::instance()->inputMethodProxy()->GetIMAddon(imUniqueName);
         result.waitForFinished();
         if (result.isValid()) {
-            p.start("sh -c fcitx-config-gtk3 " + result.value());
+            p.start("sh -c \"fcitx-config-gtk3 " + result.value()+"\"");
         }
     }
     p.waitForFinished(10);
