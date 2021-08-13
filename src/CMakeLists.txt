@@ -109,11 +109,11 @@ set(TEST_SRCS
     ${TEST_SOURCE_FILES}
     )
 
-#    add_executable(${PROJECT_NAME}
-#        ${ALL_SRCS}
-#        ${DTNG_QM_FILES}
-#        ${CMAKE_CURRENT_SOURCE_DIR}/main.cpp
-#        )
+#add_executable(${PROJECT_NAME}
+#    ${ALL_SRCS}
+#    ${DTNG_QM_FILES}
+#    ${CMAKE_CURRENT_SOURCE_DIR}/main.cpp
+#    )
 
 add_library(${PROJECT_NAME}
         ${ALL_SRCS}
