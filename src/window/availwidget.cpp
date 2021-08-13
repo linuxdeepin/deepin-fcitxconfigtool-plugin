@@ -129,6 +129,12 @@ void AvailWidget::onUpdateUI(FcitxQtInputMethodItemList IMlist)
     }
     m_allAvaiIMlList.swap(IMlist);
 
+    QList<QString> useLanguage;
+    FcitxQtInputMethodItemList CurIMlist = IMModel::instance()->getCurIMList();
+    Q_FOREACH (const FcitxQtInputMethodItem &im, CurIMlist) {
+        useLanguage.append(languageName(im.langCode()));
+    }
+
     //fcitx原有逻辑 不需要修改 __begin
     QMap<QString, int> languageMap;
     QList<QPair<QString, FcitxQtInputMethodItemList>> filteredIMEntryList;
@@ -150,7 +156,7 @@ void AvailWidget::onUpdateUI(FcitxQtInputMethodItemList IMlist)
     for (auto it = filteredIMEntryList.begin(); it != filteredIMEntryList.end(); ++it) {
         for (auto it2 = it->second.begin(); it2 != it->second.end(); ++it2) {
             QString imcodeName = languageName(it2->langCode());
-            if(imcodeName != QString("Unknown"))
+            if(imcodeName.compare("Unknown") != 0)
             {
                 if (tmpIM.find(imcodeName) == tmpIM.end()) {
                     tmpIM.insert(std::pair<QString, FcitxQtInputMethodItemList>(imcodeName, FcitxQtInputMethodItemList()));
@@ -184,8 +190,25 @@ void AvailWidget::onUpdateUI(FcitxQtInputMethodItemList IMlist)
     //清空group
     m_allIMGroup->clear();
     m_searchIMGroup->clear();
+    for (auto it = tmpIM.rbegin(); it != tmpIM.rend(); ++it) {
+        if(!useLanguage.contains(it->first)){
+           continue;
+        }
+        FcitxSettingsHead *head = new FcitxSettingsHead();
+        head->setEditEnable(false);
+        head->setTitle(it->first);
+        head->layout()->setContentsMargins(10, 0, 0, 0);
+        m_allIMGroup->appendItem(head, FcitxSettingsGroup::NoneBackground);
+        for (auto it2 = it->second.begin(); it2 != it->second.end(); ++it2) {
+            createIMSttings(m_allIMGroup, *it2);
+            createIMSttings(m_searchIMGroup, *it2);
+        }
+    }
     //添加item
     for (auto it = tmpIM.rbegin(); it != tmpIM.rend(); ++it) {
+        if(useLanguage.contains(it->first)){
+           continue;
+        }
         FcitxSettingsHead *head = new FcitxSettingsHead();
         head->setEditEnable(false);
         head->setTitle(it->first);
