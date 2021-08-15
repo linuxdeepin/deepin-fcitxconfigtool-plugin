@@ -141,8 +141,6 @@ void IMAddWindow::onAddIM()
 
 void IMAddWindow::onOpenStore()
 {
-    QProcess p;
-    p.start("sh -c deepin-app-store");
-    p.start("sh -c deepin-home-appstore-client");
-    p.waitForFinished(10);
+    QProcess::startDetached("sh -c deepin-app-store");
+    QProcess::startDetached("sh -c deepin-home-appstore-client");
 }

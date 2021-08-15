@@ -23,6 +23,7 @@
 #include "publisher/publisherdef.h"
 #include "imconfig.h"
 #include <QApplication>
+#include <QProcess>
 
 using namespace Fcitx;
 using namespace Dtk::Widget;
@@ -204,20 +205,18 @@ void IMModel::onConfigShow(const FcitxQtInputMethodItem &item)
     QStringList closeSrcImList {
         "chineseime", "iflyime", "sogoupinyin", "baidupinyin"};
 
-    QProcess p;
     if (closeSrcImList.contains(imUniqueName)) {
-        p.start("sh -c " + IMConfig::IMPluginKey(imUniqueName));
+        QProcess::startDetached("sh -c " + IMConfig::IMPluginKey(imUniqueName));
     } else if (imUniqueName.compare("huayupy") == 0) {
-        p.start("sh -c \"" + IMConfig::IMPluginKey(imUniqueName) + " " + IMConfig::IMPluginPar(imUniqueName)+"\"");
+        QProcess::startDetached("sh -c \"" + IMConfig::IMPluginKey(imUniqueName) + " " + IMConfig::IMPluginPar(imUniqueName)+"\"");
     } else {
         QDBusPendingReply<QString>
         result = Global::instance()->inputMethodProxy()->GetIMAddon(imUniqueName);
         result.waitForFinished();
         if (result.isValid()) {
-            p.start("sh -c \"fcitx-config-gtk3 " + result.value()+"\"");
+            QProcess::startDetached("sh -c \"fcitx-config-gtk3 " + result.value()+"\"");
         }
     }
-    p.waitForFinished(10);
 }
 
 void IMModel::IMListSave()

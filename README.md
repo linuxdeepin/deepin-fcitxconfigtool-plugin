@@ -14,7 +14,7 @@ deepin-fcitxconfigtool-plugin
 
 #### 编译依赖
 
-sudo apt install  debhelper qt5-qmake libqt5widgets5 libqt5network5 libdtkwidget-dev libdtkgui-dev libdtkgui5 libdtkgui5-bin libdtkcore5-bin libdtkcore-dev qttools5-dev qttools5-dev-tools pkg-config cmake fcitx-bin fcitx-libs-dev libfcitx-qt5-1 libfcitx-qt5-data libfcitx-qt5-dev iso-codes libdbus-glib-1-dev libgtk-3-dev libgtk2.0-dev libunique-dev libdframeworkdbus-dev libgtest-dev libgmock-dev dde-control-center-dev
+sudo apt install  debhelper qt5-qmake libqt5widgets5 libqt5network5 libdtkwidget-dev libdtkgui-dev libdtkgui5 libdtkgui5-bin libdtkcore5-bin libdtkcore-dev qttools5-dev qttools5-dev-tools pkg-config cmake fcitx-bin fcitx-libs-dev libfcitx-qt5-1 libfcitx-qt5-data libfcitx-qt5-dev iso-codes libdbus-glib-1-dev libgtk-3-dev libgtk2.0-dev libunique-dev libdframeworkdbus-dev libgtest-dev libgmock-dev dde-control-center-dev extra-cmake-modules libkf5i18n-dev
 
 ##
 #### 使用说明
