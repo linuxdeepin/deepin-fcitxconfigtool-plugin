@@ -96,14 +96,21 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="139"/>
-        <source>Manage Input Methods</source>
-        <translation>Upravljanje načinov vnosa</translation>
+        <location filename="../src/window/imsettingwindow.cpp" line="122"/>
+        <source>Restore Defaults</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="143"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="142"/>
+        <source>Manage Input Methods</source>
+        <translation>Upravljanje načinov vnosa</translation>
+        <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/window/imsettingwindow.cpp" line="147"/>
         <source>Shortcuts</source>
         <translation>Bljižnice</translation>
+        <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
 </context>
 <context>

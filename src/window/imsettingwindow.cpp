@@ -119,6 +119,7 @@ void IMSettingWindow::initUI()
     //    m_defaultIMKey = new FcitxKeySettingsItem(tr("Switch to the first input method"));
 //    m_imSwitchKey = new FcitxKeySettingsItem(tr("Switch input methods"));
     m_defaultIMKey = new FcitxKeySettingsItem(tr("Switch to the first input method"));
+    m_resetKey = new FcitxPushButtonSettingsItem(tr("Restore Defaults"));
 //    m_virtualKey = new FcitxKeySettingsItem(tr("Call out Onboard"));
 //    m_systemAppCbox = new FcitxComboxWidget(tr("Applies to"));
 //    m_systemAppCbox->comboBox()->addItems({tr("System"), tr("Application")});
@@ -126,6 +127,7 @@ void IMSettingWindow::initUI()
     m_shortcutGroup->appendItem(m_imSwitchCbox);
 //    m_shortcutGroup->appendItem(m_imSwitchKey);
     m_shortcutGroup->appendItem(m_defaultIMKey);
+    m_shortcutGroup->appendItem(m_resetKey);
 //    m_shortcutGroup->appendItem(m_virtualKey);
 //    m_shortcutGroup->appendItem(m_systemAppCbox, FcitxSettingsGroup::NoneBackground);
     //暂时隐藏

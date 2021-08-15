@@ -25,6 +25,7 @@
 #include "labels/shortenlabel.h"
 #include "DLineEdit"
 #include <QComboBox>
+#include <QPushButton>
 
 using namespace Dtk::Widget;
 using namespace dcc_fcitx_configtool::widgets;
@@ -114,6 +115,19 @@ private:
     QHBoxLayout *m_mainLayout {nullptr};
     QComboBox *m_combox {nullptr};
     FcitxShortenLabel *m_label {nullptr};
+};
+
+class FcitxPushButtonSettingsItem : public FcitxSettingsItem
+{
+    Q_OBJECT
+public:
+    FcitxPushButtonSettingsItem(const QString &text, const QStringList &list = {}, QFrame *parent = nullptr);
+    virtual ~FcitxPushButtonSettingsItem();
+    QPushButton *pushbutton() { return m_pushbutton; }
+
+private:
+    QHBoxLayout *m_mainLayout {nullptr};
+    QPushButton *m_pushbutton {nullptr};
 };
 } // namespace widgets
 } // namespace dcc_fcitx_configtool

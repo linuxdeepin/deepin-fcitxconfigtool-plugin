@@ -31,6 +31,7 @@ class FcitxSettingsGroup;
 class FcitxSettingsHead;
 class FcitxComboxWidget;
 class FcitxComBoboxSettingsItem;
+class FcitxPushButtonSettingsItem;
 class FcitxKeySettingsItem;
 class FcitxIMActivityItem;
 } // namespace widgets
@@ -83,6 +84,7 @@ private:
     dcc_fcitx_configtool::widgets::FcitxSettingsHead *m_editHead {nullptr}; //编辑按钮
     dcc_fcitx_configtool::widgets::FcitxComBoboxSettingsItem *m_imSwitchCbox {nullptr}; //切换输入法（快捷键）
     dcc_fcitx_configtool::widgets::FcitxKeySettingsItem *m_defaultIMKey {nullptr}; //默认输入法（快捷键）
+    dcc_fcitx_configtool::widgets::FcitxPushButtonSettingsItem* m_resetKey {nullptr}; //重置输入法（快捷键）
     Dtk::Widget::DFloatingButton *m_addIMBtn {nullptr}; //添加输入法
     QVBoxLayout *m_mainLayout;
 };

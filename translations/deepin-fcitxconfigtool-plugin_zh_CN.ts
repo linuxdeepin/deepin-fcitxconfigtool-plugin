@@ -96,14 +96,21 @@
         <translation>切换至首位输入法</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="139"/>
-        <source>Manage Input Methods</source>
-        <translation>输入法管理</translation>
+        <location filename="../src/window/imsettingwindow.cpp" line="122"/>
+        <source>Restore Defaults</source>
+        <translation>恢复默认</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="143"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="142"/>
+        <source>Manage Input Methods</source>
+        <translation>输入法管理</translation>
+        <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/window/imsettingwindow.cpp" line="147"/>
         <source>Shortcuts</source>
         <translation>快捷键</translation>
+        <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
 </context>
 <context>
