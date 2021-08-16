@@ -96,14 +96,16 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="140"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="142"/>
         <source>Manage Input Methods</source>
         <translation>Giriş Yöntemlerini Yönet</translation>
+        <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="144"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="148"/>
         <source>Shortcuts</source>
         <translation>Kısayollar</translation>
+        <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
 </context>
 <context>

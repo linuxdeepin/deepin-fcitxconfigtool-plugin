@@ -96,14 +96,16 @@
         <translation>切換至首位輸入法</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="140"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="142"/>
         <source>Manage Input Methods</source>
         <translation>輸入法管理</translation>
+        <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="144"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="148"/>
         <source>Shortcuts</source>
         <translation>快捷鍵</translation>
+        <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
 </context>
 <context>

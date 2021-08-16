@@ -88,14 +88,16 @@
         <translation>Prebaci na prvi način unosa</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="140"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="142"/>
         <source>Manage Input Methods</source>
         <translation>Upravljaj načinima unosa</translation>
+        <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="144"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="148"/>
         <source>Shortcuts</source>
         <translation>Prečaci</translation>
+        <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
 </context>
 <context>

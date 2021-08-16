@@ -96,14 +96,16 @@
         <translation>ནང་འཇུག་བྱ་ཐབས་དང་པོ་དེར་བརྗེ་བ།</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="140"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="142"/>
         <source>Manage Input Methods</source>
         <translation>ནང་འཇུག་བྱེད་སྟངས་དོ་དམ།</translation>
+        <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="144"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="148"/>
         <source>Shortcuts</source>
         <translation>མྱུར་མཐེབ།</translation>
+        <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
 </context>
 <context>
