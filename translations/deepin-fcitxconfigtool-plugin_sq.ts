@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="sq">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="sq" version="2.1">
 <context>
     <name>FcitxConfigPlugin</name>
     <message>
@@ -17,12 +15,12 @@
         <location filename="../src/widgets/settingshead.cpp" line="48"/>
         <location filename="../src/widgets/settingshead.cpp" line="113"/>
         <source>Edit</source>
-        <translation>Përpunojeni</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/widgets/settingshead.cpp" line="115"/>
         <source>Done</source>
-        <translation>U bë</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -71,6 +69,10 @@
         <translation type="vanished">Kalo te metoda parazgjedhje e dhënieve</translation>
     </message>
     <message>
+        <source>Call out Onboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Applies to</source>
         <translation type="vanished">Vlen për</translation>
     </message>
@@ -95,12 +97,14 @@
         <location filename="../src/window/imsettingwindow.cpp" line="142"/>
         <source>Manage Input Methods</source>
         <translation>Administroni Metoda Dhënieje</translation>
+        <extra-child_page>Manage Input Methods</extra-child_page>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="148"/>
         <source>Shortcuts</source>
         <translation>Shkurtore</translation>
+        <extra-child_page>Manage Input Methods</extra-child_page>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
 </context>
@@ -134,12 +138,12 @@
         <location filename="../src/widgets/keysettingsitem.cpp" line="38"/>
         <location filename="../src/widgets/keysettingsitem.cpp" line="148"/>
         <source>None</source>
-        <translation>Asnjë</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/widgets/keysettingsitem.cpp" line="44"/>
         <source>Enter a new shortcut</source>
-        <translation>Jepni një shkurtore të re</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
