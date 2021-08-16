@@ -17,12 +17,23 @@
         <location filename="../src/widgets/settingshead.cpp" line="48"/>
         <location filename="../src/widgets/settingshead.cpp" line="113"/>
         <source>Edit</source>
-        <translation>Редагувати</translation>
+        <translation type="unfinished">Редагувати</translation>
     </message>
     <message>
         <location filename="../src/widgets/settingshead.cpp" line="115"/>
         <source>Done</source>
-        <translation>Виконано</translation>
+        <translation type="unfinished">Виконано</translation>
+    </message>
+</context>
+<context>
+    <name>Fcitx_SettingsHead</name>
+    <message>
+        <source>Edit</source>
+        <translation type="vanished">Редагувати</translation>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation type="vanished">Виконано</translation>
     </message>
 </context>
 <context>
@@ -101,13 +112,13 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="142"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="143"/>
         <source>Manage Input Methods</source>
         <translation>Керування способами введення</translation>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="147"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="149"/>
         <source>Shortcuts</source>
         <translation>Скорочення</translation>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
@@ -143,12 +154,23 @@
         <location filename="../src/widgets/keysettingsitem.cpp" line="38"/>
         <location filename="../src/widgets/keysettingsitem.cpp" line="148"/>
         <source>None</source>
-        <translation>Нічого</translation>
+        <translation type="unfinished">Нічого</translation>
     </message>
     <message>
         <location filename="../src/widgets/keysettingsitem.cpp" line="44"/>
         <source>Enter a new shortcut</source>
-        <translation>Введіть нове скорочення</translation>
+        <translation type="unfinished">Введіть нове скорочення</translation>
+    </message>
+</context>
+<context>
+    <name>dcc_fcitx_configtool::widgets::Fcitx_KeyLabelWidget</name>
+    <message>
+        <source>None</source>
+        <translation type="vanished">Нічого</translation>
+    </message>
+    <message>
+        <source>Enter a new shortcut</source>
+        <translation type="vanished">Введіть нове скорочення</translation>
     </message>
 </context>
 <context>

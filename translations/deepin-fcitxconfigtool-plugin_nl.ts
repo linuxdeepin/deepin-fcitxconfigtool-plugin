@@ -17,12 +17,23 @@
         <location filename="../src/widgets/settingshead.cpp" line="48"/>
         <location filename="../src/widgets/settingshead.cpp" line="113"/>
         <source>Edit</source>
-        <translation>Bewerken</translation>
+        <translation type="unfinished">Bewerken</translation>
     </message>
     <message>
         <location filename="../src/widgets/settingshead.cpp" line="115"/>
         <source>Done</source>
-        <translation>Klaar</translation>
+        <translation type="unfinished">Klaar</translation>
+    </message>
+</context>
+<context>
+    <name>Fcitx_SettingsHead</name>
+    <message>
+        <source>Edit</source>
+        <translation type="vanished">Bewerken</translation>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation type="vanished">Klaar</translation>
     </message>
 </context>
 <context>
@@ -101,13 +112,13 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="142"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="143"/>
         <source>Manage Input Methods</source>
         <translation>Invoermethoden beheren</translation>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="147"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="149"/>
         <source>Shortcuts</source>
         <translation>Sneltoetsen</translation>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
@@ -143,12 +154,23 @@
         <location filename="../src/widgets/keysettingsitem.cpp" line="38"/>
         <location filename="../src/widgets/keysettingsitem.cpp" line="148"/>
         <source>None</source>
-        <translation>Geen</translation>
+        <translation type="unfinished">Geen</translation>
     </message>
     <message>
         <location filename="../src/widgets/keysettingsitem.cpp" line="44"/>
         <source>Enter a new shortcut</source>
-        <translation>Druk op een sneltoets</translation>
+        <translation type="unfinished">Druk op een sneltoets</translation>
+    </message>
+</context>
+<context>
+    <name>dcc_fcitx_configtool::widgets::Fcitx_KeyLabelWidget</name>
+    <message>
+        <source>None</source>
+        <translation type="vanished">Geen</translation>
+    </message>
+    <message>
+        <source>Enter a new shortcut</source>
+        <translation type="vanished">Druk op een sneltoets</translation>
     </message>
 </context>
 <context>

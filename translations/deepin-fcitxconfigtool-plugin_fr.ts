@@ -17,12 +17,23 @@
         <location filename="../src/widgets/settingshead.cpp" line="48"/>
         <location filename="../src/widgets/settingshead.cpp" line="113"/>
         <source>Edit</source>
-        <translation>Éditer</translation>
+        <translation type="unfinished">Éditer</translation>
     </message>
     <message>
         <location filename="../src/widgets/settingshead.cpp" line="115"/>
         <source>Done</source>
-        <translation>Terminé</translation>
+        <translation type="unfinished">Terminé</translation>
+    </message>
+</context>
+<context>
+    <name>Fcitx_SettingsHead</name>
+    <message>
+        <source>Edit</source>
+        <translation type="vanished">Éditer</translation>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation type="vanished">Terminé</translation>
     </message>
 </context>
 <context>
@@ -93,7 +104,7 @@
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="121"/>
         <source>Switch to the first input method</source>
-        <translation type="unfinished"></translation>
+        <translation>Changer pour la première méthode de saisie</translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="122"/>
@@ -101,13 +112,13 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="142"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="143"/>
         <source>Manage Input Methods</source>
         <translation>Gérer les méthodes de saisie</translation>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="147"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="149"/>
         <source>Shortcuts</source>
         <translation>Raccourcis</translation>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
@@ -134,7 +145,7 @@
     <message>
         <location filename="../src/window/shortcutkeywindow.cpp" line="54"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation>Ce raccourci entre en conflit avec %1, cliquer sur Ajouter pour rendre ce raccourci effectif immédiatement</translation>
+        <translation>Ce raccourci entre en conflit avec %1, cliquez sur Ajouter pour rendre ce raccourci effectif immédiatement</translation>
     </message>
 </context>
 <context>
@@ -143,19 +154,30 @@
         <location filename="../src/widgets/keysettingsitem.cpp" line="38"/>
         <location filename="../src/widgets/keysettingsitem.cpp" line="148"/>
         <source>None</source>
-        <translation>Aucun</translation>
+        <translation type="unfinished">Aucun</translation>
     </message>
     <message>
         <location filename="../src/widgets/keysettingsitem.cpp" line="44"/>
         <source>Enter a new shortcut</source>
-        <translation>Entrer un nouveau raccourci</translation>
+        <translation type="unfinished">Entrez un nouveau raccourci</translation>
+    </message>
+</context>
+<context>
+    <name>dcc_fcitx_configtool::widgets::Fcitx_KeyLabelWidget</name>
+    <message>
+        <source>None</source>
+        <translation type="vanished">Aucun</translation>
+    </message>
+    <message>
+        <source>Enter a new shortcut</source>
+        <translation type="vanished">Entrez un nouveau raccourci</translation>
     </message>
 </context>
 <context>
     <name>dcc_fcitx_configtool::widgets::KeyLabelWidget</name>
     <message>
         <source>Enter a new shortcut</source>
-        <translation type="vanished">Entrer un nouveau raccourci</translation>
+        <translation type="vanished">Entrez un nouveau raccourci</translation>
     </message>
     <message>
         <source>None</source>

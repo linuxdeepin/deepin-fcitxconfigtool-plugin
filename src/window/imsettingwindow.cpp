@@ -139,11 +139,13 @@ void IMSettingWindow::initUI()
 //    scrollAreaLayout->addSpacing(10);
 //    scrollAreaLayout->addWidget(m_defaultIMGroup);
     //~ contents_path /keyboard/Manage Input Methods
+    // ~chid_page Manage Input Methods
     scrollAreaLayout->addWidget(newTitleHead(tr("Manage Input Methods"), true));
     scrollAreaLayout->addSpacing(10);
     scrollAreaLayout->addWidget(m_IMListGroup);
     scrollAreaLayout->addSpacing(11);
     //~ contents_path /keyboard/Manage Input Methods
+    // ~chid_page Manage Input Methods
     scrollAreaLayout->addWidget(newTitleHead(tr("Shortcuts")));
     scrollAreaLayout->addSpacing(10);
     scrollAreaLayout->addWidget(m_shortcutGroup);
@@ -197,8 +199,13 @@ void IMSettingWindow::initConnect()
         m_imSwitchCbox->comboBox()->setAccessibleName(m_imSwitchCbox->comboBox()->currentText());
         reloadFcitx(IMConfig::setIMSwitchKey(m_imSwitchCbox->comboBox()->currentText()));
     });
+    connect(m_resetKey->pushbutton(), &QPushButton::clicked, [ = ]() {
+        m_imSwitchCbox->comboBox()->setCurrentText("CTRL_SHIFT");
+        reloadFcitx(IMConfig::setDefaultIMKey("CTRL_SPACE"));
+        m_defaultIMKey->setList(QString("CTRL_SPACE").split("_"));
+    });
 
-    connect(m_defaultIMKey, &FcitxKeySettingsItem::shortCutError, this, &IMSettingWindow::popShortKeyListWindow);
+//    connect(m_defaultIMKey, &FcitxKeySettingsItem::shortCutError, this, &IMSettingWindow::popShortKeyListWindow);
 //    connect(m_imSwitchKey, &FcitxKeySettingsItem::shortCutError, this, &IMSettingWindow::popShortKeyListWindow);
 
 

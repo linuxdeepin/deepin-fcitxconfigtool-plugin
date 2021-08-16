@@ -26,6 +26,17 @@
     </message>
 </context>
 <context>
+    <name>Fcitx_SettingsHead</name>
+    <message>
+        <source>Edit</source>
+        <translation type="vanished">Szerkesztés</translation>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation type="vanished">Kész</translation>
+    </message>
+</context>
+<context>
     <name>IMAddWindow</name>
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="62"/>
@@ -98,16 +109,16 @@
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="122"/>
         <source>Restore Defaults</source>
-        <translation type="unfinished"></translation>
+        <translation>Alapértelmezések visszaállítása</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="142"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="143"/>
         <source>Manage Input Methods</source>
         <translation>Beviteli módok kezelése</translation>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="147"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="149"/>
         <source>Shortcuts</source>
         <translation>Gyorsbillentyűk</translation>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
@@ -149,6 +160,17 @@
         <location filename="../src/widgets/keysettingsitem.cpp" line="44"/>
         <source>Enter a new shortcut</source>
         <translation>Adjon meg egy új gyorsbillentyűt</translation>
+    </message>
+</context>
+<context>
+    <name>dcc_fcitx_configtool::widgets::Fcitx_KeyLabelWidget</name>
+    <message>
+        <source>None</source>
+        <translation type="vanished">Nincs</translation>
+    </message>
+    <message>
+        <source>Enter a new shortcut</source>
+        <translation type="vanished">Adjon meg egy új gyorsbillentyűt</translation>
     </message>
 </context>
 <context>
