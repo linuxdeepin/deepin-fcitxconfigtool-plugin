@@ -138,14 +138,14 @@ void IMSettingWindow::initUI()
 //    scrollAreaLayout->addWidget(newTitleHead(tr("Input Method")));
 //    scrollAreaLayout->addSpacing(10);
 //    scrollAreaLayout->addWidget(m_defaultIMGroup);
-    //~ contents_path /keyboard/Manage Input Methods
-    // ~chid_page Manage Input Methods
+    //~contents_path /keyboard/Manage Input Methods
+    //~child_page Manage Input Methods
     scrollAreaLayout->addWidget(newTitleHead(tr("Manage Input Methods"), true));
     scrollAreaLayout->addSpacing(10);
     scrollAreaLayout->addWidget(m_IMListGroup);
     scrollAreaLayout->addSpacing(11);
-    //~ contents_path /keyboard/Manage Input Methods
-    // ~chid_page Manage Input Methods
+    //~contents_path /keyboard/Manage Input Methods
+    //~child_page Manage Input Methods
     scrollAreaLayout->addWidget(newTitleHead(tr("Shortcuts")));
     scrollAreaLayout->addSpacing(10);
     scrollAreaLayout->addWidget(m_shortcutGroup);
