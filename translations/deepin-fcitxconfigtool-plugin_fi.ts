@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="fi">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="fi" version="2.1">
 <context>
     <name>FcitxConfigPlugin</name>
     <message>
@@ -17,23 +15,23 @@
         <location filename="../src/widgets/settingshead.cpp" line="48"/>
         <location filename="../src/widgets/settingshead.cpp" line="113"/>
         <source>Edit</source>
-        <translation type="unfinished">Muokkaa</translation>
+        <translation>Muokkaa</translation>
     </message>
     <message>
         <location filename="../src/widgets/settingshead.cpp" line="115"/>
         <source>Done</source>
-        <translation type="unfinished">Valmis</translation>
+        <translation>Valmis</translation>
     </message>
 </context>
 <context>
     <name>Fcitx_SettingsHead</name>
     <message>
         <source>Edit</source>
-        <translation type="vanished">Muokkaa</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Done</source>
-        <translation type="vanished">Valmis</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -70,7 +68,7 @@
     <name>IMSettingWindow</name>
     <message>
         <source>Default</source>
-        <translation type="vanished">oletus</translation>
+        <translation type="vanished">Oletus</translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="117"/>
@@ -109,7 +107,7 @@
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="122"/>
         <source>Restore Defaults</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="143"/>
@@ -154,34 +152,34 @@
         <location filename="../src/widgets/keysettingsitem.cpp" line="38"/>
         <location filename="../src/widgets/keysettingsitem.cpp" line="148"/>
         <source>None</source>
-        <translation type="unfinished">Mitään</translation>
+        <translation>Ei mitään</translation>
     </message>
     <message>
         <location filename="../src/widgets/keysettingsitem.cpp" line="44"/>
         <source>Enter a new shortcut</source>
-        <translation type="unfinished">Anna uusi pikanäppäin</translation>
+        <translation>Tee uusi pikanäppäin</translation>
     </message>
 </context>
 <context>
     <name>dcc_fcitx_configtool::widgets::Fcitx_KeyLabelWidget</name>
     <message>
         <source>None</source>
-        <translation type="vanished">Mitään</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Enter a new shortcut</source>
-        <translation type="vanished">Anna uusi pikanäppäin</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>dcc_fcitx_configtool::widgets::KeyLabelWidget</name>
     <message>
         <source>Enter a new shortcut</source>
-        <translation type="vanished">Anna uusi pikanäppäin</translation>
+        <translation type="vanished">Tee uusi pikanäppäin</translation>
     </message>
     <message>
         <source>None</source>
-        <translation type="vanished">Mitään</translation>
+        <translation type="vanished">Ei mitään</translation>
     </message>
 </context>
 </TS>

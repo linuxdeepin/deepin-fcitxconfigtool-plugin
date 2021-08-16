@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="hu">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="hu" version="2.1">
 <context>
     <name>FcitxConfigPlugin</name>
     <message>
@@ -29,11 +27,11 @@
     <name>Fcitx_SettingsHead</name>
     <message>
         <source>Edit</source>
-        <translation type="vanished">Szerkesztés</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Done</source>
-        <translation type="vanished">Kész</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -109,7 +107,7 @@
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="122"/>
         <source>Restore Defaults</source>
-        <translation>Alapértelmezések visszaállítása</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="143"/>
@@ -166,11 +164,11 @@
     <name>dcc_fcitx_configtool::widgets::Fcitx_KeyLabelWidget</name>
     <message>
         <source>None</source>
-        <translation type="vanished">Nincs</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Enter a new shortcut</source>
-        <translation type="vanished">Adjon meg egy új gyorsbillentyűt</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
