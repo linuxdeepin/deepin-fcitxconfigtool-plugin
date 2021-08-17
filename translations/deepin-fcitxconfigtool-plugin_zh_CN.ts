@@ -107,18 +107,20 @@
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="122"/>
         <source>Restore Defaults</source>
-        <translation type="unfinished"/>
+        <translation>恢复默认</translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="143"/>
         <source>Manage Input Methods</source>
         <translation>输入法管理</translation>
+        <extra-child_page>Manage Input Methods</extra-child_page>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="149"/>
         <source>Shortcuts</source>
         <translation>快捷键</translation>
+        <extra-child_page>Manage Input Methods</extra-child_page>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
 </context>

@@ -113,12 +113,14 @@
         <location filename="../src/window/imsettingwindow.cpp" line="143"/>
         <source>Manage Input Methods</source>
         <translation>ནང་འཇུག་བྱེད་སྟངས་དོ་དམ།</translation>
+        <extra-child_page>Manage Input Methods</extra-child_page>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="149"/>
         <source>Shortcuts</source>
         <translation>མྱུར་མཐེབ།</translation>
+        <extra-child_page>Manage Input Methods</extra-child_page>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
 </context>
