@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ee235297_6caa4024",
+        "filename": "src/window/imsettingwindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-08-17T01:29:35Z",
+      "side": 1,
+      "message": "注释行数: 4; 改动行数(修改和新增): 4; 注释率: 100.0%",
+      "revId": "84a907adeac38e40e4b6a6e13f10d4d2f1c62ca8",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    }
+  ]
+}
