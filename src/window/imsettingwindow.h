@@ -24,6 +24,7 @@
 #include "fcitxInterface/global.h"
 #include <QWidget>
 #include <QVBoxLayout>
+#include <QPushButton>
 
 namespace dcc_fcitx_configtool {
 namespace widgets {
@@ -84,7 +85,8 @@ private:
     dcc_fcitx_configtool::widgets::FcitxSettingsHead *m_editHead {nullptr}; //编辑按钮
     dcc_fcitx_configtool::widgets::FcitxComBoboxSettingsItem *m_imSwitchCbox {nullptr}; //切换输入法（快捷键）
     dcc_fcitx_configtool::widgets::FcitxKeySettingsItem *m_defaultIMKey {nullptr}; //默认输入法（快捷键）
-    dcc_fcitx_configtool::widgets::FcitxPushButtonSettingsItem* m_resetKey {nullptr}; //重置输入法（快捷键）
+    QPushButton* m_resetKey {nullptr}; //重置输入法（快捷键）
+    Dtk::Widget::DCommandLinkButton* m_advSetBtn  {nullptr}; //高级设置
     Dtk::Widget::DFloatingButton *m_addIMBtn {nullptr}; //添加输入法
     QVBoxLayout *m_mainLayout;
 };

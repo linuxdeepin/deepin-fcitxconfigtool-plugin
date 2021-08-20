@@ -117,18 +117,6 @@ private:
     FcitxShortenLabel *m_label {nullptr};
 };
 
-class FcitxPushButtonSettingsItem : public FcitxSettingsItem
-{
-    Q_OBJECT
-public:
-    FcitxPushButtonSettingsItem(const QString &text, const QStringList &list = {}, QFrame *parent = nullptr);
-    virtual ~FcitxPushButtonSettingsItem();
-    QPushButton *pushbutton() { return m_pushbutton; }
-
-private:
-    QHBoxLayout *m_mainLayout {nullptr};
-    QPushButton *m_pushbutton {nullptr};
-};
 } // namespace widgets
 } // namespace dcc_fcitx_configtool
 #endif // KETSETTINGSITEM_H

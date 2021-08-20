@@ -380,21 +380,5 @@ FcitxComBoboxSettingsItem::~FcitxComBoboxSettingsItem()
 {
 }
 
-FcitxPushButtonSettingsItem::FcitxPushButtonSettingsItem(const QString &text, const QStringList &list, QFrame *parent)
-    : FcitxSettingsItem(parent)
-{
-    m_pushbutton = new QPushButton(this);
-    m_pushbutton->setFixedHeight(36);
-    m_pushbutton->setText(text);
-    m_mainLayout = new QHBoxLayout(this);
-    m_mainLayout->addWidget(m_pushbutton);
-    m_mainLayout->setContentsMargins(10, 0, 10, 0);
-    setLayout(m_mainLayout);
-    setFixedHeight(48);
-}
-
-FcitxPushButtonSettingsItem::~FcitxPushButtonSettingsItem()
-{
-}
 } // namespace widgets
 } // namespace dcc_fcitx_configtool

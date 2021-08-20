@@ -73,7 +73,7 @@
         <translation type="vanished">Predefinição</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="117"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="119"/>
         <source>Switch input methods</source>
         <translation>Mudar métodos de entrada</translation>
     </message>
@@ -102,25 +102,32 @@
         <translation type="vanished">Método de entrada</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="121"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="123"/>
         <source>Switch to the first input method</source>
         <translation>Mudar para o primeiro método de entrada</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="122"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="124"/>
         <source>Restore Defaults</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="143"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="125"/>
+        <source>Advanced Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/window/imsettingwindow.cpp" line="147"/>
         <source>Manage Input Methods</source>
         <translation>Gerir métodos de entrada</translation>
+        <extra-child_page>Manage Input Methods</extra-child_page>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="149"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="153"/>
         <source>Shortcuts</source>
         <translation>Atalhos</translation>
+        <extra-child_page>Manage Input Methods</extra-child_page>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
 </context>

@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="zh_HK" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="zh_HK">
 <context>
     <name>FcitxConfigPlugin</name>
     <message>
@@ -71,7 +73,7 @@
         <translation type="vanished">默认</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="117"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="119"/>
         <source>Switch input methods</source>
         <translation>切換輸入法</translation>
     </message>
@@ -100,24 +102,29 @@
         <translation type="vanished">輸入法</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="121"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="123"/>
         <source>Switch to the first input method</source>
         <translation>切換至首位輸入法</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="122"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="124"/>
         <source>Restore Defaults</source>
         <translation>恢復默認</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="143"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="125"/>
+        <source>Advanced Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/window/imsettingwindow.cpp" line="147"/>
         <source>Manage Input Methods</source>
         <translation>輸入法管理</translation>
         <extra-child_page>Manage Input Methods</extra-child_page>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="149"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="153"/>
         <source>Shortcuts</source>
         <translation>快捷鍵</translation>
         <extra-child_page>Manage Input Methods</extra-child_page>

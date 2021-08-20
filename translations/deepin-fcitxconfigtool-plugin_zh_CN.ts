@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="zh_CN" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="zh_CN">
 <context>
     <name>FcitxConfigPlugin</name>
     <message>
@@ -21,17 +23,6 @@
         <location filename="../src/widgets/settingshead.cpp" line="115"/>
         <source>Done</source>
         <translation>完成</translation>
-    </message>
-</context>
-<context>
-    <name>Fcitx_SettingsHead</name>
-    <message>
-        <source>Edit</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Done</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -71,7 +62,7 @@
         <translation type="vanished">默认</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="117"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="119"/>
         <source>Switch input methods</source>
         <translation>切换输入法</translation>
     </message>
@@ -100,24 +91,29 @@
         <translation type="vanished">输入法</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="121"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="123"/>
         <source>Switch to the first input method</source>
         <translation>切换至首位输入法</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="122"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="124"/>
         <source>Restore Defaults</source>
         <translation>恢复默认</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="143"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="125"/>
+        <source>Advanced Settings</source>
+        <translation>高级设置</translation>
+    </message>
+    <message>
+        <location filename="../src/window/imsettingwindow.cpp" line="147"/>
         <source>Manage Input Methods</source>
         <translation>输入法管理</translation>
         <extra-child_page>Manage Input Methods</extra-child_page>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="149"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="153"/>
         <source>Shortcuts</source>
         <translation>快捷键</translation>
         <extra-child_page>Manage Input Methods</extra-child_page>
@@ -160,17 +156,6 @@
         <location filename="../src/widgets/keysettingsitem.cpp" line="44"/>
         <source>Enter a new shortcut</source>
         <translation>请输入新的快捷键</translation>
-    </message>
-</context>
-<context>
-    <name>dcc_fcitx_configtool::widgets::Fcitx_KeyLabelWidget</name>
-    <message>
-        <source>None</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Enter a new shortcut</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>

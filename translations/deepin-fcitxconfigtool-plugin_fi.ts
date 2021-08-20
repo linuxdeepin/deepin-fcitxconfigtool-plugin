@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="fi" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="fi">
 <context>
     <name>FcitxConfigPlugin</name>
     <message>
@@ -21,17 +23,6 @@
         <location filename="../src/widgets/settingshead.cpp" line="115"/>
         <source>Done</source>
         <translation>Valmis</translation>
-    </message>
-</context>
-<context>
-    <name>Fcitx_SettingsHead</name>
-    <message>
-        <source>Edit</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Done</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -71,7 +62,7 @@
         <translation type="vanished">Oletus</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="117"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="119"/>
         <source>Switch input methods</source>
         <translation>Vaihda kirjoitustapaa</translation>
     </message>
@@ -100,25 +91,32 @@
         <translation type="vanished">Kirjoitustapa</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="121"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="123"/>
         <source>Switch to the first input method</source>
         <translation>Vaihda ensimmäiseen kirjoitustapaan</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="122"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="124"/>
         <source>Restore Defaults</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="143"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="125"/>
+        <source>Advanced Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/window/imsettingwindow.cpp" line="147"/>
         <source>Manage Input Methods</source>
         <translation>Kirjoituksen menetelmät</translation>
+        <extra-child_page>Manage Input Methods</extra-child_page>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="149"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="153"/>
         <source>Shortcuts</source>
         <translation>Pikanäppäimet</translation>
+        <extra-child_page>Manage Input Methods</extra-child_page>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
 </context>
@@ -158,17 +156,6 @@
         <location filename="../src/widgets/keysettingsitem.cpp" line="44"/>
         <source>Enter a new shortcut</source>
         <translation>Tee uusi pikanäppäin</translation>
-    </message>
-</context>
-<context>
-    <name>dcc_fcitx_configtool::widgets::Fcitx_KeyLabelWidget</name>
-    <message>
-        <source>None</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Enter a new shortcut</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>
