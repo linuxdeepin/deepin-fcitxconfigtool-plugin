@@ -2,6 +2,40 @@
   "comments": [
     {
       "key": {
+        "uuid": "f3de5309_fb2f0fe1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-08-31T05:30:53Z",
+      "side": 1,
+      "message": "fix后必须存在一个\u0027:\u0027",
+      "revId": "5884aa5ac284bfd2ee6093ed077006167c268f23",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6ada1054_e6145ac0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-08-31T05:30:53Z",
+      "side": 1,
+      "message": "Log后面必须存在一个\u0027:\u0027",
+      "revId": "5884aa5ac284bfd2ee6093ed077006167c268f23",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "300cd759_eca3cf57",
         "filename": "src/widgets/imactivityitem.cpp",
         "patchSetId": 1
