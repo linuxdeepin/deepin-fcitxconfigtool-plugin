@@ -23,8 +23,10 @@
 #define IMACTIVITYITEM_H
 #include "settingsitem.h"
 #include "labels/shortenlabel.h"
+#include "labels/clicklabel.h"
 #include <fcitxqtinputmethoditem.h>
 #include <DToolButton>
+
 using namespace dcc_fcitx_configtool::widgets;
 using namespace Dtk::Widget;
 namespace dcc_fcitx_configtool {
@@ -72,7 +74,7 @@ public:
     DToolButton *m_upBtn {nullptr};
     DToolButton *m_downBtn {nullptr};
     DToolButton *m_configBtn {nullptr};
-    DToolButton *m_deleteBtn {nullptr};
+    ClickLabel *m_deleteLabel {nullptr};
     bool m_isEdit {false};
 };
 

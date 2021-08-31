@@ -39,25 +39,27 @@ FcitxIMActivityItem::FcitxIMActivityItem(FcitxQtInputMethodItem item, QFrame *pa
     DFontSizeManager::instance()->bind(m_labelText, DFontSizeManager::T6);
     m_labelText->setShortenText(item.name());
     m_labelText->setAccessibleName(item.name());
+    m_labelText->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     m_layout->addWidget(m_labelText);
     m_upBtn = new DToolButton(this);
     m_downBtn = new DToolButton(this);
     m_configBtn = new DToolButton(this);
-    m_deleteBtn = new DToolButton(this);
+    m_deleteLabel = new ClickLabel (this);
     m_upBtn->setIcon(QIcon::fromTheme("arrow_up"));
     m_upBtn->setAccessibleName(item.name()+":arrow_up");
     m_downBtn->setIcon(QIcon::fromTheme("arrow_down"));
     m_downBtn->setAccessibleName(item.name()+":arrow_down");
     m_configBtn->setIcon(QIcon::fromTheme("setting"));
     m_configBtn->setAccessibleName(item.name()+":setting");
-    m_deleteBtn->setIcon(DStyle::standardIcon(QApplication::style(), DStyle::SP_DeleteButton));
-    m_deleteBtn->setAccessibleName(item.name()+":delete");
+    m_deleteLabel->setIcon(DStyle::standardIcon(QApplication::style(), DStyle::SP_DeleteButton));
+    m_deleteLabel->setAccessibleName(item.name()+":delete");
+    m_deleteLabel->setSizePolicy(QSizePolicy::Fixed,QSizePolicy::Fixed);
 
     m_layout->addWidget(m_downBtn);
     m_layout->addWidget(m_upBtn);
     m_layout->addWidget(m_configBtn);
-    m_layout->addWidget(m_deleteBtn);
-    m_deleteBtn->hide();
+    m_layout->addWidget(m_deleteLabel, 0, Qt::AlignRight);
+    m_deleteLabel->hide();
     m_upBtn->hide();
     m_configBtn->hide();
     m_downBtn->hide();
@@ -65,7 +67,7 @@ FcitxIMActivityItem::FcitxIMActivityItem(FcitxQtInputMethodItem item, QFrame *pa
     connect(m_upBtn, &DToolButton::clicked, this, &FcitxIMActivityItem::onUpItem);
     connect(m_downBtn, &DToolButton::clicked, this, &FcitxIMActivityItem::onDownItem);
     connect(m_configBtn, &DToolButton::clicked, this, &FcitxIMActivityItem::onConfigItem);
-    connect(m_deleteBtn, &DToolButton::clicked, this, &FcitxIMActivityItem::onDeleteItem);
+    connect(m_deleteLabel, &ClickLabel::clicked, this, &FcitxIMActivityItem::onDeleteItem);
 
     this->setFixedHeight(40);
     this->setLayout(m_layout);
@@ -79,12 +81,12 @@ void FcitxIMActivityItem::editSwitch(const bool &flag)
 {
     m_isEdit = flag;
     if (m_isEdit) {
-        m_deleteBtn->show();
+        m_deleteLabel->show();
         m_configBtn->hide();
         m_upBtn->hide();
         m_downBtn->hide();
     } else {
-        m_deleteBtn->hide();
+        m_deleteLabel->hide();
     }
 }
 
@@ -167,6 +169,8 @@ void ToolButton::paintEvent(QPaintEvent *e)
         p.drawPixmap({(width() - 16) / 2, (height() - 16) / 2, 16, 16}, icon().pixmap(16, 16, QIcon::Mode::Disabled));
     }
 }
+
+
 
 } // namespace widgets
 } // namespace dcc_fcitx_configtool
