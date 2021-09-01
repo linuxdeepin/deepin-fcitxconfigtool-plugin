@@ -138,17 +138,18 @@ void AvailWidget::onUpdateUI(FcitxQtInputMethodItemList IMlist)
     //fcitx原有逻辑 不需要修改 __begin
     QMap<QString, int> languageMap;
     QList<QPair<QString, FcitxQtInputMethodItemList>> filteredIMEntryList;
-    Q_FOREACH (const FcitxQtInputMethodItem &im, m_allAvaiIMlList) {
-        if (!im.enabled()) {
+
+    for (auto im = m_allAvaiIMlList.begin();im != m_allAvaiIMlList.end();im++ ) {
+        if (!im->enabled()) {
             int idx;
-            if (!languageMap.contains(im.langCode())) {
+            if (!languageMap.contains(im->langCode())) {
                 idx = filteredIMEntryList.count();
-                languageMap[im.langCode()] = idx;
-                filteredIMEntryList.append(QPair<QString, FcitxQtInputMethodItemList>(im.langCode(), FcitxQtInputMethodItemList()));
+                languageMap[im->langCode()] = idx;
+                filteredIMEntryList.append(QPair<QString, FcitxQtInputMethodItemList>(im->langCode(), FcitxQtInputMethodItemList()));
             } else {
-                idx = languageMap[im.langCode()];
+                idx = languageMap[im->langCode()];
             }
-            filteredIMEntryList[idx].second.append(im);
+            filteredIMEntryList[idx].second.append(*im);
         }
     }
 
@@ -190,6 +191,7 @@ void AvailWidget::onUpdateUI(FcitxQtInputMethodItemList IMlist)
     //清空group
     m_allIMGroup->clear();
     m_searchIMGroup->clear();
+
     for (auto it = tmpIM.rbegin(); it != tmpIM.rend(); ++it) {
         if(!useLanguage.contains(it->first)){
            continue;
