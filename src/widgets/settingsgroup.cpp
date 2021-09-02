@@ -45,7 +45,7 @@ FcitxSettingsGroup::FcitxSettingsGroup(QFrame *parent, BackgroundStyle bgStyle)
     , m_layout(new QVBoxLayout)
     , m_headerItem(nullptr)
 {
-    m_layout->setSpacing(5);
+
     m_layout->setContentsMargins(0, 0, 0, 0);
 
     QVBoxLayout *vLayout = m_layout;
