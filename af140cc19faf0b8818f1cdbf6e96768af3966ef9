@@ -2,6 +2,40 @@
   "comments": [
     {
       "key": {
+        "uuid": "0d3c39d6_fb26a44d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-09-02T02:45:05Z",
+      "side": 1,
+      "message": "log大小写错误",
+      "revId": "af140cc19faf0b8818f1cdbf6e96768af3966ef9",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "854a4bfa_f1003ea3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-09-02T02:45:05Z",
+      "side": 1,
+      "message": "bug大小写错误",
+      "revId": "af140cc19faf0b8818f1cdbf6e96768af3966ef9",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "77724250_e5a8d0ac",
         "filename": "src/widgets/imactivityitem.cpp",
         "patchSetId": 1
