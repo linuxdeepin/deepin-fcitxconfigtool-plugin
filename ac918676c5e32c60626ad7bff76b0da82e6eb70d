@@ -2,6 +2,40 @@
   "comments": [
     {
       "key": {
+        "uuid": "a2b0f9e2_5979b1ac",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-09-03T06:17:20Z",
+      "side": 1,
+      "message": "fix:后必须存在一个空格",
+      "revId": "ac918676c5e32c60626ad7bff76b0da82e6eb70d",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8b648a13_992ae4c1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-09-03T06:17:20Z",
+      "side": 1,
+      "message": "Bug:后面必须存在一个空格",
+      "revId": "ac918676c5e32c60626ad7bff76b0da82e6eb70d",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fc0d2ee3_af339e84",
         "filename": "src/widgets/labels/clicklabel.cpp",
         "patchSetId": 1
