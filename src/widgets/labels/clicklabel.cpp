@@ -3,8 +3,8 @@
 ClickLabel::ClickLabel(QWidget *parent):
     QLabel(parent)
 {
-    setMaximumSize(QSize(16,16));
-    setMaximumWidth(25);
+  //  setMaximumSize(QSize(16,16));
+ //   setMaximumWidth(25);
 }
 
 ClickLabel::~ClickLabel()
