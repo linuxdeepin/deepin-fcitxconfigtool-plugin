@@ -93,27 +93,26 @@
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="124"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="125"/>
         <source>Restore Defaults</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="125"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="126"/>
         <source>Advanced Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="147"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="148"/>
         <source>Manage Input Methods</source>
         <translation type="unfinished"></translation>
         <extra-child_page>Manage Input Methods</extra-child_page>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="153"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="156"/>
         <source>Shortcuts</source>
         <translation>Сокращения</translation>
-        <extra-child_page>Manage Input Methods</extra-child_page>
-        <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
 </context>
 <context>

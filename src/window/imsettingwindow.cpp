@@ -121,9 +121,10 @@ void IMSettingWindow::initUI()
     //    m_defaultIMKey = new FcitxKeySettingsItem(tr("Switch to the first input method"));
 //    m_imSwitchKey = new FcitxKeySettingsItem(tr("Switch input methods"));
     m_defaultIMKey = new FcitxKeySettingsItem(tr("Switch to the first input method"));
-    m_resetKey = new QPushButton(tr("Restore Defaults"));
-    m_advSetBtn = new DCommandLinkButton(tr("Advanced Settings"), this);
-    m_advSetBtn->setAccessibleName("Advanced Settings");
+    m_resetBtn = new DCommandLinkButton(tr("Restore Defaults"), this);
+    m_resetBtn->setAccessibleName(tr("Restore Defaults"));
+    m_advSetKey = new QPushButton(tr("Advanced Settings"));
+    m_advSetKey->setAccessibleName("Advanced Settings");
 
 //    m_virtualKey = new FcitxKeySettingsItem(tr("Call out Onboard"));
 //    m_systemAppCbox = new FcitxComboxWidget(tr("Applies to"));
@@ -150,13 +151,17 @@ void IMSettingWindow::initUI()
     scrollAreaLayout->addSpacing(11);
     //~ contents_path /keyboard/Manage Input Methods
     //~ child_page Manage Input Methods
-    scrollAreaLayout->addWidget(newTitleHead(tr("Shortcuts")));
+    //QHBoxLayout 存放m_resetBtn和Shortcuts标题两个控件
+    QHBoxLayout *m_shortcutLayout = new QHBoxLayout();
+    m_shortcutLayout->addWidget(newTitleHead(tr("Shortcuts")));
+    m_shortcutLayout->addWidget(m_resetBtn,0,Qt::AlignRight | Qt::AlignBottom);
+    scrollAreaLayout->addLayout(m_shortcutLayout);
     scrollAreaLayout->addSpacing(10);
     scrollAreaLayout->addWidget(m_shortcutGroup);
+    scrollAreaLayout->addSpacing(10);
     scrollAreaLayout->addSpacing(1);
-    scrollAreaLayout->addWidget(m_resetKey);
     scrollAreaLayout->addSpacing(1);
-    scrollAreaLayout->addWidget(m_advSetBtn,0,Qt::AlignRight);
+    scrollAreaLayout->addWidget(m_advSetKey);
     scrollAreaLayout->addStretch();
 
 //    QPushButton *gaojishezhi = new QPushButton;
@@ -210,12 +215,12 @@ void IMSettingWindow::initConnect()
         m_imSwitchCbox->comboBox()->setAccessibleName(m_imSwitchCbox->comboBox()->currentText());
         reloadFcitx(IMConfig::setIMSwitchKey(m_imSwitchCbox->comboBox()->currentText()));
     });
-    connect(m_resetKey, &QPushButton::clicked, [ = ]() {
+    connect(m_resetBtn, &QPushButton::clicked, [ = ]() {
         m_imSwitchCbox->comboBox()->setCurrentText("CTRL_SHIFT");
         reloadFcitx(IMConfig::setDefaultIMKey("CTRL_SPACE"));
         m_defaultIMKey->setList(QString("CTRL_SPACE").split("_"));
     });
-    connect(m_advSetBtn, &QAbstractButton::clicked, [ = ]() {
+    connect(m_advSetKey, &QAbstractButton::clicked, [ = ]() {
         QProcess::startDetached("sh -c fcitx-configtool");
     });
 
