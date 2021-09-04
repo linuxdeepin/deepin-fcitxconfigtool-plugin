@@ -39,7 +39,7 @@ FcitxIMActivityItem::FcitxIMActivityItem(FcitxQtInputMethodItem item, QFrame *pa
     DFontSizeManager::instance()->bind(m_labelText, DFontSizeManager::T6);
     m_labelText->setShortenText(item.name());
     m_labelText->setAccessibleName(item.name());
-    m_labelText->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    m_labelText->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Fixed);
     m_layout->addWidget(m_labelText);
     m_upBtn = new DToolButton(this);
     m_downBtn = new DToolButton(this);
@@ -59,6 +59,7 @@ FcitxIMActivityItem::FcitxIMActivityItem(FcitxQtInputMethodItem item, QFrame *pa
     m_layout->addWidget(m_upBtn);
     m_layout->addWidget(m_configBtn);
     m_layout->addWidget(m_deleteLabel, 0, Qt::AlignRight);
+
     m_deleteLabel->hide();
     m_upBtn->hide();
     m_configBtn->hide();
