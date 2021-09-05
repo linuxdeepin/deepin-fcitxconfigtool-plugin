@@ -72,8 +72,6 @@ find_package(FcitxQt5DBusAddons REQUIRED)
 find_package(FcitxQt5WidgetsAddons REQUIRED)
 find_package(KF5 REQUIRED COMPONENTS I18n)
 
-option (USE_GOOGLETEST "use google test" ON)
-
 #设置资源目录 加载资源文件 翻译文件 源码
 set(APP_RES_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../res")
 #创建翻译文件 

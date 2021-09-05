@@ -62,7 +62,7 @@ The %{name} package provides fcitx-config-tools and multilanguages translations
 %build
 mkdir -p build
 pushd build
-%cmake ..
+%cmake .. -DCMAKE_SAFETYTEST_ARG="CMAKE_SAFETYTEST_ARG_OFF" 
 popd
 make %{?_smp_mflags} -C build
 

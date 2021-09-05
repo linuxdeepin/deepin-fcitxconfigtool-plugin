@@ -166,8 +166,8 @@ void AvailWidget::onUpdateUI(FcitxQtInputMethodItemList IMlist)
             }
         }
     }
-    //fcitx原有逻辑 不需要修改 __end
 
+    //fcitx原有逻辑 不需要修改 __end
     auto createIMSttings = [ = ](FcitxSettingsGroup * group, const FcitxQtInputMethodItem & imItem) {
         FcitxIMSettingsItem *item = new FcitxIMSettingsItem();
         connect(item, &FcitxIMSettingsItem::itemClicked, [ = ](FcitxIMSettingsItem * item) {
@@ -187,7 +187,6 @@ void AvailWidget::onUpdateUI(FcitxQtInputMethodItemList IMlist)
             emit seleteIM(true);
         }
     };
-
     //清空group
     m_allIMGroup->clear();
     m_searchIMGroup->clear();

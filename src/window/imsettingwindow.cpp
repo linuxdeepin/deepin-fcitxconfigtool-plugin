@@ -118,8 +118,10 @@ void IMSettingWindow::initUI()
 
     m_imSwitchCbox = new FcitxComBoboxSettingsItem(tr("Switch input methods"), {"CTRL_SHIFT", "ALT_SHIFT", "CTRL_SUPER", "ALT_SUPER"});
     m_imSwitchCbox->comboBox()->setAccessibleName("Switch input methods");
-    //    m_defaultIMKey = new FcitxKeySettingsItem(tr("Switch to the first input method"));
+
+//    m_defaultIMKey = new FcitxKeySettingsItem(tr("Switch to the first input method"));
 //    m_imSwitchKey = new FcitxKeySettingsItem(tr("Switch input methods"));
+
     m_defaultIMKey = new FcitxKeySettingsItem(tr("Switch to the first input method"));
     m_resetBtn = new DCommandLinkButton(tr("Restore Defaults"), this);
     m_resetBtn->setAccessibleName(tr("Restore Defaults"));
@@ -130,9 +132,10 @@ void IMSettingWindow::initUI()
 //    m_systemAppCbox = new FcitxComboxWidget(tr("Applies to"));
 //    m_systemAppCbox->comboBox()->addItems({tr("System"), tr("Application")});
 //    m_systemAppCbox->layout()->setContentsMargins(10, 0, 0, 0);
+
     m_shortcutGroup->appendItem(m_imSwitchCbox);
-//    m_shortcutGroup->appendItem(m_imSwitchKey);
     m_shortcutGroup->appendItem(m_defaultIMKey);
+
 //    m_shortcutGroup->appendItem(m_virtualKey);
 //    m_shortcutGroup->appendItem(m_systemAppCbox, FcitxSettingsGroup::NoneBackground);
     //暂时隐藏

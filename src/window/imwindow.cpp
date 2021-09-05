@@ -38,40 +38,40 @@
 QAccessibleInterface *accessibleFactory(const QString &classname, QObject *object)
 {
     QAccessibleInterface *interface = nullptr;
-#ifndef USE_GOOGLETEST
+#if defined(CMAKE_SAFETYTEST_ARG_ON)
     if (object && object->isWidgetType()) {
-//        if (classname == "QLabel")
-//            interface = new AccessibleLabel(qobject_cast<QLabel *>(object));
+        if (classname == "QLabel")
+            interface = new AccessibleLabel(qobject_cast<QLabel *>(object));
 
-//        if (classname == "QPushButton")
-//            interface = new AccessiblePButton(qobject_cast<QPushButton *>(object));
+        if (classname == "QPushButton")
+            interface = new AccessiblePButton(qobject_cast<QPushButton *>(object));
 
-//        if (classname == "QToolButton")
-//            interface = new AccessibleTButton(qobject_cast<QToolButton *>(object));
+        if (classname == "QToolButton")
+            interface = new AccessibleTButton(qobject_cast<QToolButton *>(object));
 
-//        if (classname == "QComboBox")
-//            interface = new AccessibleComboBox(qobject_cast<QComboBox *>(object));
+        if (classname == "QComboBox")
+            interface = new AccessibleComboBox(qobject_cast<QComboBox *>(object));
 
-//        if (classname == "FcitxKeyLabelWidget")
-//            interface = new AccessibleKeyLabelWidget(qobject_cast<FcitxKeyLabelWidget *>(object));
+        if (classname == "FcitxKeyLabelWidget")
+            interface = new AccessibleKeyLabelWidget(qobject_cast<FcitxKeyLabelWidget *>(object));
 
-//        if (classname == "FcitxKeySettingsItem")
-//            interface = new AccessibleKeySettingsItem(qobject_cast<FcitxKeySettingsItem *>(object));
+        if (classname == "FcitxKeySettingsItem")
+            interface = new AccessibleKeySettingsItem(qobject_cast<FcitxKeySettingsItem *>(object));
 
-//        if (classname == "FcitxComBoboxSettingsItem")
-//            interface = new AccessibleComBoboxSettingsItem(qobject_cast<FcitxComBoboxSettingsItem *>(object));
+        if (classname == "FcitxComBoboxSettingsItem")
+            interface = new AccessibleComBoboxSettingsItem(qobject_cast<FcitxComBoboxSettingsItem *>(object));
 
-//        if (classname == "DFloatingButton")
-//            interface = new AccessibleDFloatingButton(qobject_cast<DFloatingButton *>(object));
+        if (classname == "DFloatingButton")
+            interface = new AccessibleDFloatingButton(qobject_cast<DFloatingButton *>(object));
 
-//        if (classname == "DSearchEdit")
-//            interface = new AccessibleDSearchEdit(qobject_cast<DSearchEdit *>(object));
+        if (classname == "DSearchEdit")
+            interface = new AccessibleDSearchEdit(qobject_cast<DSearchEdit *>(object));
 
-//        if (classname == "DCommandLinkButton")
-//            interface = new AccessibleDCommandLinkButton(qobject_cast<DCommandLinkButton *>(object));
+        if (classname == "DCommandLinkButton")
+            interface = new AccessibleDCommandLinkButton(qobject_cast<DCommandLinkButton *>(object));
 
-//        if (classname == "FcitxTitleLabel")
-//            interface = new AccessibleTitleLabel(qobject_cast<FcitxTitleLabel *>(object));
+        if (classname == "FcitxTitleLabel")
+            interface = new AccessibleTitleLabel(qobject_cast<FcitxTitleLabel *>(object));
     }
 #endif
     return interface;
