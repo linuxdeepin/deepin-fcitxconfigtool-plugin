@@ -82,6 +82,7 @@ const QString FcitxConfigPlugin::name() const
 //这个注释和翻译和使用控制台启动有关
 const QString FcitxConfigPlugin::displayName() const
 {
+    //下面一行注释,和第二行文案有关联是控制中心搜索规范快捷键规范.不可以修改,不可以移动位置,下面三行要在一起
     //~ contents_path /keyboard/Manage Input Methods
     return tr("Input Methods");
 }

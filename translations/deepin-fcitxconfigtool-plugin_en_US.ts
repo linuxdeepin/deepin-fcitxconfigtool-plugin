@@ -5,7 +5,7 @@
     <name>FcitxConfigPlugin</name>
     <message>
         <location filename="../src/fcitxconfigplugin.cpp" line="79"/>
-        <location filename="../src/fcitxconfigplugin.cpp" line="86"/>
+        <location filename="../src/fcitxconfigplugin.cpp" line="87"/>
         <source>Input Methods</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
@@ -79,16 +79,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="151"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="152"/>
         <source>Manage Input Methods</source>
         <translation type="unfinished"></translation>
         <extra-child_page>Manage Input Methods</extra-child_page>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="159"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="162"/>
         <source>Shortcuts</source>
         <translation type="unfinished"></translation>
+        <extra-child_page>Manage Input Methods</extra-child_page>
+        <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
 </context>
 <context>

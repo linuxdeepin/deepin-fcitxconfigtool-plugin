@@ -5,7 +5,7 @@
     <name>FcitxConfigPlugin</name>
     <message>
         <location filename="../src/fcitxconfigplugin.cpp" line="79"/>
-        <location filename="../src/fcitxconfigplugin.cpp" line="86"/>
+        <location filename="../src/fcitxconfigplugin.cpp" line="87"/>
         <source>Input Methods</source>
         <translation>输入法</translation>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
@@ -91,32 +91,34 @@
         <translation type="vanished">输入法</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="123"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="125"/>
         <source>Switch to the first input method</source>
         <translation>切换至首位输入法</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="124"/>
-        <location filename="../src/window/imsettingwindow.cpp" line="125"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="126"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="127"/>
         <source>Restore Defaults</source>
         <translation>恢复默认</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="126"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="128"/>
         <source>Advanced Settings</source>
         <translation>高级设置</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="148"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="152"/>
         <source>Manage Input Methods</source>
         <translation>输入法管理</translation>
         <extra-child_page>Manage Input Methods</extra-child_page>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="156"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="162"/>
         <source>Shortcuts</source>
         <translation>快捷键</translation>
+        <extra-child_page>Manage Input Methods</extra-child_page>
+        <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
 </context>
 <context>

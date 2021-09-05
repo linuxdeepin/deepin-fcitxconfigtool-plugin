@@ -152,7 +152,7 @@ void IMModel::onAddIMItem(FcitxQtInputMethodItem item)
     m_availeIMList.removeAll(item);
     item.setEnabled(true);
     m_curIMList.insert(1, item);
-//    IMListSave();
+    IMListSave();
     emit curIMListChanaged(m_curIMList);
     QTimer::singleShot(200, this, SLOT(addIMItem()));
 

@@ -146,16 +146,19 @@ void IMSettingWindow::initUI()
 //    scrollAreaLayout->addWidget(newTitleHead(tr("Input Method")));
 //    scrollAreaLayout->addSpacing(10);
 //    scrollAreaLayout->addWidget(m_defaultIMGroup);
+    //下面两行注释,和第三行文案有关联是控制中心搜索规范快捷键规范.不可以修改,不可以移动位置,下面三行要在一起
     //~ contents_path /keyboard/Manage Input Methods
     //~ child_page Manage Input Methods
     scrollAreaLayout->addWidget(newTitleHead(tr("Manage Input Methods"), true));
     scrollAreaLayout->addSpacing(10);
     scrollAreaLayout->addWidget(m_IMListGroup);
     scrollAreaLayout->addSpacing(11);
-    //~ contents_path /keyboard/Manage Input Methods
-    //~ child_page Manage Input Methods
+
     //QHBoxLayout 存放m_resetBtn和Shortcuts标题两个控件
     QHBoxLayout *m_shortcutLayout = new QHBoxLayout();
+    //下面两行注释,和第三行文案有关联是控制中心搜索规范快捷键规范.不可以修改,不可以移动位置,下面三行要在一起
+    //~ contents_path /keyboard/Manage Input Methods
+    //~ child_page Manage Input Methods
     m_shortcutLayout->addWidget(newTitleHead(tr("Shortcuts")));
     m_shortcutLayout->addWidget(m_resetBtn,0,Qt::AlignRight | Qt::AlignBottom);
     scrollAreaLayout->addLayout(m_shortcutLayout);
@@ -198,11 +201,12 @@ void IMSettingWindow::initConnect()
         reloadFcitx(IMConfig::setDefaultIMKey(m_defaultIMKey->getKeyToStr()));
         m_defaultIMKey->setList(m_defaultIMKey->getKeyToStr().split("_"));
     });
+    connect(Global::instance()->inputMethodProxy(), &FcitxQtInputMethodProxy::ReloadConfigUI,
+            this, &IMSettingWindow::doReloadConfigUI);
 //    connect(m_imSwitchKey, &FcitxKeySettingsItem::editedFinish, [=]() {
 //        reloadFcitx(IMConfig::setVirtualKey(m_virtualKey->getKeyToStr()));
 //        FcitxShortcutInfo imswitchShortCutInfo = IMConfig::findIdKey("system-monitor");
 //    });
-
 
 //    connect(m_defaultIMKey, &FcitxKeySettingsItem::editedFinish, [=]() {
 //        reloadFcitx(IMConfig::setDefaultIMKey(m_defaultIMKey->getKeyToStr()));
@@ -226,34 +230,17 @@ void IMSettingWindow::initConnect()
     connect(m_advSetKey, &QAbstractButton::clicked, [ = ]() {
         QProcess::startDetached("sh -c fcitx-configtool");
     });
-
-//    connect(m_defaultIMKey, &FcitxKeySettingsItem::shortCutError, this, &IMSettingWindow::popShortKeyListWindow);
-//    connect(m_imSwitchKey, &FcitxKeySettingsItem::shortCutError, this, &IMSettingWindow::popShortKeyListWindow);
-
-
     connect(IMModel::instance(), &IMModel::curIMListChanaged, this, &IMSettingWindow::onCurIMChanged);
     connect(m_addIMBtn, &DFloatingButton::clicked, this, &IMSettingWindow::onAddBtnCilcked);
-//    connect(m_defaultIMCbox, &FcitxComboxWidget::onSelectChanged, this, &IMSettingWindow::onDefaultIMChanged);
-//    connect(m_defaultIMCbox->comboBox(), &QComboBox::currentTextChanged, this, &IMSettingWindow::onDefaultIMChanged);
     connect(m_editHead, &FcitxSettingsHead::editChanged, this, &IMSettingWindow::onEditBtnClicked);
 }
 
 //读取配置文件
 void IMSettingWindow::readConfig()
 {
-//    FcitxShortcutInfo defaultShortCutInfo = IMConfig::findIdKey("terminal");
-//    FcitxShortcutInfo imswitchShortCutInfo = IMConfig::findIdKey("system-monitor");
-//    m_defaultIMKey->setKeyId("terminal");
-//    m_defaultIMKey->setKeyId("system-monitor");
-//    m_defaultIMKey->setList(defaultShortCutInfo.accels.split("_"));
-//    m_imSwitchKey->setList(imswitchShortCutInfo.accels.split("_"));
-
     int index = m_imSwitchCbox->comboBox()->findText(IMConfig::IMSwitchKey());
     m_imSwitchCbox->comboBox()->setCurrentIndex(index < 0 ? 0 : index);
-//    index = IMModel::instance()->getIMIndex(IMConfig::defaultIM());
-//    m_defaultIMCbox->comboBox()->setCurrentIndex(index < 0 ? 0 : index);
     m_defaultIMKey->setList(IMConfig::defaultIMKey().split("_"));
-//    m_virtualKey->setList(IMConfig::virtualKey().split("_"));
 }
 
 void IMSettingWindow::updateUI()
@@ -269,9 +256,6 @@ void IMSettingWindow::itemSwap(const FcitxQtInputMethodItem &item, const bool &i
     Dynamic_Cast_CheckNull(FcitxIMActivityItem, t, m_IMListGroup->getItem(IMModel::instance()->getIMIndex(item)));
     int row = IMModel::instance()->getIMIndex(item);
     if (isUp) {
-//        if (row < 2) {
-//            return;
-//        }
         m_IMListGroup->moveItem(t, row - 1);
         IMModel::instance()->onItemUp(item);
     } else {
@@ -285,20 +269,6 @@ void IMSettingWindow::itemSwap(const FcitxQtInputMethodItem &item, const bool &i
 
     Dynamic_Cast_CheckNull(FcitxIMActivityItem, t2, m_IMListGroup->getItem(row));
     t2->setSelectStatus(true);
-}
-
-//默认输入法改变
-void IMSettingWindow::onDefaultIMChanged()
-{
-//    QString key = m_defaultIMCbox->comboBox()->currentText();
-//    FcitxQtInputMethodItem item = IMModel::instance()->getIM(m_defaultIMCbox->comboBox()->currentIndex());
-//    if (!item.uniqueName().isEmpty()) {
-//        IMConfig::setDefaultIM(item.uniqueName());
-//        if (Global::instance()->inputMethodProxy()) {
-//            Global::instance()->inputMethodProxy()->ReloadConfig();
-//        }
-//        return;
-//    }
 }
 
 //编辑当前输入法列表
@@ -386,4 +356,11 @@ void IMSettingWindow::onAddBtnCilcked()
     if (IMModel::instance()->isEdit())
         onEditBtnClicked(false);
     emit popIMAddWindow();
+}
+
+void IMSettingWindow::doReloadConfigUI()
+{
+    readConfig();
+    IMModel::instance()->onUpdateIMList();
+//    onCurIMChanged(IMModel::instance()->getCurIMList());
 }

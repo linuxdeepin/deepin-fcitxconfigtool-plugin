@@ -65,21 +65,13 @@ private:
     void itemSwap(const FcitxQtInputMethodItem &item, const bool &isUp = true);
 private slots:
     void onEditBtnClicked(const bool &flag); //启用编辑
-    void onDefaultIMChanged();
     void onCurIMChanged(const FcitxQtInputMethodItemList &list);
     void onAddBtnCilcked();
     void onItemUp(const FcitxQtInputMethodItem &item);
     void onItemDown(const FcitxQtInputMethodItem &item);
     void onItemDelete(const FcitxQtInputMethodItem &item);
-
+    void doReloadConfigUI();
 private:
-//    dcc_fcitx_configtool::widgets::FcitxSettingsGroup *m_defaultIMGroup {nullptr}; //默认输入法容器
-//    dcc_fcitx_configtool::widgets::FcitxComboxWidget *m_defaultIMCbox {nullptr}; //选择默认输入法
-//    dcc_fcitx_configtool::widgets::FcitxKeySettingsItem *m_imSwitchKey {nullptr}; //切换输入法（快捷键）
-//    dcc_fcitx_configtool::widgets::FcitxKeySettingsItem *m_virtualKey {nullptr}; //虚拟键盘 （快捷键）
-//    dcc_fcitx_configtool::widgets::FcitxKeySettingsItem *m_defaultIMKey {nullptr}; //默认输入法 （快捷键）
-//    dcc_fcitx_configtool::widgets::FcitxComboxWidget *m_systemAppCbox {nullptr}; //切换系统/应用
-
     dcc_fcitx_configtool::widgets::FcitxSettingsGroup *m_IMListGroup {nullptr}; //输入法列表容器
     dcc_fcitx_configtool::widgets::FcitxSettingsGroup *m_shortcutGroup {nullptr}; //输入法快捷键容器
     dcc_fcitx_configtool::widgets::FcitxSettingsHead *m_editHead {nullptr}; //编辑按钮
