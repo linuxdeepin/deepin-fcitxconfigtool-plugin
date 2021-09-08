@@ -87,7 +87,7 @@ void IMSettingWindow::initUI()
 
     //界面布局
     QVBoxLayout *subLayout = new QVBoxLayout(mainWidget);
-    subLayout->setContentsMargins(0, 0, 0, 10);
+    subLayout->setContentsMargins(0, 4, 0, 10);
     subLayout->setSpacing(0);
 
     //滑动窗口
