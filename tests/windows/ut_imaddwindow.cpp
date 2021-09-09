@@ -79,7 +79,7 @@ TEST_F(ut_imaddwindow, onOpenStore)
     char buf[150];
     char command[150];
     sprintf(command,
-            "ps -ef | grep deepin-app-store | grep -v grep");
+            "ps -ef | grep deepin-home-appstore-client | grep -v grep");
     if ((fp = popen(command, "r")) == NULL)
         return ;
     if ((fgets(buf, 150, fp)) != NULL) {
@@ -94,7 +94,7 @@ TEST_F(ut_imaddwindow, onOpenStore)
     pclose(fp);
 
     sprintf(command,
-            "ps -ef | grep deepin-app-store | grep -v grep");
+            "ps -ef | grep deepin-home-appstore-client | grep -v grep");
     if ((fp = popen(command, "r")) == NULL)
         return ;
     if ((fgets(buf, 150, fp)) != NULL) {
