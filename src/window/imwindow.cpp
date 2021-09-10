@@ -38,7 +38,7 @@
 QAccessibleInterface *accessibleFactory(const QString &classname, QObject *object)
 {
     QAccessibleInterface *interface = nullptr;
-#if defined(CMAKE_SAFETYTEST_ARG_ON)
+#if !defined(CMAKE_SAFETYTEST_ARG_ON)
     if (object && object->isWidgetType()) {
         if (classname == "QLabel")
             interface = new AccessibleLabel(qobject_cast<QLabel *>(object));
