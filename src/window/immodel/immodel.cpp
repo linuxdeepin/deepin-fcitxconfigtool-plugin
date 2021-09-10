@@ -200,6 +200,7 @@ void IMModel::switchPoistion(FcitxQtInputMethodItem item, int dest)
 {
     m_curIMList.removeOne(item);
     m_curIMList.insert(dest, item);
+    IMListSave();
 }
 
 void IMModel::onConfigShow(const FcitxQtInputMethodItem &item)
