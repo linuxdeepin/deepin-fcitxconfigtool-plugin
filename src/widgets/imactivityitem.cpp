@@ -24,20 +24,22 @@
 #include "window/immodel/immodel.h"
 #include <DToolButton>
 #include <DFontSizeManager>
+#include <DGuiApplicationHelper>
 #include <QTimer>
 using namespace Dtk::Widget;
 namespace dcc_fcitx_configtool {
 namespace widgets {
 
-FcitxIMActivityItem::FcitxIMActivityItem(FcitxQtInputMethodItem item, QFrame *parent)
+FcitxIMActivityItem::FcitxIMActivityItem(FcitxQtInputMethodItem item, itemPosition index, QWidget *parent)
     : FcitxSettingsItem(parent)
     , m_item(item)
+    , m_index(index)
 {
     m_layout = new QHBoxLayout(this);
-    m_layout->setContentsMargins(10, 0, 10, 0);
+    m_layout->setContentsMargins(0, 0, 0, 0);
     m_labelText = new FcitxShortenLabel("", this);
     DFontSizeManager::instance()->bind(m_labelText, DFontSizeManager::T6);
-    m_labelText->setShortenText(item.name());
+    m_labelText->setShortenText("    " + item.name());
     m_labelText->setAccessibleName(item.name());
     m_labelText->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Fixed);
     m_layout->addWidget(m_labelText);
@@ -54,6 +56,7 @@ FcitxIMActivityItem::FcitxIMActivityItem(FcitxQtInputMethodItem item, QFrame *pa
     m_deleteLabel->setIcon(DStyle::standardIcon(QApplication::style(), DStyle::SP_DeleteButton));
     m_deleteLabel->setAccessibleName(item.name()+":delete");
     m_deleteLabel->setSizePolicy(QSizePolicy::Fixed,QSizePolicy::Fixed);
+
 
     m_layout->addWidget(m_downBtn);
     m_layout->addWidget(m_upBtn);
@@ -91,15 +94,71 @@ void FcitxIMActivityItem::editSwitch(const bool &flag)
     }
 }
 
+void FcitxIMActivityItem::paintEvent(QPaintEvent *event)
+{
+    QPainter painter( this);
+    //painter.fillRect(this->rect(), DGuiApplicationHelper::instance()->applicationPalette().base());
+    const int radius = 8;
+    QRect paintRect = this->rect();
+    QPainterPath path;
+    if(m_index == firstItem || m_index == onlyoneItem) {
+        path.moveTo(paintRect.bottomRight());
+        path.lineTo(paintRect.topRight() + QPoint(0, radius));
+        path.arcTo(QRect(QPoint(paintRect.topRight() - QPoint(radius * 2, 0)),
+                         QSize(radius * 2, radius * 2)), 0, 90);
+        path.lineTo(paintRect.topLeft() + QPoint(radius, 0));
+        path.arcTo(QRect(QPoint(paintRect.topLeft()), QSize(radius * 2, radius * 2)), 90, 90);
+        path.lineTo(paintRect.bottomLeft());
+        path.lineTo(paintRect.bottomRight());
+    } if(m_index == lastItem || m_index == onlyoneItem) {
+        path.moveTo(paintRect.bottomRight() - QPoint(0, radius));
+        path.lineTo(paintRect.topRight());
+        path.lineTo(paintRect.topLeft());
+        path.lineTo(paintRect.bottomLeft() - QPoint(0, radius));
+        path.arcTo(QRect(QPoint(paintRect.bottomLeft() - QPoint(0, radius * 2)),
+                         QSize(radius * 2, radius * 2)), 180, 90);
+        path.lineTo(paintRect.bottomLeft() + QPoint(radius, 0));
+        path.arcTo(QRect(QPoint(paintRect.bottomRight() - QPoint(radius * 2, radius * 2)),
+                         QSize(radius * 2, radius * 2)), 270, 90);
+    } if(m_index == otherItem) {
+        path.moveTo(paintRect.bottomRight());
+        path.lineTo(paintRect.topRight());
+        path.lineTo(paintRect.topLeft());
+        path.lineTo(paintRect.bottomLeft());
+        path.lineTo(paintRect.bottomRight());
+    }
+    if(m_isEnter) {
+        QColor color = DGuiApplicationHelper::instance()->applicationPalette().background().color();
+        if(isDraged()) {
+            color.setAlpha(50);
+        }
+        painter.fillPath(path, color);
+    } else {
+        QColor color = DGuiApplicationHelper::instance()->applicationPalette().dark().color();
+        if(isDraged()) {
+            color.setAlpha(50);
+            qDebug() << "isDraged = " << isDraged();
+        }
+        painter.fillPath(path, color);
+    }
+    return FcitxSettingsItem::paintEvent(event);
+}
+
+void FcitxIMActivityItem::mouseMoveEvent(QMouseEvent *e)
+{
+    this->update(m_layout->contentsRect());
+    return FcitxSettingsItem::mouseMoveEvent(e);
+}
+
 void FcitxIMActivityItem::setSelectStatus(const bool &isEnter)
 {
-    if (!m_bgGroup)
-        return;
+//    if (!m_bgGroup)
+//        return;
 
     if (!isEnter)
-        m_bgGroup->setBackgroundRole(DPalette::ItemBackground);
+        m_isEnter = true;
     else {
-        m_bgGroup->setBackgroundRole(DPalette::ObviousBackground);
+        m_isEnter = false;
     }
     if (!m_isEdit && isEnter) {
         int index = IMModel::instance()->getIMIndex(m_item);

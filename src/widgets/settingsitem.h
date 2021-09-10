@@ -47,14 +47,16 @@ public:
     virtual void setIsErr(const bool err = true);
 
     void addBackground();
-
+    bool isDraged() {return m_isDraged;}
+    void setDraged(bool b) {m_isDraged = b;}
 protected:
     void resizeEvent(QResizeEvent *event) override;
-
 protected:
     bool m_isErr;
 
     DTK_WIDGET_NAMESPACE::DFrame *m_bgGroup {nullptr};
+private:
+    bool m_isDraged {false};
 };
 
 } // namespace widgets

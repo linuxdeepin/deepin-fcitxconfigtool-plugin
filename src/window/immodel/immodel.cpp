@@ -196,6 +196,12 @@ void IMModel::onItemDown(FcitxQtInputMethodItem item)
     emit IMItemSawp(row, row + 1);
 }
 
+void IMModel::switchPoistion(FcitxQtInputMethodItem item, int dest)
+{
+    m_curIMList.removeOne(item);
+    m_curIMList.insert(dest, item);
+}
+
 void IMModel::onConfigShow(const FcitxQtInputMethodItem &item)
 {
     QString imName = item.name();

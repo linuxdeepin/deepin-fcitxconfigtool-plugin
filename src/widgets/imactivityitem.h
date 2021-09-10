@@ -46,11 +46,17 @@ class FcitxIMActivityItem : public FcitxSettingsItem
 {
     Q_OBJECT
 public:
-    FcitxIMActivityItem(FcitxQtInputMethodItem item, QFrame *parent = nullptr);
+    enum itemPosition{
+        firstItem = 0,
+        lastItem = -1,
+        onlyoneItem = -2,
+        otherItem = 1
+    };
+    FcitxIMActivityItem(FcitxQtInputMethodItem item, itemPosition index, QWidget *parent = nullptr);
     ~FcitxIMActivityItem();
     void editSwitch(const bool &flag);
     void setSelectStatus(const bool &flag);
-
+    void setIndex(itemPosition i) {m_index = i;}
 signals:
     void upBtnClicked(FcitxQtInputMethodItem);
     void downBtnClicked(FcitxQtInputMethodItem);
@@ -60,13 +66,13 @@ signals:
 protected:
     void enterEvent(QEvent *event) override;
     void leaveEvent(QEvent *event) override;
-
+    void paintEvent(QPaintEvent *event) override;
+    void mouseMoveEvent(QMouseEvent *e) override;
 private slots:
     void onUpItem();
     void onDownItem();
     void onConfigItem();
     void onDeleteItem();
-
 public:
     FcitxQtInputMethodItem m_item;
     FcitxShortenLabel *m_labelText {nullptr};
@@ -76,6 +82,10 @@ public:
     DToolButton *m_configBtn {nullptr};
     ClickLabel *m_deleteLabel {nullptr};
     bool m_isEdit {false};
+private:
+    bool m_isEnter {false};
+    itemPosition m_index; //0:第一个， -1：最后一个， -2：只有一个
+    bool m_isPressed {false};
 };
 
 } // namespace widgets

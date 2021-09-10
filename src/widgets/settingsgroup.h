@@ -27,7 +27,7 @@
 #define SETTINGSGROUP_H
 
 #include <DBackgroundGroup>
-
+#include <fcitxqtinputmethoditem.h>
 #include <QFrame>
 #include <QTimer>
 
@@ -52,7 +52,8 @@ public:
     enum BackgroundStyle {
         ItemBackground = 0,
         GroupBackground,
-        NoneBackground
+        NoneBackground,
+        NonSwitchMode
     };
 
     explicit FcitxSettingsGroup(QFrame *parent = nullptr, BackgroundStyle bgStyle = ItemBackground);
@@ -68,18 +69,31 @@ public:
     void appendItem(FcitxSettingsItem *item);
     void appendItem(FcitxSettingsItem *item, BackgroundStyle bgStyle);
     void removeItem(FcitxSettingsItem *item);
+    int indexOf(FcitxSettingsItem *item);
     void moveItem(FcitxSettingsItem *item, const int index);
     void setSpacing(const int spaceing);
-
+    bool isPressed() {return m_isPressed;}
+    void setSwitchAble(bool b){m_switchAble = b;}
     int itemCount() const;
     void clear();
     QVBoxLayout *getLayout() const { return m_layout; }
+    void switchItem(int start, int end);
+protected:
+    virtual void mouseMoveEvent(QMouseEvent *event) override;
+    virtual void mousePressEvent(QMouseEvent *event) override;
+    virtual void mouseReleaseEvent(QMouseEvent *event) override;
+
+signals:
+    void switchPosition(FcitxQtInputMethodItem item, int end);
 
 private:
     BackgroundStyle m_bgStyle {ItemBackground};
     QVBoxLayout *m_layout;
     FcitxSettingsHeaderItem *m_headerItem;
     DTK_WIDGET_NAMESPACE::DBackgroundGroup *m_bggroup {nullptr};
+    bool m_isPressed {false};
+    int m_selectIndex {0};
+    bool m_switchAble {false};
 };
 
 } // namespace widgets

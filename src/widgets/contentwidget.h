@@ -29,8 +29,7 @@
 #include <QWidget>
 #include <QLabel>
 #include <QVBoxLayout>
-
-#include <dimagebutton.h>
+#include <DImageButton>
 
 DWIDGET_USE_NAMESPACE
 
@@ -61,11 +60,12 @@ public:
 
 protected:
     void resizeEvent(QResizeEvent *event) override;
-
+    virtual void mouseMoveEvent(QMouseEvent *event) override;
 protected:
     QScrollArea *m_contentArea {nullptr};
     QWidget *m_content {nullptr};
 };
+
 } // namespace widgets
 } // namespace dcc_fcitx_configtool
 
