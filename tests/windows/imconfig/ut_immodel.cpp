@@ -46,6 +46,9 @@ TEST_F(ut_immodel, setEdit)
 {
     IMModel *immodel = IMModel::instance();
     immodel->setEdit(true);
+
+
+
     EXPECT_TRUE(true);
 }
 
@@ -106,6 +109,9 @@ TEST_F(ut_immodel, onAddIMItem)
     IMModel *immodel = IMModel::instance();
     FcitxQtInputMethodItem item;
     item.setName("iflyime");
+    item.setUniqueName("iflyime");
+    item.setLangCode("iflyime");
+    item.setEnabled(false);
     immodel->onAddIMItem(item);
     EXPECT_TRUE(true);
 }
@@ -115,6 +121,9 @@ TEST_F(ut_immodel, onDeleteItem)
     IMModel *immodel = IMModel::instance();
     FcitxQtInputMethodItem item;
     item.setName("iflyime");
+    item.setUniqueName("iflyime");
+    item.setLangCode("iflyime");
+    item.setEnabled(false);
     immodel->onAddIMItem(item);
     immodel->onUpdateIMList();
     immodel->onDeleteItem(item);
@@ -126,7 +135,14 @@ TEST_F(ut_immodel, onItemUp)
     IMModel *immodel = IMModel::instance();
     FcitxQtInputMethodItem item1, item2;
     item1.setName("iflyime");
+    item1.setUniqueName("iflyime");
+    item1.setLangCode("iflyime");
+    item1.setEnabled(false);
     item2.setName("chineseime");
+    item2.setName("chineseime");
+    item2.setUniqueName("chineseime");
+    item2.setLangCode("chineseime");
+    item2.setEnabled(false);
     immodel->onAddIMItem(item1);
     immodel->onAddIMItem(item2);
 //    immodel->onItemUp(item2);
@@ -138,8 +154,20 @@ TEST_F(ut_immodel, onItemDown)
     IMModel *immodel = IMModel::instance();
     FcitxQtInputMethodItem item1, item2,item3;
     item1.setName("iflyime");
+    item1.setUniqueName("iflyime");
+    item1.setLangCode("zh");
+    item1.setEnabled(false);
+
     item2.setName("chineseime");
+    item2.setUniqueName("chineseime");
+    item2.setLangCode("zh");
+    item2.setEnabled(false);
+
     item3.setName("huayupy");
+    item3.setUniqueName("huayupy");
+    item3.setLangCode("zh");
+    item3.setEnabled(false);
+
     immodel->onAddIMItem(item1);
     immodel->onAddIMItem(item2);
     immodel->onAddIMItem(item3);

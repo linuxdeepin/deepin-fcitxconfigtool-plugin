@@ -1,9 +1,11 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="pt" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="pt">
 <context>
     <name>FcitxConfigPlugin</name>
     <message>
         <location filename="../src/fcitxconfigplugin.cpp" line="79"/>
-        <location filename="../src/fcitxconfigplugin.cpp" line="86"/>
+        <location filename="../src/fcitxconfigplugin.cpp" line="87"/>
         <source>Input Methods</source>
         <translation>Métodos de entrada</translation>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
@@ -100,29 +102,30 @@
         <translation type="vanished">Método de entrada</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="123"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="125"/>
         <source>Switch to the first input method</source>
         <translation>Mudar para o primeiro método de entrada</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="124"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="126"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="127"/>
         <source>Restore Defaults</source>
         <translation>Restaurar Predefinições</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="125"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="128"/>
         <source>Advanced Settings</source>
         <translation>Configurações Avançadas</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="147"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="152"/>
         <source>Manage Input Methods</source>
         <translation>Gerir métodos de entrada</translation>
         <extra-child_page>Manage Input Methods</extra-child_page>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="153"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="162"/>
         <source>Shortcuts</source>
         <translation>Atalhos</translation>
         <extra-child_page>Manage Input Methods</extra-child_page>

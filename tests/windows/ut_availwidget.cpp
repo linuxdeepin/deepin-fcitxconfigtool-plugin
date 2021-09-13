@@ -70,8 +70,20 @@ TEST_F(ut_availwidget, languageName)
 
 TEST_F(ut_availwidget, getSeleteIm)
 {
-    AvailWidget availWidget;
-    FcitxQtInputMethodItem value = availWidget.getSeleteIm();
+//    AvailWidget availWidget;
+//    FcitxQtInputMethodItemList oldItemList;
+//    availWidget.onUpdateUI(oldItemList);
+
+//    FcitxQtInputMethodItemList newItemList;
+//    FcitxQtInputMethodItem item;
+//    item.setName("name");
+//    item.setUniqueName("name");
+//    item.setLangCode("name");
+//    item.setEnabled(false);
+//    newItemList << item;
+//    availWidget.onUpdateUI(newItemList);
+//    availWidget.seleteIM(true);
+//    FcitxQtInputMethodItem value = availWidget.getSeleteIm();
 }
 
 TEST_F(ut_availwidget, onSearchIM)
