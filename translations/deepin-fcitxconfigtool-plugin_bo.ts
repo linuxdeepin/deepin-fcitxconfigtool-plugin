@@ -26,6 +26,17 @@
     </message>
 </context>
 <context>
+    <name>Fcitx_SettingsHead</name>
+    <message>
+        <source>Edit</source>
+        <translation type="vanished">རྩོམ་སྒྲིག</translation>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation type="vanished">གྲུབ་ཟིན། </translation>
+    </message>
+</context>
+<context>
     <name>IMAddWindow</name>
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="62"/>
@@ -99,12 +110,12 @@
         <location filename="../src/window/imsettingwindow.cpp" line="126"/>
         <location filename="../src/window/imsettingwindow.cpp" line="127"/>
         <source>Restore Defaults</source>
-        <translation type="unfinished"></translation>
+        <translation>སོར་བཞག་སོར་ཆུད། </translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="128"/>
         <source>Advanced Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>མཐོ་རིམ་གདམ་ག</translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="152"/>
@@ -157,6 +168,17 @@
         <location filename="../src/widgets/keysettingsitem.cpp" line="44"/>
         <source>Enter a new shortcut</source>
         <translation>མྱུར་མཐེབ་གསར་པ་འཇུག་རོགས།</translation>
+    </message>
+</context>
+<context>
+    <name>dcc_fcitx_configtool::widgets::Fcitx_KeyLabelWidget</name>
+    <message>
+        <source>None</source>
+        <translation type="vanished">མེད།</translation>
+    </message>
+    <message>
+        <source>Enter a new shortcut</source>
+        <translation type="vanished">མྱུར་མཐེབ་གསར་པ་འཇུག་རོགས།</translation>
     </message>
 </context>
 <context>
