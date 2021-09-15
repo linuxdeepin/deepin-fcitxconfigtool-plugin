@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="hr" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="hr">
 <context>
     <name>FcitxConfigPlugin</name>
     <message>
@@ -71,21 +73,13 @@
         <translation type="vanished">Uobičajeno</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="119"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="121"/>
         <source>Switch input methods</source>
         <translation>Zamijeni načine unosa</translation>
     </message>
     <message>
         <source>Switch to default input method</source>
         <translation type="vanished">Prebaci na zadani način unosa</translation>
-    </message>
-    <message>
-        <source>Call out Onboard</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Applies to</source>
-        <translation type="unfinished"/>
     </message>
     <message>
         <source>System</source>
@@ -100,30 +94,30 @@
         <translation type="vanished">Način unosa</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="125"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="127"/>
         <source>Switch to the first input method</source>
         <translation>Prebaci na prvi način unosa</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="126"/>
-        <location filename="../src/window/imsettingwindow.cpp" line="127"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="128"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="129"/>
         <source>Restore Defaults</source>
         <translation>Obnovi zadano</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="128"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="130"/>
         <source>Advanced Settings</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="152"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="154"/>
         <source>Manage Input Methods</source>
         <translation>Upravljaj načinima unosa</translation>
         <extra-child_page>Manage Input Methods</extra-child_page>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="162"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="164"/>
         <source>Shortcuts</source>
         <translation>Prečaci</translation>
         <extra-child_page>Manage Input Methods</extra-child_page>
@@ -151,7 +145,7 @@
     <message>
         <location filename="../src/window/shortcutkeywindow.cpp" line="54"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

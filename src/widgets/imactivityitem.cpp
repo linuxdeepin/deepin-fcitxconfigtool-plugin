@@ -26,6 +26,7 @@
 #include <DFontSizeManager>
 #include <DGuiApplicationHelper>
 #include <QTimer>
+#include <QPainterPath>
 using namespace Dtk::Widget;
 namespace dcc_fcitx_configtool {
 namespace widgets {

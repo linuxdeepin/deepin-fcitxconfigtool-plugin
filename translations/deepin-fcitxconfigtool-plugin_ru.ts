@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="ru" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="ru">
 <context>
     <name>FcitxConfigPlugin</name>
     <message>
@@ -71,17 +73,13 @@
         <translation type="vanished">По умолчанию</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="119"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="121"/>
         <source>Switch input methods</source>
         <translation>Переключить метод ввода</translation>
     </message>
     <message>
         <source>Switch to default input method</source>
         <translation type="vanished">Переключить на метод ввода по умолчанию</translation>
-    </message>
-    <message>
-        <source>Call out Onboard</source>
-        <translation type="unfinished"/>
     </message>
     <message>
         <source>Applies to</source>
@@ -100,30 +98,30 @@
         <translation type="vanished">Метод Ввода</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="125"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="127"/>
         <source>Switch to the first input method</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="126"/>
-        <location filename="../src/window/imsettingwindow.cpp" line="127"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="128"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="129"/>
         <source>Restore Defaults</source>
         <translation>Восстановить значения по умолчанию</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="128"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="130"/>
         <source>Advanced Settings</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="152"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="154"/>
         <source>Manage Input Methods</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
         <extra-child_page>Manage Input Methods</extra-child_page>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="162"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="164"/>
         <source>Shortcuts</source>
         <translation>Сочетание клавиш</translation>
         <extra-child_page>Manage Input Methods</extra-child_page>
