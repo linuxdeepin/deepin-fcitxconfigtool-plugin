@@ -202,7 +202,7 @@ void FcitxSettingsGroup::clear()
 void FcitxSettingsGroup::switchItem(int start, int end)
 {
     FcitxSettingsItem* selectItem = getItem(start);
-
+    FcitxIMActivityItem *mCurrentItem = dynamic_cast<FcitxIMActivityItem *>(getItem(start));
     m_layout->removeWidget(selectItem);
     m_layout->insertWidget(end, selectItem);
     for (int i = 0; i < m_layout->count(); i++) {
@@ -224,8 +224,8 @@ void FcitxSettingsGroup::switchItem(int start, int end)
         }
         mItem->setDraged(false);
     }
-    FcitxIMActivityItem *mCurrentItem = dynamic_cast<FcitxIMActivityItem *>(getItem(start));
-    emit switchPosition(mCurrentItem->m_item, start);
+
+    emit switchPosition(mCurrentItem->m_item, end);
 }
 
 void FcitxSettingsGroup::mouseMoveEvent(QMouseEvent *event)
