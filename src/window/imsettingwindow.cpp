@@ -37,6 +37,7 @@
 #include <QScrollArea>
 #include <QStackedWidget>
 #include <QPushButton>
+#include <QEvent>
 #include <libintl.h>
 
 
@@ -109,6 +110,7 @@ void IMSettingWindow::initUI()
 
     //输入法管理 编辑按钮
     m_IMListGroup = new FcitxSettingsGroup();
+    m_IMListGroup->setSwitchAble(true);
     m_IMListGroup->setSpacing(2);
     onCurIMChanged(IMModel::instance()->getCurIMList());
 
@@ -232,6 +234,10 @@ void IMSettingWindow::initConnect()
     });
     connect(IMModel::instance(), &IMModel::curIMListChanaged, this, &IMSettingWindow::onCurIMChanged);
     connect(m_addIMBtn, &DFloatingButton::clicked, this, &IMSettingWindow::onAddBtnCilcked);
+    connect(IMModel::instance(), &IMModel::curIMListChanaged, this, &IMSettingWindow::onCurIMChanged);
+    connect(m_IMListGroup, &FcitxSettingsGroup::switchPosition, IMModel::instance(), &IMModel::switchPoistion);
+//    connect(m_defaultIMCbox, &FcitxComboxWidget::onSelectChanged, this, &IMSettingWindow::onDefaultIMChanged);
+//    connect(m_defaultIMCbox->comboBox(), &QComboBox::currentTextChanged, this, &IMSettingWindow::onDefaultIMChanged);
     connect(m_editHead, &FcitxSettingsHead::editChanged, this, &IMSettingWindow::onEditBtnClicked);
 }
 
@@ -253,8 +259,10 @@ void IMSettingWindow::updateUI()
 
 void IMSettingWindow::itemSwap(const FcitxQtInputMethodItem &item, const bool &isUp)
 {
+
     Dynamic_Cast_CheckNull(FcitxIMActivityItem, t, m_IMListGroup->getItem(IMModel::instance()->getIMIndex(item)));
     int row = IMModel::instance()->getIMIndex(item);
+
     if (isUp) {
         m_IMListGroup->moveItem(t, row - 1);
         IMModel::instance()->onItemUp(item);
@@ -265,16 +273,34 @@ void IMSettingWindow::itemSwap(const FcitxQtInputMethodItem &item, const bool &i
         m_IMListGroup->moveItem(t, row + 1);
         IMModel::instance()->onItemDown(item);
     }
-    t->setSelectStatus(false);
 
+    t->setSelectStatus(false);
+    int count = m_IMListGroup->indexOf(t);
+    if(count == 0) {
+        t->setIndex(FcitxIMActivityItem::firstItem);
+    } else if(count == m_IMListGroup->itemCount() -1){
+        t->setIndex(FcitxIMActivityItem::lastItem);
+    } else {
+        t->setIndex(FcitxIMActivityItem::otherItem);
+    }
     Dynamic_Cast_CheckNull(FcitxIMActivityItem, t2, m_IMListGroup->getItem(row));
     t2->setSelectStatus(true);
+
+    int count2 = m_IMListGroup->indexOf(t2);
+    if(count2 == 0) {
+        t2->setIndex(FcitxIMActivityItem::firstItem);
+    } else if(count2 == m_IMListGroup->itemCount() -1){
+        t2->setIndex(FcitxIMActivityItem::lastItem);
+    } else {
+        t2->setIndex(FcitxIMActivityItem::otherItem);
+    }
 }
 
 //编辑当前输入法列表
 void IMSettingWindow::onEditBtnClicked(const bool &flag)
 {
     IMModel::instance()->setEdit(flag);
+    m_IMListGroup->setSwitchAble(!flag);
     m_editHead->setEdit(flag);
     for (int i = 0; i < m_IMListGroup->itemCount(); ++i) {
         Dynamic_Cast(FcitxIMActivityItem, mItem, m_IMListGroup->getItem(i));
@@ -291,17 +317,25 @@ void IMSettingWindow::onCurIMChanged(const FcitxQtInputMethodItemList &list)
     m_IMListGroup->clear();
 //    m_defaultIMCbox->comboBox()->clear();
     for (int i = 0; i < list.count(); ++i) {
-        FcitxIMActivityItem *tmp;
-//        if (i == 0) {
-//            tmp = new FcitxIMActivityItem(list[i], true);
-//        } else {
-        tmp = new FcitxIMActivityItem(list[i]);
+        FcitxIMActivityItem *tmp = nullptr;
+        if (i == 0) {
+            if(list.count() == 1) {
+                tmp = new FcitxIMActivityItem(list[i], FcitxIMActivityItem::onlyoneItem, this);
+            } else {
+                tmp = new FcitxIMActivityItem(list[i], FcitxIMActivityItem::firstItem, this);
+            }
+
+        } else if (i == list.count() - 1) {
+            tmp = new FcitxIMActivityItem(list[i], FcitxIMActivityItem::lastItem, this);
+        } else {
+            tmp = new FcitxIMActivityItem(list[i], FcitxIMActivityItem::otherItem, this);
+        }
         connect(tmp, &FcitxIMActivityItem::configBtnClicked, IMModel::instance(), &IMModel::onConfigShow);
         connect(tmp, &FcitxIMActivityItem::upBtnClicked, this, &IMSettingWindow::onItemUp);
         connect(tmp, &FcitxIMActivityItem::downBtnClicked, this, &IMSettingWindow::onItemDown);
         connect(tmp, &FcitxIMActivityItem::deleteBtnClicked, this, &IMSettingWindow::onItemDelete);
         tmp->editSwitch(IMModel::instance()->isEdit());
-//        }
+        //}
         m_IMListGroup->appendItem(tmp);
 //        m_defaultIMCbox->comboBox()->addItem(list[i].name());
     }
@@ -349,6 +383,7 @@ void IMSettingWindow::onItemDelete(const FcitxQtInputMethodItem &item)
     it->deleteLater();
     IMModel::instance()->onDeleteItem(item);
 }
+
 
 //添加按钮点击
 void IMSettingWindow::onAddBtnCilcked()

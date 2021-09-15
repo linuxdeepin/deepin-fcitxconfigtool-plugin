@@ -51,7 +51,7 @@ FcitxContentWidget::FcitxContentWidget(QWidget *parent)
     // m_contentArea->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Expanding);
     m_contentArea->setContentsMargins(0, 0, 0, 0);
 
-    QScroller::grabGesture(m_contentArea->viewport(), QScroller::LeftMouseButtonGesture);
+    //QScroller::grabGesture(m_contentArea->viewport(), QScroller::LeftMouseButtonGesture);
     QScroller *scroller = QScroller::scroller(m_contentArea->viewport());
     QScrollerProperties sp;
     sp.setScrollMetric(QScrollerProperties::VerticalOvershootPolicy, QScrollerProperties::OvershootAlwaysOff);
@@ -99,6 +99,19 @@ void FcitxContentWidget::resizeEvent(QResizeEvent *event)
 {
     if (m_content)
         m_content->setFixedWidth(event->size().width());
+}
+
+void FcitxContentWidget::mouseMoveEvent(QMouseEvent *event)
+{
+    static int lastY = event->pos().y();
+    int pos = m_contentArea->verticalScrollBar()->sliderPosition();
+    if (lastY < event->pos().y()) {
+        m_contentArea->verticalScrollBar()->setSliderPosition(pos + 3);
+    } else {
+        m_contentArea->verticalScrollBar()->setSliderPosition(pos - 3);
+    }
+    qDebug() << pos;
+    lastY = event->pos().y();
 }
 } // namespace widgets
 } // namespace dcc_fcitx_configtool
