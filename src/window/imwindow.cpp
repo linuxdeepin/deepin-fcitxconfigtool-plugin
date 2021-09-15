@@ -93,7 +93,7 @@ IMWindow::~IMWindow()
 //    DeleteObject_Null(m_addWindow);
 //    DeleteObject_Null(m_shortcutKeyWindow);
     DeleteObject_Null(m_pLayout);
-#ifndef USE_GOOGLETEST
+#if !defined(CMAKE_SAFETYTEST_ARG_ON)
     QAccessible::removeFactory(accessibleFactory);
 #endif
 }

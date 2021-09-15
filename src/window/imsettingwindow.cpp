@@ -190,6 +190,13 @@ void IMSettingWindow::initUI()
     subLayout->addLayout(headLayout);
 
     readConfig();
+
+}
+
+void IMSettingWindow::onReloadConnect()
+{
+    connect(Global::instance()->inputMethodProxy(), &FcitxQtInputMethodProxy::ReloadConfigUI,
+            this, &IMSettingWindow::doReloadConfigUI);
 }
 
 void IMSettingWindow::initConnect()
@@ -198,27 +205,15 @@ void IMSettingWindow::initConnect()
         if (Global::instance()->inputMethodProxy() && flag)
             Global::instance()->inputMethodProxy()->ReloadConfig();
     };
+    connect(Global::instance(), &Global::connectStatusChanged, this, &IMSettingWindow::onReloadConnect);
+
     connect(m_defaultIMKey, &FcitxKeySettingsItem::editedFinish, [ = ]() {
-//        FcitxShortcutInfo defaultShortCutInfo = IMConfig::findIdKey("terminal");
         reloadFcitx(IMConfig::setDefaultIMKey(m_defaultIMKey->getKeyToStr()));
         m_defaultIMKey->setList(m_defaultIMKey->getKeyToStr().split("_"));
     });
     connect(Global::instance()->inputMethodProxy(), &FcitxQtInputMethodProxy::ReloadConfigUI,
             this, &IMSettingWindow::doReloadConfigUI);
-//    connect(m_imSwitchKey, &FcitxKeySettingsItem::editedFinish, [=]() {
-//        reloadFcitx(IMConfig::setVirtualKey(m_virtualKey->getKeyToStr()));
-//        FcitxShortcutInfo imswitchShortCutInfo = IMConfig::findIdKey("system-monitor");
-//    });
 
-//    connect(m_defaultIMKey, &FcitxKeySettingsItem::editedFinish, [=]() {
-//        reloadFcitx(IMConfig::setDefaultIMKey(m_defaultIMKey->getKeyToStr()));
-//    });
-//    connect(m_imSwitchKey, &FcitxKeySettingsItem::editedFinish, [=]() {
-//        reloadFcitx(IMConfig::setVirtualKey(m_virtualKey->getKeyToStr()));
-//    });
-
-//    connect(m_defaultIMKey, &FcitxKeySettingsItem::shortCutError, this, &IMSettingWindow::popShortKeyListWindow);
-//    connect(m_virtualKey, &FcitxKeySettingsItem::shortCutError, this, &IMSettingWindow::popShortKeyListWindow);
 
     connect(m_imSwitchCbox->comboBox(), &QComboBox::currentTextChanged, [ = ]() {
         m_imSwitchCbox->comboBox()->setAccessibleName(m_imSwitchCbox->comboBox()->currentText());
@@ -234,10 +229,7 @@ void IMSettingWindow::initConnect()
     });
     connect(IMModel::instance(), &IMModel::curIMListChanaged, this, &IMSettingWindow::onCurIMChanged);
     connect(m_addIMBtn, &DFloatingButton::clicked, this, &IMSettingWindow::onAddBtnCilcked);
-    connect(IMModel::instance(), &IMModel::curIMListChanaged, this, &IMSettingWindow::onCurIMChanged);
     connect(m_IMListGroup, &FcitxSettingsGroup::switchPosition, IMModel::instance(), &IMModel::switchPoistion);
-//    connect(m_defaultIMCbox, &FcitxComboxWidget::onSelectChanged, this, &IMSettingWindow::onDefaultIMChanged);
-//    connect(m_defaultIMCbox->comboBox(), &QComboBox::currentTextChanged, this, &IMSettingWindow::onDefaultIMChanged);
     connect(m_editHead, &FcitxSettingsHead::editChanged, this, &IMSettingWindow::onEditBtnClicked);
 }
 
