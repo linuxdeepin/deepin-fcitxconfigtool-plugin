@@ -98,7 +98,7 @@ void FcitxIMActivityItem::editSwitch(const bool &flag)
 void FcitxIMActivityItem::paintEvent(QPaintEvent *event)
 {
     QPainter painter( this);
-    painter.fillRect(this->rect(), DGuiApplicationHelper::instance()->applicationPalette().background());
+    //painter.fillRect(this->rect(), DGuiApplicationHelper::instance()->applicationPalette().background());
     const int radius = 8;
     QRect paintRect = this->rect();
     QPainterPath path;
@@ -129,13 +129,13 @@ void FcitxIMActivityItem::paintEvent(QPaintEvent *event)
         path.lineTo(paintRect.bottomRight());
     }
     if(m_isEnter) {
-        QColor color = DGuiApplicationHelper::instance()->applicationPalette().background().color();
+        QColor color = DGuiApplicationHelper::instance()->applicationPalette().dark().color();
         if(isDraged()) {
             color.setAlpha(50);
         }
         painter.fillPath(path, color);
     } else {
-        QColor color = DGuiApplicationHelper::instance()->applicationPalette().dark().color();
+        QColor color = DGuiApplicationHelper::instance()->applicationPalette().background().color();
         if(isDraged()) {
             color.setAlpha(50);
             qDebug() << "isDraged = " << isDraged();
@@ -156,7 +156,7 @@ void FcitxIMActivityItem::setSelectStatus(const bool &isEnter)
 //    if (!m_bgGroup)
 //        return;
 
-    if (!isEnter)
+    if (isEnter)
         m_isEnter = true;
     else {
         m_isEnter = false;
