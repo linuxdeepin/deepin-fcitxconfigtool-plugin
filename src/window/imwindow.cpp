@@ -109,7 +109,7 @@ void IMWindow::initFcitxInterface()
         QProcess::startDetached("fcitx -r");
     }
     // 安装工厂
-#ifndef USE_GOOGLETEST
+#if !defined(CMAKE_SAFETYTEST_ARG_ON)
     QAccessible::installFactory(accessibleFactory);
 #endif
 
@@ -160,26 +160,4 @@ void IMWindow::initConnect()
         m_stackedWidget->setCurrentIndex(PopShortcutKeyWindow);
         m_settingWindow->updateUI();
     });
-    /*
-        connect(m_settingWindow, &IMSettingWindow::popShortKeyListWindow, [=](const QString &curName, const QStringList &list, QString &name) {
-            QString tmpString;
-            for (const QString &key : list) {
-                if (key != list.last()) {
-                    tmpString += key + "+";
-                } else {
-                    tmpString += key;
-                }
-            }
-
-            m_shortcutKeyWindow->setValue(curName, name, tmpString);
-            m_stackedWidget->setCurrentIndex(PopShortcutKeyWindow);
-            m_settingWindow->updateUI();
-        });
-        connect(m_settingWindow, &IMSettingWindow::popShortKeyStrWindow, [=](const QString &curName, const QString &str, QString &name) {
-            m_shortcutKeyWindow->setValue(curName, name, str);
-            m_stackedWidget->setCurrentIndex(PopShortcutKeyWindow);
-            m_settingWindow->updateUI();
-        });
-    */
-
 }

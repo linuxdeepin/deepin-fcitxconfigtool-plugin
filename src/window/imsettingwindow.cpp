@@ -211,10 +211,7 @@ void IMSettingWindow::initConnect()
         reloadFcitx(IMConfig::setDefaultIMKey(m_defaultIMKey->getKeyToStr()));
         m_defaultIMKey->setList(m_defaultIMKey->getKeyToStr().split("_"));
     });
-    connect(Global::instance()->inputMethodProxy(), &FcitxQtInputMethodProxy::ReloadConfigUI,
-            this, &IMSettingWindow::doReloadConfigUI);
-
-
+    onReloadConnect();
     connect(m_imSwitchCbox->comboBox(), &QComboBox::currentTextChanged, [ = ]() {
         m_imSwitchCbox->comboBox()->setAccessibleName(m_imSwitchCbox->comboBox()->currentText());
         reloadFcitx(IMConfig::setIMSwitchKey(m_imSwitchCbox->comboBox()->currentText()));
