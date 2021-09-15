@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="ug">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="ug" version="2.1">
 <context>
     <name>FcitxConfigPlugin</name>
     <message>
@@ -115,7 +113,7 @@
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="128"/>
         <source>Advanced Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>ئالىي تەڭشەك</translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="152"/>
@@ -127,7 +125,7 @@
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="162"/>
         <source>Shortcuts</source>
-        <translation>تىزلەتمە كۇنۇپكا</translation>
+        <translation>تىزلەتمە كۇنۇپكىلار</translation>
         <extra-child_page>Manage Input Methods</extra-child_page>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
@@ -153,7 +151,7 @@
     <message>
         <location filename="../src/window/shortcutkeywindow.cpp" line="54"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation>بۇ تىزلەتمە كۇنۇپكا %1 بىلەن توقۇنۇشۇپ قالدى، قوشۇش كۇنۇپكىسىنى باسسىڭىز بۇ تېزلەتمە ئۈنۈملۈك بولىدۇ</translation>
+        <translation>بۇ تىزلەتمە كۇنۇپكا %1 بىلەن توقۇنۇشۇپ قالدى، قوشۇش كۇنۇپكىسىنى بېسىپ باشقا تىزلەتمە كۇنۇپكا بېكىتىڭ</translation>
     </message>
 </context>
 <context>

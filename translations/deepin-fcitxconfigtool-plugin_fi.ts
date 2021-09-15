@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="fi">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="fi" version="2.1">
 <context>
     <name>FcitxConfigPlugin</name>
     <message>
@@ -23,6 +21,17 @@
         <location filename="../src/widgets/settingshead.cpp" line="115"/>
         <source>Done</source>
         <translation>Valmis</translation>
+    </message>
+</context>
+<context>
+    <name>Fcitx_SettingsHead</name>
+    <message>
+        <source>Edit</source>
+        <translation type="vanished">Muokkaa</translation>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation type="vanished">Valmis</translation>
     </message>
 </context>
 <context>
@@ -59,7 +68,7 @@
     <name>IMSettingWindow</name>
     <message>
         <source>Default</source>
-        <translation type="vanished">Oletus</translation>
+        <translation type="vanished">oletus</translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="119"/>
@@ -99,12 +108,12 @@
         <location filename="../src/window/imsettingwindow.cpp" line="126"/>
         <location filename="../src/window/imsettingwindow.cpp" line="127"/>
         <source>Restore Defaults</source>
-        <translation type="unfinished"></translation>
+        <translation>Palauta oletukset</translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="128"/>
         <source>Advanced Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Lisäasetukset</translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="152"/>
@@ -142,7 +151,7 @@
     <message>
         <location filename="../src/window/shortcutkeywindow.cpp" line="54"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation>Tämä pikanäppäin on ristiriidassa %1 kanssa, napsauta Lisää, jotta pikakuvake tulee voimaan heti</translation>
+        <translation>Tämä pikakuvake on ristiriidassa %1 kanssa, napsauta Lisää, jotta pikakuvake tulee voimaan heti</translation>
     </message>
 </context>
 <context>
@@ -151,12 +160,23 @@
         <location filename="../src/widgets/keysettingsitem.cpp" line="38"/>
         <location filename="../src/widgets/keysettingsitem.cpp" line="148"/>
         <source>None</source>
-        <translation>Ei mitään</translation>
+        <translation>Mitään</translation>
     </message>
     <message>
         <location filename="../src/widgets/keysettingsitem.cpp" line="44"/>
         <source>Enter a new shortcut</source>
         <translation>Tee uusi pikanäppäin</translation>
+    </message>
+</context>
+<context>
+    <name>dcc_fcitx_configtool::widgets::Fcitx_KeyLabelWidget</name>
+    <message>
+        <source>None</source>
+        <translation type="vanished">Mitään</translation>
+    </message>
+    <message>
+        <source>Enter a new shortcut</source>
+        <translation type="vanished">Tee uusi pikanäppäin</translation>
     </message>
 </context>
 <context>
@@ -167,7 +187,7 @@
     </message>
     <message>
         <source>None</source>
-        <translation type="vanished">Ei mitään</translation>
+        <translation type="vanished">Mitään</translation>
     </message>
 </context>
 </TS>

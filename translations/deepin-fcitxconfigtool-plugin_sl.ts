@@ -1,13 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="sl">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="sl" version="2.1">
 <context>
     <name>FcitxConfigPlugin</name>
     <message>
         <location filename="../src/fcitxconfigplugin.cpp" line="79"/>
         <location filename="../src/fcitxconfigplugin.cpp" line="87"/>
         <source>Input Methods</source>
-        <translation type="unfinished"></translation>
+        <translation>Načini vnosa</translation>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
 </context>
@@ -22,7 +20,18 @@
     <message>
         <location filename="../src/widgets/settingshead.cpp" line="115"/>
         <source>Done</source>
-        <translation>Opravljeno</translation>
+        <translation>Končano</translation>
+    </message>
+</context>
+<context>
+    <name>Fcitx_SettingsHead</name>
+    <message>
+        <source>Edit</source>
+        <translation type="vanished">Uredi</translation>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation type="vanished">Končano</translation>
     </message>
 </context>
 <context>
@@ -93,18 +102,18 @@
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="125"/>
         <source>Switch to the first input method</source>
-        <translation type="unfinished"></translation>
+        <translation>Preklopi na prvi način vnosa</translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="126"/>
         <location filename="../src/window/imsettingwindow.cpp" line="127"/>
         <source>Restore Defaults</source>
-        <translation type="unfinished"></translation>
+        <translation>Obnovi privzeto</translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="128"/>
         <source>Advanced Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Napredne nastavitve</translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="152"/>
@@ -116,7 +125,7 @@
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="162"/>
         <source>Shortcuts</source>
-        <translation>Bljižnice</translation>
+        <translation>Bližnjice</translation>
         <extra-child_page>Manage Input Methods</extra-child_page>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
@@ -129,7 +138,7 @@
     </message>
     <message>
         <source>Done</source>
-        <translation type="vanished">Opravljeno</translation>
+        <translation type="vanished">Končano</translation>
     </message>
 </context>
 <context>
@@ -142,7 +151,7 @@
     <message>
         <location filename="../src/window/shortcutkeywindow.cpp" line="54"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation>Ta bližnjica se prekriva z/s %1. Lahko jo takoj omogočite s klikom na Dodaj</translation>
+        <translation>Ta bližnjica se križa z/s %1. Lahko jo takoj omogočite s klikom na Dodaj</translation>
     </message>
 </context>
 <context>
@@ -151,12 +160,23 @@
         <location filename="../src/widgets/keysettingsitem.cpp" line="38"/>
         <location filename="../src/widgets/keysettingsitem.cpp" line="148"/>
         <source>None</source>
-        <translation>brez</translation>
+        <translation>Brez</translation>
     </message>
     <message>
         <location filename="../src/widgets/keysettingsitem.cpp" line="44"/>
         <source>Enter a new shortcut</source>
         <translation>Vnesite novo bližnjico</translation>
+    </message>
+</context>
+<context>
+    <name>dcc_fcitx_configtool::widgets::Fcitx_KeyLabelWidget</name>
+    <message>
+        <source>None</source>
+        <translation type="vanished">Brez</translation>
+    </message>
+    <message>
+        <source>Enter a new shortcut</source>
+        <translation type="vanished">Vnesite novo bližnjico</translation>
     </message>
 </context>
 <context>
@@ -167,7 +187,7 @@
     </message>
     <message>
         <source>None</source>
-        <translation type="vanished">brez</translation>
+        <translation type="vanished">Brez</translation>
     </message>
 </context>
 </TS>

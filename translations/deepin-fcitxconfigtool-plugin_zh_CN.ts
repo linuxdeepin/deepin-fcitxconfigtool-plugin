@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="zh_CN">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="zh_CN" version="2.1">
 <context>
     <name>FcitxConfigPlugin</name>
     <message>
@@ -26,6 +24,17 @@
     </message>
 </context>
 <context>
+    <name>Fcitx_SettingsHead</name>
+    <message>
+        <source>Edit</source>
+        <translation type="vanished">编辑</translation>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation type="vanished">完成</translation>
+    </message>
+</context>
+<context>
     <name>IMAddWindow</name>
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="62"/>
@@ -46,13 +55,13 @@
         <location filename="../src/window/imaddwindow.cpp" line="90"/>
         <location filename="../src/window/imaddwindow.cpp" line="91"/>
         <source>Add</source>
-        <translation>添 加</translation>
+        <translation>添加</translation>
     </message>
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="92"/>
         <location filename="../src/window/imaddwindow.cpp" line="93"/>
         <source>Cancel</source>
-        <translation>取 消</translation>
+        <translation>取消</translation>
     </message>
 </context>
 <context>
@@ -80,7 +89,7 @@
     </message>
     <message>
         <source>System</source>
-        <translation type="vanished">系统管理</translation>
+        <translation type="vanished">系统</translation>
     </message>
     <message>
         <source>Application</source>
@@ -137,7 +146,7 @@
     <message>
         <location filename="../src/window/shortcutkeywindow.cpp" line="35"/>
         <source>Cancel</source>
-        <translation>取 消</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <location filename="../src/window/shortcutkeywindow.cpp" line="54"/>
@@ -157,6 +166,17 @@
         <location filename="../src/widgets/keysettingsitem.cpp" line="44"/>
         <source>Enter a new shortcut</source>
         <translation>请输入新的快捷键</translation>
+    </message>
+</context>
+<context>
+    <name>dcc_fcitx_configtool::widgets::Fcitx_KeyLabelWidget</name>
+    <message>
+        <source>None</source>
+        <translation type="vanished">无</translation>
+    </message>
+    <message>
+        <source>Enter a new shortcut</source>
+        <translation type="vanished">请输入新的快捷键</translation>
     </message>
 </context>
 <context>

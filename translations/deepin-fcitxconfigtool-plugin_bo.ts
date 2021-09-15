@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="bo">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="bo" version="2.1">
 <context>
     <name>FcitxConfigPlugin</name>
     <message>
@@ -63,7 +61,7 @@
         <location filename="../src/window/imaddwindow.cpp" line="92"/>
         <location filename="../src/window/imaddwindow.cpp" line="93"/>
         <source>Cancel</source>
-        <translation>འདོར་བ།</translation>
+        <translation>འདོར་བ། </translation>
     </message>
 </context>
 <context>
@@ -148,7 +146,7 @@
     <message>
         <location filename="../src/window/shortcutkeywindow.cpp" line="35"/>
         <source>Cancel</source>
-        <translation>འདོར་བ།</translation>
+        <translation>འདོར་བ། </translation>
     </message>
     <message>
         <location filename="../src/window/shortcutkeywindow.cpp" line="54"/>

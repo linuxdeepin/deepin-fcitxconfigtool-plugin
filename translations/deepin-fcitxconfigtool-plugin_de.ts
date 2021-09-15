@@ -1,13 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="de">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="de" version="2.1">
 <context>
     <name>FcitxConfigPlugin</name>
     <message>
         <location filename="../src/fcitxconfigplugin.cpp" line="79"/>
         <location filename="../src/fcitxconfigplugin.cpp" line="87"/>
         <source>Input Methods</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
 </context>
@@ -26,6 +24,17 @@
     </message>
 </context>
 <context>
+    <name>Fcitx_SettingsHead</name>
+    <message>
+        <source>Edit</source>
+        <translation type="vanished">Bearbeiten</translation>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation type="vanished">Fertig</translation>
+    </message>
+</context>
+<context>
     <name>IMAddWindow</name>
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="62"/>
@@ -40,7 +49,7 @@
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="82"/>
         <source>Find more in App Store</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="90"/>
@@ -71,6 +80,10 @@
         <translation type="vanished">Auf Standard-Eingabemethode wechseln</translation>
     </message>
     <message>
+        <source>Call out Onboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Applies to</source>
         <translation type="vanished">Gültig für</translation>
     </message>
@@ -89,18 +102,18 @@
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="125"/>
         <source>Switch to the first input method</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="126"/>
         <location filename="../src/window/imsettingwindow.cpp" line="127"/>
         <source>Restore Defaults</source>
-        <translation type="unfinished"></translation>
+        <translation>Standardeinstellungen wiederherstellen</translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="128"/>
         <source>Advanced Settings</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="152"/>
@@ -153,6 +166,17 @@
         <location filename="../src/widgets/keysettingsitem.cpp" line="44"/>
         <source>Enter a new shortcut</source>
         <translation>Geben Sie ein neues Tastenkürzel ein </translation>
+    </message>
+</context>
+<context>
+    <name>dcc_fcitx_configtool::widgets::Fcitx_KeyLabelWidget</name>
+    <message>
+        <source>None</source>
+        <translation type="vanished">Keine</translation>
+    </message>
+    <message>
+        <source>Enter a new shortcut</source>
+        <translation type="vanished">Geben Sie ein neues Tastenkürzel ein </translation>
     </message>
 </context>
 <context>

@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="sq">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="sq" version="2.1">
 <context>
     <name>FcitxConfigPlugin</name>
     <message>
@@ -17,19 +15,19 @@
         <location filename="../src/widgets/settingshead.cpp" line="48"/>
         <location filename="../src/widgets/settingshead.cpp" line="113"/>
         <source>Edit</source>
-        <translation type="unfinished">Përpunojeni</translation>
+        <translation>Përpunim</translation>
     </message>
     <message>
         <location filename="../src/widgets/settingshead.cpp" line="115"/>
         <source>Done</source>
-        <translation type="unfinished">U bë</translation>
+        <translation>U bë</translation>
     </message>
 </context>
 <context>
     <name>Fcitx_SettingsHead</name>
     <message>
         <source>Edit</source>
-        <translation type="vanished">Përpunojeni</translation>
+        <translation type="vanished">Përpunim</translation>
     </message>
     <message>
         <source>Done</source>
@@ -46,7 +44,7 @@
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="71"/>
         <source>Search</source>
-        <translation>Kërko</translation>
+        <translation>Kërkim</translation>
     </message>
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="82"/>
@@ -57,7 +55,7 @@
         <location filename="../src/window/imaddwindow.cpp" line="90"/>
         <location filename="../src/window/imaddwindow.cpp" line="91"/>
         <source>Add</source>
-        <translation>Shtoje</translation>
+        <translation>Shto</translation>
     </message>
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="92"/>
@@ -80,6 +78,10 @@
     <message>
         <source>Switch to default input method</source>
         <translation type="vanished">Kalo te metoda parazgjedhje e dhënieve</translation>
+    </message>
+    <message>
+        <source>Call out Onboard</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Applies to</source>
@@ -106,12 +108,12 @@
         <location filename="../src/window/imsettingwindow.cpp" line="126"/>
         <location filename="../src/window/imsettingwindow.cpp" line="127"/>
         <source>Restore Defaults</source>
-        <translation type="unfinished"></translation>
+        <translation>Rikthe Parazgjedhjet</translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="128"/>
         <source>Advanced Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Rregullime të Mëtejshme</translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="152"/>
@@ -132,7 +134,7 @@
     <name>SettingsHead</name>
     <message>
         <source>Edit</source>
-        <translation type="vanished">Përpunojeni</translation>
+        <translation type="vanished">Përpunim</translation>
     </message>
     <message>
         <source>Done</source>
@@ -149,7 +151,7 @@
     <message>
         <location filename="../src/window/shortcutkeywindow.cpp" line="54"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation>Kjo shkurtore përplaset me %1, klikoni mbi Shtoje për ta bërë këtë shkurtore menjëherë efektive</translation>
+        <translation>Kjo shkurtore ka përplasje me %1, klikoni mbi Shtoje për ta bërë këtë shkurtore të hyjë në fuqi menjëherë</translation>
     </message>
 </context>
 <context>
@@ -158,12 +160,12 @@
         <location filename="../src/widgets/keysettingsitem.cpp" line="38"/>
         <location filename="../src/widgets/keysettingsitem.cpp" line="148"/>
         <source>None</source>
-        <translation type="unfinished">Asnjë</translation>
+        <translation>Asnjë</translation>
     </message>
     <message>
         <location filename="../src/widgets/keysettingsitem.cpp" line="44"/>
         <source>Enter a new shortcut</source>
-        <translation type="unfinished">Jepni një shkurtore të re</translation>
+        <translation>Jepni një shkurtore të re</translation>
     </message>
 </context>
 <context>

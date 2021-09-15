@@ -1,13 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="hi_IN">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="hi_IN" version="2.1">
 <context>
     <name>FcitxConfigPlugin</name>
     <message>
         <location filename="../src/fcitxconfigplugin.cpp" line="79"/>
         <location filename="../src/fcitxconfigplugin.cpp" line="87"/>
         <source>Input Methods</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
 </context>
@@ -17,12 +15,23 @@
         <location filename="../src/widgets/settingshead.cpp" line="48"/>
         <location filename="../src/widgets/settingshead.cpp" line="113"/>
         <source>Edit</source>
-        <translation>संपादन</translation>
+        <translation>संपादित करें</translation>
     </message>
     <message>
         <location filename="../src/widgets/settingshead.cpp" line="115"/>
         <source>Done</source>
-        <translation>पूर्ण</translation>
+        <translation>पूर्ण हुआ</translation>
+    </message>
+</context>
+<context>
+    <name>Fcitx_SettingsHead</name>
+    <message>
+        <source>Edit</source>
+        <translation type="vanished">संपादित करें</translation>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation type="vanished">पूर्ण हुआ</translation>
     </message>
 </context>
 <context>
@@ -35,7 +44,7 @@
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="71"/>
         <source>Search</source>
-        <translation>खोज</translation>
+        <translation>खोजें</translation>
     </message>
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="82"/>
@@ -93,18 +102,18 @@
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="125"/>
         <source>Switch to the first input method</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="126"/>
         <location filename="../src/window/imsettingwindow.cpp" line="127"/>
         <source>Restore Defaults</source>
-        <translation type="unfinished"></translation>
+        <translation>डिफॉल्ट्स पुनःस्थापित करें</translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="128"/>
         <source>Advanced Settings</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="152"/>
@@ -125,11 +134,11 @@
     <name>SettingsHead</name>
     <message>
         <source>Edit</source>
-        <translation type="vanished">संपादन</translation>
+        <translation type="vanished">संपादित करें</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation type="vanished">पूर्ण</translation>
+        <translation type="vanished">पूर्ण हुआ</translation>
     </message>
 </context>
 <context>
@@ -142,7 +151,7 @@
     <message>
         <location filename="../src/window/shortcutkeywindow.cpp" line="54"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation>यह शॉर्टकट %1 के विरुद्ध है, &apos;जोड़ें&apos; पर क्लिक कर इसे तुरंत प्रभाव से लागू करें</translation>
+        <translation>इस शॉर्टकट का %1 के साथ विरोधाभास है, &apos;में जोड़ें&apos; पर क्लिक कर इसे तुरंत प्रभाव से लागू करें</translation>
     </message>
 </context>
 <context>
@@ -157,6 +166,17 @@
         <location filename="../src/widgets/keysettingsitem.cpp" line="44"/>
         <source>Enter a new shortcut</source>
         <translation>नया शॉर्टकट दर्ज करें</translation>
+    </message>
+</context>
+<context>
+    <name>dcc_fcitx_configtool::widgets::Fcitx_KeyLabelWidget</name>
+    <message>
+        <source>None</source>
+        <translation type="vanished">कोई नहीं</translation>
+    </message>
+    <message>
+        <source>Enter a new shortcut</source>
+        <translation type="vanished">नया शॉर्टकट दर्ज करें</translation>
     </message>
 </context>
 <context>

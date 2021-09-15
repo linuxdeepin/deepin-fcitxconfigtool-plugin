@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="pt">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="pt" version="2.1">
 <context>
     <name>FcitxConfigPlugin</name>
     <message>
@@ -33,7 +31,7 @@
     </message>
     <message>
         <source>Done</source>
-        <translation type="vanished">Concluído</translation>
+        <translation type="vanished">Feito</translation>
     </message>
 </context>
 <context>
@@ -140,7 +138,7 @@
     </message>
     <message>
         <source>Done</source>
-        <translation type="vanished">Concluído</translation>
+        <translation type="vanished">Feito</translation>
     </message>
 </context>
 <context>
@@ -153,7 +151,7 @@
     <message>
         <location filename="../src/window/shortcutkeywindow.cpp" line="54"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation>Este atalho entra em conflito com %1, clique em Adicionar para o efetivar imediatamente</translation>
+        <translation>Este atalho entra em conflito com o %1, clicar em Adicionar para que este atalho tenha efeito imediato</translation>
     </message>
 </context>
 <context>
@@ -178,14 +176,14 @@
     </message>
     <message>
         <source>Enter a new shortcut</source>
-        <translation type="vanished">Introduza um novo atalho</translation>
+        <translation type="vanished">Inserir um novo atalho</translation>
     </message>
 </context>
 <context>
     <name>dcc_fcitx_configtool::widgets::KeyLabelWidget</name>
     <message>
         <source>Enter a new shortcut</source>
-        <translation type="vanished">Introduza um novo atalho</translation>
+        <translation type="vanished">Inserir um novo atalho</translation>
     </message>
     <message>
         <source>None</source>

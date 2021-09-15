@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="hr">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="hr" version="2.1">
 <context>
     <name>FcitxConfigPlugin</name>
     <message>
@@ -23,6 +21,17 @@
         <location filename="../src/widgets/settingshead.cpp" line="115"/>
         <source>Done</source>
         <translation>Učinjeno</translation>
+    </message>
+</context>
+<context>
+    <name>Fcitx_SettingsHead</name>
+    <message>
+        <source>Edit</source>
+        <translation type="vanished">Uredi</translation>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation type="vanished">Učinjeno</translation>
     </message>
 </context>
 <context>
@@ -59,7 +68,7 @@
     <name>IMSettingWindow</name>
     <message>
         <source>Default</source>
-        <translation type="vanished">Zadano</translation>
+        <translation type="vanished">Uobičajeno</translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="119"/>
@@ -69,6 +78,14 @@
     <message>
         <source>Switch to default input method</source>
         <translation type="vanished">Prebaci na zadani način unosa</translation>
+    </message>
+    <message>
+        <source>Call out Onboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Applies to</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>System</source>
@@ -91,12 +108,12 @@
         <location filename="../src/window/imsettingwindow.cpp" line="126"/>
         <location filename="../src/window/imsettingwindow.cpp" line="127"/>
         <source>Restore Defaults</source>
-        <translation type="unfinished"></translation>
+        <translation>Obnovi zadano</translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="128"/>
         <source>Advanced Settings</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="152"/>
@@ -134,7 +151,7 @@
     <message>
         <location filename="../src/window/shortcutkeywindow.cpp" line="54"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -149,6 +166,17 @@
         <location filename="../src/widgets/keysettingsitem.cpp" line="44"/>
         <source>Enter a new shortcut</source>
         <translation>Unesite novi prečac</translation>
+    </message>
+</context>
+<context>
+    <name>dcc_fcitx_configtool::widgets::Fcitx_KeyLabelWidget</name>
+    <message>
+        <source>None</source>
+        <translation type="vanished">Nijedan</translation>
+    </message>
+    <message>
+        <source>Enter a new shortcut</source>
+        <translation type="vanished">Unesite novi prečac</translation>
     </message>
 </context>
 <context>

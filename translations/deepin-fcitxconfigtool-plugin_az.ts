@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="az">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="az" version="2.1">
 <context>
     <name>FcitxConfigPlugin</name>
     <message>
@@ -17,23 +15,23 @@
         <location filename="../src/widgets/settingshead.cpp" line="48"/>
         <location filename="../src/widgets/settingshead.cpp" line="113"/>
         <source>Edit</source>
-        <translation type="unfinished">Düzəliş edin</translation>
+        <translation>Düzəlt</translation>
     </message>
     <message>
         <location filename="../src/widgets/settingshead.cpp" line="115"/>
         <source>Done</source>
-        <translation type="unfinished">Hazır</translation>
+        <translation>Tamamlandı</translation>
     </message>
 </context>
 <context>
     <name>Fcitx_SettingsHead</name>
     <message>
         <source>Edit</source>
-        <translation type="vanished">Düzəliş edin</translation>
+        <translation type="vanished">Düzəlt</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation type="vanished">Hazır</translation>
+        <translation type="vanished">Tamamlandı</translation>
     </message>
 </context>
 <context>
@@ -46,7 +44,7 @@
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="71"/>
         <source>Search</source>
-        <translation>Axtarış</translation>
+        <translation>Axtar</translation>
     </message>
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="82"/>
@@ -57,7 +55,7 @@
         <location filename="../src/window/imaddwindow.cpp" line="90"/>
         <location filename="../src/window/imaddwindow.cpp" line="91"/>
         <source>Add</source>
-        <translation>Əlavə edin</translation>
+        <translation>Əlavə et</translation>
     </message>
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="92"/>
@@ -110,12 +108,12 @@
         <location filename="../src/window/imsettingwindow.cpp" line="126"/>
         <location filename="../src/window/imsettingwindow.cpp" line="127"/>
         <source>Restore Defaults</source>
-        <translation type="unfinished"></translation>
+        <translation>Varsayəlanların bərpası</translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="128"/>
         <source>Advanced Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Təkmil ayarlar</translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="152"/>
@@ -136,11 +134,11 @@
     <name>SettingsHead</name>
     <message>
         <source>Edit</source>
-        <translation type="vanished">Düzəliş edin</translation>
+        <translation type="vanished">Düzəlt</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation type="vanished">Hazır</translation>
+        <translation type="vanished">Tamamlandı</translation>
     </message>
 </context>
 <context>
@@ -162,12 +160,12 @@
         <location filename="../src/widgets/keysettingsitem.cpp" line="38"/>
         <location filename="../src/widgets/keysettingsitem.cpp" line="148"/>
         <source>None</source>
-        <translation type="unfinished">Heç biri</translation>
+        <translation>Heç biri</translation>
     </message>
     <message>
         <location filename="../src/widgets/keysettingsitem.cpp" line="44"/>
         <source>Enter a new shortcut</source>
-        <translation type="unfinished">Yeni qısayol daxil edin</translation>
+        <translation>Yeni qısayol daxil edin</translation>
     </message>
 </context>
 <context>

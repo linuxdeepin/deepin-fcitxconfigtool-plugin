@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="uk">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="uk" version="2.1">
 <context>
     <name>FcitxConfigPlugin</name>
     <message>
@@ -17,12 +15,12 @@
         <location filename="../src/widgets/settingshead.cpp" line="48"/>
         <location filename="../src/widgets/settingshead.cpp" line="113"/>
         <source>Edit</source>
-        <translation type="unfinished">Редагувати</translation>
+        <translation>Редагувати</translation>
     </message>
     <message>
         <location filename="../src/widgets/settingshead.cpp" line="115"/>
         <source>Done</source>
-        <translation type="unfinished">Виконано</translation>
+        <translation>Готово</translation>
     </message>
 </context>
 <context>
@@ -33,7 +31,7 @@
     </message>
     <message>
         <source>Done</source>
-        <translation type="vanished">Виконано</translation>
+        <translation type="vanished">Готово</translation>
     </message>
 </context>
 <context>
@@ -70,7 +68,7 @@
     <name>IMSettingWindow</name>
     <message>
         <source>Default</source>
-        <translation type="vanished">Типово</translation>
+        <translation type="vanished">Типовий</translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="119"/>
@@ -110,12 +108,12 @@
         <location filename="../src/window/imsettingwindow.cpp" line="126"/>
         <location filename="../src/window/imsettingwindow.cpp" line="127"/>
         <source>Restore Defaults</source>
-        <translation type="unfinished"></translation>
+        <translation>Відновити за замовчуванням</translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="128"/>
         <source>Advanced Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Додаткові параметри</translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="152"/>
@@ -127,7 +125,7 @@
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="162"/>
         <source>Shortcuts</source>
-        <translation>Скорочення</translation>
+        <translation>Поєднання клавіш</translation>
         <extra-child_page>Manage Input Methods</extra-child_page>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
@@ -140,7 +138,7 @@
     </message>
     <message>
         <source>Done</source>
-        <translation type="vanished">Виконано</translation>
+        <translation type="vanished">Готово</translation>
     </message>
 </context>
 <context>
@@ -162,19 +160,19 @@
         <location filename="../src/widgets/keysettingsitem.cpp" line="38"/>
         <location filename="../src/widgets/keysettingsitem.cpp" line="148"/>
         <source>None</source>
-        <translation type="unfinished">Нічого</translation>
+        <translation>Немає</translation>
     </message>
     <message>
         <location filename="../src/widgets/keysettingsitem.cpp" line="44"/>
         <source>Enter a new shortcut</source>
-        <translation type="unfinished">Введіть нове скорочення</translation>
+        <translation>Введіть нове скорочення</translation>
     </message>
 </context>
 <context>
     <name>dcc_fcitx_configtool::widgets::Fcitx_KeyLabelWidget</name>
     <message>
         <source>None</source>
-        <translation type="vanished">Нічого</translation>
+        <translation type="vanished">Немає</translation>
     </message>
     <message>
         <source>Enter a new shortcut</source>
@@ -189,7 +187,7 @@
     </message>
     <message>
         <source>None</source>
-        <translation type="vanished">Нічого</translation>
+        <translation type="vanished">Немає</translation>
     </message>
 </context>
 </TS>
