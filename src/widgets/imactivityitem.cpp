@@ -97,7 +97,7 @@ void FcitxIMActivityItem::editSwitch(const bool &flag)
 void FcitxIMActivityItem::paintEvent(QPaintEvent *event)
 {
     QPainter painter( this);
-    //painter.fillRect(this->rect(), DGuiApplicationHelper::instance()->applicationPalette().base());
+    painter.fillRect(this->rect(), DGuiApplicationHelper::instance()->applicationPalette().background());
     const int radius = 8;
     QRect paintRect = this->rect();
     QPainterPath path;
@@ -146,7 +146,7 @@ void FcitxIMActivityItem::paintEvent(QPaintEvent *event)
 
 void FcitxIMActivityItem::mouseMoveEvent(QMouseEvent *e)
 {
-    this->update(m_layout->contentsRect());
+    this->update(rect());
     return FcitxSettingsItem::mouseMoveEvent(e);
 }
 
@@ -186,6 +186,7 @@ void FcitxIMActivityItem::setSelectStatus(const bool &isEnter)
         m_upBtn->hide();
         m_downBtn->hide();
     }
+    this->update(rect());
 }
 
 void FcitxIMActivityItem::onUpItem()
