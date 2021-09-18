@@ -71,6 +71,7 @@ private slots:
     void onItemDown(const FcitxQtInputMethodItem &item);
     void onItemDelete(const FcitxQtInputMethodItem &item);
     void doReloadConfigUI();
+    void onReloadConnect();
 private:
     dcc_fcitx_configtool::widgets::FcitxSettingsGroup *m_IMListGroup {nullptr}; //输入法列表容器
     dcc_fcitx_configtool::widgets::FcitxSettingsGroup *m_shortcutGroup {nullptr}; //输入法快捷键容器
