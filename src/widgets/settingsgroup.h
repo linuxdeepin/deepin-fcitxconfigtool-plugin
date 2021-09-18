@@ -30,6 +30,7 @@
 #include <fcitxqtinputmethoditem.h>
 #include <QFrame>
 #include <QTimer>
+#include <QDateTime>
 
 #include "translucentframe.h"
 
@@ -94,6 +95,8 @@ private:
     bool m_isPressed {false};
     int m_selectIndex {0};
     bool m_switchAble {false};
+    int m_lastYPosition{0};
+    QDateTime m_time;
 };
 
 } // namespace widgets

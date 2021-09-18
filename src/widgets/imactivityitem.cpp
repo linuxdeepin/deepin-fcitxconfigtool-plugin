@@ -37,7 +37,7 @@ FcitxIMActivityItem::FcitxIMActivityItem(FcitxQtInputMethodItem item, itemPositi
     , m_index(index)
 {
     m_layout = new QHBoxLayout(this);
-    m_layout->setContentsMargins(0, 0, 0, 0);
+    m_layout->setContentsMargins(0, 0, 10, 0);
     m_labelText = new FcitxShortenLabel("", this);
     DFontSizeManager::instance()->bind(m_labelText, DFontSizeManager::T6);
     m_labelText->setShortenText("    " + item.name());
@@ -131,17 +131,17 @@ void FcitxIMActivityItem::paintEvent(QPaintEvent *event)
     if(m_isEnter) {
         QColor color = DGuiApplicationHelper::instance()->applicationPalette().dark().color();
         if(isDraged()) {
-            color.setAlpha(50);
+            color.setAlpha(80);
         }
         painter.fillPath(path, color);
     } else {
         QColor color = DGuiApplicationHelper::instance()->applicationPalette().background().color();
         if(isDraged()) {
-            color.setAlpha(50);
-            qDebug() << "isDraged = " << isDraged();
+            color.setAlpha(80);
         }
         painter.fillPath(path, color);
     }
+    qDebug() << "isDraged = " << isDraged();
     return FcitxSettingsItem::paintEvent(event);
 }
 

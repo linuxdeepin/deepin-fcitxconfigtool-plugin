@@ -223,6 +223,7 @@ void FcitxSettingsGroup::switchItem(int start, int end)
             mItem->setIndex(FcitxIMActivityItem::otherItem);
         }
         mItem->setDraged(false);
+        mItem->update(mItem->rect());
     }
 
     emit switchPosition(mCurrentItem->m_item, end);
@@ -233,36 +234,28 @@ void FcitxSettingsGroup::mouseMoveEvent(QMouseEvent *event)
     if(!m_switchAble) {
         return QWidget::mouseMoveEvent(event);
     }
-    static int lastY = event->pos().y();
+//    if((QDateTime::currentDateTime().toTime_t() - m_time.toTime_t() < 1) || !m_isPressed) {
+//        m_isPressed = false;
+//        return QWidget::mouseMoveEvent(event);
+//    }
     if(m_isPressed) {
         FcitxSettingsItem* selectItem = getItem(m_selectIndex);
-        if(lastY < event->pos().y()) {
-            selectItem->move(selectItem->mapTo(this, QPoint(selectItem->x(), selectItem->rect().topRight().y() + 2)));
-        } else if (lastY > event->pos().y()) {
-            selectItem->move(selectItem->mapTo(this, QPoint(selectItem->x(), selectItem->rect().topRight().y() - 2)));
-        }
+        selectItem->move(selectItem->mapTo(this, QPoint(selectItem->x(), selectItem->rect().topRight().y() + (event->pos().y() - m_lastYPosition))));
         for(int index =0; index < itemCount(); index++) {
             FcitxSettingsItem* item = getItem(index);
             QRect itemRect = item->rect();
             QRect selectRect = selectItem->rect();
             QPoint itemTopLeftToThis = item->mapTo(this, itemRect.topLeft());
-            //QPoint eventPosd = event->pos();
             QPoint selecBottomLeft = selectItem->mapTo(this, selectRect.bottomLeft() + QPoint(10,2));
             QPoint selecTopLeft = selectItem->mapTo(this, selectRect.topLeft() + QPoint(10,2));
             QRect r1 = QRect(itemRect.x() + itemTopLeftToThis.x(), itemRect.y() + itemTopLeftToThis.y(), itemRect.width(), itemRect.height());
             if((r1.contains(selecBottomLeft) || r1.contains(selecTopLeft)) && index != m_selectIndex) {
-                if(lastY < event->pos().y()) {
-                    selectItem->move(selectItem->mapTo(this, QPoint(selectItem->x(), selectItem->rect().topRight().y() + 2)));
-                    item->move(item->mapTo(this, QPoint(item->x(), item->rect().topRight().y() - 4)));
-                } else if (lastY > event->pos().y()) {
-                    item->move(item->mapTo(this, QPoint(item->x(), item->rect().topRight().y() + 4)));
-                    selectItem->move(selectItem->mapTo(this, QPoint(selectItem->x(), selectItem->rect().topRight().y() - 2)));
-                }
+                item->move(item->mapTo(this, QPoint(item->x(), item->rect().topRight().y() - (event->pos().y() - m_lastYPosition))));
                 item->setDraged(true);
             }
         }
     }
-    lastY = event->pos().y();
+    m_lastYPosition = event->pos().y();
     //return QWidget::mouseMoveEvent(event);
 }
 
@@ -271,8 +264,6 @@ void FcitxSettingsGroup::mousePressEvent(QMouseEvent *event)
     if(!m_switchAble) {
         return QWidget::mousePressEvent(event);
     }
-    QWidget *parent = this->parentWidget();
-    qDebug() << "y= " << event->pos().y();
     m_isPressed = true;
     for(int index =0; index < itemCount(); index++) {
         FcitxSettingsItem* item = getItem(index);
@@ -285,6 +276,8 @@ void FcitxSettingsGroup::mousePressEvent(QMouseEvent *event)
             m_selectIndex = index;
         }
     }
+    m_lastYPosition = event->pos().y();
+    m_time = QDateTime::currentDateTime();
     return QWidget::mousePressEvent(event);
 }
 
@@ -298,9 +291,12 @@ void FcitxSettingsGroup::mouseReleaseEvent(QMouseEvent *event)
     selectItem->setDraged(false);
 
     QRect selectRect = selectItem->rect();
-    QPoint selecTopLeft = selectItem->mapTo(this, selectRect.topLeft() + QPoint(10,2));
-    int count = selecTopLeft.y() / 40;
-    if(selecTopLeft.y() / 40 > 20) {
+    QPoint selecTopLeft = selectItem->mapTo(this, selectRect.topLeft() + QPoint(10,0));
+    int count = selecTopLeft.y() / selectItem->height();
+    if(count < 0) {
+        count = 0;
+    }
+    if(selecTopLeft.y() % selectItem->height() > (selectItem->height() / 2)) {
         count ++;
     }
     switchItem(m_selectIndex,count);
