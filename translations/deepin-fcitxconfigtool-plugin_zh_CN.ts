@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="zh_CN">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="zh_CN" version="2.1">
 <context>
     <name>FcitxConfigPlugin</name>
     <message>
@@ -57,13 +55,13 @@
         <location filename="../src/window/imaddwindow.cpp" line="90"/>
         <location filename="../src/window/imaddwindow.cpp" line="91"/>
         <source>Add</source>
-        <translation>添加</translation>
+        <translation>添 加</translation>
     </message>
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="92"/>
         <location filename="../src/window/imaddwindow.cpp" line="93"/>
         <source>Cancel</source>
-        <translation>取消</translation>
+        <translation>取 消</translation>
     </message>
 </context>
 <context>
@@ -73,7 +71,7 @@
         <translation type="vanished">默认</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="121"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="119"/>
         <source>Switch input methods</source>
         <translation>切换输入法</translation>
     </message>
@@ -91,7 +89,7 @@
     </message>
     <message>
         <source>System</source>
-        <translation type="vanished">系统</translation>
+        <translation type="vanished">系统管理</translation>
     </message>
     <message>
         <source>Application</source>
@@ -102,30 +100,30 @@
         <translation type="vanished">输入法</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="127"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="125"/>
         <source>Switch to the first input method</source>
         <translation>切换至首位输入法</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="128"/>
-        <location filename="../src/window/imsettingwindow.cpp" line="129"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="126"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="127"/>
         <source>Restore Defaults</source>
         <translation>恢复默认</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="130"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="128"/>
         <source>Advanced Settings</source>
         <translation>高级设置</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="154"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="152"/>
         <source>Manage Input Methods</source>
         <translation>输入法管理</translation>
         <extra-child_page>Manage Input Methods</extra-child_page>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="164"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="162"/>
         <source>Shortcuts</source>
         <translation>快捷键</translation>
         <extra-child_page>Manage Input Methods</extra-child_page>
@@ -148,7 +146,7 @@
     <message>
         <location filename="../src/window/shortcutkeywindow.cpp" line="35"/>
         <source>Cancel</source>
-        <translation>取消</translation>
+        <translation>取 消</translation>
     </message>
     <message>
         <location filename="../src/window/shortcutkeywindow.cpp" line="54"/>

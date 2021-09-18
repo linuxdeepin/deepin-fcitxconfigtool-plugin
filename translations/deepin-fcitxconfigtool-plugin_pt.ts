@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="pt">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="pt" version="2.1">
 <context>
     <name>FcitxConfigPlugin</name>
     <message>
@@ -33,7 +31,7 @@
     </message>
     <message>
         <source>Done</source>
-        <translation type="vanished">Feito</translation>
+        <translation type="vanished">Concluído</translation>
     </message>
 </context>
 <context>
@@ -73,7 +71,7 @@
         <translation type="vanished">Predefinição</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="121"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="119"/>
         <source>Switch input methods</source>
         <translation>Mudar métodos de entrada</translation>
     </message>
@@ -102,30 +100,30 @@
         <translation type="vanished">Método de entrada</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="127"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="125"/>
         <source>Switch to the first input method</source>
         <translation>Mudar para o primeiro método de entrada</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="128"/>
-        <location filename="../src/window/imsettingwindow.cpp" line="129"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="126"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="127"/>
         <source>Restore Defaults</source>
         <translation>Restaurar Predefinições</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="130"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="128"/>
         <source>Advanced Settings</source>
         <translation>Configurações Avançadas</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="154"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="152"/>
         <source>Manage Input Methods</source>
         <translation>Gerir métodos de entrada</translation>
         <extra-child_page>Manage Input Methods</extra-child_page>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="164"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="162"/>
         <source>Shortcuts</source>
         <translation>Atalhos</translation>
         <extra-child_page>Manage Input Methods</extra-child_page>
@@ -140,7 +138,7 @@
     </message>
     <message>
         <source>Done</source>
-        <translation type="vanished">Feito</translation>
+        <translation type="vanished">Concluído</translation>
     </message>
 </context>
 <context>
@@ -153,7 +151,7 @@
     <message>
         <location filename="../src/window/shortcutkeywindow.cpp" line="54"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation>Este atalho entra em conflito com o %1, clicar em Adicionar para que este atalho tenha efeito imediato</translation>
+        <translation>Este atalho entra em conflito com %1, clique em Adicionar para o efetivar imediatamente</translation>
     </message>
 </context>
 <context>
@@ -178,14 +176,14 @@
     </message>
     <message>
         <source>Enter a new shortcut</source>
-        <translation type="vanished">Inserir um novo atalho</translation>
+        <translation type="vanished">Introduza um novo atalho</translation>
     </message>
 </context>
 <context>
     <name>dcc_fcitx_configtool::widgets::KeyLabelWidget</name>
     <message>
         <source>Enter a new shortcut</source>
-        <translation type="vanished">Inserir um novo atalho</translation>
+        <translation type="vanished">Introduza um novo atalho</translation>
     </message>
     <message>
         <source>None</source>

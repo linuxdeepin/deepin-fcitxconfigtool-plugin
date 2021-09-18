@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="bo">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="bo" version="2.1">
 <context>
     <name>FcitxConfigPlugin</name>
     <message>
@@ -63,7 +61,7 @@
         <location filename="../src/window/imaddwindow.cpp" line="92"/>
         <location filename="../src/window/imaddwindow.cpp" line="93"/>
         <source>Cancel</source>
-        <translation>འདོར་བ། </translation>
+        <translation>འདོར་བ།</translation>
     </message>
 </context>
 <context>
@@ -73,7 +71,7 @@
         <translation type="vanished">སོར་བཞག</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="121"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="119"/>
         <source>Switch input methods</source>
         <translation>ནང་འཇུག་བྱེད་སྟངས་བརྗེ་བ།</translation>
     </message>
@@ -102,30 +100,30 @@
         <translation type="vanished">ནང་འཇུག་བྱེད་སྟངས།</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="127"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="125"/>
         <source>Switch to the first input method</source>
         <translation>ནང་འཇུག་བྱ་ཐབས་དང་པོ་དེར་བརྗེ་བ།</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="128"/>
-        <location filename="../src/window/imsettingwindow.cpp" line="129"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="126"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="127"/>
         <source>Restore Defaults</source>
         <translation>སོར་བཞག་སོར་ཆུད། </translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="130"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="128"/>
         <source>Advanced Settings</source>
         <translation>མཐོ་རིམ་གདམ་ག</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="154"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="152"/>
         <source>Manage Input Methods</source>
         <translation>ནང་འཇུག་བྱེད་སྟངས་དོ་དམ།</translation>
         <extra-child_page>Manage Input Methods</extra-child_page>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="164"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="162"/>
         <source>Shortcuts</source>
         <translation>མྱུར་མཐེབ།</translation>
         <extra-child_page>Manage Input Methods</extra-child_page>
@@ -148,7 +146,7 @@
     <message>
         <location filename="../src/window/shortcutkeywindow.cpp" line="35"/>
         <source>Cancel</source>
-        <translation>འདོར་བ། </translation>
+        <translation>འདོར་བ།</translation>
     </message>
     <message>
         <location filename="../src/window/shortcutkeywindow.cpp" line="54"/>

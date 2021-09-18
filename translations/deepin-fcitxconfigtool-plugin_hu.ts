@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="hu">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="hu" version="2.1">
 <context>
     <name>FcitxConfigPlugin</name>
     <message>
@@ -73,7 +71,7 @@
         <translation type="vanished">Alapértelmezett</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="121"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="119"/>
         <source>Switch input methods</source>
         <translation>Beviteli mód váltása</translation>
     </message>
@@ -102,30 +100,30 @@
         <translation type="vanished">Beviteli mód</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="127"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="125"/>
         <source>Switch to the first input method</source>
         <translation>Váltson az első beviteli módra</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="128"/>
-        <location filename="../src/window/imsettingwindow.cpp" line="129"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="126"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="127"/>
         <source>Restore Defaults</source>
         <translation>Alapértelmezések visszaállítása</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="130"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="128"/>
         <source>Advanced Settings</source>
         <translation>Haladó beállítások</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="154"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="152"/>
         <source>Manage Input Methods</source>
         <translation>Beviteli módok kezelése</translation>
         <extra-child_page>Manage Input Methods</extra-child_page>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="164"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="162"/>
         <source>Shortcuts</source>
         <translation>Gyorsbillentyűk</translation>
         <extra-child_page>Manage Input Methods</extra-child_page>
@@ -153,7 +151,7 @@
     <message>
         <location filename="../src/window/shortcutkeywindow.cpp" line="54"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation>Ez a gyorsbillentyű ütközik a következővel: %1, kattintson a Hozzáadás gombra, hogy a gyorsbillentyű azonnal használható legyen</translation>
+        <translation>Ez a gyorsbillentyű ütközik ezzel: %1, kattintson a Hozzáadás gombra, hogy ez a gyorsbillentyű azonnal használható legyen</translation>
     </message>
 </context>
 <context>

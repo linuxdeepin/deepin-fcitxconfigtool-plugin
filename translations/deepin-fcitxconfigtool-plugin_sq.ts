@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="sq">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="sq" version="2.1">
 <context>
     <name>FcitxConfigPlugin</name>
     <message>
@@ -17,7 +15,7 @@
         <location filename="../src/widgets/settingshead.cpp" line="48"/>
         <location filename="../src/widgets/settingshead.cpp" line="113"/>
         <source>Edit</source>
-        <translation>Përpunim</translation>
+        <translation>Përpunojeni</translation>
     </message>
     <message>
         <location filename="../src/widgets/settingshead.cpp" line="115"/>
@@ -29,7 +27,7 @@
     <name>Fcitx_SettingsHead</name>
     <message>
         <source>Edit</source>
-        <translation type="vanished">Përpunim</translation>
+        <translation type="vanished">Përpunojeni</translation>
     </message>
     <message>
         <source>Done</source>
@@ -46,7 +44,7 @@
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="71"/>
         <source>Search</source>
-        <translation>Kërkim</translation>
+        <translation>Kërko</translation>
     </message>
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="82"/>
@@ -57,7 +55,7 @@
         <location filename="../src/window/imaddwindow.cpp" line="90"/>
         <location filename="../src/window/imaddwindow.cpp" line="91"/>
         <source>Add</source>
-        <translation>Shto</translation>
+        <translation>Shtoje</translation>
     </message>
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="92"/>
@@ -73,13 +71,17 @@
         <translation type="vanished">Parazgjedhje</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="121"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="119"/>
         <source>Switch input methods</source>
         <translation>Ndërroni metoda dhënieje</translation>
     </message>
     <message>
         <source>Switch to default input method</source>
         <translation type="vanished">Kalo te metoda parazgjedhje e dhënieve</translation>
+    </message>
+    <message>
+        <source>Call out Onboard</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Applies to</source>
@@ -98,30 +100,30 @@
         <translation type="vanished">Metodë Dhënieje</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="127"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="125"/>
         <source>Switch to the first input method</source>
         <translation>Kalo te metoda e parë e dhënieve</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="128"/>
-        <location filename="../src/window/imsettingwindow.cpp" line="129"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="126"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="127"/>
         <source>Restore Defaults</source>
         <translation>Rikthe Parazgjedhjet</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="130"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="128"/>
         <source>Advanced Settings</source>
         <translation>Rregullime të Mëtejshme</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="154"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="152"/>
         <source>Manage Input Methods</source>
         <translation>Administroni Metoda Dhënieje</translation>
         <extra-child_page>Manage Input Methods</extra-child_page>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="164"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="162"/>
         <source>Shortcuts</source>
         <translation>Shkurtore</translation>
         <extra-child_page>Manage Input Methods</extra-child_page>
@@ -132,7 +134,7 @@
     <name>SettingsHead</name>
     <message>
         <source>Edit</source>
-        <translation type="vanished">Përpunim</translation>
+        <translation type="vanished">Përpunojeni</translation>
     </message>
     <message>
         <source>Done</source>
@@ -149,7 +151,7 @@
     <message>
         <location filename="../src/window/shortcutkeywindow.cpp" line="54"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation>Kjo shkurtore ka përplasje me %1, klikoni mbi Shtoje për ta bërë këtë shkurtore të hyjë në fuqi menjëherë</translation>
+        <translation>Kjo shkurtore përplaset me %1, klikoni mbi Shtoje për ta bërë këtë shkurtore menjëherë efektive</translation>
     </message>
 </context>
 <context>

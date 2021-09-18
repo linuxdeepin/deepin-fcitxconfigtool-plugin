@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="sl">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="sl" version="2.1">
 <context>
     <name>FcitxConfigPlugin</name>
     <message>
@@ -33,7 +31,7 @@
     </message>
     <message>
         <source>Done</source>
-        <translation type="vanished">Končano</translation>
+        <translation type="vanished">Opravljeno</translation>
     </message>
 </context>
 <context>
@@ -73,7 +71,7 @@
         <translation type="vanished">Privzeto</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="121"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="119"/>
         <source>Switch input methods</source>
         <translation>Zamenjaj način vnosa</translation>
     </message>
@@ -102,32 +100,32 @@
         <translation type="vanished">Način vnosa</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="127"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="125"/>
         <source>Switch to the first input method</source>
         <translation>Preklopi na prvi način vnosa</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="128"/>
-        <location filename="../src/window/imsettingwindow.cpp" line="129"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="126"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="127"/>
         <source>Restore Defaults</source>
         <translation>Obnovi privzeto</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="130"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="128"/>
         <source>Advanced Settings</source>
         <translation>Napredne nastavitve</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="154"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="152"/>
         <source>Manage Input Methods</source>
         <translation>Upravljanje načinov vnosa</translation>
         <extra-child_page>Manage Input Methods</extra-child_page>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="164"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="162"/>
         <source>Shortcuts</source>
-        <translation>Bližnjice</translation>
+        <translation>Bljižnice</translation>
         <extra-child_page>Manage Input Methods</extra-child_page>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
@@ -140,7 +138,7 @@
     </message>
     <message>
         <source>Done</source>
-        <translation type="vanished">Končano</translation>
+        <translation type="vanished">Opravljeno</translation>
     </message>
 </context>
 <context>
@@ -153,7 +151,7 @@
     <message>
         <location filename="../src/window/shortcutkeywindow.cpp" line="54"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation>Ta bližnjica se križa z/s %1. Lahko jo takoj omogočite s klikom na Dodaj</translation>
+        <translation>Ta bližnjica se prekriva z/s %1. Lahko jo takoj omogočite s klikom na Dodaj</translation>
     </message>
 </context>
 <context>
@@ -174,7 +172,7 @@
     <name>dcc_fcitx_configtool::widgets::Fcitx_KeyLabelWidget</name>
     <message>
         <source>None</source>
-        <translation type="vanished">Brez</translation>
+        <translation type="vanished">brez</translation>
     </message>
     <message>
         <source>Enter a new shortcut</source>
@@ -189,7 +187,7 @@
     </message>
     <message>
         <source>None</source>
-        <translation type="vanished">Brez</translation>
+        <translation type="vanished">brez</translation>
     </message>
 </context>
 </TS>

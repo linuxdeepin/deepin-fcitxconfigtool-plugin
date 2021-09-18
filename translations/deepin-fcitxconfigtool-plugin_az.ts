@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="az">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="az" version="2.1">
 <context>
     <name>FcitxConfigPlugin</name>
     <message>
@@ -17,23 +15,23 @@
         <location filename="../src/widgets/settingshead.cpp" line="48"/>
         <location filename="../src/widgets/settingshead.cpp" line="113"/>
         <source>Edit</source>
-        <translation>Düzəlt</translation>
+        <translation>Düzəliş edin</translation>
     </message>
     <message>
         <location filename="../src/widgets/settingshead.cpp" line="115"/>
         <source>Done</source>
-        <translation>Tamamlandı</translation>
+        <translation>Hazır</translation>
     </message>
 </context>
 <context>
     <name>Fcitx_SettingsHead</name>
     <message>
         <source>Edit</source>
-        <translation type="vanished">Düzəlt</translation>
+        <translation type="vanished">Düzəliş edin</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation type="vanished">Tamamlandı</translation>
+        <translation type="vanished">Hazır</translation>
     </message>
 </context>
 <context>
@@ -46,7 +44,7 @@
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="71"/>
         <source>Search</source>
-        <translation>Axtar</translation>
+        <translation>Axtarış</translation>
     </message>
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="82"/>
@@ -57,7 +55,7 @@
         <location filename="../src/window/imaddwindow.cpp" line="90"/>
         <location filename="../src/window/imaddwindow.cpp" line="91"/>
         <source>Add</source>
-        <translation>Əlavə et</translation>
+        <translation>Əlavə edin</translation>
     </message>
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="92"/>
@@ -73,7 +71,7 @@
         <translation type="vanished">Varsayılan</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="121"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="119"/>
         <source>Switch input methods</source>
         <translation>Daxiletmə üsullarını dəyişin</translation>
     </message>
@@ -102,30 +100,30 @@
         <translation type="vanished">Daxiletmə üsulu</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="127"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="125"/>
         <source>Switch to the first input method</source>
         <translation>İlk daxiletmə üsuluna keçin</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="128"/>
-        <location filename="../src/window/imsettingwindow.cpp" line="129"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="126"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="127"/>
         <source>Restore Defaults</source>
-        <translation>Varsayəlanların bərpası</translation>
+        <translation>İlkin vəziyyətinə qaytarmaq</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="130"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="128"/>
         <source>Advanced Settings</source>
         <translation>Təkmil ayarlar</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="154"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="152"/>
         <source>Manage Input Methods</source>
         <translation>Daxiletmə üsulunun idarə edilməsi</translation>
         <extra-child_page>Manage Input Methods</extra-child_page>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="164"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="162"/>
         <source>Shortcuts</source>
         <translation>Qısayollar</translation>
         <extra-child_page>Manage Input Methods</extra-child_page>
@@ -136,11 +134,11 @@
     <name>SettingsHead</name>
     <message>
         <source>Edit</source>
-        <translation type="vanished">Düzəlt</translation>
+        <translation type="vanished">Düzəliş edin</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation type="vanished">Tamamlandı</translation>
+        <translation type="vanished">Hazır</translation>
     </message>
 </context>
 <context>

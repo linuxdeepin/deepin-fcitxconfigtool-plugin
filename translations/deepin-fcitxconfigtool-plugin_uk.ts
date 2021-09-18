@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="uk">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="uk" version="2.1">
 <context>
     <name>FcitxConfigPlugin</name>
     <message>
@@ -22,7 +20,7 @@
     <message>
         <location filename="../src/widgets/settingshead.cpp" line="115"/>
         <source>Done</source>
-        <translation>Готово</translation>
+        <translation>Виконано</translation>
     </message>
 </context>
 <context>
@@ -33,7 +31,7 @@
     </message>
     <message>
         <source>Done</source>
-        <translation type="vanished">Готово</translation>
+        <translation type="vanished">Виконано</translation>
     </message>
 </context>
 <context>
@@ -70,10 +68,10 @@
     <name>IMSettingWindow</name>
     <message>
         <source>Default</source>
-        <translation type="vanished">Типовий</translation>
+        <translation type="vanished">Типово</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="121"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="119"/>
         <source>Switch input methods</source>
         <translation>Перемкнути способи введення</translation>
     </message>
@@ -102,32 +100,32 @@
         <translation type="vanished">Спосіб введення</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="127"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="125"/>
         <source>Switch to the first input method</source>
         <translation>Перемкнутися на перший спосіб введення</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="128"/>
-        <location filename="../src/window/imsettingwindow.cpp" line="129"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="126"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="127"/>
         <source>Restore Defaults</source>
-        <translation>Відновити за замовчуванням</translation>
+        <translation>Відновити типові</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="130"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="128"/>
         <source>Advanced Settings</source>
         <translation>Додаткові параметри</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="154"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="152"/>
         <source>Manage Input Methods</source>
         <translation>Керування способами введення</translation>
         <extra-child_page>Manage Input Methods</extra-child_page>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="164"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="162"/>
         <source>Shortcuts</source>
-        <translation>Поєднання клавіш</translation>
+        <translation>Скорочення</translation>
         <extra-child_page>Manage Input Methods</extra-child_page>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
@@ -140,7 +138,7 @@
     </message>
     <message>
         <source>Done</source>
-        <translation type="vanished">Готово</translation>
+        <translation type="vanished">Виконано</translation>
     </message>
 </context>
 <context>
@@ -174,7 +172,7 @@
     <name>dcc_fcitx_configtool::widgets::Fcitx_KeyLabelWidget</name>
     <message>
         <source>None</source>
-        <translation type="vanished">Немає</translation>
+        <translation type="vanished">Нічого</translation>
     </message>
     <message>
         <source>Enter a new shortcut</source>
@@ -189,7 +187,7 @@
     </message>
     <message>
         <source>None</source>
-        <translation type="vanished">Немає</translation>
+        <translation type="vanished">Нічого</translation>
     </message>
 </context>
 </TS>

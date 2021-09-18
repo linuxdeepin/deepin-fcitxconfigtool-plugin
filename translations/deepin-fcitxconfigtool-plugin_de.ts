@@ -1,13 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="de">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="de" version="2.1">
 <context>
     <name>FcitxConfigPlugin</name>
     <message>
         <location filename="../src/fcitxconfigplugin.cpp" line="79"/>
         <location filename="../src/fcitxconfigplugin.cpp" line="87"/>
         <source>Input Methods</source>
-        <translation type="unfinished"></translation>
+        <translation>Eingabemethode</translation>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
 </context>
@@ -17,12 +15,12 @@
         <location filename="../src/widgets/settingshead.cpp" line="48"/>
         <location filename="../src/widgets/settingshead.cpp" line="113"/>
         <source>Edit</source>
-        <translation>Bearbeiten</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/widgets/settingshead.cpp" line="115"/>
         <source>Done</source>
-        <translation>Fertig</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -51,7 +49,7 @@
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="82"/>
         <source>Find more in App Store</source>
-        <translation type="unfinished"></translation>
+        <translation>Mehr im App Store</translation>
     </message>
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="90"/>
@@ -73,13 +71,17 @@
         <translation type="vanished">Standard</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="121"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="119"/>
         <source>Switch input methods</source>
         <translation>Eingabemethoden wechseln</translation>
     </message>
     <message>
         <source>Switch to default input method</source>
         <translation type="vanished">Auf Standard-Eingabemethode wechseln</translation>
+    </message>
+    <message>
+        <source>Call out Onboard</source>
+        <translation type="vanished">Aufruf Bordmittel</translation>
     </message>
     <message>
         <source>Applies to</source>
@@ -98,30 +100,30 @@
         <translation type="vanished">Eingabemethode</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="127"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="125"/>
         <source>Switch to the first input method</source>
-        <translation type="unfinished"></translation>
+        <translation>Eingabemethode wechseln</translation>
+    </message>
+    <message>
+        <location filename="../src/window/imsettingwindow.cpp" line="126"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="127"/>
+        <source>Restore Defaults</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="128"/>
-        <location filename="../src/window/imsettingwindow.cpp" line="129"/>
-        <source>Restore Defaults</source>
-        <translation>Standardeinstellungen wiederherstellen</translation>
-    </message>
-    <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="130"/>
         <source>Advanced Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Erweiterte Einstellungen</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="154"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="152"/>
         <source>Manage Input Methods</source>
         <translation>Eingabemethoden verwalten</translation>
         <extra-child_page>Manage Input Methods</extra-child_page>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="164"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="162"/>
         <source>Shortcuts</source>
         <translation>Tastenkürzel</translation>
         <extra-child_page>Manage Input Methods</extra-child_page>
@@ -158,12 +160,12 @@
         <location filename="../src/widgets/keysettingsitem.cpp" line="38"/>
         <location filename="../src/widgets/keysettingsitem.cpp" line="148"/>
         <source>None</source>
-        <translation>Keine</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/widgets/keysettingsitem.cpp" line="44"/>
         <source>Enter a new shortcut</source>
-        <translation>Geben Sie ein neues Tastenkürzel ein </translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
