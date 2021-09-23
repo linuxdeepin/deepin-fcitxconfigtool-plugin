@@ -154,10 +154,6 @@ void IMModel::onDeleteItem(FcitxQtInputMethodItem item)
 void IMModel::onItemUp(FcitxQtInputMethodItem item)
 {
     int row = getIMIndex(item);
-
-//    if (row < 2) {
-//        return;
-//    }
     m_curIMList.swap(row, row - 1);
     IMListSave();
     emit IMItemSawp(row, row - 1);

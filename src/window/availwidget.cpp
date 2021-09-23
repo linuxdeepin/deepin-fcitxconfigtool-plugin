@@ -228,6 +228,24 @@ void AvailWidget::clearItemStatus()
     clearItemStatusAndFilter(m_allIMGroup, true);
 }
 
+void AvailWidget::removeSeleteIm(const FcitxQtInputMethodItem & temp)
+{ 
+    FcitxQtInputMethodItemList newTempList;
+    newTempList.append(m_allAvaiIMlList);
+    newTempList.removeOne(m_selectItem);
+    onUpdateUI(newTempList);
+    clearItemStatus();
+}
+
+void AvailWidget::addSeleteIm(const FcitxQtInputMethodItem & temp)
+{
+    FcitxQtInputMethodItemList newTempList;
+    newTempList.append(m_allAvaiIMlList);
+    newTempList.append(temp);
+    onUpdateUI(newTempList);
+    clearItemStatus();
+}
+
 void AvailWidget::clearItemStatusAndFilter(FcitxSettingsGroup *group, const bool &flag)
 {
     if (!group) {

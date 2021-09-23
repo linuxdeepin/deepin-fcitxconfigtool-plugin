@@ -141,6 +141,7 @@ void IMWindow::initConnect()
     connect(m_addWindow, &IMAddWindow::popSettingsWindow, func);
     connect(m_shortcutKeyWindow, &ShortcutKeyWindow::popSettingsWindow, func);
 
+    connect(m_settingWindow, &IMSettingWindow::availWidgetAdd, m_addWindow, &IMAddWindow::pushItemAvailwidget);
     connect(m_settingWindow, &IMSettingWindow::popIMAddWindow, [ = ]() {
         m_stackedWidget->setCurrentIndex(PopIMAddWindow);
         m_addWindow->updateUI();

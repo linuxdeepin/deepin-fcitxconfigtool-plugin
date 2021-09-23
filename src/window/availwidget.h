@@ -63,6 +63,14 @@ public slots:
      *  更新界面
      **/
     void onUpdateUI();
+    /**
+     *  移除获取选中item
+     **/
+    void removeSeleteIm(const FcitxQtInputMethodItem &);
+    /**
+     *  添加 add list
+     **/
+    void addSeleteIm(const FcitxQtInputMethodItem &);
 signals:
     /**
      *  选中状态信号

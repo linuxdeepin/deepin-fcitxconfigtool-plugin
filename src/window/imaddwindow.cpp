@@ -116,6 +116,15 @@ void IMAddWindow::initConnect()
     connect(m_availWidget, &AvailWidget::seleteIM, m_buttonTuple->rightButton(), &QPushButton::setEnabled);
     connect(m_searchLEdit, &DSearchEdit::textChanged, m_availWidget, &AvailWidget::onSearchIM);
     connect(this, &IMAddWindow::addIM, IMModel::instance(), &IMModel::onAddIMItem);
+    connect(this, &IMAddWindow::addIM, this, &IMAddWindow::doRemoveSeleteIm);
+    connect(this, &IMAddWindow::pushItemAvailwidget, m_availWidget, &AvailWidget::addSeleteIm);
+}
+
+void IMAddWindow::doRemoveSeleteIm(const FcitxQtInputMethodItem & temp)
+{
+    QTimer::singleShot(1, this, [&]() {
+        m_availWidget->removeSeleteIm(temp);
+    });
 }
 
 void IMAddWindow::updateUI()

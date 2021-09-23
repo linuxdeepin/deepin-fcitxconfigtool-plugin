@@ -101,13 +101,6 @@ void IMSettingWindow::initUI()
     scrollArea->setContent(scrollAreaWidgetContents);
     scrollAreaWidgetContents->setLayout(scrollAreaLayout);
 
-    //默认输入法
-//    m_defaultIMGroup = new FcitxSettingsGroup();
-//    m_defaultIMCbox = new FcitxComboxWidget(tr("Default"));
-//    m_defaultIMCbox->addBackground();
-//    m_defaultIMCbox->comboBox()->setFixedHeight(36);
-//    m_defaultIMGroup->appendItem(m_defaultIMCbox);
-
     //输入法管理 编辑按钮
     m_IMListGroup = new FcitxSettingsGroup();
     m_IMListGroup->setSwitchAble(true);
@@ -120,34 +113,15 @@ void IMSettingWindow::initUI()
 
     m_imSwitchCbox = new FcitxComBoboxSettingsItem(tr("Switch input methods"), {"CTRL_SHIFT", "ALT_SHIFT", "CTRL_SUPER", "ALT_SUPER"});
     m_imSwitchCbox->comboBox()->setAccessibleName("Switch input methods");
-
-//    m_defaultIMKey = new FcitxKeySettingsItem(tr("Switch to the first input method"));
-//    m_imSwitchKey = new FcitxKeySettingsItem(tr("Switch input methods"));
-
     m_defaultIMKey = new FcitxKeySettingsItem(tr("Switch to the first input method"));
     m_resetBtn = new DCommandLinkButton(tr("Restore Defaults"), this);
     m_resetBtn->setAccessibleName(tr("Restore Defaults"));
     m_advSetKey = new QPushButton(tr("Advanced Settings"));
     m_advSetKey->setAccessibleName("Advanced Settings");
-
-//    m_virtualKey = new FcitxKeySettingsItem(tr("Call out Onboard"));
-//    m_systemAppCbox = new FcitxComboxWidget(tr("Applies to"));
-//    m_systemAppCbox->comboBox()->addItems({tr("System"), tr("Application")});
-//    m_systemAppCbox->layout()->setContentsMargins(10, 0, 0, 0);
-
     m_shortcutGroup->appendItem(m_imSwitchCbox);
     m_shortcutGroup->appendItem(m_defaultIMKey);
 
-//    m_shortcutGroup->appendItem(m_virtualKey);
-//    m_shortcutGroup->appendItem(m_systemAppCbox, FcitxSettingsGroup::NoneBackground);
-    //暂时隐藏
-//    m_virtualKey->setVisible(false);
-//    m_systemAppCbox->setVisible(false);
-
     //控件添加至滑动窗口内
-//    scrollAreaLayout->addWidget(newTitleHead(tr("Input Method")));
-//    scrollAreaLayout->addSpacing(10);
-//    scrollAreaLayout->addWidget(m_defaultIMGroup);
     //下面两行注释,和第三行文案有关联是控制中心搜索规范快捷键规范.不可以修改,不可以移动位置,下面三行要在一起
     //~ contents_path /keyboard/Manage Input Methods
     //~ child_page Manage Input Methods
@@ -172,9 +146,6 @@ void IMSettingWindow::initUI()
     scrollAreaLayout->addWidget(m_advSetKey);
     scrollAreaLayout->addStretch();
 
-//    QPushButton *gaojishezhi = new QPushButton;
-//    scrollAreaLayout->addWidget(gaojishezhi);
-//    scrollAreaLayout->addStretch();
     //添加界面按钮
     m_addIMBtn = new DFloatingButton(DStyle::SP_IncreaseElement, this);
     QHBoxLayout *headLayout = new QHBoxLayout(this);
@@ -190,7 +161,6 @@ void IMSettingWindow::initUI()
     subLayout->addLayout(headLayout);
 
     readConfig();
-
 }
 
 void IMSettingWindow::onReloadConnect()
@@ -248,7 +218,6 @@ void IMSettingWindow::updateUI()
 
 void IMSettingWindow::itemSwap(const FcitxQtInputMethodItem &item, const bool &isUp)
 {
-
     Dynamic_Cast_CheckNull(FcitxIMActivityItem, t, m_IMListGroup->getItem(IMModel::instance()->getIMIndex(item)));
     int row = IMModel::instance()->getIMIndex(item);
 
@@ -302,9 +271,7 @@ void IMSettingWindow::onEditBtnClicked(const bool &flag)
 //当前输入法列表改变
 void IMSettingWindow::onCurIMChanged(const FcitxQtInputMethodItemList &list)
 {
-//    disconnect(m_defaultIMCbox, &FcitxComboxWidget::onSelectChanged, this, &IMSettingWindow::onDefaultIMChanged);
     m_IMListGroup->clear();
-//    m_defaultIMCbox->comboBox()->clear();
     for (int i = 0; i < list.count(); ++i) {
         FcitxIMActivityItem *tmp = nullptr;
         if (i == 0) {
@@ -323,21 +290,10 @@ void IMSettingWindow::onCurIMChanged(const FcitxQtInputMethodItemList &list)
         connect(tmp, &FcitxIMActivityItem::upBtnClicked, this, &IMSettingWindow::onItemUp);
         connect(tmp, &FcitxIMActivityItem::downBtnClicked, this, &IMSettingWindow::onItemDown);
         connect(tmp, &FcitxIMActivityItem::deleteBtnClicked, this, &IMSettingWindow::onItemDelete);
+        connect(tmp, &FcitxIMActivityItem::deleteBtnClicked, this, &IMSettingWindow::onItemDelete);
         tmp->editSwitch(IMModel::instance()->isEdit());
-        //}
         m_IMListGroup->appendItem(tmp);
-//        m_defaultIMCbox->comboBox()->addItem(list[i].name());
     }
-
-//    int index = IMModel::instance()->getIMIndex(IMConfig::defaultIM());
-//    if (index < 0) {
-//        index = 0;
-//        m_defaultIMCbox->comboBox()->setCurrentIndex(index);
-//        onDefaultIMChanged();
-//    } else {
-//        m_defaultIMCbox->comboBox()->setCurrentIndex(index);
-//    }
-//    connect(m_defaultIMCbox, &FcitxComboxWidget::onSelectChanged, this, &IMSettingWindow::onDefaultIMChanged);
 }
 
 void IMSettingWindow::onItemUp(const FcitxQtInputMethodItem &item)
@@ -353,26 +309,11 @@ void IMSettingWindow::onItemDown(const FcitxQtInputMethodItem &item)
 void IMSettingWindow::onItemDelete(const FcitxQtInputMethodItem &item)
 {
     auto it = m_IMListGroup->getItem(IMModel::instance()->getIMIndex(item));
-//    if (item.name() == IMConfig::defaultIM()) {
-//        int index = m_defaultIMCbox->comboBox()->findText(item.name());
-//        if (index >= 0) {
-//            m_defaultIMCbox->comboBox()->removeItem(index);
-//            m_defaultIMCbox->comboBox()->setCurrentIndex(1);
-//        }
-//        index = m_defaultIMCbox->comboBox()->count() >= 2 ? 0 : 1;
-//        IMConfig::setDefaultIM(IMModel::instance()->getIM(index).uniqueName());
-//    } else {
-//        int index = m_defaultIMCbox->comboBox()->findText(item.name());
-//        if (index >= 0) {
-//            m_defaultIMCbox->comboBox()->removeItem(index);
-//        }
-//    }
-
     m_IMListGroup->removeItem(it);
     it->deleteLater();
     IMModel::instance()->onDeleteItem(item);
+    emit availWidgetAdd(item);
 }
-
 
 //添加按钮点击
 void IMSettingWindow::onAddBtnCilcked()
@@ -386,5 +327,4 @@ void IMSettingWindow::doReloadConfigUI()
 {
     readConfig();
     IMModel::instance()->onUpdateIMList();
-//    onCurIMChanged(IMModel::instance()->getCurIMList());
 }

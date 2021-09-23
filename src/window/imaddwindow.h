@@ -49,12 +49,14 @@ public:
 signals:
     void popSettingsWindow(); //弹出设置窗口
     void addIM(const FcitxQtInputMethodItem &item);
+    void pushItemAvailwidget(const FcitxQtInputMethodItem &);
 private:
     void initUI(); //初始化界面
     void initConnect(); //初始化信号槽
 private slots:
     void onAddIM(); //添加输入法
     void onOpenStore(); //打开应用商店
+    void doRemoveSeleteIm(const FcitxQtInputMethodItem &);
 private:
     Dtk::Widget::DSearchEdit *m_searchLEdit {nullptr}; //搜索框
     AvailWidget *m_availWidget {nullptr}; //可用输入法列表窗口

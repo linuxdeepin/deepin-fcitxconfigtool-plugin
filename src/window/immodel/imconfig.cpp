@@ -25,16 +25,6 @@
 
 QString IMConfig::prefix {QDir::homePath()};
 
-QString IMConfig::defaultIM()
-{
-    return configFile(prefix + "/.config/fcitx/conf/fcitx-defaultim.config", QString("IMNAME"));
-}
-
-bool IMConfig::setDefaultIM(const QString &str)
-{
-    return setConfigFile(prefix + "/.config/fcitx/conf/fcitx-defaultim.config", "IMNAME", str);
-}
-
 QString IMConfig::IMSwitchKey()
 {
     return configFile(prefix + "/.config/fcitx/config", QString("IMSwitchHotkey"));
@@ -43,16 +33,6 @@ QString IMConfig::IMSwitchKey()
 bool IMConfig::setIMSwitchKey(const QString &str)
 {
     return setConfigFile(prefix + "/.config/fcitx/config", "IMSwitchHotkey", str);
-}
-
-QString IMConfig::virtualKey()
-{
-    return configFile(prefix + "/.config/fcitx/conf/fcitx-onboard.config", QString("HOTKEY"));
-}
-
-bool IMConfig::setVirtualKey(const QString &str)
-{
-    return setConfigFile(prefix + "/.config/fcitx/conf/fcitx-onboard.config", "HOTKEY", str);
 }
 
 QString IMConfig::defaultIMKey()
@@ -226,31 +206,6 @@ bool IMConfig::checkShortKey(const QString &keyStr, QString &configName)
         map.insert(accels, shortcut);
     }
 
-//    FcitxShortcutInfo defaultIMInfo;
-//    FcitxShortcutInfo virtualKeyInfo;
-//    FcitxShortcutInfo IMSwitchKeyInfo;
-//    defaultIMInfo.id = "defaultIMKey";
-//    defaultIMInfo.name = "defaultIMKey";
-//    defaultIMInfo.type = -1;
-//    defaultIMInfo.accels = IMConfig::defaultIMKey();
-
-//    virtualKeyInfo.id = "virtualKey";
-//    virtualKeyInfo.name = "virtualKey";
-//    virtualKeyInfo.type = -1;
-//    virtualKeyInfo.accels = IMConfig::virtualKey();
-
-//    IMSwitchKeyInfo.id = "IMSwitchKey";
-//    IMSwitchKeyInfo.name = "IMSwitchKey";
-//    IMSwitchKeyInfo.type = -1;
-//    IMSwitchKeyInfo.accels = IMConfig::IMSwitchKey();
-
-//    map.insert(defaultIMInfo.accels, defaultIMInfo);
-//    map.insert(virtualKeyInfo.accels, virtualKeyInfo);
-//    map.insert(IMSwitchKeyInfo.accels, IMSwitchKeyInfo);
-
-    //    qDebug() << defaultIMInfo.toString();
-    //    qDebug() << virtualKeyInfo.toString();
-    //    qDebug() << IMSwitchKeyInfo.toString();
     for (auto it : map) {
         qDebug() << it.accels;
     }

@@ -42,12 +42,8 @@ struct FcitxShortcutInfo {
 class IMConfig
 {
 public:
-    static QString defaultIM();
-    static bool setDefaultIM(const QString &);
     static QString IMSwitchKey();
     static bool setIMSwitchKey(const QString &);
-    static QString virtualKey();
-    static bool setVirtualKey(const QString &);
     static QString defaultIMKey();
     static bool setDefaultIMKey(const QString &);
     static QString IMPluginKey(const QString &);
