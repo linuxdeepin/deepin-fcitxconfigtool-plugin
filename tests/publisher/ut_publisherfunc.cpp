@@ -23,6 +23,7 @@
 #include "gtest/gtest.h"
 #include <QWidget>
 #include <QJsonDocument>
+#include <QKeyEvent>
 #include "publisher/publisherfunc.h"
 
 TEST(publisherFunc, pause)
@@ -40,8 +41,7 @@ TEST(publisherFunc, createDir)
 {
     QString path = "/tmp/fcitx/test/";
     publisherFunc::createDir(path);
-    QDir dir(path);
-    dir.removeRecursively();
+    publisherFunc::removeDir(path);
     publisherFunc::createDir(path);
 }
 
@@ -52,6 +52,7 @@ TEST(publisherFunc, createFile)
 
 TEST(publisherFunc, readJson)
 {
+    publisherFunc::createFile("/tmp/fcitx/test/testfile", "{\"firstName\":\"Brett\",\"lastName\":\"McLaughlin\"}");
     QJsonDocument temp = publisherFunc::readJson("/tmp/fcitx/test/testfile");
     temp = publisherFunc::readJson("/etc/os-release");
 }
@@ -85,6 +86,10 @@ TEST(publisherFunc, fontSize)
 
 TEST(publisherFunc, getKeyValue)
 {
+    QKeyEvent* key_event = new QKeyEvent(QEvent::KeyPress, Qt::Key_A, Qt::NoModifier);
+    publisherFunc::getKeyValue(key_event);
+
+    publisherFunc::getKeyValue(Qt::Key_Home);
     publisherFunc::getKeyValue(Qt::Key_End);
     publisherFunc::getKeyValue(Qt::Key_PageUp);
     publisherFunc::getKeyValue(Qt::Key_PageDown);
