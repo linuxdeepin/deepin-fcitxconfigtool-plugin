@@ -98,7 +98,10 @@ void FcitxSettingsGroup::insertItem(const int index, FcitxSettingsItem *item)
 {
     if (ItemBackground == m_bgStyle) {
         //当SettingsItem 被加入　FcitxSettingsGroup　时，为其加入背景
-        item->addBackground();
+        FcitxIMActivityItem *pItem = dynamic_cast<FcitxIMActivityItem*>(item);
+        if(pItem == nullptr) {
+            item->addBackground();
+        }
     }
 
     m_layout->insertWidget(index, item);
