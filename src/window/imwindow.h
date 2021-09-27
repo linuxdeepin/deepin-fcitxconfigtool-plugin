@@ -35,7 +35,6 @@ class IMWindow : public QWidget
         PopIMAddWindow,
         PopShortcutKeyWindow
     };
-
     Q_OBJECT
 public:
     explicit IMWindow(QWidget *parent = nullptr);

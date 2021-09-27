@@ -15,12 +15,12 @@
     <name>FcitxSettingsHead</name>
     <message>
         <location filename="../src/widgets/settingshead.cpp" line="48"/>
-        <location filename="../src/widgets/settingshead.cpp" line="113"/>
+        <location filename="../src/widgets/settingshead.cpp" line="114"/>
         <source>Edit</source>
         <translation>Editar</translation>
     </message>
     <message>
-        <location filename="../src/widgets/settingshead.cpp" line="115"/>
+        <location filename="../src/widgets/settingshead.cpp" line="116"/>
         <source>Done</source>
         <translation>Concluído</translation>
     </message>
@@ -73,7 +73,7 @@
         <translation type="vanished">Padrão</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="114"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="115"/>
         <source>Switch input methods</source>
         <translation>Alternar Métodos de Entrada</translation>
     </message>
@@ -102,30 +102,30 @@
         <translation type="vanished">Método de Entrada</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="116"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="117"/>
         <source>Switch to the first input method</source>
         <translation>Alternar para o primeiro método de entrada</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="117"/>
         <location filename="../src/window/imsettingwindow.cpp" line="118"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="120"/>
         <source>Restore Defaults</source>
         <translation>Restaurar padrões</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="119"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="121"/>
         <source>Advanced Settings</source>
         <translation>Configurações avançadas</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="128"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="130"/>
         <source>Manage Input Methods</source>
         <translation>Gerenciar Métodos de Entrada</translation>
         <extra-child_page>Manage Input Methods</extra-child_page>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="138"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="140"/>
         <source>Shortcuts</source>
         <translation>Atalhos</translation>
         <extra-child_page>Manage Input Methods</extra-child_page>

@@ -57,18 +57,6 @@ TEST_F(ut_imconfig, defualtIMKey)
     imconfig.setDefaultIMKey(defualtIMKey);
 }
 
-TEST_F(ut_imconfig, IMPluginKey)
-{
-    IMConfig imconfig;
-    QString impluginKey = imconfig.IMPluginKey("Setting");
-}
-
-TEST_F(ut_imconfig, IMPluginPar)
-{
-    IMConfig imconfig;
-    QString impluginKey = imconfig.IMPluginPar("Parameter");
-}
-
 TEST_F(ut_imconfig, checkShortKey)
 {
     IMConfig imconfig;

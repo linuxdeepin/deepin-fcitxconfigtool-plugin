@@ -191,7 +191,7 @@ void IMSettingWindow::initConnect()
     connect(m_resetBtn, &QPushButton::clicked, [ = ]() {
         reloadFcitx(IMConfig::setDefaultIMKey("CTRL_SPACE"));
         m_defaultIMKey->setList(QString("CTRL_SPACE").split("_"));
-        //保持间隔防止重新加载
+        //保持间隔内不要重新加载
         QTimer::singleShot(50, this, [=](){
             reloadFcitx(IMConfig::setIMSwitchKey("CTRL_SHIFT"));
             m_imSwitchCbox->comboBox()->setCurrentText(("CTRL_SHIFT"));

@@ -23,6 +23,24 @@
 #include <fcitxqtinputmethoditem.h>
 #include <com_deepin_daemon_keybinding.h>
 
+#include <QString>
+
+struct FcitxShortcutInfo {
+    QString accels;
+    QString id;
+    QString name;
+    int type;
+    bool operator==(const FcitxShortcutInfo &info) const
+    {
+        return id == info.id && type == info.type;
+    }
+
+    QString toString()
+    {
+        return name + " " + accels + " " + id + " " + QString::number(type);
+    }
+};
+
 QString IMConfig::prefix {QDir::homePath()};
 
 QString IMConfig::IMSwitchKey()
@@ -76,101 +94,6 @@ bool IMConfig::checkShortKey(const QStringList &str, QString &configName)
     return checkShortKey(keyStr, configName);
 }
 
-FcitxShortcutInfo IMConfig::findIdKey(const QString &shortcutId)
-{
-    FcitxShortcutInfo retshortcut;
-    retshortcut.id = -1;
-    retshortcut.name = "-1";
-    retshortcut.type = -1;
-    retshortcut.accels = "";
-
-    __Keybinding k("com.deepin.daemon.Keybinding",
-                   "/com/deepin/daemon/Keybinding",
-                   QDBusConnection::sessionBus());
-
-    QDBusPendingReply<QString> reply = k.ListAllShortcuts();
-    if (reply.isError()) {
-        return retshortcut;
-    }
-
-    QString info = reply.value();
-
-    QMap<QString, FcitxShortcutInfo> map;
-    QJsonArray array = QJsonDocument::fromJson(info.toStdString().c_str()).array();
-    Q_FOREACH (QJsonValue value, array) {
-        QJsonObject obj = value.toObject();
-        //qDebug() << obj;
-        if (obj.isEmpty())
-            continue;
-        if (obj["Accels"].toArray().isEmpty())
-            continue;
-        FcitxShortcutInfo shortcut;
-        QString Id = obj["Id"].toString();
-        if (Id == shortcutId) {
-            QString accels = obj["Accels"].toArray().at(0).toString().toUpper();
-            accels.replace("<", "");
-            accels.replace(">", "_");
-            shortcut.accels = accels;
-            shortcut.id = obj["Id"].toString();
-            shortcut.name = obj["Name"].toString();
-            shortcut.type = obj["Type"].toInt();
-            map.insert(accels, shortcut);
-            return shortcut;
-        }
-    }
-
-    return retshortcut;
-}
-
-bool IMConfig::modifyShortKey(const QString &id, QString &keystroke)
-{
-    QString name;
-    QString cmd;
-    if (id.compare("terminal") == 0) {
-        name = "终端";
-        cmd = "echo hello";
-    } else if (id.compare("system-monitor") == 0) {
-        name = "系统镜像";
-        cmd = "echo world";
-    }
-
-    __Keybinding k("com.deepin.daemon.Keybinding",
-                   "/com/deepin/daemon/Keybinding",
-                   QDBusConnection::sessionBus());
-    QDBusPendingReply<QString> reply = k.ModifyCustomShortcut(id, name, cmd, keystroke);
-    if (reply.isError()) {
-        return false;
-    }
-    return true;
-}
-
-bool addCustomShortKey(const QString &name, const QString &action, QString &keystroke)
-{
-    __Keybinding k("com.deepin.daemon.Keybinding",
-                   "/com/deepin/daemon/Keybinding",
-                   QDBusConnection::sessionBus());
-    QDBusPendingReply<QString> reply = k.AddCustomShortcut(name, action, keystroke);
-    if (reply.isError()) {
-        return false;
-    }
-    QString info = reply.value();
-
-    QString id;
-    int type;
-    QJsonArray array = QJsonDocument::fromJson(info.toStdString().c_str()).array();
-    Q_FOREACH (QJsonValue value, array) {
-        QJsonObject obj = value.toObject();
-        if (obj.isEmpty())
-            continue;
-//        if (obj["Accels"].toArray().isEmpty())
-//            continue;
-        id = obj["Id"].toString();
-        type = obj["Type"].toInt();
-    }
-
-    return true;
-}
-
 
 bool IMConfig::checkShortKey(const QString &keyStr, QString &configName)
 {
@@ -189,7 +112,6 @@ bool IMConfig::checkShortKey(const QString &keyStr, QString &configName)
     QJsonArray array = QJsonDocument::fromJson(info.toStdString().c_str()).array();
     Q_FOREACH (QJsonValue value, array) {
         QJsonObject obj = value.toObject();
-        //qDebug() << obj;
         if (obj.isEmpty())
             continue;
         if (obj["Accels"].toArray().isEmpty())

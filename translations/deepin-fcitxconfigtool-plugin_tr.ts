@@ -15,12 +15,12 @@
     <name>FcitxSettingsHead</name>
     <message>
         <location filename="../src/widgets/settingshead.cpp" line="48"/>
-        <location filename="../src/widgets/settingshead.cpp" line="113"/>
+        <location filename="../src/widgets/settingshead.cpp" line="114"/>
         <source>Edit</source>
         <translation>Düzenle</translation>
     </message>
     <message>
-        <location filename="../src/widgets/settingshead.cpp" line="115"/>
+        <location filename="../src/widgets/settingshead.cpp" line="116"/>
         <source>Done</source>
         <translation>Tamam</translation>
     </message>
@@ -73,7 +73,7 @@
         <translation type="vanished">Varsayılan</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="114"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="115"/>
         <source>Switch input methods</source>
         <translation>Giriş yöntemlerini değiştir</translation>
     </message>
@@ -102,30 +102,30 @@
         <translation type="vanished">Giriş Yöntemi</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="116"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="117"/>
         <source>Switch to the first input method</source>
         <translation>İlk giriş yöntemine geç</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="117"/>
         <location filename="../src/window/imsettingwindow.cpp" line="118"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="120"/>
         <source>Restore Defaults</source>
         <translation>Varsayılanları Geri Yükle</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="119"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="121"/>
         <source>Advanced Settings</source>
         <translation>Gelişmiş Ayarlar</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="128"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="130"/>
         <source>Manage Input Methods</source>
         <translation>Giriş Yöntemlerini Yönet</translation>
         <extra-child_page>Manage Input Methods</extra-child_page>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="138"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="140"/>
         <source>Shortcuts</source>
         <translation>Kısayollar</translation>
         <extra-child_page>Manage Input Methods</extra-child_page>

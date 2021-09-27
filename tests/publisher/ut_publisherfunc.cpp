@@ -38,7 +38,11 @@ TEST(publisherFunc, moveToWindowCenter)
 
 TEST(publisherFunc, createDir)
 {
-    publisherFunc::createDir("/tmp/fcitx/test/");
+    QString path = "/tmp/fcitx/test/";
+    publisherFunc::createDir(path);
+    QDir dir(path);
+    dir.removeRecursively();
+    publisherFunc::createDir(path);
 }
 
 TEST(publisherFunc, createFile)
@@ -49,11 +53,13 @@ TEST(publisherFunc, createFile)
 TEST(publisherFunc, readJson)
 {
     QJsonDocument temp = publisherFunc::readJson("/tmp/fcitx/test/testfile");
+    temp = publisherFunc::readJson("/etc/os-release");
 }
 
 TEST(publisherFunc, readFile)
 {
-    QString temp = publisherFunc::readFile("/tmp/fcitx/test/testfile");
+    QString temp = publisherFunc::readFile("/etc/shadow-");
+    temp = publisherFunc::readFile("/tmp/fcitx/test/testfile");
 }
 
 TEST(publisherFunc, getImagePixel)
@@ -64,6 +70,7 @@ TEST(publisherFunc, getImagePixel)
 TEST(publisherFunc, getDirFileNames)
 {
     publisherFunc::getDirFileNames("/tmp/");
+    publisherFunc::getDirFileNames("/uostestim/");
 }
 
 TEST(publisherFunc, startPopen)

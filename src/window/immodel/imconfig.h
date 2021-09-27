@@ -20,25 +20,10 @@
 */
 #ifndef IMCONFIG_H
 #define IMCONFIG_H
-#include <QString>
+class QString;
+class QStringList;
 
-struct FcitxShortcutInfo {
-    QString accels;
-    QString id;
-    QString name;
-    int type;
-    bool operator==(const FcitxShortcutInfo &info) const
-    {
-        return id == info.id && type == info.type;
-    }
-
-    QString toString()
-    {
-        return name + " " + accels + " " + id + " " + QString::number(type);
-    }
-};
-
-//默认输入法 切换方式 虚拟键盘 默认输入法快捷键
+//默认输入法 切换方式 默认输入法快捷键
 class IMConfig
 {
 public:
@@ -49,14 +34,8 @@ public:
     static QString IMPluginKey(const QString &);
     static QString IMPluginPar(const QString &);
 
-    static FcitxShortcutInfo findIdKey(const QString &);
-
     static bool checkShortKey(const QStringList &str, QString &configName);
     static bool checkShortKey(const QString &str, QString &configName);
-    static bool modifyShortKey(const QString &id, QString &keystroke);
-    static bool addCustomShortKey(const QString &name, const QString &action, QString &keystroke);
-
-
 private:
     static QString configFile(const QString &filePath, const QString &key);
     static QString configFile(const QString &filePath, const QString &group, const QString &key);

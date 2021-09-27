@@ -124,6 +124,16 @@ bool createDir(const QString &dir)
     return _dir.mkpath(dir);
 }
 
+bool removeDir(const QString &dir)
+{
+    QDir _dir(dir);
+    if (_dir.exists(dir)) {
+        _dir.removeRecursively();
+        return true;
+    }
+    return false;
+}
+
 int fontSize(const QString &str, const QFont &font)
 {
     if (str.isEmpty())

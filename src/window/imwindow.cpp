@@ -89,9 +89,6 @@ IMWindow::~IMWindow()
 {
     IMModel::instance()->deleteIMModel();
     DeleteObject_Null(m_stackedWidget);
-//    DeleteObject_Null(m_settingWindow);
-//    DeleteObject_Null(m_addWindow);
-//    DeleteObject_Null(m_shortcutKeyWindow);
     DeleteObject_Null(m_pLayout);
 #if !defined(CMAKE_SAFETYTEST_ARG_ON)
     QAccessible::removeFactory(accessibleFactory);
@@ -112,7 +109,6 @@ void IMWindow::initFcitxInterface()
 #if !defined(CMAKE_SAFETYTEST_ARG_ON)
     QAccessible::installFactory(accessibleFactory);
 #endif
-
 }
 
 void IMWindow::initUI()

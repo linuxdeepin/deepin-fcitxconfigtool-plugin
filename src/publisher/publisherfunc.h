@@ -32,6 +32,7 @@ namespace publisherFunc {
 void pause(const unsigned int &msec);
 void moveToWindowCenter(QWidget *widget);
 bool createDir(const QString &dir);
+bool removeDir(const QString &dir);
 bool createFile(const QString &filePath, const QString &text, QIODevice::OpenMode model = QIODevice::WriteOnly);
 QJsonDocument readJson(const QString &filePath);
 QString readFile(const QString &filePath);
