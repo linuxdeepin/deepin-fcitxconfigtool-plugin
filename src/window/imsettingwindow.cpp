@@ -187,10 +187,15 @@ void IMSettingWindow::initConnect()
         reloadFcitx(IMConfig::setIMSwitchKey(m_imSwitchCbox->comboBox()->currentText()));
     });
     connect(m_resetBtn, &QPushButton::clicked, [ = ]() {
-        m_imSwitchCbox->comboBox()->setCurrentText("CTRL_SHIFT");
         reloadFcitx(IMConfig::setDefaultIMKey("CTRL_SPACE"));
         m_defaultIMKey->setList(QString("CTRL_SPACE").split("_"));
+        //保持间隔防止重新加载
+        QTimer::singleShot(50, this, [=](){
+            reloadFcitx(IMConfig::setIMSwitchKey("CTRL_SHIFT"));
+            m_imSwitchCbox->comboBox()->setCurrentText(("CTRL_SHIFT"));
+        });
     });
+
     connect(m_advSetKey, &QAbstractButton::clicked, [ = ]() {
         QProcess::startDetached("sh -c fcitx-configtool");
     });
