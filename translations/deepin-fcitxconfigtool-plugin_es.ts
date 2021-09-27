@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="es" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="es">
 <context>
     <name>FcitxConfigPlugin</name>
     <message>
@@ -15,12 +17,12 @@
         <location filename="../src/widgets/settingshead.cpp" line="48"/>
         <location filename="../src/widgets/settingshead.cpp" line="113"/>
         <source>Edit</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">Editar</translation>
     </message>
     <message>
         <location filename="../src/widgets/settingshead.cpp" line="115"/>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">Hecho</translation>
     </message>
 </context>
 <context>
@@ -71,7 +73,7 @@
         <translation type="vanished">Por defecto</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="119"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="114"/>
         <source>Switch input methods</source>
         <translation>Cambiar métodos de entrada</translation>
     </message>
@@ -100,30 +102,30 @@
         <translation type="vanished">Método de entrada</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="125"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="116"/>
         <source>Switch to the first input method</source>
         <translation>Cambiar al primer método de entrada</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="126"/>
-        <location filename="../src/window/imsettingwindow.cpp" line="127"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="117"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="118"/>
         <source>Restore Defaults</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/window/imsettingwindow.cpp" line="119"/>
+        <source>Advanced Settings</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="128"/>
-        <source>Advanced Settings</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="152"/>
         <source>Manage Input Methods</source>
         <translation>Gestionar métodos de entrada</translation>
         <extra-child_page>Manage Input Methods</extra-child_page>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="162"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="138"/>
         <source>Shortcuts</source>
         <translation>Atajos</translation>
         <extra-child_page>Manage Input Methods</extra-child_page>
@@ -160,12 +162,12 @@
         <location filename="../src/widgets/keysettingsitem.cpp" line="38"/>
         <location filename="../src/widgets/keysettingsitem.cpp" line="148"/>
         <source>None</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">Ninguno</translation>
     </message>
     <message>
         <location filename="../src/widgets/keysettingsitem.cpp" line="44"/>
         <source>Enter a new shortcut</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">Ingrese un nuevo atajo</translation>
     </message>
 </context>
 <context>

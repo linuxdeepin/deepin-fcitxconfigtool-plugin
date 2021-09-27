@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="uk" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="uk">
 <context>
     <name>FcitxConfigPlugin</name>
     <message>
@@ -71,7 +73,7 @@
         <translation type="vanished">Типово</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="119"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="114"/>
         <source>Switch input methods</source>
         <translation>Перемкнути способи введення</translation>
     </message>
@@ -100,30 +102,30 @@
         <translation type="vanished">Спосіб введення</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="125"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="116"/>
         <source>Switch to the first input method</source>
         <translation>Перемкнутися на перший спосіб введення</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="126"/>
-        <location filename="../src/window/imsettingwindow.cpp" line="127"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="117"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="118"/>
         <source>Restore Defaults</source>
         <translation>Відновити типові</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="128"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="119"/>
         <source>Advanced Settings</source>
         <translation>Додаткові параметри</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="152"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="128"/>
         <source>Manage Input Methods</source>
         <translation>Керування способами введення</translation>
         <extra-child_page>Manage Input Methods</extra-child_page>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="162"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="138"/>
         <source>Shortcuts</source>
         <translation>Скорочення</translation>
         <extra-child_page>Manage Input Methods</extra-child_page>
