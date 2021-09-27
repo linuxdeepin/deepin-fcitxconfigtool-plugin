@@ -64,21 +64,20 @@ void FcitxSettingsItem::setIsErr(const bool err)
     style()->unpolish(this);
     style()->polish(this);
 }
-
 void FcitxSettingsItem::addBackground()
 {
-//    //加入一个 DFrame 作为圆角背景
-//    if (m_bgGroup)
-//        m_bgGroup->deleteLater();
-//    m_bgGroup = new DFrame(this);
-//    m_bgGroup->setBackgroundRole(DPalette::ItemBackground);
-//    m_bgGroup->setLineWidth(0);
-//    DStyle::setFrameRadius(m_bgGroup, 8);
+    //加入一个 DFrame 作为圆角背景
+    if (m_bgGroup)
+        m_bgGroup->deleteLater();
+    m_bgGroup = new DFrame(this);
+    m_bgGroup->setBackgroundRole(DPalette::ItemBackground);
+    m_bgGroup->setLineWidth(0);
+    DStyle::setFrameRadius(m_bgGroup, 8);
 
-//    //将 m_bgGroup 沉底
-//    m_bgGroup->lower();
-//    //设置m_bgGroup 的大小
-//    m_bgGroup->setFixedSize(size());
+    //将 m_bgGroup 沉底
+    m_bgGroup->lower();
+    //设置m_bgGroup 的大小
+    m_bgGroup->setFixedSize(size());
 }
 
 void FcitxSettingsItem::resizeEvent(QResizeEvent *event)

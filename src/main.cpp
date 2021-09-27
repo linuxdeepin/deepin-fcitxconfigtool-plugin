@@ -48,8 +48,12 @@ int main(int argc, char *argv[])
     a.setApplicationDescription("This is a dtk deepin-fcitxconfigtool-plugin");
     a.loadTranslator();
     a.setApplicationDisplayName("deepin-fcitxconfigtool-plugin");
-
     IMWindow w;
+//    DMainWindow m;
+//    w.setParent(&m);
+//    w.resize(m.size());
+//    w.setGeometry(m.geometry());
+//    m.show();
     w.show();
     Dtk::Widget::moveToCenter(&w);
 

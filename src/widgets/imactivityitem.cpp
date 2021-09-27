@@ -129,19 +129,24 @@ void FcitxIMActivityItem::paintEvent(QPaintEvent *event)
         path.lineTo(paintRect.bottomRight());
     }
     if(m_isEnter) {
-        QColor color = DGuiApplicationHelper::instance()->applicationPalette().dark().color();
+        QColor color;
+        if(DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::DarkType) {
+            color = DGuiApplicationHelper::instance()->applicationPalette().brightText().color();
+        } else {
+            color = DGuiApplicationHelper::instance()->applicationPalette().brightText().color();
+        }
         if(isDraged()) {
-            color.setAlpha(80);
+            color.setAlpha(10);
         }
         painter.fillPath(path, color);
     } else {
-        QColor color = DGuiApplicationHelper::instance()->applicationPalette().background().color();
+        QColor color = DGuiApplicationHelper::instance()->applicationPalette().shadow().color();
         if(isDraged()) {
-            color.setAlpha(80);
+            color.setAlpha(10);
         }
         painter.fillPath(path, color);
     }
-    qDebug() << "isDraged = " << isDraged();
+    //qDebug() << "isDraged = " << isDraged();
     return FcitxSettingsItem::paintEvent(event);
 }
 

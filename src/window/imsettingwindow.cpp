@@ -33,6 +33,7 @@
 #include "window/shortcutkeywindow.h"
 
 #include <DFloatingButton>
+#include <DFontSizeManager>
 #include <DCommandLinkButton>
 #include <QScrollArea>
 #include <QStackedWidget>
@@ -111,7 +112,7 @@ void IMSettingWindow::initUI()
     //输入法管理 编辑按钮
     m_IMListGroup = new FcitxSettingsGroup();
     m_IMListGroup->setSwitchAble(true);
-    m_IMListGroup->setSpacing(2);
+    m_IMListGroup->setSpacing(1);
     onCurIMChanged(IMModel::instance()->getCurIMList());
 
     //快捷键 切换输入法 切换虚拟键盘 切换至默认输入法
@@ -126,6 +127,7 @@ void IMSettingWindow::initUI()
 
     m_defaultIMKey = new FcitxKeySettingsItem(tr("Switch to the first input method"));
     m_resetBtn = new DCommandLinkButton(tr("Restore Defaults"), this);
+    DFontSizeManager::instance()->bind(m_resetBtn, DFontSizeManager::T8, QFont::Normal);
     m_resetBtn->setAccessibleName(tr("Restore Defaults"));
     m_advSetKey = new QPushButton(tr("Advanced Settings"));
     m_advSetKey->setAccessibleName("Advanced Settings");
