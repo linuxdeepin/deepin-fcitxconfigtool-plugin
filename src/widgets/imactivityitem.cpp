@@ -130,11 +130,10 @@ void FcitxIMActivityItem::paintEvent(QPaintEvent *event)
     }
     if(m_isEnter) {
         QColor color;
-        DPalette p;
         if(DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::DarkType) {
             color = DGuiApplicationHelper::instance()->applicationPalette().light().color();
         } else {
-            color = DGuiApplicationHelper::instance()->applicationPalette().dark().color();
+            color = DGuiApplicationHelper::instance()->applicationPalette().light().color();
         }
         if(isDraged()) {
             color.setAlpha(80);
@@ -143,6 +142,7 @@ void FcitxIMActivityItem::paintEvent(QPaintEvent *event)
     } else {
         QColor color = DGuiApplicationHelper::instance()->applicationPalette().frameBorder().color();
         if(isDraged()) {
+            color = DGuiApplicationHelper::instance()->applicationPalette().light().color();
             color.setAlpha(80);
         }
         painter.fillPath(path, color);
