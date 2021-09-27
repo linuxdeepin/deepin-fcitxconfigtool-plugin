@@ -105,7 +105,7 @@ void FcitxSettingsGroup::insertItem(const int index, FcitxSettingsItem *item)
     item->installEventFilter(this);
 
     FcitxIMSettingsItem *mItem = dynamic_cast<FcitxIMSettingsItem *>(item);
-    if (mItem)
+    if (mItem) {
         connect(mItem, &FcitxIMSettingsItem::itemClicked, [=](FcitxIMSettingsItem *myItem) {
             int i = itemCount();
             for (int j = 0; j < i; ++j) {
@@ -117,6 +117,7 @@ void FcitxSettingsGroup::insertItem(const int index, FcitxSettingsItem *item)
                 }
             }
         });
+    }
 }
 
 void FcitxSettingsGroup::appendItem(FcitxSettingsItem *item)
@@ -231,13 +232,14 @@ void FcitxSettingsGroup::switchItem(int start, int end)
 
 void FcitxSettingsGroup::mouseMoveEvent(QMouseEvent *event)
 {
-    if(!m_switchAble) {
+    if(!m_switchAble || event->pos().y() < 0 || event->pos().y() > rect().height()) {
         return QWidget::mouseMoveEvent(event);
     }
 //    if((QDateTime::currentDateTime().toTime_t() - m_time.toTime_t() < 1) || !m_isPressed) {
 //        m_isPressed = false;
 //        return QWidget::mouseMoveEvent(event);
 //    }
+    static FcitxSettingsItem* lastItem = nullptr;
     if(m_isPressed) {
         FcitxSettingsItem* selectItem = getItem(m_selectIndex);
         selectItem->move(selectItem->mapTo(this, QPoint(selectItem->x(), selectItem->rect().topRight().y() + (event->pos().y() - m_lastYPosition))));
@@ -250,8 +252,13 @@ void FcitxSettingsGroup::mouseMoveEvent(QMouseEvent *event)
             QPoint selecTopLeft = selectItem->mapTo(this, selectRect.topLeft() + QPoint(10,2));
             QRect r1 = QRect(itemRect.x() + itemTopLeftToThis.x(), itemRect.y() + itemTopLeftToThis.y(), itemRect.width(), itemRect.height());
             if((r1.contains(selecBottomLeft) || r1.contains(selecTopLeft)) && index != m_selectIndex) {
+                if(lastItem != item && lastItem != nullptr) {
+                    lastItem->setDraged(false);
+                    lastItem->update(lastItem->rect());
+                }
                 item->move(item->mapTo(this, QPoint(item->x(), item->rect().topRight().y() - (event->pos().y() - m_lastYPosition))));
                 item->setDraged(true);
+                lastItem = item;
             }
         }
     }

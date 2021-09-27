@@ -47,6 +47,7 @@ FcitxSettingsHead::FcitxSettingsHead(QFrame *parent)
     // can not translate correctly just using tr()
     m_edit->setText(qApp->translate("FcitxSettingsHead", "Edit"));
     DFontSizeManager::instance()->bind(m_title, DFontSizeManager::T5, QFont::DemiBold);
+    DFontSizeManager::instance()->bind(m_edit, DFontSizeManager::T8, QFont::Normal);
     QHBoxLayout *mainLayout = new QHBoxLayout;
     mainLayout->setMargin(0);
     mainLayout->setSpacing(0);
