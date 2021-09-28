@@ -91,6 +91,7 @@ private:
     BackgroundStyle m_bgStyle {ItemBackground};
     QVBoxLayout *m_layout;
     FcitxSettingsHeaderItem *m_headerItem;
+    FcitxSettingsItem* m_lastItem {nullptr};
     DTK_WIDGET_NAMESPACE::DBackgroundGroup *m_bggroup {nullptr};
     bool m_isPressed {false};
     int m_selectIndex {0};
