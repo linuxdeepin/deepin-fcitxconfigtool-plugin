@@ -88,6 +88,9 @@ TEST(publisherFunc, getKeyValue)
 {
     QKeyEvent* key_event = new QKeyEvent(QEvent::KeyPress, Qt::Key_A, Qt::NoModifier);
     publisherFunc::getKeyValue(key_event);
+    delete key_event;
+    key_event = nullptr;
+    publisherFunc::getKeyValue(key_event);
 
     publisherFunc::getKeyValue(Qt::Key_Home);
     publisherFunc::getKeyValue(Qt::Key_End);

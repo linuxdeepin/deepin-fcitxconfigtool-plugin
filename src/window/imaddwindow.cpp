@@ -117,7 +117,12 @@ void IMAddWindow::initConnect()
     connect(m_searchLEdit, &DSearchEdit::textChanged, m_availWidget, &AvailWidget::onSearchIM);
     connect(this, &IMAddWindow::addIM, IMModel::instance(), &IMModel::onAddIMItem);
     connect(this, &IMAddWindow::addIM, this, &IMAddWindow::doRemoveSeleteIm);
-    connect(this, &IMAddWindow::pushItemAvailwidget, m_availWidget, &AvailWidget::addSeleteIm);
+//    connect(this, &IMAddWindow::pushItemAvailwidget, m_availWidget, &AvailWidget::addSeleteIm);
+    connect(this,static_cast<void (IMAddWindow:: *)(const FcitxQtInputMethodItem &)>(&IMAddWindow::pushItemAvailwidget), [=](const FcitxQtInputMethodItem &item){
+        QTimer::singleShot(1, this, [&]() {
+            m_availWidget->addSeleteIm(item);
+        });
+    });
 }
 
 void IMAddWindow::doRemoveSeleteIm(const FcitxQtInputMethodItem & temp)

@@ -319,7 +319,7 @@ void IMSettingWindow::onItemDelete(const FcitxQtInputMethodItem &item)
     m_IMListGroup->removeItem(it);
     it->deleteLater();
     IMModel::instance()->onDeleteItem(item);
-    emit availWidgetAdd(item);
+//    emit availWidgetAdd(item);
 }
 
 //添加按钮点击
