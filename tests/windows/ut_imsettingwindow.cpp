@@ -67,7 +67,6 @@ TEST_F(ut_imsettingwindow, readConfig)
 {
     IMSettingWindow iMSettingWindow;
     iMSettingWindow.readConfig();
-    EXPECT_TRUE(true);
 }
 
 //TEST_F(ut_imsettingwindow, itemSwap)
@@ -80,8 +79,8 @@ TEST_F(ut_imsettingwindow, readConfig)
 TEST_F(ut_imsettingwindow, onEditBtnClicked)
 {
     IMSettingWindow iMSettingWindow;
+    iMSettingWindow.onEditBtnClicked(true);
     iMSettingWindow.onEditBtnClicked(false);
-    EXPECT_TRUE(true);
 }
 
 //TEST_F(ut_imsettingwindow, onDefaultIMChanged)
@@ -94,6 +93,12 @@ TEST_F(ut_imsettingwindow, onEditBtnClicked)
 TEST_F(ut_imsettingwindow, onCurIMChanged)
 {
     FcitxQtInputMethodItemList list;
+    FcitxQtInputMethodItem item;
+    item.setName("name");
+    item.setUniqueName("name");
+    item.setLangCode("name");
+    item.setEnabled(false);
+    list << item;
     IMSettingWindow iMSettingWindow;
     iMSettingWindow.onCurIMChanged(list);
     EXPECT_TRUE(true);

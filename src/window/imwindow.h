@@ -24,6 +24,7 @@
 #include <QWidget>
 #include <QVBoxLayout>
 
+
 class IMAddWindow;
 class IMSettingWindow;
 class QStackedWidget;

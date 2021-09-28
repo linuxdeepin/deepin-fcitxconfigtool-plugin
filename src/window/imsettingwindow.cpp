@@ -30,7 +30,6 @@
 #include "widgets/settingshead.h"
 #include "publisher/publisherdef.h"
 #include "widgets/contentwidget.h"
-#include "window/shortcutkeywindow.h"
 
 #include <DFloatingButton>
 #include <DFontSizeManager>
@@ -40,7 +39,6 @@
 #include <QPushButton>
 #include <QEvent>
 #include <libintl.h>
-
 
 using namespace Fcitx;
 using namespace dcc_fcitx_configtool::widgets;

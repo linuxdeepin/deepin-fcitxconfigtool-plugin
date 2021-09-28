@@ -39,29 +39,29 @@
 <context>
     <name>IMAddWindow</name>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="62"/>
+        <location filename="../src/window/imaddwindow.cpp" line="61"/>
         <source>Add Input Method</source>
         <translation>Adicionar método de entrada</translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="71"/>
+        <location filename="../src/window/imaddwindow.cpp" line="69"/>
         <source>Search</source>
         <translation>Pesquisar</translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="82"/>
+        <location filename="../src/window/imaddwindow.cpp" line="78"/>
         <source>Find more in App Store</source>
         <translation>Descubra mais na Loja de Aplicações</translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="90"/>
-        <location filename="../src/window/imaddwindow.cpp" line="91"/>
+        <location filename="../src/window/imaddwindow.cpp" line="84"/>
+        <location filename="../src/window/imaddwindow.cpp" line="85"/>
         <source>Add</source>
         <translation>Adicionar</translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="92"/>
-        <location filename="../src/window/imaddwindow.cpp" line="93"/>
+        <location filename="../src/window/imaddwindow.cpp" line="86"/>
+        <location filename="../src/window/imaddwindow.cpp" line="87"/>
         <source>Cancel</source>
         <translation>Cancelar</translation>
     </message>
@@ -73,7 +73,7 @@
         <translation type="vanished">Predefinição</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="115"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="113"/>
         <source>Switch input methods</source>
         <translation>Mudar métodos de entrada</translation>
     </message>
@@ -102,30 +102,30 @@
         <translation type="vanished">Método de entrada</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="117"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="115"/>
         <source>Switch to the first input method</source>
         <translation>Mudar para o primeiro método de entrada</translation>
     </message>
     <message>
+        <location filename="../src/window/imsettingwindow.cpp" line="116"/>
         <location filename="../src/window/imsettingwindow.cpp" line="118"/>
-        <location filename="../src/window/imsettingwindow.cpp" line="120"/>
         <source>Restore Defaults</source>
         <translation>Restaurar Predefinições</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="121"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="119"/>
         <source>Advanced Settings</source>
         <translation>Configurações Avançadas</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="130"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="128"/>
         <source>Manage Input Methods</source>
         <translation>Gerir métodos de entrada</translation>
         <extra-child_page>Manage Input Methods</extra-child_page>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="140"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="138"/>
         <source>Shortcuts</source>
         <translation>Atalhos</translation>
         <extra-child_page>Manage Input Methods</extra-child_page>
@@ -146,14 +146,12 @@
 <context>
     <name>ShortcutKeyWindow</name>
     <message>
-        <location filename="../src/window/shortcutkeywindow.cpp" line="35"/>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation type="vanished">Cancelar</translation>
     </message>
     <message>
-        <location filename="../src/window/shortcutkeywindow.cpp" line="54"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation>Este atalho entra em conflito com %1, clique em Adicionar para o efetivar imediatamente</translation>
+        <translation type="vanished">Este atalho entra em conflito com %1, clique em Adicionar para o efetivar imediatamente</translation>
     </message>
 </context>
 <context>

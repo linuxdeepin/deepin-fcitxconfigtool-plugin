@@ -46,24 +46,19 @@ TEST_F(ut_immodel, setEdit)
 {
     IMModel *immodel = IMModel::instance();
     immodel->setEdit(true);
-
-
-
-    EXPECT_TRUE(true);
 }
 
 TEST_F(ut_immodel, isEdit)
 {
     IMModel *immodel = IMModel::instance();
+    immodel->setEdit(true);
     immodel->isEdit();
-    EXPECT_TRUE(true);
 }
 
 TEST_F(ut_immodel, getIMIndex)
 {
     IMModel *immodel = IMModel::instance();
     immodel->getIMIndex("iflyime");
-    EXPECT_TRUE(true);
 }
 
 TEST_F(ut_immodel, onConfigShow)
@@ -72,7 +67,6 @@ TEST_F(ut_immodel, onConfigShow)
     FcitxQtInputMethodItem item;
     item.setUniqueName("iflyime");
     immodel->onConfigShow(item);
-    EXPECT_TRUE(true);
 }
 TEST_F(ut_immodel, getIM)
 {
@@ -80,28 +74,24 @@ TEST_F(ut_immodel, getIM)
     FcitxQtInputMethodItem item;
     item.setName("iflyime");
     immodel->getIMIndex(item);
-    EXPECT_TRUE(true);
 }
 
 TEST_F(ut_immodel, getAvailIMList)
 {
     IMModel *immodel = IMModel::instance();
     FcitxQtInputMethodItemList itemList = immodel->getAvailIMList();
-    EXPECT_TRUE(true);
 }
 
 TEST_F(ut_immodel, getCurIMList)
 {
     IMModel *immodel = IMModel::instance();
     FcitxQtInputMethodItemList itemList = immodel->getCurIMList();
-    EXPECT_TRUE(true);
 }
 
 TEST_F(ut_immodel, onUpdateIMList)
 {
     IMModel *immodel = IMModel::instance();
     immodel->onUpdateIMList();
-    EXPECT_TRUE(true);
 }
 
 TEST_F(ut_immodel, onAddIMItem)
@@ -113,7 +103,6 @@ TEST_F(ut_immodel, onAddIMItem)
     item.setLangCode("iflyime");
     item.setEnabled(false);
     immodel->onAddIMItem(item);
-    EXPECT_TRUE(true);
 }
 
 TEST_F(ut_immodel, onDeleteItem)
@@ -123,11 +112,10 @@ TEST_F(ut_immodel, onDeleteItem)
     item.setName("iflyime");
     item.setUniqueName("iflyime");
     item.setLangCode("iflyime");
-    item.setEnabled(false);
+    item.setEnabled(true);
     immodel->onAddIMItem(item);
     immodel->onUpdateIMList();
     immodel->onDeleteItem(item);
-    EXPECT_TRUE(true);
 }
 
 TEST_F(ut_immodel, onItemUp)
@@ -145,8 +133,6 @@ TEST_F(ut_immodel, onItemUp)
     item2.setEnabled(false);
     immodel->onAddIMItem(item1);
     immodel->onAddIMItem(item2);
-//    immodel->onItemUp(item2);
-    EXPECT_TRUE(true);
 }
 
 TEST_F(ut_immodel, onItemDown)
@@ -172,7 +158,6 @@ TEST_F(ut_immodel, onItemDown)
     immodel->onAddIMItem(item2);
     immodel->onAddIMItem(item3);
     immodel->onItemDown(item2);
-    EXPECT_TRUE(true);
 }
 
 TEST_F(ut_immodel, equals)

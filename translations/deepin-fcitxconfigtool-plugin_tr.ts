@@ -39,29 +39,29 @@
 <context>
     <name>IMAddWindow</name>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="62"/>
+        <location filename="../src/window/imaddwindow.cpp" line="61"/>
         <source>Add Input Method</source>
         <translation>Giriş Yöntemi Ekle</translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="71"/>
+        <location filename="../src/window/imaddwindow.cpp" line="69"/>
         <source>Search</source>
         <translation>Ara</translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="82"/>
+        <location filename="../src/window/imaddwindow.cpp" line="78"/>
         <source>Find more in App Store</source>
         <translation>App Store&apos;da daha fazlasını bul</translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="90"/>
-        <location filename="../src/window/imaddwindow.cpp" line="91"/>
+        <location filename="../src/window/imaddwindow.cpp" line="84"/>
+        <location filename="../src/window/imaddwindow.cpp" line="85"/>
         <source>Add</source>
         <translation>Ekle</translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="92"/>
-        <location filename="../src/window/imaddwindow.cpp" line="93"/>
+        <location filename="../src/window/imaddwindow.cpp" line="86"/>
+        <location filename="../src/window/imaddwindow.cpp" line="87"/>
         <source>Cancel</source>
         <translation>İptal</translation>
     </message>
@@ -73,7 +73,7 @@
         <translation type="vanished">Varsayılan</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="115"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="113"/>
         <source>Switch input methods</source>
         <translation>Giriş yöntemlerini değiştir</translation>
     </message>
@@ -102,30 +102,30 @@
         <translation type="vanished">Giriş Yöntemi</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="117"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="115"/>
         <source>Switch to the first input method</source>
         <translation>İlk giriş yöntemine geç</translation>
     </message>
     <message>
+        <location filename="../src/window/imsettingwindow.cpp" line="116"/>
         <location filename="../src/window/imsettingwindow.cpp" line="118"/>
-        <location filename="../src/window/imsettingwindow.cpp" line="120"/>
         <source>Restore Defaults</source>
         <translation>Varsayılanları Geri Yükle</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="121"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="119"/>
         <source>Advanced Settings</source>
         <translation>Gelişmiş Ayarlar</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="130"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="128"/>
         <source>Manage Input Methods</source>
         <translation>Giriş Yöntemlerini Yönet</translation>
         <extra-child_page>Manage Input Methods</extra-child_page>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="140"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="138"/>
         <source>Shortcuts</source>
         <translation>Kısayollar</translation>
         <extra-child_page>Manage Input Methods</extra-child_page>
@@ -146,14 +146,12 @@
 <context>
     <name>ShortcutKeyWindow</name>
     <message>
-        <location filename="../src/window/shortcutkeywindow.cpp" line="35"/>
         <source>Cancel</source>
-        <translation>İptal</translation>
+        <translation type="vanished">İptal</translation>
     </message>
     <message>
-        <location filename="../src/window/shortcutkeywindow.cpp" line="54"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation>Bu kısayol %1 ile çakışıyor, bu kısayolu hemen etkinleştirmek için Ekle üzerine tıkla</translation>
+        <translation type="vanished">Bu kısayol %1 ile çakışıyor, bu kısayolu hemen etkinleştirmek için Ekle üzerine tıkla</translation>
     </message>
 </context>
 <context>

@@ -21,7 +21,6 @@
 #include "imwindow.h"
 #include "imaddwindow.h"
 #include "imsettingwindow.h"
-#include "shortcutkeywindow.h"
 #include "immodel/immodel.h"
 #include "publisher/publisherdef.h"
 #include "fcitxInterface/config.h"
@@ -34,6 +33,8 @@
 #include <QAccessible>
 #include "widgets/accessiblewidget.h"
 #include "widgets/titlelabel.h"
+#include <DWidget>
+
 // 接口工厂
 QAccessibleInterface *accessibleFactory(const QString &classname, QObject *object)
 {
@@ -116,10 +117,8 @@ void IMWindow::initUI()
     m_stackedWidget = new QStackedWidget(this);
     m_settingWindow = new IMSettingWindow(this);
     m_addWindow = new IMAddWindow(this);
-    m_shortcutKeyWindow = new ShortcutKeyWindow(this);
     m_stackedWidget->addWidget(m_settingWindow);
     m_stackedWidget->addWidget(m_addWindow);
-    m_stackedWidget->addWidget(m_shortcutKeyWindow);
     m_stackedWidget->setCurrentIndex(0);
     //界面布局
     m_pLayout = new QVBoxLayout(this);
@@ -135,7 +134,6 @@ void IMWindow::initConnect()
         m_settingWindow->updateUI();
     };
     connect(m_addWindow, &IMAddWindow::popSettingsWindow, func);
-    connect(m_shortcutKeyWindow, &ShortcutKeyWindow::popSettingsWindow, func);
     connect(m_settingWindow, &IMSettingWindow::availWidgetAdd, m_addWindow, &IMAddWindow::pushItemAvailwidget);
     connect(m_settingWindow, &IMSettingWindow::popIMAddWindow, [ = ]() {
         m_stackedWidget->setCurrentIndex(PopIMAddWindow);
@@ -145,14 +143,9 @@ void IMWindow::initConnect()
     connect(m_settingWindow, &IMSettingWindow::popShortKeyListWindow, [ = ](const QString & curName, const QStringList & list, QString & name) {
         QString tmpString;
         for (const QString &key : list) {
-            if (key != list.last()) {
-                tmpString += key + "+";
-            } else {
-                tmpString += key;
-            }
+            tmpString = (key != list.last())? key + "+": key;
         }
 
-        m_shortcutKeyWindow->setValue(curName, name, tmpString);
         m_stackedWidget->setCurrentIndex(PopShortcutKeyWindow);
         m_settingWindow->updateUI();
     });

@@ -39,29 +39,29 @@
 <context>
     <name>IMAddWindow</name>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="62"/>
+        <location filename="../src/window/imaddwindow.cpp" line="61"/>
         <source>Add Input Method</source>
         <translation>Afegiu-hi un mètode d&apos;entrada</translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="71"/>
+        <location filename="../src/window/imaddwindow.cpp" line="69"/>
         <source>Search</source>
         <translation>Cerca</translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="82"/>
+        <location filename="../src/window/imaddwindow.cpp" line="78"/>
         <source>Find more in App Store</source>
         <translation>Trobeu-ne més a la Botiga d&apos;aplicacions</translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="90"/>
-        <location filename="../src/window/imaddwindow.cpp" line="91"/>
+        <location filename="../src/window/imaddwindow.cpp" line="84"/>
+        <location filename="../src/window/imaddwindow.cpp" line="85"/>
         <source>Add</source>
         <translation>Afegeix</translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="92"/>
-        <location filename="../src/window/imaddwindow.cpp" line="93"/>
+        <location filename="../src/window/imaddwindow.cpp" line="86"/>
+        <location filename="../src/window/imaddwindow.cpp" line="87"/>
         <source>Cancel</source>
         <translation>Cancel·la</translation>
     </message>
@@ -73,7 +73,7 @@
         <translation type="vanished">Per defecte</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="115"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="113"/>
         <source>Switch input methods</source>
         <translation>Canvia el mètode d&apos;entrada</translation>
     </message>
@@ -102,30 +102,30 @@
         <translation type="vanished">Mètode d&apos;entrada</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="117"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="115"/>
         <source>Switch to the first input method</source>
         <translation>Canvia al primer mètode d&apos;entrada</translation>
     </message>
     <message>
+        <location filename="../src/window/imsettingwindow.cpp" line="116"/>
         <location filename="../src/window/imsettingwindow.cpp" line="118"/>
-        <location filename="../src/window/imsettingwindow.cpp" line="120"/>
         <source>Restore Defaults</source>
         <translation>Restaura els valors per defecte</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="121"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="119"/>
         <source>Advanced Settings</source>
         <translation>Configuració avançada</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="130"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="128"/>
         <source>Manage Input Methods</source>
         <translation>Gestió dels mètodes d&apos;entrada</translation>
         <extra-child_page>Manage Input Methods</extra-child_page>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="140"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="138"/>
         <source>Shortcuts</source>
         <translation>Dreceres</translation>
         <extra-child_page>Manage Input Methods</extra-child_page>
@@ -146,14 +146,12 @@
 <context>
     <name>ShortcutKeyWindow</name>
     <message>
-        <location filename="../src/window/shortcutkeywindow.cpp" line="35"/>
         <source>Cancel</source>
-        <translation>Cancel·la</translation>
+        <translation type="vanished">Cancel·la</translation>
     </message>
     <message>
-        <location filename="../src/window/shortcutkeywindow.cpp" line="54"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation>Aquesta drecera té conflicte amb %1. Cliqueu a Afegeix per fer que sigui efectiva immediatament.</translation>
+        <translation type="vanished">Aquesta drecera té conflicte amb %1. Cliqueu a Afegeix per fer que sigui efectiva immediatament.</translation>
     </message>
 </context>
 <context>
