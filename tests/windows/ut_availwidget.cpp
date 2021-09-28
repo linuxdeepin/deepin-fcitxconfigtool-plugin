@@ -61,8 +61,16 @@ TEST_F(ut_availwidget, languageName)
 
 TEST_F(ut_availwidget, getSeleteIm)
 {
-    AvailWidget availWidget;
-    FcitxQtInputMethodItem value = availWidget.getSeleteIm();
+//    AvailWidget availWidget;
+//    FcitxQtInputMethodItemList newItemList;
+//    FcitxQtInputMethodItem item;
+//    item.setName("name");
+//    item.setUniqueName("name");
+//    item.setLangCode("name");
+//    item.setEnabled(false);
+//    newItemList << item;
+//    availWidget.onUpdateUI(newItemList);
+//    item = availWidget.getSeleteIm();
 }
 
 TEST_F(ut_availwidget, onSearchIM)

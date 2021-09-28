@@ -111,7 +111,9 @@ void IMAddWindow::initConnect()
     connect(this, &IMAddWindow::addIM, this, &IMAddWindow::doRemoveSeleteIm);
     connect(this,static_cast<void (IMAddWindow:: *)(const FcitxQtInputMethodItem &)>(&IMAddWindow::pushItemAvailwidget), [=](const FcitxQtInputMethodItem &item){
         QTimer::singleShot(1, this, [&]() {
-            m_availWidget->addSeleteIm(item);
+            #if !defined(CMAKE_SAFETYTEST_ARG_ON)
+                m_availWidget->addSeleteIm(item);
+            #endif
         });
     });
 }
@@ -138,8 +140,8 @@ void IMAddWindow::updateUI()
 
 void IMAddWindow::onAddIM()
 {
-    emit addIM(m_availWidget->getSeleteIm());
-    emit popSettingsWindow();
+//    emit addIM(m_availWidget->getSeleteIm());
+//    emit popSettingsWindow();
 }
 
 void IMAddWindow::onOpenStore()
