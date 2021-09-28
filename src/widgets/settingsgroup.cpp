@@ -242,7 +242,6 @@ void FcitxSettingsGroup::mouseMoveEvent(QMouseEvent *event)
 //        m_isPressed = false;
 //        return QWidget::mouseMoveEvent(event);
 //    }
-    static FcitxSettingsItem* lastItem = nullptr;
     if(m_isPressed) {
         FcitxSettingsItem* selectItem = getItem(m_selectIndex);
         selectItem->move(selectItem->mapTo(this, QPoint(selectItem->x(), selectItem->rect().topRight().y() + (event->pos().y() - m_lastYPosition))));
@@ -255,13 +254,13 @@ void FcitxSettingsGroup::mouseMoveEvent(QMouseEvent *event)
             QPoint selecTopLeft = selectItem->mapTo(this, selectRect.topLeft() + QPoint(10,2));
             QRect r1 = QRect(itemRect.x() + itemTopLeftToThis.x(), itemRect.y() + itemTopLeftToThis.y(), itemRect.width(), itemRect.height());
             if((r1.contains(selecBottomLeft) || r1.contains(selecTopLeft)) && index != m_selectIndex) {
-                if(lastItem != item && lastItem != nullptr) {
-                    lastItem->setDraged(false);
-                    lastItem->update(lastItem->rect());
+                if(m_lastItem != item && m_lastItem != nullptr) {
+                    m_lastItem->setDraged(false);
+                    m_lastItem->update(m_lastItem->rect());
                 }
                 item->move(item->mapTo(this, QPoint(item->x(), item->rect().topRight().y() - (event->pos().y() - m_lastYPosition))));
                 item->setDraged(true);
-                lastItem = item;
+                m_lastItem = item;
             }
         }
     }
@@ -309,6 +308,7 @@ void FcitxSettingsGroup::mouseReleaseEvent(QMouseEvent *event)
     if(selecTopLeft.y() % selectItem->height() > (selectItem->height() / 2)) {
         count ++;
     }
+    m_lastItem = nullptr;
     switchItem(m_selectIndex,count);
     return QWidget::mouseReleaseEvent(event);
 }
