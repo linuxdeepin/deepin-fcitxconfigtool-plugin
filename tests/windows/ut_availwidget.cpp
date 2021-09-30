@@ -23,6 +23,7 @@
 #include "gtest/gtest.h"
 #include "window/availwidget.h"
 #include "widgets/settingsgroup.h"
+#include "widgets/settingsitem.h"
 class ut_availwidget : public ::testing::Test
 {
 protected:
@@ -47,16 +48,6 @@ TEST_F(ut_availwidget, clearItemStatus)
 {
     AvailWidget availWidget;
     availWidget.clearItemStatus();
-    EXPECT_TRUE(true);
-}
-
-TEST_F(ut_availwidget, clearItemStatusAndFilter)
-{
-    AvailWidget availWidget;
-
-    dcc_fcitx_configtool::widgets::FcitxSettingsGroup group;
-    availWidget.clearItemStatusAndFilter(&group);
-    EXPECT_TRUE(true);
 }
 
 TEST_F(ut_availwidget, languageName)
@@ -70,15 +61,24 @@ TEST_F(ut_availwidget, languageName)
 
 TEST_F(ut_availwidget, getSeleteIm)
 {
-    AvailWidget availWidget;
-    FcitxQtInputMethodItem value = availWidget.getSeleteIm();
+//    AvailWidget availWidget;
+//    FcitxQtInputMethodItemList newItemList;
+//    FcitxQtInputMethodItem item;
+//    item.setName("name");
+//    item.setUniqueName("name");
+//    item.setLangCode("name");
+//    item.setEnabled(false);
+//    newItemList << item;
+//    availWidget.onUpdateUI(newItemList);
+//    item = availWidget.getSeleteIm();
 }
 
 TEST_F(ut_availwidget, onSearchIM)
 {
     AvailWidget availWidget;
     availWidget.onSearchIM("fcitx-pinyin");
-    availWidget.onSearchIM("");
+    availWidget.onSearchIM("fcitx-keyboard-us");
+    availWidget.onSearchIM("fcitx-keyboard-cn");
 }
 
 TEST_F(ut_availwidget, onUpdateUI)
@@ -100,7 +100,6 @@ TEST_F(ut_availwidget, onUpdateUI)
 TEST_F(ut_availwidget, initUI)
 {
     AvailWidget availWidget;
-//    availWidget.initUI();
 }
 
 TEST_F(ut_availwidget, initConnect)
@@ -109,5 +108,14 @@ TEST_F(ut_availwidget, initConnect)
     availWidget.initConnect();
 }
 
+TEST_F(ut_availwidget, clearItemStatusAndFilter)
+{
+    AvailWidget availWidget;
+
+    dcc_fcitx_configtool::widgets::FcitxSettingsGroup group;
+    dcc_fcitx_configtool::widgets::FcitxSettingsItem item;
+    group.appendItem(&item);
+    availWidget.clearItemStatusAndFilter(&group);
+}
 
 

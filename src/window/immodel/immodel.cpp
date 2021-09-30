@@ -138,7 +138,6 @@ void IMModel::onAddIMItem(FcitxQtInputMethodItem item)
 
 }
 
-
 void IMModel::addIMItem()
 {
     emit availIMListChanged(m_availeIMList);

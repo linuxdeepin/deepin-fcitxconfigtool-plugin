@@ -56,7 +56,6 @@ void IMAddWindow::initUI()
     m_mainLayout->setContentsMargins(0, 0, 0, 10);
     m_mainLayout->setSpacing(0);
     m_mainLayout->addSpacing(10);
-
     //添加输入法标题
     QHBoxLayout *hlayout = new QHBoxLayout(this);
     FcitxTitleLabel *title = new FcitxTitleLabel(tr("Add Input Method"), this);
@@ -64,7 +63,6 @@ void IMAddWindow::initUI()
     hlayout->addItem(new QSpacerItem(20, 20, QSizePolicy::Expanding, QSizePolicy::Minimum));
     hlayout->addWidget(title);
     hlayout->addItem(new QSpacerItem(20, 20, QSizePolicy::Expanding, QSizePolicy::Minimum));
-
     //搜索框
     QHBoxLayout *hlayout2 = new QHBoxLayout(this);
     m_searchLEdit = new DSearchEdit(this);
@@ -72,31 +70,25 @@ void IMAddWindow::initUI()
     hlayout2->addSpacing(10);
     hlayout2->addWidget(m_searchLEdit);
     hlayout2->addSpacing(10);
-
     //可用输入法列表
     m_availWidget = new AvailWidget(this);
-
     //应用商店按钮
     QHBoxLayout *hlayout3 = new QHBoxLayout(this);
     hlayout3->addStretch();
     m_storeBtn = new DCommandLinkButton(tr("Find more in App Store"), this);
     m_storeBtn->setAccessibleName("Find more in App Store");
-
     hlayout3->addWidget(m_storeBtn);
     hlayout3->addSpacing(10);
-
     //添加 取消按钮
     m_buttonTuple = new FcitxButtonTuple(FcitxButtonTuple::Save);
     m_buttonTuple->rightButton()->setText(tr("Add"));
     m_buttonTuple->rightButton()->setAccessibleName(tr("Add"));
     m_buttonTuple->leftButton()->setText(tr("Cancel"));
     m_buttonTuple->leftButton()->setAccessibleName(tr("Cancel"));
-
     QHBoxLayout *hlayout4 = new QHBoxLayout(this);
     hlayout4->addSpacing(10);
     hlayout4->addWidget(m_buttonTuple, 0, Qt::AlignBottom);
     hlayout4->addSpacing(10);
-
     //添加至主界面内
     m_mainLayout->addLayout(hlayout);
     m_mainLayout->addLayout(hlayout2);
@@ -117,10 +109,9 @@ void IMAddWindow::initConnect()
     connect(m_searchLEdit, &DSearchEdit::textChanged, m_availWidget, &AvailWidget::onSearchIM);
     connect(this, &IMAddWindow::addIM, IMModel::instance(), &IMModel::onAddIMItem);
     connect(this, &IMAddWindow::addIM, this, &IMAddWindow::doRemoveSeleteIm);
-//    connect(this, &IMAddWindow::pushItemAvailwidget, m_availWidget, &AvailWidget::addSeleteIm);
     connect(this,static_cast<void (IMAddWindow:: *)(const FcitxQtInputMethodItem &)>(&IMAddWindow::pushItemAvailwidget), [=](const FcitxQtInputMethodItem &item){
         QTimer::singleShot(1, this, [&]() {
-            m_availWidget->addSeleteIm(item);
+                m_availWidget->addSeleteIm(item);
         });
     });
 }
@@ -134,23 +125,21 @@ void IMAddWindow::doRemoveSeleteIm(const FcitxQtInputMethodItem & temp)
 
 void IMAddWindow::updateUI()
 {
-    QTimer::singleShot(1, this, [&]() {
-        m_availWidget->onUpdateUI();
-        m_availWidget->clearItemStatus();
-
-    });
-
     m_buttonTuple->rightButton()->setEnabled(false);
     m_buttonTuple->leftButton()->setDefault(true);
     if (!m_searchLEdit->text().isEmpty()) {
         m_searchLEdit->clear();
     }
+    QTimer::singleShot(1, this, [&]() {
+        m_availWidget->onUpdateUI();
+        m_availWidget->clearItemStatus();
+    });
 }
 
 void IMAddWindow::onAddIM()
 {
-    emit addIM(m_availWidget->getSeleteIm());
-    emit popSettingsWindow();
+//    emit addIM(m_availWidget->getSeleteIm());
+//    emit popSettingsWindow();
 }
 
 void IMAddWindow::onOpenStore()

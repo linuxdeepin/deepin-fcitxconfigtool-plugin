@@ -10,7 +10,7 @@ set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR} ${CMAKE_CURRENT_S
 include(KDEInstallDirs)
 include(KDECMakeSettings)
 include(KDECompilerSettings)
-
+set(CMAKE_SAFETYTEST "CMAKE_SAFETYTEST_ARG_ON")
 if (${CMAKE_SYSTEM_PROCESSOR} STREQUAL "x86_64" OR ${CMAKE_SYSTEM_PROCESSOR} STREQUAL "aarch64")
     set(CMAKE_SAFETYTEST "${CMAKE_SAFETYTEST_ARG}")
     if(CMAKE_SAFETYTEST STREQUAL "")
@@ -23,6 +23,9 @@ if (${CMAKE_SYSTEM_PROCESSOR} STREQUAL "x86_64" OR ${CMAKE_SYSTEM_PROCESSOR} STR
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -fsanitize=undefined,address -O2")
     endif()
 endif()
+
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -g -fsanitize=undefined,address -O2")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -fsanitize=undefined,address -O2")
 
 if (CMAKE_BUILD_TYPE MATCHES Debug)
   set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -g -Wall -Wextra -fprofile-arcs -ftest-coverage -lgcov")

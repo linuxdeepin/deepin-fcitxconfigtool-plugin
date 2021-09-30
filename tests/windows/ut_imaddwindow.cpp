@@ -42,13 +42,6 @@ protected:
     }
 };
 
-TEST_F(ut_imaddwindow, updateUI)
-{
-    IMAddWindow iMAddWindow;
-    iMAddWindow.updateUI();
-    EXPECT_TRUE(true);
-}
-
 TEST_F(ut_imaddwindow, initUI)
 {
     IMAddWindow iMAddWindow;
@@ -63,10 +56,17 @@ TEST_F(ut_imaddwindow, initConnect)
 
 TEST_F(ut_imaddwindow, onAddIM)
 {
-//    IMAddWindow iMAddWindow;
-//    iMAddWindow.onAddIM();
+    IMAddWindow iMAddWindow;
+    iMAddWindow.initUI();
+    iMAddWindow.onAddIM();
 }
 
+TEST_F(ut_imaddwindow, updateUI)
+{
+    IMAddWindow iMAddWindow;
+    iMAddWindow.initUI();
+    iMAddWindow.updateUI();
+}
 TEST_F(ut_imaddwindow, onOpenStore)
 {
     IMAddWindow iMAddWindow;
