@@ -39,10 +39,12 @@ FcitxConfigPlugin::~FcitxConfigPlugin()
     deleteImWindow();
 }
 
-void FcitxConfigPlugin::preInitialize(bool sync)
+void FcitxConfigPlugin::preInitialize(bool sync, DCC_NAMESPACE::FrameProxyInterface::PushType pushType)
 {
     Q_UNUSED(sync);
+    Q_UNUSED(pushType);
     qDebug() << __FUNCTION__;
+    initSearchData();
 }
 
 QString FcitxConfigPlugin::path() const
@@ -74,16 +76,36 @@ void FcitxConfigPlugin::active()
     m_frameProxy->pushWidget(this, m_imWindow, dccV20::FrameProxyInterface::PushType::Normal);
 }
 
+void FcitxConfigPlugin::initSearchData()
+{
+    QString module = tr("Keyboard and Language");
+#ifdef QT_DEBUG
+    module = "键盘和语言";
+#endif
+
+    auto func_process_all = [ = ]() {
+        m_frameProxy->setWidgetVisible(module, tr("Input Methods"), true);
+        m_frameProxy->setDetailVisible(module, tr("Input Methods"), tr("Manage Input Methods"), true);
+        m_frameProxy->setDetailVisible(module, tr("Input Methods"), tr("Switch input methods"), true);
+        m_frameProxy->setDetailVisible(module, tr("Input Methods"), tr("Switch to the first input method"), true);
+        m_frameProxy->setDetailVisible(module, tr("Input Methods"), tr("Advanced Settings"), true);
+        m_frameProxy->updateSearchData(module);
+    };
+
+    func_process_all();
+}
+
 const QString FcitxConfigPlugin::name() const
 {
-    return tr("Input Methods");
+    return QStringLiteral("Input Methods");
 }
 
 //这个注释和翻译和使用控制台启动有关
 const QString FcitxConfigPlugin::displayName() const
 {
     //下面一行注释,和第二行文案有关联是控制中心搜索规范快捷键规范.不可以修改,不可以移动位置,下面三行要在一起
-    //~ contents_path /keyboard/Manage Input Methods
+    //~ contents_path /keyboard/Input Methods
+    //~ child_page Input Methods
     return tr("Input Methods");
 }
 
