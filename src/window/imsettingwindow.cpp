@@ -110,12 +110,24 @@ void IMSettingWindow::initUI()
     m_shortcutGroup = new FcitxSettingsGroup();
     m_shortcutGroup->setSpacing(2);
 
+    //下面两行注释,和第三行文案有关联是控制中心搜索规范快捷键规范.不可以修改,不可以移动位置,下面三行要在一起
+    //~ contents_path /keyboard/Input Methods
+    //~ child_page Input Methods
     m_imSwitchCbox = new FcitxComBoboxSettingsItem(tr("Switch input methods"), {"CTRL_SHIFT", "ALT_SHIFT", "CTRL_SUPER", "ALT_SUPER"});
     m_imSwitchCbox->comboBox()->setAccessibleName("Switch input methods");
+
+    //下面两行注释,和第三行文案有关联是控制中心搜索规范快捷键规范.不可以修改,不可以移动位置,下面三行要在一起
+    //~ contents_path /keyboard/Input Methods
+    //~ child_page Input Methods
     m_defaultIMKey = new FcitxKeySettingsItem(tr("Switch to the first input method"));
+    m_defaultIMKey->setAccessibleName("Switch to the first input method");
     m_resetBtn = new DCommandLinkButton(tr("Restore Defaults"), this);
     DFontSizeManager::instance()->bind(m_resetBtn, DFontSizeManager::T8, QFont::Normal);
     m_resetBtn->setAccessibleName(tr("Restore Defaults"));
+
+    //下面两行注释,和第三行文案有关联是控制中心搜索规范快捷键规范.不可以修改,不可以移动位置,下面三行要在一起
+    //~ contents_path /keyboard/Input Methods
+    //~ child_page Input Methods
     m_advSetKey = new QPushButton(tr("Advanced Settings"));
     m_advSetKey->setAccessibleName("Advanced Settings");
     m_shortcutGroup->appendItem(m_imSwitchCbox);
@@ -123,8 +135,8 @@ void IMSettingWindow::initUI()
 
     //控件添加至滑动窗口内
     //下面两行注释,和第三行文案有关联是控制中心搜索规范快捷键规范.不可以修改,不可以移动位置,下面三行要在一起
-    //~ contents_path /keyboard/Manage Input Methods
-    //~ child_page Manage Input Methods
+    //~ contents_path /keyboard/Input Methods
+    //~ child_page Input Methods
     scrollAreaLayout->addWidget(newTitleHead(tr("Manage Input Methods"), true));
     scrollAreaLayout->addSpacing(10);
     scrollAreaLayout->addWidget(m_IMListGroup);
@@ -133,8 +145,8 @@ void IMSettingWindow::initUI()
     //QHBoxLayout 存放m_resetBtn和Shortcuts标题两个控件
     QHBoxLayout *m_shortcutLayout = new QHBoxLayout();
     //下面两行注释,和第三行文案有关联是控制中心搜索规范快捷键规范.不可以修改,不可以移动位置,下面三行要在一起
-    //~ contents_path /keyboard/Manage Input Methods
-    //~ child_page Manage Input Methods
+    //~ contents_path /keyboard/Input Methods
+    //~ child_page Input Methods
     m_shortcutLayout->addWidget(newTitleHead(tr("Shortcuts")));
     m_shortcutLayout->addWidget(m_resetBtn,0,Qt::AlignRight | Qt::AlignBottom);
     scrollAreaLayout->addLayout(m_shortcutLayout);

@@ -39,7 +39,7 @@ public:
     ~FcitxConfigPlugin() override;
     void deleteImWindow();
 
-    virtual void preInitialize(bool sync = false);
+    virtual void preInitialize(bool sync = false, DCC_NAMESPACE::FrameProxyInterface::PushType pushType = DCC_NAMESPACE::FrameProxyInterface::PushType::Normal);
     virtual void initialize() override;
     virtual const QString name() const override;
     virtual const QString displayName() const override;
@@ -51,6 +51,9 @@ public:
 
 public Q_SLOTS:
     virtual void active() override;
+
+protected:
+    void initSearchData();
 
 private:
     QTranslator  m_translator;
