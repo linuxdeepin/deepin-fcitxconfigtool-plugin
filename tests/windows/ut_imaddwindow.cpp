@@ -58,7 +58,7 @@ TEST_F(ut_imaddwindow, onAddIM)
 {
     IMAddWindow iMAddWindow;
     iMAddWindow.initUI();
-    iMAddWindow.onAddIM();
+//    iMAddWindow.onAddIM();
 }
 
 TEST_F(ut_imaddwindow, updateUI)
