@@ -101,6 +101,7 @@ void FcitxSettingsGroup::insertItem(const int index, FcitxSettingsItem *item)
         FcitxIMActivityItem *pItem = dynamic_cast<FcitxIMActivityItem*>(item);
         if(pItem == nullptr) {
             item->addBackground();
+            m_layout->addSpacing(5);
         }
     }
 
@@ -134,12 +135,12 @@ void FcitxSettingsGroup::appendItem(FcitxSettingsItem *item, BackgroundStyle bgS
         //当SettingsItem 被加入　FcitxSettingsGroup　时，为其加入背景
         item->addBackground();
     }
-
+    m_layout->addSpacing(8);
     m_layout->insertWidget(m_layout->count(), item);
     item->installEventFilter(this);
 
     FcitxIMSettingsItem *mItem = dynamic_cast<FcitxIMSettingsItem *>(item);
-    if (mItem)
+    if (mItem) {
         connect(mItem, &FcitxIMSettingsItem::itemClicked, [=](FcitxIMSettingsItem *myItem) {
             int i = itemCount();
             for (int j = 0; j < i; ++j) {
@@ -151,6 +152,7 @@ void FcitxSettingsGroup::appendItem(FcitxSettingsItem *item, BackgroundStyle bgS
                 }
             }
         });
+    }
 }
 
 void FcitxSettingsGroup::removeItem(FcitxSettingsItem *item)

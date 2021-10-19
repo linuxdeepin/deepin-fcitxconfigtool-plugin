@@ -129,18 +129,20 @@ void FcitxIMActivityItem::paintEvent(QPaintEvent *event)
         path.lineTo(paintRect.bottomRight());
     }
     if(m_isEnter) {
-        QColor color;
-        if(DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::DarkType) {
-            color = DGuiApplicationHelper::instance()->applicationPalette().light().color();
-        } else {
-            color = DGuiApplicationHelper::instance()->applicationPalette().light().color();
-        }
+        QColor color = DGuiApplicationHelper::instance()->applicationPalette().light().color();
         if(isDraged()) {
             color.setAlpha(80);
         }
         painter.fillPath(path, color);
     } else {
+        DPalette p;
         QColor color = DGuiApplicationHelper::instance()->applicationPalette().frameBorder().color();
+        if(DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::DarkType) {
+            color = QColor("#323232");
+            color.setAlpha(230);
+        } else {
+            color = DGuiApplicationHelper::instance()->applicationPalette().frameBorder().color();
+        }
         if(isDraged()) {
             color = DGuiApplicationHelper::instance()->applicationPalette().light().color();
             color.setAlpha(80);

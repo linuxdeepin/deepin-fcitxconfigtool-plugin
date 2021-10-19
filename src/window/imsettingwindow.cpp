@@ -103,12 +103,12 @@ void IMSettingWindow::initUI()
     //输入法管理 编辑按钮
     m_IMListGroup = new FcitxSettingsGroup();
     m_IMListGroup->setSwitchAble(true);
-    m_IMListGroup->setSpacing(1);
+    m_IMListGroup->setSpacing(0);
     onCurIMChanged(IMModel::instance()->getCurIMList());
 
     //快捷键 切换输入法 切换虚拟键盘 切换至默认输入法
     m_shortcutGroup = new FcitxSettingsGroup();
-    m_shortcutGroup->setSpacing(2);
+    m_shortcutGroup->setSpacing(5);
 
     m_imSwitchCbox = new FcitxComBoboxSettingsItem(tr("Switch input methods"), {"CTRL_SHIFT", "ALT_SHIFT", "CTRL_SUPER", "ALT_SUPER"});
     m_imSwitchCbox->comboBox()->setAccessibleName("Switch input methods");
@@ -128,7 +128,7 @@ void IMSettingWindow::initUI()
     scrollAreaLayout->addWidget(newTitleHead(tr("Manage Input Methods"), true));
     scrollAreaLayout->addSpacing(10);
     scrollAreaLayout->addWidget(m_IMListGroup);
-    scrollAreaLayout->addSpacing(11);
+    scrollAreaLayout->addSpacing(20);
 
     //QHBoxLayout 存放m_resetBtn和Shortcuts标题两个控件
     QHBoxLayout *m_shortcutLayout = new QHBoxLayout();
@@ -140,9 +140,7 @@ void IMSettingWindow::initUI()
     scrollAreaLayout->addLayout(m_shortcutLayout);
     scrollAreaLayout->addSpacing(10);
     scrollAreaLayout->addWidget(m_shortcutGroup);
-    scrollAreaLayout->addSpacing(10);
-    scrollAreaLayout->addSpacing(1);
-    scrollAreaLayout->addSpacing(1);
+    scrollAreaLayout->addSpacing(40);
     scrollAreaLayout->addWidget(m_advSetKey);
     scrollAreaLayout->addStretch();
 
