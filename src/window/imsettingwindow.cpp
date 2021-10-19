@@ -181,7 +181,9 @@ void IMSettingWindow::initConnect()
         reloadFcitx(IMConfig::setDefaultIMKey(m_defaultIMKey->getKeyToStr()));
         m_defaultIMKey->setList(m_defaultIMKey->getKeyToStr().split("_"));
     });
+
     onReloadConnect();
+
     connect(m_imSwitchCbox->comboBox(), &QComboBox::currentTextChanged, [ = ]() {
         m_imSwitchCbox->comboBox()->setAccessibleName(m_imSwitchCbox->comboBox()->currentText());
         reloadFcitx(IMConfig::setIMSwitchKey(m_imSwitchCbox->comboBox()->currentText()));
@@ -299,7 +301,6 @@ void IMSettingWindow::onCurIMChanged(const FcitxQtInputMethodItemList &list)
         connect(tmp, &FcitxIMActivityItem::configBtnClicked, IMModel::instance(), &IMModel::onConfigShow);
         connect(tmp, &FcitxIMActivityItem::upBtnClicked, this, &IMSettingWindow::onItemUp);
         connect(tmp, &FcitxIMActivityItem::downBtnClicked, this, &IMSettingWindow::onItemDown);
-        connect(tmp, &FcitxIMActivityItem::deleteBtnClicked, this, &IMSettingWindow::onItemDelete);
         connect(tmp, &FcitxIMActivityItem::deleteBtnClicked, this, &IMSettingWindow::onItemDelete);
         tmp->editSwitch(IMModel::instance()->isEdit());
         m_IMListGroup->appendItem(tmp);

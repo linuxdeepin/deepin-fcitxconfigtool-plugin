@@ -148,6 +148,7 @@ void IMModel::onDeleteItem(FcitxQtInputMethodItem item)
     m_curIMList.removeAll(item);
     item.setEnabled(false);
     m_availeIMList.append(item);
+    IMListSave();
 }
 
 void IMModel::onItemUp(FcitxQtInputMethodItem item)
