@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "6f3b51fe_eda5b654",
+        "filename": "src/fcitxconfigplugin.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-10-20T01:21:50Z",
+      "side": 1,
+      "message": "\u003e [/tmp/16346929075440.6960980839023645/changeCache/src/fcitxconfigplugin.cpp:83]: (style) Variable \u0027module\u0027 is reassigned a value before the old one has been used",
+      "revId": "8f720082069521defc40da9ba4e8459de639cd18",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d2d086cf_a21a48b6",
         "filename": "src/fcitxconfigplugin.h",
         "patchSetId": 2
