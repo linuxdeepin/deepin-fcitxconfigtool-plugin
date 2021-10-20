@@ -105,7 +105,7 @@ void FcitxSettingsGroup::insertItem(const int index, FcitxSettingsItem *item)
         }
     }
 
-    m_layout->insertWidget(index, item);
+    m_layout->insertWidget(index, item, 5, Qt::AlignVCenter);
     item->installEventFilter(this);
 
     FcitxIMSettingsItem *mItem = dynamic_cast<FcitxIMSettingsItem *>(item);
@@ -136,7 +136,7 @@ void FcitxSettingsGroup::appendItem(FcitxSettingsItem *item, BackgroundStyle bgS
         item->addBackground();
     }
     m_layout->addSpacing(8);
-    m_layout->insertWidget(m_layout->count(), item);
+    m_layout->insertWidget(m_layout->count(), item, 8, Qt::AlignVCenter);
     item->installEventFilter(this);
 
     FcitxIMSettingsItem *mItem = dynamic_cast<FcitxIMSettingsItem *>(item);
@@ -198,10 +198,12 @@ void FcitxSettingsGroup::clear()
     for (int i(index); i != count; ++i) {
         QLayoutItem *item = m_layout->takeAt(index);
         QWidget *w = item->widget();
-        w->removeEventFilter(this);
-        w->setParent(nullptr);
+        if(w != nullptr) {
+            w->removeEventFilter(this);
+            w->setParent(nullptr);
+            w->deleteLater();
+        }
         delete item;
-        w->deleteLater();
     }
 }
 
