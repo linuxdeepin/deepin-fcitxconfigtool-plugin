@@ -10,10 +10,11 @@ int main(int argc, char **argv)
     QApplication app(argc, argv);
 
     testing::InitGoogleTest(&argc, argv);
+    int ret = RUN_ALL_TESTS();
 
     #if defined(CMAKE_SAFETYTEST_ARG_ON)
         __sanitizer_set_report_path("asan.log");
     #endif
 
-    return  RUN_ALL_TESTS();
+    return ret; 
 }
