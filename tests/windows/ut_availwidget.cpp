@@ -95,8 +95,37 @@ TEST_F(ut_availwidget, onUpdateUI)
     item.setEnabled(false);
     newItemList << item;
     availWidget.onUpdateUI(newItemList);
+    availWidget.onUpdateUI();
 }
 
+TEST_F(ut_availwidget, removeSeleteIm)
+{
+    AvailWidget availWidget;
+
+    FcitxQtInputMethodItem item;
+    item.setName("name");
+    item.setUniqueName("name");
+    item.setLangCode("name");
+    item.setEnabled(false);
+    availWidget.removeSeleteIm(item);
+}
+TEST_F(ut_availwidget, addSeleteIm)
+{
+    AvailWidget availWidget;
+
+    FcitxQtInputMethodItem item;
+    item.setName("name");
+    item.setUniqueName("name");
+    item.setLangCode("name");
+    item.setEnabled(false);
+    availWidget.addSeleteIm(item);
+}
+TEST_F(ut_availwidget, seleteIM)
+{
+    AvailWidget availWidget;
+    availWidget.seleteIM(true);
+    availWidget.seleteIM(false);
+}
 TEST_F(ut_availwidget, initUI)
 {
     AvailWidget availWidget;

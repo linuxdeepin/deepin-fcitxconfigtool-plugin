@@ -126,3 +126,23 @@ TEST_F(ut_imsettingwindow, onItemDown)
     iMSettingWindow.onItemDown(item);
     EXPECT_TRUE(true);
 }
+
+TEST_F(ut_imsettingwindow, onItemDelete)
+{
+    FcitxQtInputMethodItem item;
+    IMSettingWindow iMSettingWindow;
+    iMSettingWindow.onItemDelete(item);
+    EXPECT_TRUE(true);
+}
+TEST_F(ut_imsettingwindow, doReloadConfigUI)
+{
+    IMSettingWindow iMSettingWindow;
+    iMSettingWindow.doReloadConfigUI();
+    EXPECT_TRUE(true);
+}
+TEST_F(ut_imsettingwindow, onReloadConnect)
+{
+    IMSettingWindow iMSettingWindow;
+    iMSettingWindow.onReloadConnect();
+    EXPECT_TRUE(true);
+}
