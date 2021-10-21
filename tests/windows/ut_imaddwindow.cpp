@@ -58,7 +58,7 @@ TEST_F(ut_imaddwindow, onAddIM)
 {
     IMAddWindow iMAddWindow;
     iMAddWindow.initUI();
-//    iMAddWindow.onAddIM();
+    iMAddWindow.onAddIM();
 }
 
 TEST_F(ut_imaddwindow, updateUI)
@@ -108,4 +108,10 @@ TEST_F(ut_imaddwindow, onOpenStore)
         return ;
     pclose(fp);
     return ;
+}
+TEST_F(ut_imaddwindow, doRemoveSeleteIm)
+{
+    IMAddWindow iMAddWindow;
+    FcitxQtInputMethodItem item;
+    iMAddWindow.doRemoveSeleteIm(item);
 }
