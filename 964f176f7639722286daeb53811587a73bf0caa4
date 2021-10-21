@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "98367e31_67e563fa",
+        "filename": "tests/windows/ut_availwidget.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-10-21T06:52:37Z",
+      "side": 1,
+      "message": "注释行数: 0; 改动行数(修改和新增): 27; 注释率: 0.0%",
+      "revId": "964f176f7639722286daeb53811587a73bf0caa4",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ee69c52_75ee72a5",
+        "filename": "tests/windows/ut_imaddwindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-10-21T06:52:37Z",
+      "side": 1,
+      "message": "注释行数: 0; 改动行数(修改和新增): 7; 注释率: 0.0%",
+      "revId": "964f176f7639722286daeb53811587a73bf0caa4",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d02c0a6a_83a7b8e9",
+        "filename": "tests/windows/ut_imsettingwindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-10-21T06:52:37Z",
+      "side": 1,
+      "message": "注释行数: 0; 改动行数(修改和新增): 19; 注释率: 0.0%",
+      "revId": "964f176f7639722286daeb53811587a73bf0caa4",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    }
+  ]
+}
