@@ -30,8 +30,11 @@
 
 #include <QHBoxLayout>
 #include <QMouseEvent>
+#include <QGSettings>
 #include <QApplication>
 #include <DFontSizeManager>
+#include "window/settingsdef.h"
+#include "window/gsettingwatcher.h"
 
 using namespace dcc_fcitx_configtool::widgets;
 DWIDGET_USE_NAMESPACE
@@ -59,6 +62,13 @@ FcitxSettingsHead::FcitxSettingsHead(QFrame *parent)
     setLayout(mainLayout);
 
     connect(m_edit, &DCommandLinkButton::clicked, this, &FcitxSettingsHead::onClicked);
+    m_gsetting = new QGSettings("com.deepin.fcitx-config", QByteArray(), this);
+    connect(m_gsetting, &QGSettings::changed, this, &FcitxSettingsHead::onStatusModeChanged);
+}
+
+FcitxSettingsHead::~FcitxSettingsHead()
+{
+    delete m_gsetting;
 }
 
 void FcitxSettingsHead::setTitle(const QString &title)
@@ -69,7 +79,9 @@ void FcitxSettingsHead::setTitle(const QString &title)
 
 void FcitxSettingsHead::setEditEnable(bool state)
 {
-    m_edit->setVisible(state);
+    QString value = m_gsetting->get(GSETTINGS_EDIT).toString();
+    m_edit->setVisible(state & "Hidden" != value);
+    m_editVisible = state;
 }
 
 void FcitxSettingsHead::toEdit()
@@ -105,6 +117,14 @@ void FcitxSettingsHead::onClicked()
         toEdit();
     } else {
         toCancel();
+    }
+}
+
+void FcitxSettingsHead::onStatusModeChanged(const QString &key)
+{
+    QString value = m_gsetting->get(GSETTINGS_EDIT).toString();
+    if (key == GSETTINGS_EDIT) {
+        m_edit->setVisible(m_editVisible & "Hidden" != value);
     }
 }
 

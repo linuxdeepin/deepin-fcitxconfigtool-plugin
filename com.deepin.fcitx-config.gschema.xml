@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+    <enum id="com.deepin.fcitx-config.StatusMode">
+        <value value="0" nick="Enabled" />
+        <value value="1" nick="Disabled" />
+        <value value="2" nick="Hidden" />
+    </enum>
+    <schema path="/com/deepin/fcitx-config/" id="com.deepin.fcitx-config">
+    <key name="edit" enum="com.deepin.fcitx-config.StatusMode">
+        <default>'Enabled'</default>
+        <summary></summary>
+        <description>default is Enabled</description>
+    </key>
+    <key name="adjust-button" enum="com.deepin.fcitx-config.StatusMode">
+        <default>'Enabled'</default>
+        <summary></summary>
+        <description>default is Enabled</description>
+    </key>
+    <key name="setting-button" enum="com.deepin.fcitx-config.StatusMode">
+        <default>'Enabled'</default>
+        <summary></summary>
+        <description>default is Enabled</description>
+    </key>
+    <key name="add-im" enum="com.deepin.fcitx-config.StatusMode">
+        <default>'Enabled'</default>
+        <summary></summary>
+        <description>default is Enabled</description>
+    </key>
+    <key name="shortcut-restore" enum="com.deepin.fcitx-config.StatusMode">
+        <default>'Enabled'</default>
+        <summary></summary>
+        <description>default is Enabled</description>
+    </key>
+    <key name="shortcut-widget" enum="com.deepin.fcitx-config.StatusMode">
+        <default>'Enabled'</default>
+        <summary></summary>
+        <description>default is Enabled</description>
+    </key>
+    <key name="shortcut-function" enum="com.deepin.fcitx-config.StatusMode">
+        <default>'Enabled'</default>
+        <summary></summary>
+        <description>default is Enabled</description>
+    </key>
+    <key name="advanced-setting" enum="com.deepin.fcitx-config.StatusMode">
+        <default>'Enabled'</default>
+        <summary></summary>
+        <description>default is Enabled</description>
+    </key>
+    </schema>
+</schemalist>
