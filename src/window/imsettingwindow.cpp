@@ -30,6 +30,8 @@
 #include "widgets/settingshead.h"
 #include "publisher/publisherdef.h"
 #include "widgets/contentwidget.h"
+#include "gsettingwatcher.h"
+#include "settingsdef.h"
 
 #include <DFloatingButton>
 #include <DFontSizeManager>
@@ -109,14 +111,18 @@ void IMSettingWindow::initUI()
     //快捷键 切换输入法 切换虚拟键盘 切换至默认输入法
     m_shortcutGroup = new FcitxSettingsGroup();
     m_shortcutGroup->setSpacing(5);
+    GSettingWatcher::instance()->bind(GSETTINGS_SHORTCUT_WIDGET, m_shortcutGroup);
 
     m_imSwitchCbox = new FcitxComBoboxSettingsItem(tr("Switch input methods"), {"CTRL_SHIFT", "ALT_SHIFT", "CTRL_SUPER", "ALT_SUPER"});
     m_imSwitchCbox->comboBox()->setAccessibleName("Switch input methods");
     m_defaultIMKey = new FcitxKeySettingsItem(tr("Switch to the first input method"));
     m_resetBtn = new DCommandLinkButton(tr("Restore Defaults"), this);
+    GSettingWatcher::instance()->bind(GSETTINGS_SHORTCUT_WIDGET, m_resetBtn);
+    GSettingWatcher::instance()->bind(GSETTINGS_SHORTCUT_RESTORE, m_resetBtn);
     DFontSizeManager::instance()->bind(m_resetBtn, DFontSizeManager::T8, QFont::Normal);
     m_resetBtn->setAccessibleName(tr("Restore Defaults"));
     m_advSetKey = new QPushButton(tr("Advanced Settings"));
+    GSettingWatcher::instance()->bind(GSETTINGS_ADVANCE_SETTING, m_advSetKey);
     m_advSetKey->setAccessibleName("Advanced Settings");
     m_shortcutGroup->appendItem(m_imSwitchCbox);
     m_shortcutGroup->appendItem(m_defaultIMKey);
@@ -135,7 +141,9 @@ void IMSettingWindow::initUI()
     //下面两行注释,和第三行文案有关联是控制中心搜索规范快捷键规范.不可以修改,不可以移动位置,下面三行要在一起
     //~ contents_path /keyboard/Manage Input Methods
     //~ child_page Manage Input Methods
-    m_shortcutLayout->addWidget(newTitleHead(tr("Shortcuts")));
+    QWidget *pWidget = newTitleHead(tr("Shortcuts"));
+    GSettingWatcher::instance()->bind(GSETTINGS_SHORTCUT_WIDGET, pWidget);
+    m_shortcutLayout->addWidget(pWidget);
     m_shortcutLayout->addWidget(m_resetBtn,0,Qt::AlignRight | Qt::AlignBottom);
     scrollAreaLayout->addLayout(m_shortcutLayout);
     scrollAreaLayout->addSpacing(10);
@@ -146,6 +154,7 @@ void IMSettingWindow::initUI()
 
     //添加界面按钮
     m_addIMBtn = new DFloatingButton(DStyle::SP_IncreaseElement, this);
+    GSettingWatcher::instance()->bind(GSETTINGS_ADD_IM, m_addIMBtn);
     QHBoxLayout *headLayout = new QHBoxLayout(this);
     headLayout->setMargin(0);
     headLayout->setSpacing(0);

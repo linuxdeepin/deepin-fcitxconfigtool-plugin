@@ -27,6 +27,9 @@
 #include <DGuiApplicationHelper>
 #include <QTimer>
 #include <QPainterPath>
+#include <QGSettings>
+#include "window/settingsdef.h"
+#include "window/gsettingwatcher.h"
 using namespace Dtk::Widget;
 namespace dcc_fcitx_configtool {
 namespace widgets {
@@ -163,7 +166,9 @@ void FcitxIMActivityItem::setSelectStatus(const bool &isEnter)
 {
 //    if (!m_bgGroup)
 //        return;
-
+    QGSettings *gsetting = new QGSettings("com.deepin.fcitx-config", QByteArray(), this);
+    QString value = gsetting->get(GSETTINGS_ADJUST_BUTTON).toString();
+    QString config = gsetting->get(GSETTINGS_SETTING_BUTTON).toString();
     if (isEnter)
         m_isEnter = true;
     else {
@@ -173,27 +178,43 @@ void FcitxIMActivityItem::setSelectStatus(const bool &isEnter)
         int index = IMModel::instance()->getIMIndex(m_item);
         int count = IMModel::instance()->getCurIMList().count();
 
+
         if (count <= 1) {
             m_upBtn->setEnabled(false);
             m_downBtn->setEnabled(false);
-        }else if (index == 0) {
+        }else if (index == 0 && "Enabled" == value) {
             m_upBtn->setEnabled(false);
             m_downBtn->setEnabled(true);
-        } else if (index == count - 1) {
+        } else if (index == count - 1 && "Enabled" == value) {
             m_upBtn->setEnabled(true);
             m_downBtn->setEnabled(false);
         } else {
-            m_upBtn->setEnabled(true);
-            m_downBtn->setEnabled(true);
+            if("Enabled" == value) {
+                m_upBtn->setEnabled(true);
+                m_downBtn->setEnabled(true);
+            }
         }
         m_configBtn->show();
         m_upBtn->show();
         m_downBtn->show();
+        m_upBtn->setVisible("Hidden" != value);
+        m_downBtn->setVisible("Hidden" != value);
+        m_configBtn->setVisible("Hidden" != config);
         update();
     } else {
         m_configBtn->hide();
         m_upBtn->hide();
         m_downBtn->hide();
+    }
+
+    if ("Disabled" == value) {
+        m_upBtn->setEnabled(false);
+        m_downBtn->setEnabled(false);
+    }
+    if ("Disabled" == config) {
+        m_configBtn->setEnabled(false);
+    } else if ("Enabled" == config) {
+        m_configBtn->setEnabled(true);
     }
     this->update(rect());
 }

@@ -33,11 +33,12 @@
 DWIDGET_BEGIN_NAMESPACE
 class DCommandLinkButton;
 DWIDGET_END_NAMESPACE
-
+class QGSettings;
 namespace dcc_fcitx_configtool {
 namespace widgets {
 
 class FcitxNormalLabel;
+
 class FcitxSettingsHead : public FcitxSettingsItem
 {
     Q_OBJECT
@@ -50,6 +51,7 @@ public:
 
 public:
     explicit FcitxSettingsHead(QFrame *parent = nullptr);
+    ~FcitxSettingsHead();
 
     void setTitle(const QString &title);
     void setEditEnable(bool state = true);
@@ -65,11 +67,12 @@ Q_SIGNALS:
 private Q_SLOTS:
     void refershButton();
     void onClicked();
-
+    void onStatusModeChanged(const QString &key);
 private:
     FcitxTitleLabel *m_title;
     DTK_WIDGET_NAMESPACE::DCommandLinkButton *m_edit;
-
+    bool m_editVisible;
+    QGSettings *m_gsetting;
     State m_state;
 };
 
