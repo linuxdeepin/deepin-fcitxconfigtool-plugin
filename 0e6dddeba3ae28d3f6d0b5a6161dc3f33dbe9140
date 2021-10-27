@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "262dd7e2_4dd1bb02",
+        "filename": "src/widgets/imactivityitem.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-10-27T01:58:46Z",
+      "side": 1,
+      "message": "注释行数: 0; 改动行数(修改和新增): 24; 注释率: 0.0%",
+      "revId": "0e6dddeba3ae28d3f6d0b5a6161dc3f33dbe9140",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "03f15ac8_ec3d84e5",
+        "filename": "src/widgets/settingsgroup.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-10-27T01:58:46Z",
+      "side": 1,
+      "message": "改动行数(修改和新增): 0; 删除代码行数: 0; 注释率: 不计算",
+      "revId": "0e6dddeba3ae28d3f6d0b5a6161dc3f33dbe9140",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "43e67ce7_21284b53",
+        "filename": "src/widgets/settingshead.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-10-27T01:58:46Z",
+      "side": 1,
+      "message": "注释行数: 0; 改动行数(修改和新增): 19; 注释率: 0.0%",
+      "revId": "0e6dddeba3ae28d3f6d0b5a6161dc3f33dbe9140",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0fda4d9_78ab4a83",
+        "filename": "src/widgets/settingshead.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-10-27T01:58:46Z",
+      "side": 1,
+      "message": "注释行数: 0; 改动行数(修改和新增): 5; 注释率: 0.0%",
+      "revId": "0e6dddeba3ae28d3f6d0b5a6161dc3f33dbe9140",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b9c24588_0f482d29",
+        "filename": "src/window/gsettingwatcher.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-10-27T01:58:46Z",
+      "side": 1,
+      "message": "注释行数: 121; 改动行数(修改和新增): 275; 注释率: 44.0%",
+      "revId": "0e6dddeba3ae28d3f6d0b5a6161dc3f33dbe9140",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    }
+  ]
+}
