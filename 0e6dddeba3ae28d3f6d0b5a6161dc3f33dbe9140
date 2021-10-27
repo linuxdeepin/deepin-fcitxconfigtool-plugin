@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "5c6faf4d_4d39c8da",
+        "filename": "src/widgets/imactivityitem.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-10-27T01:58:48Z",
+      "side": 1,
+      "message": "\u003e [/tmp/16352999244870.6058807990573541/changeCache/src/widgets/imactivityitem.cpp:144]: (style) Variable \u0027color\u0027 is reassigned a value before the old one has been used",
+      "revId": "0e6dddeba3ae28d3f6d0b5a6161dc3f33dbe9140",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "03f15ac8_ec3d84e5",
         "filename": "src/widgets/settingsgroup.cpp",
         "patchSetId": 2
@@ -53,6 +70,40 @@
     },
     {
       "key": {
+        "uuid": "4f7960fb_a3a79305",
+        "filename": "src/widgets/settingshead.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-10-27T01:58:48Z",
+      "side": 1,
+      "message": "(style) Boolean result is used in bitwise operation. Clarify expression with parentheses",
+      "revId": "0e6dddeba3ae28d3f6d0b5a6161dc3f33dbe9140",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9370e543_6cbe2a8c",
+        "filename": "src/widgets/settingshead.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-10-27T01:58:48Z",
+      "side": 1,
+      "message": "(style) Boolean result is used in bitwise operation. Clarify expression with parentheses",
+      "revId": "0e6dddeba3ae28d3f6d0b5a6161dc3f33dbe9140",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f0fda4d9_78ab4a83",
         "filename": "src/widgets/settingshead.h",
         "patchSetId": 2
@@ -81,6 +132,40 @@
       "writtenOn": "2021-10-27T01:58:46Z",
       "side": 1,
       "message": "注释行数: 121; 改动行数(修改和新增): 275; 注释率: 44.0%",
+      "revId": "0e6dddeba3ae28d3f6d0b5a6161dc3f33dbe9140",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "18371ea7_cc16c3e9",
+        "filename": "src/window/gsettingwatcher.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-10-27T01:58:48Z",
+      "side": 1,
+      "message": "(style) Consider using std::find_if algorithm instead of a raw loop",
+      "revId": "0e6dddeba3ae28d3f6d0b5a6161dc3f33dbe9140",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "923be200_5b8e8291",
+        "filename": "src/window/gsettingwatcher.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-10-27T01:58:48Z",
+      "side": 1,
+      "message": "(style) Class \u0027GSettingWatcher\u0027 has a constructor with 1 argument that is not explicit",
       "revId": "0e6dddeba3ae28d3f6d0b5a6161dc3f33dbe9140",
       "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
       "unresolved": true
