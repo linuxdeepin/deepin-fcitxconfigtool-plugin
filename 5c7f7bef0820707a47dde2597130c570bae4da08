@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1c0394a2_3d8a08bf",
+        "filename": "src/window/imsettingwindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-10-29T07:36:54Z",
+      "side": 1,
+      "message": "注释行数: 1; 改动行数(修改和新增): 6; 注释率: 16.7%",
+      "revId": "5c7f7bef0820707a47dde2597130c570bae4da08",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d4919f8_dea54255",
+        "filename": "src/window/settingsdef.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-10-29T07:36:54Z",
+      "side": 1,
+      "message": "注释行数: 2; 改动行数(修改和新增): 2; 注释率: 100.0%",
+      "revId": "5c7f7bef0820707a47dde2597130c570bae4da08",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    }
+  ]
+}
