@@ -31,7 +31,12 @@
         <summary></summary>
         <description>default is Enabled</description>
     </key>
-    <key name="shortcut-widget" enum="com.deepin.fcitx-config.StatusMode">
+    <key name="shortcut-switch-im" enum="com.deepin.fcitx-config.StatusMode">
+        <default>'Enabled'</default>
+        <summary></summary>
+        <description>default is Enabled</description>
+    </key>
+    <key name="shortcut-switch-to-first" enum="com.deepin.fcitx-config.StatusMode">
         <default>'Enabled'</default>
         <summary></summary>
         <description>default is Enabled</description>

@@ -111,13 +111,14 @@ void IMSettingWindow::initUI()
     //快捷键 切换输入法 切换虚拟键盘 切换至默认输入法
     m_shortcutGroup = new FcitxSettingsGroup();
     m_shortcutGroup->setSpacing(5);
-    GSettingWatcher::instance()->bind(GSETTINGS_SHORTCUT_WIDGET, m_shortcutGroup);
+
 
     m_imSwitchCbox = new FcitxComBoboxSettingsItem(tr("Switch input methods"), {"CTRL_SHIFT", "ALT_SHIFT", "CTRL_SUPER", "ALT_SUPER"});
+    GSettingWatcher::instance()->bind(GSETTINGS_SHORTCUT_SWITCHIM, m_imSwitchCbox);
     m_imSwitchCbox->comboBox()->setAccessibleName("Switch input methods");
     m_defaultIMKey = new FcitxKeySettingsItem(tr("Switch to the first input method"));
+    GSettingWatcher::instance()->bind(GSETTINGS_SHORTCUT_SWITCHTOFIRST, m_defaultIMKey);
     m_resetBtn = new DCommandLinkButton(tr("Restore Defaults"), this);
-    GSettingWatcher::instance()->bind(GSETTINGS_SHORTCUT_WIDGET, m_resetBtn);
     GSettingWatcher::instance()->bind(GSETTINGS_SHORTCUT_RESTORE, m_resetBtn);
     DFontSizeManager::instance()->bind(m_resetBtn, DFontSizeManager::T8, QFont::Normal);
     m_resetBtn->setAccessibleName(tr("Restore Defaults"));
@@ -142,7 +143,6 @@ void IMSettingWindow::initUI()
     //~ contents_path /keyboard/Manage Input Methods
     //~ child_page Manage Input Methods
     QWidget *pWidget = newTitleHead(tr("Shortcuts"));
-    GSettingWatcher::instance()->bind(GSETTINGS_SHORTCUT_WIDGET, pWidget);
     m_shortcutLayout->addWidget(pWidget);
     m_shortcutLayout->addWidget(m_resetBtn,0,Qt::AlignRight | Qt::AlignBottom);
     scrollAreaLayout->addLayout(m_shortcutLayout);
