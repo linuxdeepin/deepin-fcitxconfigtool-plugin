@@ -25,6 +25,7 @@
 #define GSETTINGS_ADD_IM "addIm" //输入法管理-添加输入法
 #define GSETTINGS_SHORTCUT_RESTORE "shortcutRestore"  //快捷键-恢复默认
 #define GSETTINGS_SHORTCUT_FUNCTION "shortcutFunction"  //快捷键功能
-#define GSETTINGS_SHORTCUT_WIDGET "shortcutWidget"  //快捷键界面
+#define GSETTINGS_SHORTCUT_SWITCHTOFIRST "shortcutSwitchToFirst"  //快捷键界面
+#define GSETTINGS_SHORTCUT_SWITCHIM "shortcutSwitchIm"  //快捷键界面
 #define GSETTINGS_ADVANCE_SETTING "advancedSetting" //高级设施按钮
 
