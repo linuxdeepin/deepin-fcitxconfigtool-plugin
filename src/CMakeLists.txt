@@ -21,8 +21,8 @@ include(KDECMakeSettings)
 include(KDECompilerSettings)
 
 if (CMAKE_BUILD_TYPE MATCHES Debug)
-  set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -g -Wall -Wextra")
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -Wall -Wextra -pthread")
+  set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -g -fsanitize=undefined,address -O2 -Wall -Wextra")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -fsanitize=undefined,address -O2 -Wall -Wextra -pthread")
   # Enable Qt builtin debug mode
   add_definitions("-DQT_MESSAGELOGCONTEXT -std=c++11")
 else()
