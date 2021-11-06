@@ -32,6 +32,7 @@
 #include "widgets/contentwidget.h"
 #include "gsettingwatcher.h"
 #include "settingsdef.h"
+#include "advancedsettingwidget.h"
 
 #include <DFloatingButton>
 #include <DFontSizeManager>
@@ -211,7 +212,9 @@ void IMSettingWindow::initConnect()
     });
 
     connect(m_advSetKey, &QAbstractButton::clicked, [ = ]() {
-        QProcess::startDetached("sh -c fcitx-configtool");
+        AdvancedSettingWidget *p = new AdvancedSettingWidget();
+        //p->show();
+        emit requestNextPage(p);
     });
     connect(IMModel::instance(), &IMModel::curIMListChanaged, this, &IMSettingWindow::onCurIMChanged);
     connect(m_addIMBtn, &DFloatingButton::clicked, this, &IMSettingWindow::onAddBtnCilcked);

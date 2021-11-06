@@ -36,6 +36,7 @@ public:
 
     static bool checkShortKey(const QStringList &str, QString &configName);
     static bool checkShortKey(const QString &str, QString &configName);
+    static bool setIMvalue(const QString &key, const QString &value);
 private:
     static QString configFile(const QString &filePath, const QString &key);
     static QString configFile(const QString &filePath, const QString &group, const QString &key);

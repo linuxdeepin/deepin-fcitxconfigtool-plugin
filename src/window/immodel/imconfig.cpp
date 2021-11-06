@@ -140,6 +140,11 @@ bool IMConfig::checkShortKey(const QString &keyStr, QString &configName)
     return true;
 }
 
+bool IMConfig::setIMvalue(const QString &key, const QString &value)
+{
+    return  setConfigFile(prefix + "/.config/fcitx/config", key, value);
+}
+
 QString IMConfig::configFile(const QString &filePath, const QString &group, const QString &key)
 {
     QString read = publisherFunc::readFile(filePath);

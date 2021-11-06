@@ -71,6 +71,9 @@ void FcitxConfigPlugin::active()
 {
     qDebug() << __FUNCTION__;
     m_imWindow = new IMWindow();
+    connect(m_imWindow, &IMWindow::requestNextPage, [ = ](QWidget * const w) {
+        m_frameProxy->pushWidget(this, w, dccV20::FrameProxyInterface::PushType::CoverTop);
+    });
     m_frameProxy->pushWidget(this, m_imWindow, dccV20::FrameProxyInterface::PushType::Normal);
 }
 

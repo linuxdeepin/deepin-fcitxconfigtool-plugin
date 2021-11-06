@@ -116,6 +116,7 @@ void IMWindow::initUI()
 {
     m_stackedWidget = new QStackedWidget(this);
     m_settingWindow = new IMSettingWindow(this);
+    connect(m_settingWindow, &IMSettingWindow::requestNextPage, this, &IMWindow::requestNextPage);
     m_addWindow = new IMAddWindow(this);
     m_stackedWidget->addWidget(m_settingWindow);
     m_stackedWidget->addWidget(m_addWindow);
