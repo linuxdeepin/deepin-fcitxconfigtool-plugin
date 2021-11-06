@@ -36,6 +36,23 @@
     },
     {
       "key": {
+        "uuid": "e6dd4c47_ec8e1a97",
+        "filename": "src/fcitxInterface/dummyconfig.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-11-06T05:06:48Z",
+      "side": 1,
+      "message": "(style) Class \u0027DummyConfig\u0027 has a constructor with 1 argument that is not explicit",
+      "revId": "09f93529318f9f08bd491bbdf4e68a08e749cc07",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3c08859b_27a7271f",
         "filename": "src/fcitxInterface/verticalscrollarea.cpp",
         "patchSetId": 1
@@ -81,6 +98,57 @@
       "writtenOn": "2021-11-06T05:06:47Z",
       "side": 1,
       "message": "注释行数: 53; 改动行数(修改和新增): 549; 注释率: 9.7%",
+      "revId": "09f93529318f9f08bd491bbdf4e68a08e749cc07",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8040d562_2f427a9f",
+        "filename": "src/window/advancedsettingwidget.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-11-06T05:06:48Z",
+      "side": 1,
+      "message": "\u003e [/tmp/16361752054080.8141025592341691/changeCache/src/window/advancedsettingwidget.cpp:323]: (style) Local variable f shadows outer variabl",
+      "revId": "09f93529318f9f08bd491bbdf4e68a08e749cc07",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a195042_f113993b",
+        "filename": "src/window/advancedsettingwidget.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-11-06T05:06:48Z",
+      "side": 1,
+      "message": "\u003e [/tmp/16361752054080.8141025592341691/changeCache/src/window/advancedsettingwidget.cpp:303]: (style) Local variable matrix shadows outer variabl",
+      "revId": "09f93529318f9f08bd491bbdf4e68a08e749cc07",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eaffc3aa_6080b5e8",
+        "filename": "src/window/imwindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-11-06T05:06:48Z",
+      "side": 1,
+      "message": "(style) Consider using std::accumulate algorithm instead of a raw loop",
       "revId": "09f93529318f9f08bd491bbdf4e68a08e749cc07",
       "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
       "unresolved": true
