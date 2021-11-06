@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "947aad01_9dd47fb5",
+        "filename": "src/fcitxInterface/dummyconfig.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-11-06T05:06:47Z",
+      "side": 1,
+      "message": "注释行数: 21; 改动行数(修改和新增): 111; 注释率: 18.9%",
+      "revId": "09f93529318f9f08bd491bbdf4e68a08e749cc07",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4dc79390_4ad5a1ba",
+        "filename": "src/fcitxInterface/dummyconfig.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-11-06T05:06:47Z",
+      "side": 1,
+      "message": "注释行数: 19; 改动行数(修改和新增): 44; 注释率: 43.2%",
+      "revId": "09f93529318f9f08bd491bbdf4e68a08e749cc07",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c08859b_27a7271f",
+        "filename": "src/fcitxInterface/verticalscrollarea.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-11-06T05:06:47Z",
+      "side": 1,
+      "message": "注释行数: 18; 改动行数(修改和新增): 40; 注释率: 45.0%",
+      "revId": "09f93529318f9f08bd491bbdf4e68a08e749cc07",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b0f2d6bd_ab46ee09",
+        "filename": "src/fcitxInterface/verticalscrollarea.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-11-06T05:06:47Z",
+      "side": 1,
+      "message": "注释行数: 19; 改动行数(修改和新增): 33; 注释率: 57.6%",
+      "revId": "09f93529318f9f08bd491bbdf4e68a08e749cc07",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "56218ff2_3f4d11b1",
+        "filename": "src/fcitxconfigplugin.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-11-06T05:06:47Z",
+      "side": 1,
+      "message": "注释行数: 53; 改动行数(修改和新增): 549; 注释率: 9.7%",
+      "revId": "09f93529318f9f08bd491bbdf4e68a08e749cc07",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    }
+  ]
+}
