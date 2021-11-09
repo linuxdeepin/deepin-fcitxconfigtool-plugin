@@ -104,7 +104,6 @@ void FcitxSettingsGroup::insertItem(const int index, FcitxSettingsItem *item)
             m_layout->addSpacing(5);
         }
     }
-
     m_layout->insertWidget(index, item, 5, Qt::AlignVCenter);
     item->installEventFilter(this);
 

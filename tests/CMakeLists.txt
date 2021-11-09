@@ -71,7 +71,7 @@ find_package(Fcitx REQUIRED)
 find_package(FcitxQt5DBusAddons REQUIRED)
 find_package(FcitxQt5WidgetsAddons REQUIRED)
 find_package(KF5 REQUIRED COMPONENTS I18n)
-
+pkg_search_module(GSETTINGS REQUIRED gsettings-qt)
 #设置资源目录 加载资源文件 翻译文件 源码
 set(APP_RES_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../res")
 #创建翻译文件 
@@ -141,6 +141,7 @@ target_include_directories(${PROJECT_NAME_TEST} PUBLIC
         ${DFrameworkDBus_INCLUDE_DIRS}
         ${Qt5Gui_PRIVATE_INCLUDE_DIRS}
         ${GTEST_INCLUDE_DIR}
+        ${GSETTINGS_INCLUDE_DIRS}
         )
 
 target_link_libraries(${PROJECT_NAME_TEST} PRIVATE
@@ -160,6 +161,7 @@ target_link_libraries(${PROJECT_NAME_TEST} PRIVATE
         FcitxQt5::DBusAddons
         ${Qt5Test_LIBRARIES}
         ${GTEST_LIBRARIES}
+        ${GSETTINGS_LIBRARIES}
         )
 
 #------------------------------ 创建'make test'指令---------------------------------------

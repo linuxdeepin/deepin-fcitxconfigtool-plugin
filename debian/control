@@ -30,6 +30,7 @@ Build-Depends:
  libgtk2.0-dev (>= 2.22),
  libunique-dev,
  libdframeworkdbus-dev,
+ libgsettings-qt-dev,
  libgtest-dev,
  libgmock-dev,
  dde-control-center-dev

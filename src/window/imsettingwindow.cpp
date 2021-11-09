@@ -30,6 +30,9 @@
 #include "widgets/settingshead.h"
 #include "publisher/publisherdef.h"
 #include "widgets/contentwidget.h"
+#include "gsettingwatcher.h"
+#include "settingsdef.h"
+#include "advancedsettingwidget.h"
 
 #include <DFloatingButton>
 #include <DFontSizeManager>
@@ -110,13 +113,18 @@ void IMSettingWindow::initUI()
     m_shortcutGroup = new FcitxSettingsGroup();
     m_shortcutGroup->setSpacing(5);
 
+
     m_imSwitchCbox = new FcitxComBoboxSettingsItem(tr("Switch input methods"), {"CTRL_SHIFT", "ALT_SHIFT", "CTRL_SUPER", "ALT_SUPER"});
+    GSettingWatcher::instance()->bind(GSETTINGS_SHORTCUT_SWITCHIM, m_imSwitchCbox);
     m_imSwitchCbox->comboBox()->setAccessibleName("Switch input methods");
     m_defaultIMKey = new FcitxKeySettingsItem(tr("Switch to the first input method"));
+    GSettingWatcher::instance()->bind(GSETTINGS_SHORTCUT_SWITCHTOFIRST, m_defaultIMKey);
     m_resetBtn = new DCommandLinkButton(tr("Restore Defaults"), this);
+    GSettingWatcher::instance()->bind(GSETTINGS_SHORTCUT_RESTORE, m_resetBtn);
     DFontSizeManager::instance()->bind(m_resetBtn, DFontSizeManager::T8, QFont::Normal);
     m_resetBtn->setAccessibleName(tr("Restore Defaults"));
     m_advSetKey = new QPushButton(tr("Advanced Settings"));
+    GSettingWatcher::instance()->bind(GSETTINGS_ADVANCE_SETTING, m_advSetKey);
     m_advSetKey->setAccessibleName("Advanced Settings");
     m_shortcutGroup->appendItem(m_imSwitchCbox);
     m_shortcutGroup->appendItem(m_defaultIMKey);
@@ -135,7 +143,8 @@ void IMSettingWindow::initUI()
     //下面两行注释,和第三行文案有关联是控制中心搜索规范快捷键规范.不可以修改,不可以移动位置,下面三行要在一起
     //~ contents_path /keyboard/Manage Input Methods
     //~ child_page Manage Input Methods
-    m_shortcutLayout->addWidget(newTitleHead(tr("Shortcuts")));
+    QWidget *pWidget = newTitleHead(tr("Shortcuts"));
+    m_shortcutLayout->addWidget(pWidget);
     m_shortcutLayout->addWidget(m_resetBtn,0,Qt::AlignRight | Qt::AlignBottom);
     scrollAreaLayout->addLayout(m_shortcutLayout);
     scrollAreaLayout->addSpacing(10);
@@ -146,6 +155,7 @@ void IMSettingWindow::initUI()
 
     //添加界面按钮
     m_addIMBtn = new DFloatingButton(DStyle::SP_IncreaseElement, this);
+    GSettingWatcher::instance()->bind(GSETTINGS_ADD_IM, m_addIMBtn);
     QHBoxLayout *headLayout = new QHBoxLayout(this);
     headLayout->setMargin(0);
     headLayout->setSpacing(0);
@@ -202,7 +212,9 @@ void IMSettingWindow::initConnect()
     });
 
     connect(m_advSetKey, &QAbstractButton::clicked, [ = ]() {
-        QProcess::startDetached("sh -c fcitx-configtool");
+        AdvancedSettingWidget *p = new AdvancedSettingWidget();
+        //p->show();
+        emit requestNextPage(p);
     });
     connect(IMModel::instance(), &IMModel::curIMListChanaged, this, &IMSettingWindow::onCurIMChanged);
     connect(m_addIMBtn, &DFloatingButton::clicked, this, &IMSettingWindow::onAddBtnCilcked);

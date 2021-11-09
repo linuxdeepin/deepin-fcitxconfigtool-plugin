@@ -59,7 +59,7 @@ find_package(FcitxQt5DBusAddons REQUIRED)
 find_package(FcitxQt5WidgetsAddons REQUIRED)
 find_package(KF5 REQUIRED COMPONENTS I18n)
 pkg_check_modules(DFrameworkDBus REQUIRED dframeworkdbus)
-
+pkg_check_modules(GSETTINGS REQUIRED gsettings-qt)
 #设置资源目录 加载资源文件 翻译文件 源码
 set(APP_RES_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../res")
 set(APP_QRC "${APP_RES_DIR}/fcitxconfig.qrc")
@@ -133,8 +133,8 @@ target_include_directories(${PROJECT_NAME} PUBLIC
         ${FCITX4_FCITX_INCLUDE_DIRS}
         ${FCITX4_FCITX_UTILS_INCLUDE_DIRS}
         ${FCITX4_FCITX_CONFIG_INCLUDE_DIRS}
+        ${GSETTINGS_INCLUDE_DIRS}
         )
-
 target_link_libraries(${PROJECT_NAME} PRIVATE
         KF5::I18n
         "/usr/lib/dde-control-center"
@@ -151,6 +151,7 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
         ${FCITX4_FCITX_LIBRARIES}
         FcitxQt5::WidgetsAddons
         FcitxQt5::DBusAddons
+        ${GSETTINGS_LIBRARIES}
         )
 
 # Install settings
