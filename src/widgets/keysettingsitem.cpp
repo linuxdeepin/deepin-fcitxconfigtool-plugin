@@ -19,13 +19,20 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 #include "keysettingsitem.h"
-#include "settingsgroup.h"
-#include "window/immodel/imconfig.h"
-#include "publisher/publisherdef.h"
+
 #include <DFontSizeManager>
 #include <QComboBox>
 #include <QMouseEvent>
 #include <QLineEdit>
+#include <QCheckBox>
+#include <QLabel>
+#include <QBrush>
+#include <QProcess>
+
+#include "fcitxInterface/global.h"
+#include "settingsgroup.h"
+#include "window/immodel/imconfig.h"
+#include "publisher/publisherdef.h"
 
 namespace dcc_fcitx_configtool {
 namespace widgets {
@@ -69,6 +76,10 @@ void FcitxKeyLabelWidget::setList(const QStringList &list)
 
 void FcitxKeyLabelWidget::initLableList(const QStringList &list)
 {
+    qDebug() << "initLableList: " << list;
+    if(list.first() == "None") {
+        qDebug() << "initLableList: " << list;
+    }
     clearShortcutKey();
     for (const QString &key : list) {
         QString tmpKey = key.toLower();
@@ -105,6 +116,11 @@ void FcitxKeyLabelWidget::setEnableEdit(bool flag)
     m_eidtFlag = flag;
 }
 
+void FcitxKeyLabelWidget::enableSingleKey()
+{
+    m_isSingle = true;
+}
+
 void FcitxKeyLabelWidget::mousePressEvent(QMouseEvent *event)
 {
     if (!m_eidtFlag)
@@ -138,7 +154,11 @@ bool FcitxKeyLabelWidget::eventFilter(QObject *watched, QEvent *event)
             auto func = [=](QStringList &list, const QString &key) {
                 clearShortcutKey();
                 list.clear();
+                if((key == "ctrl" && m_curlist.contains("ctrl")) || (key == "alt" && m_curlist.contains("alt"))){
+                    return;
+                }
                 list << key;
+                //qDebug() << "func: " << list;
                 initLableList(list);
                 setShortcutShow(true);
             };
@@ -147,7 +167,7 @@ bool FcitxKeyLabelWidget::eventFilter(QObject *watched, QEvent *event)
                 if (e->key() == Qt::Key_Delete || e->key() == Qt::Key_Backspace) {
                     func(m_curlist, tr("None"));
 
-                } else if (e->key() == Qt::Key_Control || e->key() == Qt::Key_Alt || e->key() == Qt::Key_Shift) {
+                } else if (e->key() == Qt::Key_Control || e->key() == Qt::Key_Alt || m_isSingle) {
                     setFocus();
                     func(m_newlist, publisherFunc::getKeyValue(e->key()));
                 } else {
@@ -182,9 +202,10 @@ void FcitxKeyLabelWidget::keyPressEvent(QKeyEvent *event)
 
 void FcitxKeyLabelWidget::keyReleaseEvent(QKeyEvent *event)
 {
+    qDebug() << "keyReleaseEvent";
     if (!m_eidtFlag)
         return;
-    if (m_newlist.count() < 2 || !checkNewKey(true)) {
+    if ((m_newlist.count() < 2 && !m_isSingle) || !checkNewKey(true)) {
         initLableList(m_curlist);
     }
     setShortcutShow(true);
@@ -227,9 +248,9 @@ void FcitxKeyLabelWidget::setShortcutShow(bool flag)
 
 bool FcitxKeyLabelWidget::checkNewKey(bool isRelease)
 {
+    qDebug() << "checkNewKey";
     QStringList list {publisherFunc::getKeyValue(Qt::Key_Control),
                       publisherFunc::getKeyValue(Qt::Key_Alt),
-                      publisherFunc::getKeyValue(Qt::Key_Shift),
                       publisherFunc::getKeyValue(Qt::Key_Super_L)};
 
     if (m_newlist.count() == 2) {
@@ -307,6 +328,11 @@ void FcitxKeySettingsItem::setText(const QString &text)
     m_label->setShortenText(text);
 }
 
+void FcitxKeySettingsItem::enableSingleKey()
+{
+    m_keyWidget->enableSingleKey();
+}
+
 QString FcitxKeySettingsItem::getLabelText()
 {
     return m_label->text();
@@ -378,6 +404,177 @@ QString FcitxComBoboxSettingsItem::getLabelText()
 
 FcitxComBoboxSettingsItem::~FcitxComBoboxSettingsItem()
 {
+}
+
+FcitxCheckBoxSettingsItem::FcitxCheckBoxSettingsItem(FcitxAddon *addon, QWidget *parent)
+    : FcitxSettingsItem(parent)
+{
+    QHBoxLayout* horizontalLayout = new QHBoxLayout(this);
+    horizontalLayout->setContentsMargins(0, 0, 0, 0);
+    QCheckBox *checkbox = new QCheckBox();
+    checkbox->setMaximumWidth(20);
+    horizontalLayout->addSpacing(10);
+    horizontalLayout->addWidget(checkbox, Qt::AlignLeft);
+    horizontalLayout->addSpacing(10);
+    checkbox->setCheckState(addon->bEnabled ? Qt::Checked : Qt::Unchecked);
+    connect(checkbox, &QCheckBox::clicked, this, [=](bool value){
+        addon->bEnabled = value;
+        QString buf = QString("%1.conf").arg(addon->name);
+        FILE* fp = FcitxXDGGetFileUserWithPrefix("addon", buf.toLocal8Bit().constData(), "w", nullptr);
+        if (fp) {
+            fprintf(fp, "[Addon]\nEnabled=%s\n", addon->bEnabled ? "True" : "False");
+            fclose(fp);
+            if(Fcitx::Global::instance()->inputMethodProxy() != nullptr) {
+                Fcitx::Global::instance()->inputMethodProxy()->ReloadConfig();
+            }
+        }
+    });
+
+    QHBoxLayout* hLayout2 = new QHBoxLayout();
+    hLayout2->setContentsMargins(0, 0, 0, 0);
+    hLayout2->setSpacing(0);
+    QLabel* label2 = new QLabel();
+    label2->setText(addon->generalname);
+    QFont f;
+    f.setPixelSize(13);
+    f.setWeight(QFont::DemiBold);
+    label2->setFont(f);
+    hLayout2->addWidget(label2, Qt::AlignLeft);
+    if(!QString(addon->subconfig).isEmpty()) {
+        PushLable* label = new PushLable();
+        label->setAlignment(Qt::AlignRight|Qt::AlignTop);
+        label->setText(tr("Configure"));
+        QPalette pal3;
+        pal3.setColor(QPalette::WindowText, QColor("#0082fa"));
+        label->setPalette(pal3);
+        hLayout2->addStretch();
+        hLayout2->addWidget(label, Qt::AlignRight);
+        hLayout2->addSpacing(8);
+        connect(label, &PushLable::clicked, this, [=](){
+            QProcess::startDetached("sh -c \"fcitx-config-gtk3 " + QString(addon->name) + "\"");
+        });
+    }
+    QVBoxLayout *vlayout = new QVBoxLayout;
+    vlayout->addSpacing(8);
+    vlayout->addLayout(hLayout2);
+    PushLable* label3 = new PushLable();
+    label3->setOriginText(addon->comment);
+    QFont f2;
+    f2.setPixelSize(12);
+    label3->setFont(f2);
+    label3->setMidLineWidth(350);
+    QPalette pal2;
+    pal2.setColor(QPalette::WindowText, QColor("#526a7f"));
+    label3->setPalette(pal2);
+    vlayout->addWidget(label3);
+    vlayout->addSpacing(8);
+    horizontalLayout->addLayout(vlayout);
+    this->setLayout(horizontalLayout);
+}
+
+FcitxCheckBoxSettingsItem::~FcitxCheckBoxSettingsItem()
+{
+
+}
+
+PushLable::PushLable(QWidget *parent)
+    : QLabel (parent)
+{
+
+}
+
+void PushLable::setOriginText(const QString &text)
+{
+    setText(text);
+    m_originText = text;
+}
+
+void PushLable::mousePressEvent(QMouseEvent *ev)
+{
+    Q_UNUSED(ev);
+    emit clicked();
+}
+
+void PushLable::resizeEvent(QResizeEvent *event)
+{
+    if(!m_originText.isEmpty()) {
+        QString name = fontMetrics().elidedText(m_originText, Qt::ElideRight, width());
+        setText(name);
+        if(name != m_originText) {
+            setToolTip(m_originText);
+        } else {
+            setToolTip("");
+        }
+    }
+    QLabel::resizeEvent(event);
+}
+
+FcitxGlobalSettingsItem::FcitxGlobalSettingsItem(QFrame *parent)
+    : FcitxSettingsItem(parent)
+{
+
+}
+
+FcitxGlobalSettingsItem::~FcitxGlobalSettingsItem()
+{
+
+}
+
+void FcitxGlobalSettingsItem::paintEvent(QPaintEvent *event)
+{
+    QPainter painter( this);
+    const int radius = 8;
+    QRect paintRect = this->rect();
+    QPainterPath path;
+    if(m_index == firstItem || m_index == onlyoneItem) {
+        path.moveTo(paintRect.bottomRight());
+        path.lineTo(paintRect.topRight() + QPoint(0, radius));
+        path.arcTo(QRect(QPoint(paintRect.topRight() - QPoint(radius * 2, 0)),
+                         QSize(radius * 2, radius * 2)), 0, 90);
+        path.lineTo(paintRect.topLeft() + QPoint(radius, 0));
+        path.arcTo(QRect(QPoint(paintRect.topLeft()), QSize(radius * 2, radius * 2)), 90, 90);
+        path.lineTo(paintRect.bottomLeft());
+        path.lineTo(paintRect.bottomRight());
+    } if(m_index == lastItem || m_index == onlyoneItem) {
+        path.moveTo(paintRect.bottomRight() - QPoint(0, radius));
+        path.lineTo(paintRect.topRight());
+        path.lineTo(paintRect.topLeft());
+        path.lineTo(paintRect.bottomLeft() - QPoint(0, radius));
+        path.arcTo(QRect(QPoint(paintRect.bottomLeft() - QPoint(0, radius * 2)),
+                         QSize(radius * 2, radius * 2)), 180, 90);
+        path.lineTo(paintRect.bottomLeft() + QPoint(radius, 0));
+        path.arcTo(QRect(QPoint(paintRect.bottomRight() - QPoint(radius * 2, radius * 2)),
+                         QSize(radius * 2, radius * 2)), 270, 90);
+    } if(m_index == otherItem) {
+        path.moveTo(paintRect.bottomRight());
+        path.lineTo(paintRect.topRight());
+        path.lineTo(paintRect.topLeft());
+        path.lineTo(paintRect.bottomLeft());
+        path.lineTo(paintRect.bottomRight());
+    }
+    DPalette p;
+
+    QColor color = DGuiApplicationHelper::instance()->applicationPalette().frameBorder().color();
+    if(DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::DarkType) {
+        color = QColor("#323232");
+        color.setAlpha(230);
+    } else {
+        color = DGuiApplicationHelper::instance()->applicationPalette().frameBorder().color();
+        color.setAlphaF(0.04);
+    }
+    painter.fillPath(path, color);
+    return FcitxSettingsItem::paintEvent(event);
+}
+
+void FcitxGlobalSettingsItem::mouseMoveEvent(QMouseEvent *e)
+{
+    update(rect());
+    return FcitxSettingsItem::mouseMoveEvent(e);
+}
+
+void FcitxGlobalSettingsItem::resizeEvent(QResizeEvent *event)
+{
+    FcitxSettingsItem::resizeEvent(event);
 }
 
 } // namespace widgets

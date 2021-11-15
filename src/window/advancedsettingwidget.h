@@ -45,7 +45,7 @@ namespace Fcitx
 {
 class DummyConfig;
 class Global;
-
+class AddonSelector;
 /**
  * @class DeleteItemThread
  * @brief
@@ -65,10 +65,14 @@ public:
     virtual ~AdvancedSettingWidget();
     DummyConfig* config() { return m_config; }
 private:
-    QWidget* createConfigUi();
+    QWidget* createglobalSettingsUi();
+    QWidget* createAddOnsUi();
     void setupConfigUi();
     void createConfigOptionWidget(FcitxConfigGroupDesc* cgdesc, FcitxConfigOptionDesc* codesc, QString& label, QString& tooltip, QWidget*& inputWidget, void*& newarg);
     void getConfigDesc(const QString &name);
+    void sendReloadMessage();
+private slots:
+    void onPalettetypechanged();
 
 private:
     QHash<QString, FcitxConfigFileDesc *> *m_hash;
@@ -84,7 +88,9 @@ private:
     UIType m_simpleUiType;
     UIType m_fullUiType;
     QMap<QString, void*> m_argsMap;
-
+    UT_array* m_addons;
+    AddonSelector* m_addonSelector;
+    bool m_isSelfSend {false};
 };
 
 class arrowButton : public QLabel
@@ -92,12 +98,16 @@ class arrowButton : public QLabel
     Q_OBJECT
 public:
     explicit arrowButton(QWidget *parent = nullptr);
+    void setContentHidden(bool hide);
+    void setOriginText(const QString& text);
 protected:
     void mousePressEvent(QMouseEvent *ev) override;
+    void resizeEvent(QResizeEvent *event) override;
 signals:
     void pressed(bool isHidden);
 private:
     bool m_hide{false};
+    QString m_originText;
 };
 
 }

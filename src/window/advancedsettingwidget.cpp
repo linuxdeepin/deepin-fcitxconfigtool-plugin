@@ -36,6 +36,7 @@
 #include <QComboBox>
 #include <QLineEdit>
 #include <QMatrix>
+#include <QTimer>
 #include <DButtonBox>
 #include <DPushButton>
 #include <DSwitchButton>
@@ -63,9 +64,9 @@ DWIDGET_USE_NAMESPACE
 namespace Fcitx
 {
 
-static
-void SyncFilterFunc(FcitxGenericConfig* gconfig, FcitxConfigGroup *group, FcitxConfigOption *option, void *value, FcitxConfigSync sync, void *arg);
+static void SyncFilterFunc(FcitxGenericConfig* gconfig, FcitxConfigGroup *group, FcitxConfigOption *option, void *value, FcitxConfigSync sync, void *arg);
 
+const UT_icd addonicd = {sizeof(FcitxAddon), nullptr, nullptr, FcitxAddonFree};
 
 AdvancedSettingWidget::AdvancedSettingWidget(QWidget* parent)
     : QWidget(parent)
@@ -80,13 +81,28 @@ AdvancedSettingWidget::AdvancedSettingWidget(QWidget* parent)
 {
     getConfigDesc("config.desc");
     setupConfigUi();
+    connect(Global::instance()->inputMethodProxy(), &FcitxQtInputMethodProxy::ReloadConfigUI, this, [=](){
+        if (m_config && (!m_isSelfSend)) {
+            FILE *fp;
+            fp = FcitxXDGGetFileWithPrefix(m_prefix.toLocal8Bit().constData(), m_name.toLocal8Bit().constData(), "r", nullptr);
+            if (!fp) {
+                return;
+            }
+            m_config->load(fp);
+            m_config->sync();
+        }
+    });
+    connect(DGuiApplicationHelper::instance(), &DGuiApplicationHelper::themeTypeChanged, this, &AdvancedSettingWidget::onPalettetypechanged);
 }
 
 void AdvancedSettingWidget::setupConfigUi()
 {
-    DButtonBoxButton *btnGlobalSettings = new DButtonBoxButton(tr("Global Settings"));
+    DPalette p;
+    p.setBrush(DPalette::Background, DGuiApplicationHelper::instance()->applicationPalette().base());
+    this->setPalette(p);
+    DButtonBoxButton *btnGlobalSettings = new DButtonBoxButton(tr("Global Config"));
     btnGlobalSettings->setAccessibleName("globalSettings");
-    DButtonBoxButton *btnAddOns = new DButtonBoxButton(tr("Add ons"));
+    DButtonBoxButton *btnAddOns = new DButtonBoxButton(tr("Add-ons"));
     btnAddOns->setAccessibleName("addons");
     QList<DButtonBoxButton *> pBtnlist;
     pBtnlist.append(btnGlobalSettings);
@@ -99,8 +115,10 @@ void AdvancedSettingWidget::setupConfigUi()
     pTopSwitchWidgetBtn->setMinimumSize(240, 36);
 
     QVBoxLayout* layout = new QVBoxLayout(this);
+    layout->setContentsMargins(0, 0, 0, 0);
     layout->addWidget(pTopSwitchWidgetBtn,  0, Qt::AlignHCenter);
     QStackedLayout *stackLayout = new QStackedLayout;
+    stackLayout->setContentsMargins(0, 0, 0, 0);
     QWidget *globalSettingsWidget = new QWidget;
     globalSettingsWidget->setLayout(m_globalSettingsLayout);
     QWidget *addOnsWidget = new QWidget;
@@ -126,11 +144,14 @@ void AdvancedSettingWidget::setupConfigUi()
         if (fp)
             fclose(fp);
     }
-    m_widget = createConfigUi();
-    m_globalSettingsLayout->addWidget(m_widget);
+    m_globalSettingsLayout->setContentsMargins(0, 0, 0, 0);
+    m_addOnsLayout->setContentsMargins(0, 0, 0, 0);
+    m_globalSettingsLayout->addWidget(createglobalSettingsUi());
+    m_addOnsLayout->addWidget(createAddOnsUi());
 
-    if (m_config)
+    if (m_config) {
         m_config->sync();
+    }
 }
 
 AdvancedSettingWidget::~AdvancedSettingWidget()
@@ -172,7 +193,7 @@ void AdvancedSettingWidget::createConfigOptionWidget(FcitxConfigGroupDesc* cgdes
         inputWidget = spinbox;
         connect(spinbox,  QOverload<int>::of(&DSpinBox::valueChanged), this, [=](int value) {
             IMConfig::setIMvalue(codesc->optionName, QString().number(value));
-            Global::instance()->inputMethodProxy()->ReloadConfig();
+            sendReloadMessage();
         });
         break;
     }
@@ -185,7 +206,7 @@ void AdvancedSettingWidget::createConfigOptionWidget(FcitxConfigGroupDesc* cgdes
         inputWidget = pSwitchBtn;
         connect(pSwitchBtn, &DSwitchButton::clicked, this, [=](bool checked) {
             IMConfig::setIMvalue(codesc->optionName, checked ? "True" : "False");
-            Global::instance()->inputMethodProxy()->ReloadConfig();
+            sendReloadMessage();
         });
         break;
     }
@@ -195,6 +216,7 @@ void AdvancedSettingWidget::createConfigOptionWidget(FcitxConfigGroupDesc* cgdes
         FcitxConfigEnum *e = &codesc->configEnum;
         QComboBox* combobox = new QComboBox(this);
         combobox->setMinimumWidth(150);
+        combobox->setMaximumHeight(48);
         inputWidget = combobox;
 
         for (i = 0; i < e->enumCount; i ++) {
@@ -204,7 +226,7 @@ void AdvancedSettingWidget::createConfigOptionWidget(FcitxConfigGroupDesc* cgdes
         connect(combobox, &QComboBox::currentTextChanged, this, [=](const QString& text) {
             int index = combobox->findText(text);
             IMConfig::setIMvalue(codesc->optionName, combobox->itemData(index).toString());
-            Global::instance()->inputMethodProxy()->ReloadConfig();
+            sendReloadMessage();
         });
     }
 
@@ -212,6 +234,7 @@ void AdvancedSettingWidget::createConfigOptionWidget(FcitxConfigGroupDesc* cgdes
 
     case T_Hotkey: {
         FcitxKeySettingsItem* item = new FcitxKeySettingsItem;
+        item->enableSingleKey();
         item->setList(QString(codesc->rawDefaultValue).split(' ').first().split('_'));
         if(QString(codesc->rawDefaultValue).isEmpty()) {
             item->setList(QString(tr("None")).split('_'));
@@ -221,7 +244,7 @@ void AdvancedSettingWidget::createConfigOptionWidget(FcitxConfigGroupDesc* cgdes
             QString str = item->getKeyToStr();
             IMConfig::setIMvalue(codesc->optionName, item->getKeyToStr());
             item->setList(item->getKeyToStr().split("_"));
-            Global::instance()->inputMethodProxy()->ReloadConfig();
+            sendReloadMessage();
         });
     }
 
@@ -236,7 +259,7 @@ void AdvancedSettingWidget::createConfigOptionWidget(FcitxConfigGroupDesc* cgdes
         argument = inputWidget;
         connect(lineEdit, &QLineEdit::editingFinished, [ = ]() {
             IMConfig::setIMvalue(codesc->optionName, lineEdit->text());
-            Global::instance()->inputMethodProxy()->ReloadConfig();
+            sendReloadMessage();
         });
     }
 
@@ -260,7 +283,7 @@ void AdvancedSettingWidget::createConfigOptionWidget(FcitxConfigGroupDesc* cgdes
     }
 }
 
-QWidget* AdvancedSettingWidget::createConfigUi()
+QWidget* AdvancedSettingWidget::createglobalSettingsUi()
 {
     int row = 0;
     VerticalScrollArea *scrollarea = new VerticalScrollArea;
@@ -269,6 +292,7 @@ QWidget* AdvancedSettingWidget::createConfigUi()
 
     QWidget* form = new QWidget;
     QVBoxLayout* vgLayout = new QVBoxLayout;
+    vgLayout->setContentsMargins(20, 0, 20, 0);
     scrollarea->setWidget(form);
     form->setLayout(vgLayout);
 
@@ -280,28 +304,52 @@ QWidget* AdvancedSettingWidget::createConfigUi()
             break;
 
         HASH_FOREACH(cgdesc, m_cfdesc->groupsDesc, FcitxConfigGroupDesc) {
-            QLabel* grouplabel = new QLabel(QString("<b>%1</b>").arg(QString::fromUtf8(dgettext(m_cfdesc->domain, cgdesc->groupName))));
+            arrowButton* grouplabel = new arrowButton();
+            grouplabel->setText(QString("%1").arg(QString::fromUtf8(dgettext(m_cfdesc->domain, cgdesc->groupName))));
             QFont f;
             f.setPixelSize(17);
+            f.setWeight(QFont::DemiBold);
             grouplabel->setFont(f);
             arrowButton *button =new arrowButton();
             QPixmap pmap = QIcon::fromTheme("dm_arrow").pixmap(QSize(12, 8));
-            QMatrix matrix;
-            matrix.rotate(180);
-            button->setPixmap(pmap.transformed(matrix, Qt::SmoothTransformation));
-            button->setMaximumWidth(50);
+            //QMatrix matrix;
+            //matrix.rotate(180);
+            button->setPixmap(pmap);
+            button->setMaximumWidth(30);
             QHBoxLayout *hglayout = new QHBoxLayout;
+            hglayout->addSpacing(10);
             hglayout->addWidget(grouplabel);
             hglayout->addWidget(button, Qt::AlignRight);
             vgLayout->addLayout(hglayout);
             QWidget *content = new QWidget;
+            QSizePolicy policy;
+            policy.setVerticalPolicy(QSizePolicy::Fixed);
+            policy.setHorizontalPolicy(QSizePolicy::Expanding);
+            content->setSizePolicy(policy);
             QVBoxLayout *vlayout = new QVBoxLayout;
+            vlayout->setContentsMargins(0, 0, 0, 0);
+            vlayout->setSpacing(0);
             content->setLayout(vlayout);
-            content->setHidden(true);
+            QTimer::singleShot(10, this, [=](){
+                content->setHidden(true);
+            });
+            connect(grouplabel, &arrowButton::pressed, this, [=](bool isHidden) {
+                content->setHidden(isHidden);
+                button->setContentHidden(!isHidden);
+                QMatrix matrix;
+                if(!isHidden) {
+                    matrix.rotate(180);
+                } else {
+                    matrix.rotate(0);
+                }
+
+                button->setPixmap(pmap.transformed(matrix, Qt::SmoothTransformation));
+            });
             connect(button, &arrowButton::pressed, this, [=](bool isHidden) {
                 content->setHidden(isHidden);
+                grouplabel->setContentHidden(!isHidden);
                 QMatrix matrix;
-                if(isHidden) {
+                if(!isHidden) {
                     matrix.rotate(180);
                 } else {
                     matrix.rotate(0);
@@ -310,6 +358,7 @@ QWidget* AdvancedSettingWidget::createConfigUi()
                 button->setPixmap(pmap.transformed(matrix, Qt::SmoothTransformation));
             });
             vgLayout->addWidget(content, Qt::AlignLeft);
+            QList<FcitxGlobalSettingsItem*> itemList;
             HASH_FOREACH(codesc, cgdesc->optionsDesc, FcitxConfigOptionDesc) {
                 QString s, tooltip;
                 QWidget* inputWidget = nullptr;
@@ -319,37 +368,77 @@ QWidget* AdvancedSettingWidget::createConfigUi()
                     createConfigOptionWidget(cgdesc, codesc, s, tooltip, inputWidget, argument);
                 }
                 if (inputWidget) {
-                    QLabel* label = new QLabel(s);
+                    arrowButton* label = new arrowButton;
+                    label->setOriginText(s);
                     QFont f;
                     f.setPixelSize(13);
+                    f.setWeight(QFont::DemiBold);
                     label->setFont(f);
                     label->setMinimumWidth(100);
                     if (!tooltip.isEmpty()) {
                         label->setToolTip(tooltip);
                     }
+                    FcitxGlobalSettingsItem *pitem = new FcitxGlobalSettingsItem;
+                    itemList.append(pitem);
+                    pitem->setMaximumHeight(46);
                     QHBoxLayout *hlayout = new QHBoxLayout;
                     hlayout->addWidget(label);
-                    hlayout->addWidget(inputWidget);
-                    vlayout->addLayout(hlayout);
-                    //gridLayout->addWidget(label, row, 0, Qt::AlignLeft);
-                    //gridLayout->addWidget(inputWidget, row, 1, Qt::AlignRight);
-                    if (argument)
+                    hlayout->addWidget(inputWidget, Qt::AlignTop);
+                    pitem->setLayout(hlayout);
+                    vlayout->addWidget(pitem);
+                    if (argument) {
                         m_config->bind(cgdesc->groupName, codesc->optionName, SyncFilterFunc, argument);
+                    }
                     row++;
                 }
             }
+            itemList.first()->setIndex(0);
+            itemList.last()->setIndex(-1);
+            vlayout->addSpacing(20);
         }
     } while(0);
 
 
-    QSpacerItem* verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+    //QSpacerItem* verticalSpacer = new QSpacerItem(20, 10);
 
-    if (row >= 2) {
-        QSpacerItem* horizontalSpacer = new QSpacerItem(20, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
-        vgLayout->addItem(horizontalSpacer);
+//    if (row >= 2) {
+//        QSpacerItem* horizontalSpacer = new QSpacerItem(20, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
+//        vgLayout->addItem(horizontalSpacer);
+//    }
+
+    vgLayout->addSpacing(10);
+    vgLayout->addStretch();
+    return scrollarea;
+}
+
+QWidget *AdvancedSettingWidget::createAddOnsUi()
+{
+    VerticalScrollArea *scrollarea = new VerticalScrollArea;
+    scrollarea->setFrameStyle(QFrame::NoFrame);
+    scrollarea->setWidgetResizable(true);
+    QWidget *area = new QWidget(this);
+    QSizePolicy policy;
+    policy.setVerticalPolicy(QSizePolicy::Fixed);
+    policy.setHorizontalPolicy(QSizePolicy::Expanding);
+    area->setSizePolicy(policy);
+    QVBoxLayout *layout = new QVBoxLayout;
+    layout->setContentsMargins(20, 0, 20, 0);
+    area->setLayout(layout);
+    scrollarea->setWidget(area);
+    if (FcitxAddonGetConfigDesc() != nullptr) {
+        utarray_new(m_addons, &addonicd);
+        FcitxAddonsLoad(m_addons);
+        if (m_addons) {
+            for (FcitxAddon* addon = (FcitxAddon *) utarray_front(m_addons);
+                    addon != nullptr; addon = (FcitxAddon *) utarray_next(m_addons, addon)) {
+                FcitxCheckBoxSettingsItem *item =new FcitxCheckBoxSettingsItem(addon, area);
+                item->addBackground();
+                item->setMinimumWidth(200);
+                layout->addWidget(item);
+                layout->addSpacing(5);
+            }
+        }
     }
-
-    vgLayout->addItem(verticalSpacer);
 
     return scrollarea;
 }
@@ -357,31 +446,50 @@ QWidget* AdvancedSettingWidget::createConfigUi()
 void AdvancedSettingWidget::getConfigDesc(const QString &name)
 {
     if (m_hash->count(name) <= 0) {
-        FILE *fp = FcitxXDGGetFileWithPrefix("configdesc", name.toLatin1().constData(), "r", NULL);
+        FILE *fp = FcitxXDGGetFileWithPrefix("configdesc", name.toLatin1().constData(), "r", nullptr);
         m_cfdesc = FcitxConfigParseConfigFileDescFp(fp);
 
-        if (m_cfdesc)
+        if (m_cfdesc) {
             m_hash->insert(name, m_cfdesc);
-
-
+        }
     } else {
         m_cfdesc = (*m_hash)[name];
     }
     if (m_cfdesc) {
         m_config = new DummyConfig(m_cfdesc);
     }
-    return ;
+    return;
 }
 
-void SyncFilterFunc(FcitxGenericConfig* gconfig, FcitxConfigGroup *group, FcitxConfigOption *option, void *value, FcitxConfigSync sync, void *arg)
+void AdvancedSettingWidget::sendReloadMessage()
+{
+    if(Global::instance()->inputMethodProxy() != nullptr) {
+        Global::instance()->inputMethodProxy()->ReloadConfig();
+    }
+    m_isSelfSend = true;
+    QTimer::singleShot(200, this, [=](){
+        m_isSelfSend = false;
+    });
+}
+
+void AdvancedSettingWidget::onPalettetypechanged()
+{
+    DPalette p;
+    p.setBrush(DPalette::Background, DGuiApplicationHelper::instance()->applicationPalette().base());
+    this->setPalette(p);
+}
+
+void SyncFilterFunc(FcitxGenericConfig* gconfig, FcitxConfigGroup *group, FcitxConfigOption *option,
+                    void *value, FcitxConfigSync sync, void *arg)
 {
     Q_UNUSED(gconfig);
     Q_UNUSED(group);
     Q_UNUSED(value);
     FcitxConfigOptionDesc *codesc = option->optionDesc;
 
-    if (!codesc)
+    if (!codesc) {
         return;
+    }
 
     if (sync == Raw2Value) {
         switch (codesc->type) {
@@ -421,6 +529,9 @@ void SyncFilterFunc(FcitxGenericConfig* gconfig, FcitxConfigGroup *group, FcitxC
             FcitxHotkey* hotkey = static_cast<FcitxHotkey*>(value);
             FcitxKeySettingsItem* item = static_cast<FcitxKeySettingsItem*>(arg);
             item->setList(QString(hotkey->desc).split("_"));
+            if(QString(codesc->rawDefaultValue).isEmpty()) {
+                item->setList(QString(QObject::tr("None")).split('_'));
+            }
         }
 
         break;
@@ -434,12 +545,14 @@ void SyncFilterFunc(FcitxGenericConfig* gconfig, FcitxConfigGroup *group, FcitxC
         break;
 
         case T_String: {
-            char** string = (char**) value;
+            char** string = static_cast<char**>(value);
             QLineEdit* lineEdit = static_cast<QLineEdit*>(arg);
             lineEdit->setText(QString::fromUtf8(*string));
         }
 
         break;
+        default:
+            break;
         }
     } else {
         if (codesc->type != T_I18NString && option->rawValue) {
@@ -453,11 +566,10 @@ void SyncFilterFunc(FcitxGenericConfig* gconfig, FcitxConfigGroup *group, FcitxC
             break;
 
         case T_Integer: {
-            int* i = (int*) value;
+            int* i = static_cast<int*>(value);
             DSpinBox* spinbox = static_cast<DSpinBox*>(arg);
             *i = spinbox->value();
         }
-
         break;
 
         case T_Boolean: {
@@ -465,7 +577,6 @@ void SyncFilterFunc(FcitxGenericConfig* gconfig, FcitxConfigGroup *group, FcitxC
             boolean *bl = static_cast<boolean*>(value);
             *bl = checkBox->isChecked();
         }
-
         break;
 
         case T_Enum: {
@@ -473,15 +584,16 @@ void SyncFilterFunc(FcitxGenericConfig* gconfig, FcitxConfigGroup *group, FcitxC
             int* index = static_cast<int*>(value);
             *index = combobox->currentIndex();
         }
-
         break;
 
         case T_Hotkey: {
             FcitxKeySettingsItem* item = static_cast<FcitxKeySettingsItem*>(arg);
             FcitxHotkey* hotkey = static_cast<FcitxHotkey*>(value);
             item->setList(QString(hotkey->desc).split("_"));
+            if(QString(codesc->rawDefaultValue).isEmpty()) {
+                item->setList(QString(QObject::tr("None")).split('_'));
+            }
         }
-
         break;
 
         case T_Char: {
@@ -493,10 +605,13 @@ void SyncFilterFunc(FcitxGenericConfig* gconfig, FcitxConfigGroup *group, FcitxC
 
         case T_String: {
             QLineEdit* lineEdit = static_cast<QLineEdit*>(arg);
-            char** string = (char**) value;
+            char** string = static_cast<char**>(value);
             fcitx_utils_string_swap(string, lineEdit->text().toUtf8().constData());
         }
         break;
+
+        default:
+            break;
         }
     }
 }
@@ -509,8 +624,34 @@ arrowButton::arrowButton(QWidget *parent)
 
 void arrowButton::mousePressEvent(QMouseEvent *ev)
 {
+    Q_UNUSED(ev);
     emit pressed(m_hide);
     m_hide = !m_hide;
+}
+
+void arrowButton::resizeEvent(QResizeEvent *event)
+{
+    if(!m_originText.isEmpty()) {
+        QString name = fontMetrics().elidedText(m_originText, Qt::ElideRight, width());
+        setText(name);
+        if(name != m_originText) {
+            setToolTip(m_originText);
+        } else {
+            setToolTip("");
+        }
+    }
+    QLabel::resizeEvent(event);
+}
+
+void arrowButton::setContentHidden(bool hide)
+{
+    m_hide = hide;
+}
+
+void arrowButton::setOriginText(const QString &text)
+{
+    setText(text);
+    m_originText = text;
 }
 
 }

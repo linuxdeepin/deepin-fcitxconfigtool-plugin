@@ -38,11 +38,6 @@ class AvailWidget : public QWidget
 public:
     explicit AvailWidget(QWidget *parent = nullptr);
     ~AvailWidget();
-
-    /**
-     *  清除item选中状态
-     **/
-    void clearItemStatus();
     /**
      *  获取选中item
      **/
@@ -71,6 +66,11 @@ public slots:
      *  添加 add list
      **/
     void addSeleteIm(const FcitxQtInputMethodItem &);
+
+    /**
+     *  清除item选中状态
+     **/
+    void clearItemStatus();
 signals:
     /**
      *  选中状态信号

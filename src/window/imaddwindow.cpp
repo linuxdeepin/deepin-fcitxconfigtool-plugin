@@ -105,6 +105,7 @@ void IMAddWindow::initConnect()
     connect(m_storeBtn, &DCommandLinkButton::clicked, this, &IMAddWindow::onOpenStore);
     connect(m_buttonTuple->rightButton(), &QPushButton::clicked, this, &IMAddWindow::onAddIM);
     connect(m_buttonTuple->leftButton(), &QPushButton::clicked, this, &IMAddWindow::popSettingsWindow);
+    connect(m_buttonTuple->leftButton(), &QPushButton::clicked, m_availWidget, &AvailWidget::clearItemStatus);
     connect(m_availWidget, &AvailWidget::seleteIM, m_buttonTuple->rightButton(), &QPushButton::setEnabled);
     connect(m_searchLEdit, &DSearchEdit::textChanged, m_availWidget, &AvailWidget::onSearchIM);
     connect(this, &IMAddWindow::addIM, IMModel::instance(), &IMModel::onAddIMItem);

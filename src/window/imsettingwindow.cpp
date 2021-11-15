@@ -24,7 +24,6 @@
 
 #include "widgets/settingsheaderitem.h"
 #include "widgets/settingsgroup.h"
-#include "widgets/comboxwidget.h"
 #include "widgets/keysettingsitem.h"
 #include "widgets/imactivityitem.h"
 #include "widgets/settingshead.h"
@@ -115,9 +114,12 @@ void IMSettingWindow::initUI()
 
 
     m_imSwitchCbox = new FcitxComBoboxSettingsItem(tr("Switch input methods"), {"CTRL_SHIFT", "ALT_SHIFT", "CTRL_SUPER", "ALT_SUPER"});
+    m_imSwitchCbox->addBackground();
     GSettingWatcher::instance()->bind(GSETTINGS_SHORTCUT_SWITCHIM, m_imSwitchCbox);
     m_imSwitchCbox->comboBox()->setAccessibleName("Switch input methods");
+
     m_defaultIMKey = new FcitxKeySettingsItem(tr("Switch to the first input method"));
+    m_defaultIMKey->addBackground();
     GSettingWatcher::instance()->bind(GSETTINGS_SHORTCUT_SWITCHTOFIRST, m_defaultIMKey);
     m_resetBtn = new DCommandLinkButton(tr("Restore Defaults"), this);
     GSettingWatcher::instance()->bind(GSETTINGS_SHORTCUT_RESTORE, m_resetBtn);
@@ -208,7 +210,6 @@ void IMSettingWindow::initConnect()
             reloadFcitx(IMConfig::setIMSwitchKey("CTRL_SHIFT"));
             m_imSwitchCbox->comboBox()->setCurrentText(("CTRL_SHIFT"));
         });
-
     });
 
     connect(m_advSetKey, &QAbstractButton::clicked, [ = ]() {

@@ -88,7 +88,7 @@ void AvailWidget::initUI()
 
 void AvailWidget::initConnect()
 {
-    connect(IMModel::instance(), SIGNAL(availIMListChanged), this, SLOT(onUpdateUI));
+    connect(IMModel::instance(), SIGNAL(availIMListChanged(FcitxQtInputMethodItemList)), this, SLOT(onUpdateUI(FcitxQtInputMethodItemList)));
 }
 
 void AvailWidget::onUpdateUI()
@@ -116,7 +116,7 @@ void AvailWidget::onUpdateUI(FcitxQtInputMethodItemList IMlist)
     }
 
     if (m_allAvaiIMlList == IMlist) {
-        emit seleteIM((m_allAvaiIMlList.indexOf(m_selectItem) != 0));
+        emit seleteIM((m_allAvaiIMlList.indexOf(m_selectItem) != -1));
         return;
     }
     m_allAvaiIMlList.swap(IMlist);

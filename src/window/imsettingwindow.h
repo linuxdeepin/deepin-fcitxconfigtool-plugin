@@ -30,7 +30,6 @@ namespace dcc_fcitx_configtool {
 namespace widgets {
 class FcitxSettingsGroup;
 class FcitxSettingsHead;
-class FcitxComboxWidget;
 class FcitxComBoboxSettingsItem;
 class FcitxPushButtonSettingsItem;
 class FcitxKeySettingsItem;

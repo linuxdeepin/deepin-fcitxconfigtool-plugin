@@ -125,6 +125,7 @@ void FcitxSettingsHead::onStatusModeChanged(const QString &key)
     QString value = m_gsetting->get(GSETTINGS_EDIT).toString();
     if (key == GSETTINGS_EDIT) {
         m_edit->setVisible(m_editVisible & "Hidden" != value);
+        m_edit->setEnabled("Enabled" == value);
     }
 }
 
