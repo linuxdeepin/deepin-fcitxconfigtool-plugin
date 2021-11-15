@@ -27,5 +27,12 @@
 #define GSETTINGS_SHORTCUT_FUNCTION "shortcutFunction"  //快捷键功能
 #define GSETTINGS_SHORTCUT_SWITCHTOFIRST "shortcutSwitchFirstIm"  //快捷键界面
 #define GSETTINGS_SHORTCUT_SWITCHIM "shortcutSwitchIm"  //快捷键界面
-#define GSETTINGS_ADVANCE_SETTING "advancedSetting" //高级设施按钮
+#define GSETTINGS_ADVANCE_SETTING "advancedSetting" //高级设置按钮
+
+#define GSETTINGS_ADVANCESETTING_GLOBALCONFIG "advancedsettingGlobalconfig" //高级设置-全局设置
+#define GSETTINGS_ADVANCESETTING_ADDONS "advancedsettingAddons" //高级设置-附件组件
+#define GSETTINGS_GLOBALCONFIG_SHORTCUT "globalconfigShortcut" //全局设置-快捷键
+#define GSETTINGS_GLOBALCONFIG_PROGRAM "globalconfigProgram" //全局设置-程序
+#define GSETTINGS_GLOBALCONFIG_OUTPUT "globalconfigOutput" //全局设置-输出
+#define GSETTINGS_GLOBALCONFIG_APPEARANCE "globalconfigAppearance" //全局设置-外观
 

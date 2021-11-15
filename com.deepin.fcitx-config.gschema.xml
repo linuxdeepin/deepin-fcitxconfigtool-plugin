@@ -37,11 +37,6 @@
         <summary></summary>
         <description>default is Enabled</description>
     </key>   
-    <key name="advanced-setting" enum="com.deepin.fcitx-config.StatusMode">
-        <default>'Enabled'</default>
-        <summary></summary>
-        <description>default is Enabled</description>
-    </key>
      <key name="shortcut-function" type="b">
         <default>true</default>
         <summary>set fcitx shortcut function enable or disable</summary>
@@ -57,5 +52,40 @@
             <summary>switch to first im shortcut</summary>
             <description>only can input </description>
         </key>
+    <key name="advanced-setting" enum="com.deepin.fcitx-config.StatusMode">
+        <default>'Enabled'</default>
+        <summary></summary>
+        <description>default is Enabled</description>
+    </key>
+    <key name="advancedsetting-globalconfig" enum="com.deepin.fcitx-config.StatusMode">
+        <default>'Enabled'</default>
+        <summary></summary>
+        <description>default is Enabled</description>
+    </key>
+    <key name="advancedsetting-addons" enum="com.deepin.fcitx-config.StatusMode">
+        <default>'Enabled'</default>
+        <summary></summary>
+        <description>default is Enabled</description>
+    </key>
+    <key name="globalconfig-shortcut" enum="com.deepin.fcitx-config.StatusMode">
+        <default>'Enabled'</default>
+        <summary></summary>
+        <description>default is Enabled</description>
+    </key>
+    <key name="globalconfig-program" enum="com.deepin.fcitx-config.StatusMode">
+        <default>'Enabled'</default>
+        <summary></summary>
+        <description>default is Enabled</description>
+    </key>
+    <key name="globalconfig-output" enum="com.deepin.fcitx-config.StatusMode">
+        <default>'Enabled'</default>
+        <summary></summary>
+        <description>default is Enabled</description>
+    </key>
+    <key name="globalconfig-appearance" enum="com.deepin.fcitx-config.StatusMode">
+        <default>'Enabled'</default>
+        <summary></summary>
+        <description>default is Enabled</description>
+    </key>
     </schema>
 </schemalist>

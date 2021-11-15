@@ -58,6 +58,8 @@
 #include "widgets/keysettingsitem.h"
 #include "window/immodel/imconfig.h"
 #include "fcitxInterface/global.h"
+#include "settingsdef.h"
+#include "gsettingwatcher.h"
 
 #define RoundColor(c) ((c)>=0?((c)<=255?c:255):0)
 DWIDGET_USE_NAMESPACE
@@ -101,8 +103,10 @@ void AdvancedSettingWidget::setupConfigUi()
     p.setBrush(DPalette::Background, DGuiApplicationHelper::instance()->applicationPalette().base());
     this->setPalette(p);
     DButtonBoxButton *btnGlobalSettings = new DButtonBoxButton(tr("Global Config"));
+    GSettingWatcher::instance()->bind(GSETTINGS_ADVANCESETTING_GLOBALCONFIG, btnGlobalSettings);
     btnGlobalSettings->setAccessibleName("globalSettings");
     DButtonBoxButton *btnAddOns = new DButtonBoxButton(tr("Add-ons"));
+    GSettingWatcher::instance()->bind(GSETTINGS_ADVANCESETTING_ADDONS, btnAddOns);
     btnAddOns->setAccessibleName("addons");
     QList<DButtonBoxButton *> pBtnlist;
     pBtnlist.append(btnGlobalSettings);
@@ -306,6 +310,7 @@ QWidget* AdvancedSettingWidget::createglobalSettingsUi()
         HASH_FOREACH(cgdesc, m_cfdesc->groupsDesc, FcitxConfigGroupDesc) {
             arrowButton* grouplabel = new arrowButton();
             grouplabel->setText(QString("%1").arg(QString::fromUtf8(dgettext(m_cfdesc->domain, cgdesc->groupName))));
+
             QFont f;
             f.setPixelSize(17);
             f.setWeight(QFont::DemiBold);
@@ -317,6 +322,19 @@ QWidget* AdvancedSettingWidget::createglobalSettingsUi()
             button->setPixmap(pmap);
             button->setMaximumWidth(30);
             QHBoxLayout *hglayout = new QHBoxLayout;
+            if(QString(cgdesc->groupName) == "Hotkey") {
+                GSettingWatcher::instance()->bind(GSETTINGS_GLOBALCONFIG_SHORTCUT, grouplabel);
+                GSettingWatcher::instance()->bind(GSETTINGS_GLOBALCONFIG_SHORTCUT, button);
+            } else if(QString(cgdesc->groupName) == "Program") {
+                GSettingWatcher::instance()->bind(GSETTINGS_GLOBALCONFIG_PROGRAM, grouplabel);
+                GSettingWatcher::instance()->bind(GSETTINGS_GLOBALCONFIG_PROGRAM, button);
+            } else if(QString(cgdesc->groupName) == "Output") {
+                GSettingWatcher::instance()->bind(GSETTINGS_GLOBALCONFIG_OUTPUT, grouplabel);
+                GSettingWatcher::instance()->bind(GSETTINGS_GLOBALCONFIG_OUTPUT, button);
+            } else if(QString(cgdesc->groupName) == "Appearance") {
+                GSettingWatcher::instance()->bind(GSETTINGS_GLOBALCONFIG_APPEARANCE, grouplabel);
+                GSettingWatcher::instance()->bind(GSETTINGS_GLOBALCONFIG_APPEARANCE, button);
+            }
             hglayout->addSpacing(10);
             hglayout->addWidget(grouplabel);
             hglayout->addWidget(button, Qt::AlignRight);
