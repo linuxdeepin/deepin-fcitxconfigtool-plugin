@@ -47,8 +47,8 @@
         <summary>switch im shortcut</summary>
         <description>default is CTRL_SHIFT</description>
     </key>
-    <key name="shortcut-switch-first-im" type="as">
-            <default>[]</default>
+    <key name="shortcut-switch-first-im" type="s">
+            <default>""</default>
             <summary>switch to first im shortcut</summary>
             <description>only can input </description>
         </key>
