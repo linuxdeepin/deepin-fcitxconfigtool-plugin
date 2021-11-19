@@ -21,6 +21,7 @@
 #include "keysettingsitem.h"
 
 #include <DFontSizeManager>
+#include <DCommandLinkButton>
 #include <QComboBox>
 #include <QMouseEvent>
 #include <QLineEdit>
@@ -446,16 +447,12 @@ FcitxCheckBoxSettingsItem::FcitxCheckBoxSettingsItem(FcitxAddon *addon, QWidget 
     FcitxConfigFileDesc* cfdesc = getConfigDesc(configDescNamestr.data());
     bool configurable = (cfdesc != nullptr || strlen(addon->subconfig) != 0);
     if(!QString(addon->subconfig).isEmpty() || configurable) {
-        PushLable* label = new PushLable();
-        label->setAlignment(Qt::AlignRight|Qt::AlignTop);
-        label->setText(tr("Configure"));
-        QPalette pal3;
-        pal3.setColor(QPalette::WindowText, QColor("#0082fa"));
-        label->setPalette(pal3);
+        DCommandLinkButton* label = new DCommandLinkButton(tr("Configure"));
+        DFontSizeManager::instance()->bind(label, DFontSizeManager::T8);
         hLayout2->addStretch();
-        hLayout2->addWidget(label, Qt::AlignRight);
+        hLayout2->addWidget(label);
         hLayout2->addSpacing(8);
-        connect(label, &PushLable::clicked, this, [=](){
+        connect(label, &DCommandLinkButton::clicked, this, [=](){
             if (QString(addon->name).contains("iflyime")) {
                 QProcess::startDetached("sh -c " + IMConfig::IMPluginKey("iflyime"));
                 return;

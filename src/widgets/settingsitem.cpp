@@ -64,6 +64,7 @@ void FcitxSettingsItem::setIsErr(const bool err)
     style()->unpolish(this);
     style()->polish(this);
 }
+
 void FcitxSettingsItem::addBackground()
 {
     //加入一个 DFrame 作为圆角背景

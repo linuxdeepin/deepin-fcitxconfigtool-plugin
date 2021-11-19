@@ -372,6 +372,7 @@ QWidget* AdvancedSettingWidget::createglobalSettingsUi()
                 button->setPixmap(pmap.transformed(matrix, Qt::SmoothTransformation));
             });
             vgLayout->addWidget(content, Qt::AlignLeft);
+            vgLayout->addSpacing(7);
             QList<FcitxGlobalSettingsItem*> itemList;
             HASH_FOREACH(codesc, cgdesc->optionsDesc, FcitxConfigOptionDesc) {
                 QString s, tooltip;
@@ -414,7 +415,7 @@ QWidget* AdvancedSettingWidget::createglobalSettingsUi()
             }
             itemList.first()->setIndex(0);
             itemList.last()->setIndex(-1);
-            vlayout->addSpacing(20);
+
         }
     } while(0);
 
