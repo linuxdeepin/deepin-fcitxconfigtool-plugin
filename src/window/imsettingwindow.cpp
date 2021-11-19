@@ -89,7 +89,7 @@ void IMSettingWindow::initUI()
 
     //界面布局
     QVBoxLayout *subLayout = new QVBoxLayout(mainWidget);
-    subLayout->setContentsMargins(0, 4, 0, 10);
+    subLayout->setContentsMargins(0, 4, 0, 20);
     subLayout->setSpacing(0);
 
     //滑动窗口
@@ -168,6 +168,7 @@ void IMSettingWindow::initUI()
     //添加至主界面内
     subLayout->addWidget(scrollArea);
     subLayout->addSpacing(17);
+    subLayout->addStretch();
     subLayout->addLayout(headLayout);
 
     readConfig();

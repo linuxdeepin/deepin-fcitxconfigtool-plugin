@@ -71,15 +71,12 @@ void FcitxKeyLabelWidget::setKeyId(const QString &id)
 void FcitxKeyLabelWidget::setList(const QStringList &list)
 {
     m_curlist = list;
+    m_curlist.removeDuplicates();
     initLableList(m_curlist);
 }
 
 void FcitxKeyLabelWidget::initLableList(const QStringList &list)
 {
-    qDebug() << "initLableList: " << list;
-    if(list.first() == "None") {
-        qDebug() << "initLableList: " << list;
-    }
     clearShortcutKey();
     for (const QString &key : list) {
         QString tmpKey = key.toLower();
@@ -95,7 +92,6 @@ void FcitxKeyLabelWidget::initLableList(const QStringList &list)
         m_list << label;
         m_mainLayout->addWidget(label);
     }
-
 }
 
 QString FcitxKeyLabelWidget::getKeyToStr()
@@ -154,11 +150,11 @@ bool FcitxKeyLabelWidget::eventFilter(QObject *watched, QEvent *event)
             auto func = [=](QStringList &list, const QString &key) {
                 clearShortcutKey();
                 list.clear();
-                if((key == "ctrl" && m_curlist.contains("ctrl")) || (key == "alt" && m_curlist.contains("alt"))){
-                    return;
-                }
+//                if((key == "Ctrl" && m_curlist.contains("CTRL", Qt::CaseInsensitive)) || (key == "Alt" && m_curlist.contains("ALT", Qt::CaseInsensitive))){
+//                    return;
+//                }
                 list << key;
-                //qDebug() << "func: " << list;
+                qDebug() << "func: " << m_curlist;
                 initLableList(list);
                 setShortcutShow(true);
             };
@@ -206,6 +202,7 @@ void FcitxKeyLabelWidget::keyReleaseEvent(QKeyEvent *event)
     if (!m_eidtFlag)
         return;
     if ((m_newlist.count() < 2 && !m_isSingle) || !checkNewKey(true)) {
+        m_curlist.removeDuplicates();
         initLableList(m_curlist);
     }
     setShortcutShow(true);
@@ -248,7 +245,6 @@ void FcitxKeyLabelWidget::setShortcutShow(bool flag)
 
 bool FcitxKeyLabelWidget::checkNewKey(bool isRelease)
 {
-    qDebug() << "checkNewKey";
     QStringList list {publisherFunc::getKeyValue(Qt::Key_Control),
                       publisherFunc::getKeyValue(Qt::Key_Alt),
                       publisherFunc::getKeyValue(Qt::Key_Super_L)};
@@ -301,6 +297,9 @@ bool FcitxKeyLabelWidget::checkNewKey(bool isRelease)
         focusNextChild();
         emit editedFinish();
         return true;
+    }
+    if(m_newlist.count() == 1 && m_isSingle) {
+        emit editedFinish();
     }
     return true;
 }
@@ -437,10 +436,16 @@ FcitxCheckBoxSettingsItem::FcitxCheckBoxSettingsItem(FcitxAddon *addon, QWidget 
     label2->setText(addon->generalname);
     QFont f;
     f.setPixelSize(13);
+    f.setFamily("SourceHanSansSC");
     f.setWeight(QFont::DemiBold);
     label2->setFont(f);
     hLayout2->addWidget(label2, Qt::AlignLeft);
-    if(!QString(addon->subconfig).isEmpty()) {
+
+    QString configDescName = QString(addon->name) + ".desc";
+    QByteArray configDescNamestr = configDescName.toLocal8Bit();
+    FcitxConfigFileDesc* cfdesc = getConfigDesc(configDescNamestr.data());
+    bool configurable = (cfdesc != nullptr || strlen(addon->subconfig) != 0);
+    if(!QString(addon->subconfig).isEmpty() || configurable) {
         PushLable* label = new PushLable();
         label->setAlignment(Qt::AlignRight|Qt::AlignTop);
         label->setText(tr("Configure"));
@@ -451,6 +456,10 @@ FcitxCheckBoxSettingsItem::FcitxCheckBoxSettingsItem(FcitxAddon *addon, QWidget 
         hLayout2->addWidget(label, Qt::AlignRight);
         hLayout2->addSpacing(8);
         connect(label, &PushLable::clicked, this, [=](){
+            if (QString(addon->name).contains("iflyime")) {
+                QProcess::startDetached("sh -c " + IMConfig::IMPluginKey("iflyime"));
+                return;
+            }
             QProcess::startDetached("sh -c \"fcitx-config-gtk3 " + QString(addon->name) + "\"");
         });
     }
@@ -470,6 +479,28 @@ FcitxCheckBoxSettingsItem::FcitxCheckBoxSettingsItem(FcitxAddon *addon, QWidget 
     vlayout->addSpacing(8);
     horizontalLayout->addLayout(vlayout);
     this->setLayout(horizontalLayout);
+}
+
+FcitxConfigFileDesc *FcitxCheckBoxSettingsItem::getConfigDesc(char *filename)
+{
+    ConfigDescSet *desc = nullptr;
+    //HASH_FIND_STR(m_configDescSet, filename, desc);
+    if (!desc) {
+        FILE * tmpfp = FcitxXDGGetFileWithPrefix("configdesc", filename, "r", nullptr);
+        if (tmpfp) {
+            desc = static_cast<ConfigDescSet *>(malloc(sizeof(ConfigDescSet))) ;
+            memset(desc, 0 , sizeof(ConfigDescSet));
+            desc->filename = strdup(filename);
+            desc->cfdesc = FcitxConfigParseConfigFileDescFp(tmpfp);
+            fclose(tmpfp);
+
+           // HASH_ADD_KEYPTR(hh, m_configDescSet, desc->filename, strlen(desc->filename), desc);
+        } else {
+            return nullptr;
+        }
+    }
+
+    return desc->cfdesc;
 }
 
 FcitxCheckBoxSettingsItem::~FcitxCheckBoxSettingsItem()

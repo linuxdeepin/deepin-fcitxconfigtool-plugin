@@ -200,7 +200,7 @@ bool IMConfig::setConfigFile(const QString &filePath, const QString &key, const 
 
     QString file;
     foreach (QString tmp, read.split("\n")) {
-        if (tmp.indexOf(key) != -1) {
+        if (tmp.split('=').first().remove('#') == (key)) {
             file += QString(key + "=" + value + "\n");
         } else {
             if (!tmp.isEmpty())

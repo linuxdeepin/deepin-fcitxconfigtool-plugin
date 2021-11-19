@@ -48,7 +48,7 @@
         <description>default is CTRL_SHIFT</description>
     </key>
     <key name="shortcut-switch-first-im" type="s">
-            <default>""</default>
+            <default>"CTRL_SPACE"</default>
             <summary>switch to first im shortcut</summary>
             <description>only can input </description>
         </key>

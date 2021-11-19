@@ -124,8 +124,10 @@ void AdvancedSettingWidget::setupConfigUi()
     QStackedLayout *stackLayout = new QStackedLayout;
     stackLayout->setContentsMargins(0, 0, 0, 0);
     QWidget *globalSettingsWidget = new QWidget;
+    GSettingWatcher::instance()->bind(GSETTINGS_ADVANCESETTING_GLOBALCONFIG, globalSettingsWidget);
     globalSettingsWidget->setLayout(m_globalSettingsLayout);
     QWidget *addOnsWidget = new QWidget;
+    GSettingWatcher::instance()->bind(GSETTINGS_ADVANCESETTING_ADDONS, addOnsWidget);
     addOnsWidget->setLayout(m_addOnsLayout);
     stackLayout->addWidget(globalSettingsWidget);
     stackLayout->addWidget(addOnsWidget);
@@ -238,6 +240,7 @@ void AdvancedSettingWidget::createConfigOptionWidget(FcitxConfigGroupDesc* cgdes
 
     case T_Hotkey: {
         FcitxKeySettingsItem* item = new FcitxKeySettingsItem;
+        item->setMaximumWidth(150);
         item->enableSingleKey();
         item->setList(QString(codesc->rawDefaultValue).split(' ').first().split('_'));
         if(QString(codesc->rawDefaultValue).isEmpty()) {
@@ -250,7 +253,7 @@ void AdvancedSettingWidget::createConfigOptionWidget(FcitxConfigGroupDesc* cgdes
             item->setList(item->getKeyToStr().split("_"));
             sendReloadMessage();
         });
-    }
+    };
 
     break;
 
@@ -317,8 +320,6 @@ QWidget* AdvancedSettingWidget::createglobalSettingsUi()
             grouplabel->setFont(f);
             arrowButton *button =new arrowButton();
             QPixmap pmap = QIcon::fromTheme("dm_arrow").pixmap(QSize(12, 8));
-            //QMatrix matrix;
-            //matrix.rotate(180);
             button->setPixmap(pmap);
             button->setMaximumWidth(30);
             QHBoxLayout *hglayout = new QHBoxLayout;
@@ -346,11 +347,8 @@ QWidget* AdvancedSettingWidget::createglobalSettingsUi()
             content->setSizePolicy(policy);
             QVBoxLayout *vlayout = new QVBoxLayout;
             vlayout->setContentsMargins(0, 0, 0, 0);
-            vlayout->setSpacing(0);
             content->setLayout(vlayout);
-            QTimer::singleShot(10, this, [=](){
-                content->setHidden(true);
-            });
+            content->setHidden(true);
             connect(grouplabel, &arrowButton::pressed, this, [=](bool isHidden) {
                 content->setHidden(isHidden);
                 button->setContentHidden(!isHidden);
@@ -360,7 +358,6 @@ QWidget* AdvancedSettingWidget::createglobalSettingsUi()
                 } else {
                     matrix.rotate(0);
                 }
-
                 button->setPixmap(pmap.transformed(matrix, Qt::SmoothTransformation));
             });
             connect(button, &arrowButton::pressed, this, [=](bool isHidden) {
@@ -372,7 +369,6 @@ QWidget* AdvancedSettingWidget::createglobalSettingsUi()
                 } else {
                     matrix.rotate(0);
                 }
-
                 button->setPixmap(pmap.transformed(matrix, Qt::SmoothTransformation));
             });
             vgLayout->addWidget(content, Qt::AlignLeft);
@@ -390,7 +386,7 @@ QWidget* AdvancedSettingWidget::createglobalSettingsUi()
                     label->setOriginText(s);
                     QFont f;
                     f.setPixelSize(13);
-                    f.setWeight(QFont::DemiBold);
+                    //f.setWeight(QFont::DemiBold);
                     label->setFont(f);
                     label->setMinimumWidth(100);
                     if (!tooltip.isEmpty()) {
@@ -398,10 +394,16 @@ QWidget* AdvancedSettingWidget::createglobalSettingsUi()
                     }
                     FcitxGlobalSettingsItem *pitem = new FcitxGlobalSettingsItem;
                     itemList.append(pitem);
+                    pitem->setMinimumWidth(100);
                     pitem->setMaximumHeight(46);
                     QHBoxLayout *hlayout = new QHBoxLayout;
+                    if(codesc->type == T_Hotkey) {
+                        hlayout->setContentsMargins(10, 0, 0, 10);
+                    } else {
+                        hlayout->setContentsMargins(10, 5, 5, 10);
+                    }
                     hlayout->addWidget(label);
-                    hlayout->addWidget(inputWidget, Qt::AlignTop);
+                    hlayout->addWidget(inputWidget, Qt::AlignCenter);
                     pitem->setLayout(hlayout);
                     vlayout->addWidget(pitem);
                     if (argument) {
@@ -547,7 +549,7 @@ void SyncFilterFunc(FcitxGenericConfig* gconfig, FcitxConfigGroup *group, FcitxC
             FcitxHotkey* hotkey = static_cast<FcitxHotkey*>(value);
             FcitxKeySettingsItem* item = static_cast<FcitxKeySettingsItem*>(arg);
             item->setList(QString(hotkey->desc).split("_"));
-            if(QString(codesc->rawDefaultValue).isEmpty()) {
+            if(QString(hotkey->desc).isEmpty()) {
                 item->setList(QString(QObject::tr("None")).split('_'));
             }
         }
