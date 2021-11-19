@@ -19,6 +19,40 @@
     },
     {
       "key": {
+        "uuid": "5e8feca3_e83bbc8e",
+        "filename": "src/widgets/keysettingsitem.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-11-19T06:39:30Z",
+      "side": 1,
+      "message": "(style) Condition \u0027!desc\u0027 is always tru",
+      "revId": "70303cf97d40b517829a1caacd371c20e8cc3d58",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2de01214_39aa3680",
+        "filename": "src/widgets/keysettingsitem.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 588,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-11-19T06:39:30Z",
+      "side": 1,
+      "message": "\u003e [/tmp/16373039665650.423820513446837/changeCache/src/widgets/keysettingsitem.cpp:590]: (style) Variable \u0027color\u0027 is reassigned a value before the old one has been used",
+      "revId": "70303cf97d40b517829a1caacd371c20e8cc3d58",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "eb2ef7c2_6017c703",
         "filename": "src/widgets/keysettingsitem.h",
         "patchSetId": 1
@@ -36,6 +70,40 @@
     },
     {
       "key": {
+        "uuid": "1c89ae3c_3c5a130b",
+        "filename": "src/widgets/keysettingsitem.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-11-19T06:39:30Z",
+      "side": 1,
+      "message": "(style) Class \u0027FcitxGlobalSettingsItem\u0027 has a constructor with 1 argument that is not explicit",
+      "revId": "70303cf97d40b517829a1caacd371c20e8cc3d58",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "80c4a710_4a2cb03a",
+        "filename": "src/widgets/keysettingsitem.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-11-19T06:39:30Z",
+      "side": 1,
+      "message": "(style) Class \u0027PushLable\u0027 has a constructor with 1 argument that is not explicit",
+      "revId": "70303cf97d40b517829a1caacd371c20e8cc3d58",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cf07ab6c_a6e0ff78",
         "filename": "src/window/advancedsettingwidget.cpp",
         "patchSetId": 1
@@ -47,6 +115,23 @@
       "writtenOn": "2021-11-19T06:39:29Z",
       "side": 1,
       "message": "注释行数: 1; 改动行数(修改和新增): 14; 注释率: 7.1%",
+      "revId": "70303cf97d40b517829a1caacd371c20e8cc3d58",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "20105633_10940b99",
+        "filename": "src/window/advancedsettingwidget.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-11-19T06:39:30Z",
+      "side": 1,
+      "message": "\u003e [/tmp/16373039665650.423820513446837/changeCache/src/window/advancedsettingwidget.cpp:387]: (style) Local variable f shadows outer variabl",
       "revId": "70303cf97d40b517829a1caacd371c20e8cc3d58",
       "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
       "unresolved": true
