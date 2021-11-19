@@ -19,6 +19,40 @@
     },
     {
       "key": {
+        "uuid": "f57c9372_81691f68",
+        "filename": "src/widgets/keysettingsitem.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 485,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-11-19T08:16:27Z",
+      "side": 1,
+      "message": "(style) Condition \u0027!desc\u0027 is always tru",
+      "revId": "820b8aa445555fcf195271f147b331e1222509bd",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e96b8424_9f611ff3",
+        "filename": "src/widgets/keysettingsitem.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 585,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-11-19T08:16:27Z",
+      "side": 1,
+      "message": "\u003e [/tmp/16373097849990.9183518734326712/changeCache/src/widgets/keysettingsitem.cpp:587]: (style) Variable \u0027color\u0027 is reassigned a value before the old one has been used",
+      "revId": "820b8aa445555fcf195271f147b331e1222509bd",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a446ed6a_1f9ecc5d",
         "filename": "src/widgets/settingsitem.cpp",
         "patchSetId": 1
@@ -47,6 +81,23 @@
       "writtenOn": "2021-11-19T08:16:26Z",
       "side": 1,
       "message": "注释行数: 0; 改动行数(修改和新增): 1; 注释率: 0.0%",
+      "revId": "820b8aa445555fcf195271f147b331e1222509bd",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1b8c5d9c_d5e90d1d",
+        "filename": "src/window/advancedsettingwidget.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-11-19T08:16:27Z",
+      "side": 1,
+      "message": "\u003e [/tmp/16373097849990.9183518734326712/changeCache/src/window/advancedsettingwidget.cpp:388]: (style) Local variable f shadows outer variabl",
       "revId": "820b8aa445555fcf195271f147b331e1222509bd",
       "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
       "unresolved": true
