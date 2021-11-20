@@ -16,6 +16,23 @@
       "revId": "3c7583125a2bf509f1fe0c2711e350c53c6fdad3",
       "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0d24c03b_975a38ca",
+        "filename": "src/window/advancedsettingwidget.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-11-20T10:40:40Z",
+      "side": 1,
+      "message": "\u003e [/tmp/16374048386060.3622647192053797/changeCache/src/window/advancedsettingwidget.cpp:447]: (style) Local variable f shadows outer variabl",
+      "revId": "3c7583125a2bf509f1fe0c2711e350c53c6fdad3",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
     }
   ]
 }
