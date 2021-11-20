@@ -37,6 +37,7 @@
 #include <QLineEdit>
 #include <QMatrix>
 #include <QTimer>
+#include <QGSettings>
 #include <DButtonBox>
 #include <DPushButton>
 #include <DSwitchButton>
@@ -127,7 +128,7 @@ void AdvancedSettingWidget::setupConfigUi()
     GSettingWatcher::instance()->bind(GSETTINGS_ADVANCESETTING_GLOBALCONFIG, globalSettingsWidget);
     globalSettingsWidget->setLayout(m_globalSettingsLayout);
     QWidget *addOnsWidget = new QWidget;
-    GSettingWatcher::instance()->bind(GSETTINGS_ADVANCESETTING_ADDONS, addOnsWidget);
+    //GSettingWatcher::instance()->bind(GSETTINGS_ADVANCESETTING_ADDONS, addOnsWidget);
     addOnsWidget->setLayout(m_addOnsLayout);
     stackLayout->addWidget(globalSettingsWidget);
     stackLayout->addWidget(addOnsWidget);
@@ -323,19 +324,77 @@ QWidget* AdvancedSettingWidget::createglobalSettingsUi()
             button->setPixmap(pmap);
             button->setMaximumWidth(30);
             QHBoxLayout *hglayout = new QHBoxLayout;
+            QGSettings *gsetting = new QGSettings("com.deepin.fcitx-config", QByteArray(), this);
             if(QString(cgdesc->groupName) == "Hotkey") {
+                QString value = gsetting->get(GSETTINGS_GLOBALCONFIG_SHORTCUT).toString();
+                if ("Enabled" == value) {
+                    grouplabel->setEnabled(true);
+                    button->setEnabled(true);
+                } else if ("Disabled" == value) {
+                    grouplabel->setEnabled(false);
+                    button->setEnabled(false);
+                }
+                grouplabel->setVisible("Hidden" != value);
+                button->setVisible("Hidden" != value);
+
                 GSettingWatcher::instance()->bind(GSETTINGS_GLOBALCONFIG_SHORTCUT, grouplabel);
                 GSettingWatcher::instance()->bind(GSETTINGS_GLOBALCONFIG_SHORTCUT, button);
             } else if(QString(cgdesc->groupName) == "Program") {
+                QString value = gsetting->get(GSETTINGS_GLOBALCONFIG_PROGRAM).toString();
+                if ("Enabled" == value) {
+                    grouplabel->setEnabled(true);
+                    button->setEnabled(true);
+                } else if ("Disabled" == value) {
+                    grouplabel->setEnabled(false);
+                    button->setEnabled(false);
+                }
+                grouplabel->setVisible("Hidden" != value);
+                button->setVisible("Hidden" != value);
+
                 GSettingWatcher::instance()->bind(GSETTINGS_GLOBALCONFIG_PROGRAM, grouplabel);
                 GSettingWatcher::instance()->bind(GSETTINGS_GLOBALCONFIG_PROGRAM, button);
             } else if(QString(cgdesc->groupName) == "Output") {
+                QString value = gsetting->get(GSETTINGS_GLOBALCONFIG_OUTPUT).toString();
+                if ("Enabled" == value) {
+                    grouplabel->setEnabled(true);
+                    button->setEnabled(true);
+                } else if ("Disabled" == value) {
+                    grouplabel->setEnabled(false);
+                    button->setEnabled(false);
+                }
+                grouplabel->setVisible("Hidden" != value);
+                button->setVisible("Hidden" != value);
+
                 GSettingWatcher::instance()->bind(GSETTINGS_GLOBALCONFIG_OUTPUT, grouplabel);
                 GSettingWatcher::instance()->bind(GSETTINGS_GLOBALCONFIG_OUTPUT, button);
             } else if(QString(cgdesc->groupName) == "Appearance") {
+                QString value = gsetting->get(GSETTINGS_GLOBALCONFIG_APPEARANCE).toString();
+                if ("Enabled" == value) {
+                    grouplabel->setEnabled(true);
+                    button->setEnabled(true);
+                } else if ("Disabled" == value) {
+                    grouplabel->setEnabled(false);
+                    button->setEnabled(false);
+                }
+                grouplabel->setVisible("Hidden" != value);
+                button->setVisible("Hidden" != value);
+
                 GSettingWatcher::instance()->bind(GSETTINGS_GLOBALCONFIG_APPEARANCE, grouplabel);
                 GSettingWatcher::instance()->bind(GSETTINGS_GLOBALCONFIG_APPEARANCE, button);
             }
+            QString value = gsetting->get(GSETTINGS_ADVANCESETTING_GLOBALCONFIG).toString();
+            if ("Enabled" == value) {
+                grouplabel->setEnabled(true);
+                button->setEnabled(true);
+            } else if ("Disabled" == value) {
+                grouplabel->setEnabled(false);
+                button->setEnabled(false);
+            }
+            grouplabel->setVisible("Hidden" != value);
+            button->setVisible("Hidden" != value);
+            GSettingWatcher::instance()->bind(GSETTINGS_ADVANCESETTING_GLOBALCONFIG, grouplabel);
+            GSettingWatcher::instance()->bind(GSETTINGS_ADVANCESETTING_GLOBALCONFIG, button);
+
             hglayout->addSpacing(10);
             hglayout->addWidget(grouplabel);
             hglayout->addWidget(button, Qt::AlignRight);
