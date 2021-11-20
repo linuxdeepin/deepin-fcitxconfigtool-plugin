@@ -4,17 +4,17 @@
 <context>
     <name>Fcitx::AdvancedSettingWidget</name>
     <message>
-        <location filename="../src/window/advancedsettingwidget.cpp" line="103"/>
+        <location filename="../src/window/advancedsettingwidget.cpp" line="105"/>
         <source>Global Config</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/advancedsettingwidget.cpp" line="105"/>
+        <location filename="../src/window/advancedsettingwidget.cpp" line="108"/>
         <source>Add-ons</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/advancedsettingwidget.cpp" line="236"/>
+        <location filename="../src/window/advancedsettingwidget.cpp" line="247"/>
         <source>None</source>
         <translation type="unfinished">Aucun</translation>
     </message>
@@ -57,29 +57,29 @@
 <context>
     <name>IMAddWindow</name>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="61"/>
+        <location filename="../src/window/imaddwindow.cpp" line="62"/>
         <source>Add Input Method</source>
         <translation>Ajouter une méthode de saisie</translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="69"/>
+        <location filename="../src/window/imaddwindow.cpp" line="70"/>
         <source>Search</source>
         <translation>Rechercher</translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="78"/>
+        <location filename="../src/window/imaddwindow.cpp" line="79"/>
         <source>Find more in App Store</source>
         <translation>En savoir plus sur l&apos;App Store</translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="84"/>
         <location filename="../src/window/imaddwindow.cpp" line="85"/>
+        <location filename="../src/window/imaddwindow.cpp" line="86"/>
         <source>Add</source>
         <translation>Ajouter</translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="86"/>
         <location filename="../src/window/imaddwindow.cpp" line="87"/>
+        <location filename="../src/window/imaddwindow.cpp" line="88"/>
         <source>Cancel</source>
         <translation>Annuler</translation>
     </message>
@@ -153,8 +153,8 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../src/window/advancedsettingwidget.cpp" line="529"/>
-        <location filename="../src/window/advancedsettingwidget.cpp" line="590"/>
+        <location filename="../src/window/advancedsettingwidget.cpp" line="554"/>
+        <location filename="../src/window/advancedsettingwidget.cpp" line="615"/>
         <source>None</source>
         <translation type="unfinished">Aucun</translation>
     </message>
@@ -184,7 +184,7 @@
 <context>
     <name>dcc_fcitx_configtool::widgets::FcitxCheckBoxSettingsItem</name>
     <message>
-        <location filename="../src/widgets/keysettingsitem.cpp" line="447"/>
+        <location filename="../src/widgets/keysettingsitem.cpp" line="450"/>
         <source>Configure</source>
         <translation type="unfinished"></translation>
     </message>
@@ -192,13 +192,13 @@
 <context>
     <name>dcc_fcitx_configtool::widgets::FcitxKeyLabelWidget</name>
     <message>
-        <location filename="../src/widgets/keysettingsitem.cpp" line="45"/>
-        <location filename="../src/widgets/keysettingsitem.cpp" line="168"/>
+        <location filename="../src/widgets/keysettingsitem.cpp" line="46"/>
+        <location filename="../src/widgets/keysettingsitem.cpp" line="165"/>
         <source>None</source>
         <translation type="unfinished">Aucun</translation>
     </message>
     <message>
-        <location filename="../src/widgets/keysettingsitem.cpp" line="51"/>
+        <location filename="../src/widgets/keysettingsitem.cpp" line="52"/>
         <source>Enter a new shortcut</source>
         <translation type="unfinished">Entrez un nouveau raccourci</translation>
     </message>

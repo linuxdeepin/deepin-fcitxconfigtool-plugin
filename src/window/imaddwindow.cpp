@@ -28,6 +28,7 @@
 #include <DCommandLinkButton>
 #include <DSearchEdit>
 #include <DFontSizeManager>
+#include <DDBusSender>
 #include <QProcess>
 #include <QTimer>
 
@@ -145,6 +146,12 @@ void IMAddWindow::onAddIM()
 
 void IMAddWindow::onOpenStore()
 {
-    QProcess::startDetached("sh -c deepin-app-store");
-    QProcess::startDetached("sh -c deepin-home-appstore-client");
+//    QProcess::startDetached("sh -c deepin-app-store");
+//    QProcess::startDetached("sh -c deepin-home-appstore-client");
+
+    DDBusSender().service("com.home.appstore.client")
+            .interface("com.home.appstore.client")
+            .path("/com/home/appstore/client")
+            .method("newInstence")
+            .call();
 }

@@ -4,17 +4,17 @@
 <context>
     <name>Fcitx::AdvancedSettingWidget</name>
     <message>
-        <location filename="../src/window/advancedsettingwidget.cpp" line="103"/>
+        <location filename="../src/window/advancedsettingwidget.cpp" line="105"/>
         <source>Global Config</source>
         <translation>Yleinen määritys</translation>
     </message>
     <message>
-        <location filename="../src/window/advancedsettingwidget.cpp" line="105"/>
+        <location filename="../src/window/advancedsettingwidget.cpp" line="108"/>
         <source>Add-ons</source>
         <translation>Lisäosat</translation>
     </message>
     <message>
-        <location filename="../src/window/advancedsettingwidget.cpp" line="236"/>
+        <location filename="../src/window/advancedsettingwidget.cpp" line="247"/>
         <source>None</source>
         <translation>Ei mitään</translation>
     </message>
@@ -46,29 +46,29 @@
 <context>
     <name>IMAddWindow</name>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="61"/>
+        <location filename="../src/window/imaddwindow.cpp" line="62"/>
         <source>Add Input Method</source>
         <translation>Lisää kirjoitustapa</translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="69"/>
+        <location filename="../src/window/imaddwindow.cpp" line="70"/>
         <source>Search</source>
         <translation>Etsi</translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="78"/>
+        <location filename="../src/window/imaddwindow.cpp" line="79"/>
         <source>Find more in App Store</source>
         <translation>Etsi lisää App Storen kautta</translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="84"/>
         <location filename="../src/window/imaddwindow.cpp" line="85"/>
+        <location filename="../src/window/imaddwindow.cpp" line="86"/>
         <source>Add</source>
         <translation>Lisää</translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="86"/>
         <location filename="../src/window/imaddwindow.cpp" line="87"/>
+        <location filename="../src/window/imaddwindow.cpp" line="88"/>
         <source>Cancel</source>
         <translation>Peruuta</translation>
     </message>
@@ -114,8 +114,8 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../src/window/advancedsettingwidget.cpp" line="529"/>
-        <location filename="../src/window/advancedsettingwidget.cpp" line="590"/>
+        <location filename="../src/window/advancedsettingwidget.cpp" line="554"/>
+        <location filename="../src/window/advancedsettingwidget.cpp" line="615"/>
         <source>None</source>
         <translation type="unfinished"></translation>
     </message>
@@ -123,7 +123,7 @@
 <context>
     <name>dcc_fcitx_configtool::widgets::FcitxCheckBoxSettingsItem</name>
     <message>
-        <location filename="../src/widgets/keysettingsitem.cpp" line="447"/>
+        <location filename="../src/widgets/keysettingsitem.cpp" line="450"/>
         <source>Configure</source>
         <translation>Määritä</translation>
     </message>
@@ -131,13 +131,13 @@
 <context>
     <name>dcc_fcitx_configtool::widgets::FcitxKeyLabelWidget</name>
     <message>
-        <location filename="../src/widgets/keysettingsitem.cpp" line="45"/>
-        <location filename="../src/widgets/keysettingsitem.cpp" line="168"/>
+        <location filename="../src/widgets/keysettingsitem.cpp" line="46"/>
+        <location filename="../src/widgets/keysettingsitem.cpp" line="165"/>
         <source>None</source>
         <translation>Mitään</translation>
     </message>
     <message>
-        <location filename="../src/widgets/keysettingsitem.cpp" line="51"/>
+        <location filename="../src/widgets/keysettingsitem.cpp" line="52"/>
         <source>Enter a new shortcut</source>
         <translation>Tee uusi pikanäppäin</translation>
     </message>
