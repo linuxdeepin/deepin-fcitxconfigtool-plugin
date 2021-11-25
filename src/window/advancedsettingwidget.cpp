@@ -458,14 +458,16 @@ QWidget* AdvancedSettingWidget::createglobalSettingsUi()
                     pitem->setMaximumHeight(46);
                     QHBoxLayout *hlayout = new QHBoxLayout;
                     if(codesc->type == T_Hotkey) {
+                        label->setAlignment( Qt::AlignBottom);
                         hlayout->setContentsMargins(10, 0, 0, 10);
                     } else {
                         hlayout->setContentsMargins(10, 5, 5, 10);
                     }
-                    hlayout->addWidget(label);
+                    hlayout->addWidget(label, Qt::AlignBottom);
                     hlayout->addWidget(inputWidget, Qt::AlignCenter);
                     pitem->setLayout(hlayout);
                     vlayout->addWidget(pitem);
+                    vlayout->addSpacing(-5);
                     if (argument) {
                         m_config->bind(cgdesc->groupName, codesc->optionName, SyncFilterFunc, argument);
                     }
@@ -474,7 +476,6 @@ QWidget* AdvancedSettingWidget::createglobalSettingsUi()
             }
             itemList.first()->setIndex(0);
             itemList.last()->setIndex(-1);
-
         }
     } while(0);
 

@@ -47,11 +47,21 @@
         <summary>switch im shortcut</summary>
         <description>default is CTRL_SHIFT</description>
     </key>
+    <key name="shortcut-switch-im-content" enum="com.deepin.fcitx-config.StatusMode">
+        <default>'Enabled'</default>
+        <summary></summary>
+        <description>default is Enabled</description>
+    </key>
     <key name="shortcut-switch-first-im" type="s">
             <default>"CTRL_SPACE"</default>
             <summary>switch to first im shortcut</summary>
             <description>only can input </description>
-        </key>
+    </key>
+    <key name="shortcut-switch-first-im-content" enum="com.deepin.fcitx-config.StatusMode">
+        <default>'Enabled'</default>
+        <summary></summary>
+        <description>default is Enabled</description>
+    </key>
     <key name="advanced-setting" enum="com.deepin.fcitx-config.StatusMode">
         <default>'Enabled'</default>
         <summary></summary>

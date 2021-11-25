@@ -93,9 +93,9 @@ void IMSettingWindow::initUI()
     subLayout->setSpacing(0);
 
     //滑动窗口
-    FcitxContentWidget *scrollArea = new FcitxContentWidget(this);
+    FcitxContentWidget* scrollArea = new FcitxContentWidget(this);
 
-    QWidget *scrollAreaWidgetContents = new QWidget(scrollArea);
+    QWidget* scrollAreaWidgetContents = new QWidget(scrollArea);
     QVBoxLayout *scrollAreaLayout = new QVBoxLayout(scrollAreaWidgetContents);
     scrollAreaLayout->setContentsMargins(10, 0, 10, 0);
     scrollAreaLayout->setSpacing(0);
@@ -112,14 +112,11 @@ void IMSettingWindow::initUI()
     m_shortcutGroup = new FcitxSettingsGroup();
     m_shortcutGroup->setSpacing(5);
 
-
     m_imSwitchCbox = new FcitxComBoboxSettingsItem(tr("Switch input methods"), {"CTRL_SHIFT", "ALT_SHIFT", "CTRL_SUPER", "ALT_SUPER"});
-    m_imSwitchCbox->addBackground();
     GSettingWatcher::instance()->bind(GSETTINGS_SHORTCUT_SWITCHIM, m_imSwitchCbox);
     m_imSwitchCbox->comboBox()->setAccessibleName("Switch input methods");
 
     m_defaultIMKey = new FcitxKeySettingsItem(tr("Switch to the first input method"));
-    m_defaultIMKey->addBackground();
     GSettingWatcher::instance()->bind(GSETTINGS_SHORTCUT_SWITCHTOFIRST, m_defaultIMKey);
     m_resetBtn = new DCommandLinkButton(tr("Restore Defaults"), this);
     GSettingWatcher::instance()->bind(GSETTINGS_SHORTCUT_RESTORE, m_resetBtn);
@@ -151,12 +148,15 @@ void IMSettingWindow::initUI()
     scrollAreaLayout->addLayout(m_shortcutLayout);
     scrollAreaLayout->addSpacing(10);
     scrollAreaLayout->addWidget(m_shortcutGroup);
-    scrollAreaLayout->addSpacing(40);
+    //scrollAreaLayout->addSpacing(40);
+    scrollAreaLayout->addStretch(1);
     scrollAreaLayout->addWidget(m_advSetKey);
-    scrollAreaLayout->addStretch();
+    scrollAreaLayout->addSpacing(100);
+    //scrollAreaLayout->addStretch();
 
     //添加界面按钮
     m_addIMBtn = new DFloatingButton(DStyle::SP_IncreaseElement, this);
+    m_addIMBtn->setMaximumHeight(50);
     GSettingWatcher::instance()->bind(GSETTINGS_ADD_IM, m_addIMBtn);
     QHBoxLayout *headLayout = new QHBoxLayout(this);
     headLayout->setMargin(0);
@@ -166,9 +166,9 @@ void IMSettingWindow::initUI()
     headLayout->addItem(new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum));
 
     //添加至主界面内
-    subLayout->addWidget(scrollArea);
-    subLayout->addSpacing(17);
-    subLayout->addStretch();
+    subLayout->addWidget(scrollArea, 50);
+    //subLayout->addSpacing(17);
+    //subLayout->addStretch();
     subLayout->addLayout(headLayout);
 
     readConfig();
@@ -317,6 +317,8 @@ void IMSettingWindow::onCurIMChanged(const FcitxQtInputMethodItemList &list)
         tmp->editSwitch(IMModel::instance()->isEdit());
         m_IMListGroup->appendItem(tmp);
     }
+
+    m_IMListGroup->adjustSize();
 }
 
 void IMSettingWindow::onItemUp(const FcitxQtInputMethodItem &item)
