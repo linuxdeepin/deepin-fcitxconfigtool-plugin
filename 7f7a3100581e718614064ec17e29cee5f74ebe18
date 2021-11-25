@@ -36,6 +36,23 @@
     },
     {
       "key": {
+        "uuid": "7d285683_759efb45",
+        "filename": "src/window/advancedsettingwidget.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-11-25T05:43:23Z",
+      "side": 1,
+      "message": "\u003e [/tmp/16378190012200.5404397840396028/changeCache/src/window/advancedsettingwidget.cpp:447]: (style) Local variable f shadows outer variabl",
+      "revId": "7f7a3100581e718614064ec17e29cee5f74ebe18",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "28fe8493_7b5cb158",
         "filename": "src/window/imsettingwindow.cpp",
         "patchSetId": 1
