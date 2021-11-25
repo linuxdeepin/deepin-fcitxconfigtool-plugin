@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a62d3a2f_68a4a6a8",
+        "filename": "src/window/advancedsettingwidget.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-11-25T06:39:03Z",
+      "side": 1,
+      "message": "注释行数: 37; 改动行数(修改和新增): 39; 注释率: 94.9%",
+      "revId": "ce5a867d2167d7daf57ba61b96c601e130b719a3",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    }
+  ]
+}
