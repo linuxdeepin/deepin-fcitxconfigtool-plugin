@@ -115,6 +115,42 @@ private:
     FcitxKeyLabelWidget *m_keyWidget {nullptr};
 };
 
+class FcitxHotKeySettingsItem : public FcitxSettingsItem
+{
+    Q_OBJECT
+public:
+    FcitxHotKeySettingsItem(const QString &text = "", const QStringList &list = {}, QFrame *parent = nullptr);
+    void setKeyId(const QString &id);
+    void setList(const QStringList &list);
+    QString getKeyToStr() { return m_keyWidget->getKeyToStr(); }
+    void setEnableEdit(bool flag);
+    QString getLabelText();
+    void setText(const QString &text);
+    /**
+     * @brief 设置是否可以输入单个按键
+     */
+    void enableSingleKey();
+
+signals:
+    void editedFinish();
+    void shortCutError(const QString &curName, const QStringList &list, QString &name);
+
+public slots:
+    void doShortCutError(const QStringList &list, QString &name);
+
+protected:
+    void resizeEvent(QResizeEvent *event);
+
+private:
+    void updateSize();
+
+private:
+    FcitxShortenLabel *m_label {nullptr};
+    QHBoxLayout *m_hLayout {nullptr};
+    FcitxKeyLabelWidget *m_keyWidget {nullptr};
+};
+
+
 class FcitxComBoboxSettingsItem : public FcitxSettingsItem
 {
     Q_OBJECT

@@ -240,7 +240,7 @@ void AdvancedSettingWidget::createConfigOptionWidget(FcitxConfigGroupDesc* cgdes
     break;
 
     case T_Hotkey: {
-        FcitxKeySettingsItem* item = new FcitxKeySettingsItem;
+        FcitxHotKeySettingsItem* item = new FcitxHotKeySettingsItem;
         item->setMaximumWidth(150);
         item->enableSingleKey();
         item->setList(QString(codesc->rawDefaultValue).split(' ').first().split('_'));
@@ -248,7 +248,7 @@ void AdvancedSettingWidget::createConfigOptionWidget(FcitxConfigGroupDesc* cgdes
             item->setList(QString(tr("None")).split('_'));
         }
         inputWidget = item;
-        connect(item, &FcitxKeySettingsItem::editedFinish, [ = ]() {
+        connect(item, &FcitxHotKeySettingsItem::editedFinish, [ = ]() {
             QString str = item->getKeyToStr();
             IMConfig::setIMvalue(codesc->optionName, item->getKeyToStr());
             item->setList(item->getKeyToStr().split("_"));
@@ -463,7 +463,7 @@ QWidget* AdvancedSettingWidget::createglobalSettingsUi()
                     } else {
                         hlayout->setContentsMargins(10, 5, 5, 10);
                     }
-                    hlayout->addWidget(label, Qt::AlignBottom);
+                    hlayout->addWidget(label, Qt::AlignVCenter);
                     hlayout->addWidget(inputWidget, Qt::AlignCenter);
                     pitem->setLayout(hlayout);
                     vlayout->addWidget(pitem);
@@ -608,7 +608,7 @@ void SyncFilterFunc(FcitxGenericConfig* gconfig, FcitxConfigGroup *group, FcitxC
 
         case T_Hotkey: {
             FcitxHotkey* hotkey = static_cast<FcitxHotkey*>(value);
-            FcitxKeySettingsItem* item = static_cast<FcitxKeySettingsItem*>(arg);
+            FcitxHotKeySettingsItem* item = static_cast<FcitxHotKeySettingsItem*>(arg);
             item->setList(QString(hotkey->desc).split("_"));
             if(QString(hotkey->desc).isEmpty()) {
                 item->setList(QString(QObject::tr("None")).split('_'));
@@ -668,7 +668,7 @@ void SyncFilterFunc(FcitxGenericConfig* gconfig, FcitxConfigGroup *group, FcitxC
         break;
 
         case T_Hotkey: {
-            FcitxKeySettingsItem* item = static_cast<FcitxKeySettingsItem*>(arg);
+            FcitxHotKeySettingsItem* item = static_cast<FcitxHotKeySettingsItem*>(arg);
             FcitxHotkey* hotkey = static_cast<FcitxHotkey*>(value);
             item->setList(QString(hotkey->desc).split("_"));
             if(QString(codesc->rawDefaultValue).isEmpty()) {

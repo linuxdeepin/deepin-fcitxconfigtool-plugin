@@ -417,6 +417,76 @@ void FcitxKeySettingsItem::updateSize()
     }
 }
 
+FcitxHotKeySettingsItem::FcitxHotKeySettingsItem(const QString &text, const QStringList &list, QFrame *parent)
+    : FcitxSettingsItem(parent)
+{
+    m_label = new FcitxShortenLabel(text, this);
+    m_keyWidget = new FcitxKeyLabelWidget(list, parent);
+    m_hLayout = new QHBoxLayout(this);
+    m_hLayout->setContentsMargins(10, 0, 10, 0);
+    m_hLayout->addWidget(m_label);
+    m_hLayout->addWidget(m_keyWidget);
+    m_hLayout->setAlignment(m_label, Qt::AlignLeft);
+    m_hLayout->addWidget(m_keyWidget, 0, Qt::AlignVCenter | Qt::AlignRight);
+    setFixedHeight(48);
+    setAccessibleName(text);
+    setLayout(m_hLayout);
+    connect(m_keyWidget, &FcitxKeyLabelWidget::editedFinish, this, &FcitxHotKeySettingsItem::editedFinish);
+    connect(m_keyWidget, &FcitxKeyLabelWidget::shortCutError, this, &FcitxHotKeySettingsItem::doShortCutError);
+}
+
+void FcitxHotKeySettingsItem::setText(const QString &text)
+{
+    m_label->setShortenText(text);
+}
+
+void FcitxHotKeySettingsItem::enableSingleKey()
+{
+    m_keyWidget->enableSingleKey();
+}
+
+QString FcitxHotKeySettingsItem::getLabelText()
+{
+    return m_label->text();
+}
+
+void FcitxHotKeySettingsItem::setEnableEdit(bool flag)
+{
+    m_keyWidget->setEnableEdit(flag);
+}
+
+void FcitxHotKeySettingsItem::setKeyId(const QString &id)
+{
+    m_keyWidget->setKeyId(id);
+}
+
+void FcitxHotKeySettingsItem::setList(const QStringList &list)
+{
+    m_keyWidget->setList(list);
+}
+
+void FcitxHotKeySettingsItem::resizeEvent(QResizeEvent *event)
+{
+    updateSize();
+    FcitxSettingsItem::resizeEvent(event);
+}
+
+void FcitxHotKeySettingsItem::doShortCutError(const QStringList &list, QString &name)
+{
+    emit FcitxHotKeySettingsItem::shortCutError(m_label->text(), list, name);
+}
+
+void FcitxHotKeySettingsItem::updateSize()
+{
+    int v = width() - m_keyWidget->width() - 32;
+    int titleWidth = publisherFunc::fontSize(m_label->text());
+    if (titleWidth <= v) {
+        m_label->setFixedWidth(titleWidth);
+    } else {
+        m_label->setFixedWidth(v);
+    }
+}
+
 FcitxComBoboxSettingsItem::FcitxComBoboxSettingsItem(const QString &text, const QStringList &list, QFrame *parent)
     : FcitxSettingsItem(parent)
 {
