@@ -21,6 +21,7 @@
 #include "immodel.h"
 #include "fcitxInterface/global.h"
 #include "publisher/publisherdef.h"
+#include "widgets/imactivityitem.h"
 #include "imconfig.h"
 #include <QApplication>
 #include <QProcess>

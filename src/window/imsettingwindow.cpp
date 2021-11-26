@@ -148,11 +148,11 @@ void IMSettingWindow::initUI()
     scrollAreaLayout->addLayout(m_shortcutLayout);
     scrollAreaLayout->addSpacing(10);
     scrollAreaLayout->addWidget(m_shortcutGroup);
-    //scrollAreaLayout->addSpacing(40);
+    scrollAreaLayout->addSpacing(40);
     scrollAreaLayout->addStretch(1);
     scrollAreaLayout->addWidget(m_advSetKey);
     scrollAreaLayout->addSpacing(100);
-    //scrollAreaLayout->addStretch();
+    scrollAreaLayout->addStretch(1);
 
     //添加界面按钮
     m_addIMBtn = new DFloatingButton(DStyle::SP_IncreaseElement, this);
@@ -215,7 +215,7 @@ void IMSettingWindow::initConnect()
 
     connect(m_advSetKey, &QAbstractButton::clicked, [ = ]() {
         AdvancedSettingWidget *p = new AdvancedSettingWidget();
-        //p->show();
+        p->show();
         emit requestNextPage(p);
     });
     connect(IMModel::instance(), &IMModel::curIMListChanaged, this, &IMSettingWindow::onCurIMChanged);
@@ -316,6 +316,7 @@ void IMSettingWindow::onCurIMChanged(const FcitxQtInputMethodItemList &list)
         connect(tmp, &FcitxIMActivityItem::deleteBtnClicked, this, &IMSettingWindow::onItemDelete);
         tmp->editSwitch(IMModel::instance()->isEdit());
         m_IMListGroup->appendItem(tmp);
+        tmp->repaint();
     }
 
     m_IMListGroup->adjustSize();

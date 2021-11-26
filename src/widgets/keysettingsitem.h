@@ -91,6 +91,10 @@ public:
      * @brief 设置是否可以输入单个按键
      */
     void enableSingleKey();
+
+protected:
+    void paintEvent(QPaintEvent *event) override;
+
 signals:
     void editedFinish();
     void shortCutError(const QString &curName, const QStringList &list, QString &name);
@@ -100,7 +104,7 @@ public slots:
 
 protected:
     void resizeEvent(QResizeEvent *event);
-    void paintEvent(QPaintEvent *event);
+    //void paintEvent(QPaintEvent *event);
 
 private:
     void updateSize();
@@ -116,10 +120,11 @@ class FcitxComBoboxSettingsItem : public FcitxSettingsItem
     Q_OBJECT
 public:
     FcitxComBoboxSettingsItem(const QString &text, const QStringList &list = {}, QFrame *parent = nullptr);
-    virtual ~FcitxComBoboxSettingsItem();
+    virtual ~FcitxComBoboxSettingsItem() override;
     QComboBox *comboBox() { return m_combox; }
     QString getLabelText();
-
+protected:
+    void paintEvent(QPaintEvent *event) override;
 private:
     QHBoxLayout *m_mainLayout {nullptr};
     QComboBox *m_combox {nullptr};

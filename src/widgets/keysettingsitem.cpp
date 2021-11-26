@@ -333,6 +333,42 @@ void FcitxKeySettingsItem::enableSingleKey()
     m_keyWidget->enableSingleKey();
 }
 
+void FcitxKeySettingsItem::paintEvent(QPaintEvent *event)
+{
+    QPainter painter( this);
+    const int radius = 8;
+    QRect paintRect = this->rect();
+    QPainterPath path;
+    path.moveTo(paintRect.bottomRight() - QPoint(0, radius));
+    path.lineTo(paintRect.topRight() + QPoint(0, radius));
+    path.arcTo(QRect(QPoint(paintRect.topRight() - QPoint(radius * 2, 0)),
+                     QSize(radius * 2, radius * 2)), 0, 90);
+    path.lineTo(paintRect.topLeft() + QPoint(radius, 0));
+    path.arcTo(QRect(QPoint(paintRect.topLeft()), QSize(radius * 2, radius * 2)), 90, 90);
+    path.lineTo(paintRect.bottomLeft() - QPoint(0, radius));
+    path.arcTo(QRect(QPoint(paintRect.bottomLeft() - QPoint(0, radius * 2)),
+                     QSize(radius * 2, radius * 2)), 180, 90);
+    path.lineTo(paintRect.bottomLeft() + QPoint(radius, 0));
+    path.arcTo(QRect(QPoint(paintRect.bottomRight() - QPoint(radius * 2, radius * 2)),
+                     QSize(radius * 2, radius * 2)), 270, 90);
+
+
+    DPalette p;
+    QColor color = DGuiApplicationHelper::instance()->applicationPalette().frameBorder().color();
+    if(DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::DarkType) {
+        color = QColor("#323232");
+        color.setAlpha(230);
+    } else {
+        color = DGuiApplicationHelper::instance()->applicationPalette().frameBorder().color();
+    }
+    if(isDraged()) {
+        color = DGuiApplicationHelper::instance()->applicationPalette().light().color();
+        color.setAlpha(80);
+    }
+    painter.fillPath(path, color);
+    return FcitxSettingsItem::paintEvent(event);
+}
+
 QString FcitxKeySettingsItem::getLabelText()
 {
     return m_label->text();
@@ -359,11 +395,11 @@ void FcitxKeySettingsItem::resizeEvent(QResizeEvent *event)
     FcitxSettingsItem::resizeEvent(event);
 }
 
-void FcitxKeySettingsItem::paintEvent(QPaintEvent *event)
-{
-    updateSize();
-    FcitxSettingsItem::paintEvent(event);
-}
+//void FcitxKeySettingsItem::paintEvent(QPaintEvent *event)
+//{
+//    updateSize();
+//    FcitxSettingsItem::paintEvent(event);
+//}
 
 void FcitxKeySettingsItem::doShortCutError(const QStringList &list, QString &name)
 {
@@ -400,6 +436,42 @@ FcitxComBoboxSettingsItem::FcitxComBoboxSettingsItem(const QString &text, const 
 QString FcitxComBoboxSettingsItem::getLabelText()
 {
     return m_label->text();
+}
+
+void FcitxComBoboxSettingsItem::paintEvent(QPaintEvent *event)
+{
+    QPainter painter( this);
+    const int radius = 8;
+    QRect paintRect = this->rect();
+    QPainterPath path;
+    path.moveTo(paintRect.bottomRight() - QPoint(0, radius));
+    path.lineTo(paintRect.topRight() + QPoint(0, radius));
+    path.arcTo(QRect(QPoint(paintRect.topRight() - QPoint(radius * 2, 0)),
+                     QSize(radius * 2, radius * 2)), 0, 90);
+    path.lineTo(paintRect.topLeft() + QPoint(radius, 0));
+    path.arcTo(QRect(QPoint(paintRect.topLeft()), QSize(radius * 2, radius * 2)), 90, 90);
+    path.lineTo(paintRect.bottomLeft() - QPoint(0, radius));
+    path.arcTo(QRect(QPoint(paintRect.bottomLeft() - QPoint(0, radius * 2)),
+                     QSize(radius * 2, radius * 2)), 180, 90);
+    path.lineTo(paintRect.bottomLeft() + QPoint(radius, 0));
+    path.arcTo(QRect(QPoint(paintRect.bottomRight() - QPoint(radius * 2, radius * 2)),
+                     QSize(radius * 2, radius * 2)), 270, 90);
+
+
+    DPalette p;
+    QColor color = DGuiApplicationHelper::instance()->applicationPalette().frameBorder().color();
+    if(DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::DarkType) {
+        color = QColor("#323232");
+        color.setAlpha(230);
+    } else {
+        color = DGuiApplicationHelper::instance()->applicationPalette().frameBorder().color();
+    }
+    if(isDraged()) {
+        color = DGuiApplicationHelper::instance()->applicationPalette().light().color();
+        color.setAlpha(80);
+    }
+    painter.fillPath(path, color);
+    return FcitxSettingsItem::paintEvent(event);
 }
 
 FcitxComBoboxSettingsItem::~FcitxComBoboxSettingsItem()

@@ -53,7 +53,7 @@ public:
         otherItem = 1
     };
     FcitxIMActivityItem(FcitxQtInputMethodItem item, itemPosition index, QWidget *parent = nullptr);
-    ~FcitxIMActivityItem();
+    ~FcitxIMActivityItem() override;
     void editSwitch(const bool &flag);
     void setSelectStatus(const bool &flag);
     void setIndex(itemPosition i) {m_index = i;}

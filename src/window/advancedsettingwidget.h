@@ -47,8 +47,8 @@ class DummyConfig;
 class Global;
 class AddonSelector;
 /**
- * @class DeleteItemThread
- * @brief
+ * @class AdvancedSettingWidget
+ * @brief 高级设置界面
  */
 class AdvancedSettingWidget : public QWidget
 {
@@ -65,13 +65,42 @@ public:
     virtual ~AdvancedSettingWidget();
     DummyConfig* config() { return m_config; }
 private:
+    /**
+     *@brief 创建全局设置界面
+     *@return 全局设置界面指针
+     */
     QWidget* createglobalSettingsUi();
+
+    /**
+     *@brief 创建附加组件界面
+     *@return 附加组件界面指针
+     */
     QWidget* createAddOnsUi();
+
+    /**
+     *@brief 创建界面元素
+     */
     void setupConfigUi();
+
+    /**
+     *@brief 创建界面元素
+     */
     void createConfigOptionWidget(FcitxConfigGroupDesc* cgdesc, FcitxConfigOptionDesc* codesc, QString& label, QString& tooltip, QWidget*& inputWidget, void*& newarg);
+
+    /**
+     *@brief 读取配置文件
+     *@param name: 文件名称
+     */
     void getConfigDesc(const QString &name);
+
+    /**
+     *@brief 界面设置项改变，发送重新加载消息
+     */
     void sendReloadMessage();
 private slots:
+    /**
+     *@brief 界面风格改变
+     */
     void onPalettetypechanged();
 
 private:
@@ -93,17 +122,32 @@ private:
     bool m_isSelfSend {false};
 };
 
+/**
+ * @class arrowButton
+ * @brief 高级设置界面的箭头按键
+ */
 class arrowButton : public QLabel
 {
     Q_OBJECT
 public:
     explicit arrowButton(QWidget *parent = nullptr);
+
+    /**
+     *@brief 设置界面是否隐藏
+     */
     void setContentHidden(bool hide);
+
+    /**
+     *@brief 设置文字，现实不全自动加tooltip
+     */
     void setOriginText(const QString& text);
 protected:
     void mousePressEvent(QMouseEvent *ev) override;
     void resizeEvent(QResizeEvent *event) override;
 signals:
+    /**
+     *@brief 按下信号
+     */
     void pressed(bool isHidden);
 private:
     bool m_hide{false};
