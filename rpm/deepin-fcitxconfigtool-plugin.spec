@@ -11,7 +11,6 @@ Release:		1%{?dist}
 License:		GPLv2+
 URL:			https://fcitx-im.org/wiki/Fcitx
 Source0:		%{name}-%{version}.tar.xz
-Patch0000:      0001-fix-3.patch
 BuildRequires:		gcc-c++
 BuildRequires:		pango-devel, dbus-devel
 %if 0%{?rhel} < 8
