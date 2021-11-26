@@ -142,8 +142,10 @@ void IMWindow::initConnect()
     connect(m_shortcutKeyWindow, &ShortcutKeyWindow::popSettingsWindow, func);
 
     connect(m_settingWindow, &IMSettingWindow::popIMAddWindow, [=]() {
+        emit m_addWindow->sigStartLoadIMList();//弹出时加载输入法
         m_stackedWidget->setCurrentIndex(PopIMAddWindow);
         m_addWindow->updateUI();
+
     });
 
     connect(m_settingWindow, &IMSettingWindow::popShortKeyListWindow, [=](const QString &curName, const QStringList &list, QString &name) {
@@ -182,4 +184,5 @@ void IMWindow::initConnect()
         });
     */
 
+    
 }

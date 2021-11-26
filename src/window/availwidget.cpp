@@ -28,7 +28,6 @@
 #include "fcitxInterface/global.h"
 #include "fcitxInterface/i18n.h"
 #include <QVBoxLayout>
-
 using namespace Fcitx;
 using namespace dcc_fcitx_configtool::widgets;
 bool operator==(const FcitxQtInputMethodItem &item, const FcitxQtInputMethodItem &item2);
@@ -77,7 +76,7 @@ AvailWidget::AvailWidget(QWidget *parent)
     : QWidget(parent)
 {
     initUI();
-    onUpdateUI(IMModel::instance()->getAvailIMList());
+    //onUpdateUI(IMModel::instance()->getAvailIMList());
     initConnect();
 }
 
@@ -122,6 +121,7 @@ void AvailWidget::initConnect()
 
 void AvailWidget::onUpdateUI(FcitxQtInputMethodItemList IMlist)
 {
+    QApplication::setOverrideCursor(QCursor(Qt::WaitCursor));
     if (!Global::instance()->inputMethodProxy()) {
         m_allIMGroup->clear(); //清空group
         m_searchIMGroup->clear();
@@ -208,8 +208,9 @@ void AvailWidget::onUpdateUI(FcitxQtInputMethodItemList IMlist)
             createIMSttings(m_searchIMGroup, *it2);
         }
     }
-}
+    QApplication::restoreOverrideCursor();
 
+}
 void AvailWidget::clearItemStatus()
 {
     m_selectItem = FcitxQtInputMethodItem();
@@ -248,4 +249,24 @@ void AvailWidget::onSearchIM(const QString &str)
         m_allIMGroup->hide();
         clearItemStatusAndFilter(m_searchIMGroup, true);
     }
+}
+void AvailWidget::slotUpdateAvailIMList()
+{
+    const FcitxQtInputMethodItemList & IMlist  = IMModel::instance()->getAvailIMList();
+    onUpdateUI(IMlist);
+
+}
+void AvailWidget::loadIMList()
+{
+    QThread* thread = new QThread(this);
+    connect(thread, &QThread::finished, [=]()
+    {
+       thread->deleteLater();
+    });
+     connect(thread, &QThread::started, [=]()
+     {
+        QMetaObject::invokeMethod(thread->parent(), "slotUpdateAvailIMList");
+        thread->quit();
+     });
+     thread->start();
 }

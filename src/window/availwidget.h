@@ -39,9 +39,12 @@ public:
     ~AvailWidget();
     void clearItemStatus(); //清除item选中状态
     const FcitxQtInputMethodItem &getSeleteIm() const { return m_selectItem; } //获取选中item
+    void loadIMList();//线程方式加载输入法列表
 public slots:
     void onSearchIM(const QString &str); //搜索输入法
     void onUpdateUI(FcitxQtInputMethodItemList); //更新界面
+public slots:
+    void slotUpdateAvailIMList();//加载输入法槽函数
 signals:
     void seleteIM(bool); //选中状态信号 true 选中 false 未选中
 

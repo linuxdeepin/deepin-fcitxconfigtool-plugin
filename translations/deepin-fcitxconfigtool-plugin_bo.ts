@@ -28,29 +28,29 @@
 <context>
     <name>IMAddWindow</name>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="61"/>
+        <location filename="../src/window/imaddwindow.cpp" line="62"/>
         <source>Add Input Method</source>
         <translation>ནང་འཇུག་བྱེད་སྟངས་སྣོན་པ།</translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="70"/>
+        <location filename="../src/window/imaddwindow.cpp" line="71"/>
         <source>Search</source>
         <translation>བཤེར་འཚོལ།</translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="81"/>
+        <location filename="../src/window/imaddwindow.cpp" line="82"/>
         <source>Find more in App Store</source>
         <translation>ཚོང་ཁང་དུ་ཕྱིན་ནས་ཕབ་ལེན་བྱེད་པ།</translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="89"/>
         <location filename="../src/window/imaddwindow.cpp" line="90"/>
+        <location filename="../src/window/imaddwindow.cpp" line="91"/>
         <source>Add</source>
         <translation>ཁ་སྣོན།</translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="91"/>
         <location filename="../src/window/imaddwindow.cpp" line="92"/>
+        <location filename="../src/window/imaddwindow.cpp" line="93"/>
         <source>Cancel</source>
         <translation>འདོར་བ།</translation>
     </message>

@@ -49,6 +49,8 @@ public:
 signals:
     void popSettingsWindow(); //弹出设置窗口
     void addIM(const FcitxQtInputMethodItem &item);
+    void pushItemAvailwidget(const FcitxQtInputMethodItem &);
+    void sigStartLoadIMList();
 
 private:
     void initUI(); //初始化界面
