@@ -31,7 +31,7 @@
 namespace dcc_fcitx_configtool {
 namespace widgets {
 
-class Fcitx_LargeLabel : public QLabel
+class FcitxLargeLabel : public QLabel
 {
     Q_OBJECT
 

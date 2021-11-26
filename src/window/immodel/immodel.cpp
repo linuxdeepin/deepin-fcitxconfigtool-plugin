@@ -63,7 +63,7 @@ void IMModel::setEdit(bool flag)
     m_isEdit = flag;
     if (!m_isEdit) {
         IMListSave();
-        emit availIMListChanged(m_availeIMList);
+        QTimer::singleShot(200, this, SLOT(addIMItem()));
     }
 }
 
@@ -75,8 +75,8 @@ int IMModel::getIMIndex(const QString &IM) const
 
     for (int i = 0; i < m_curIMList.count(); ++i) {
         if (m_curIMList[i].name() == IM
-            || m_curIMList[i].uniqueName().indexOf(IM, Qt::CaseInsensitive) != -1
-            || m_curIMList[i].langCode().indexOf(IM, Qt::CaseInsensitive) != -1) {
+                || m_curIMList[i].uniqueName().indexOf(IM, Qt::CaseInsensitive) != -1
+                || m_curIMList[i].langCode().indexOf(IM, Qt::CaseInsensitive) != -1) {
             return i;
         }
     }
@@ -151,8 +151,15 @@ void IMModel::onAddIMItem(FcitxQtInputMethodItem item)
     m_availeIMList.removeAll(item);
     item.setEnabled(true);
     m_curIMList.insert(1, item);
-    IMListSave();
+//    IMListSave();
     emit curIMListChanaged(m_curIMList);
+    QTimer::singleShot(200, this, SLOT(addIMItem()));
+
+}
+
+
+void IMModel::addIMItem()
+{
     emit availIMListChanged(m_availeIMList);
 }
 
@@ -197,18 +204,20 @@ void IMModel::onConfigShow(const FcitxQtInputMethodItem &item)
     QStringList closeSrcImList {
         "chineseime", "iflyime", "sogoupinyin", "baidupinyin"};
 
+    QProcess p;
     if (closeSrcImList.contains(imUniqueName)) {
-        QProcess::startDetached(IMConfig::IMPluginKey(imUniqueName));
+        p.start("sh -c " + IMConfig::IMPluginKey(imUniqueName));
     } else if (imUniqueName.compare("huayupy") == 0) {
-        QProcess::startDetached(IMConfig::IMPluginKey(imUniqueName) + " " + IMConfig::IMPluginPar(imUniqueName));
+        p.start("sh -c \"" + IMConfig::IMPluginKey(imUniqueName) + " " + IMConfig::IMPluginPar(imUniqueName)+"\"");
     } else {
         QDBusPendingReply<QString>
-            result = Global::instance()->inputMethodProxy()->GetIMAddon(imUniqueName);
+        result = Global::instance()->inputMethodProxy()->GetIMAddon(imUniqueName);
         result.waitForFinished();
         if (result.isValid()) {
-            QProcess::startDetached("fcitx-config-gtk3 " + result.value());
+            p.start("sh -c \"fcitx-config-gtk3 " + result.value()+"\"");
         }
     }
+    p.waitForFinished(10);
 }
 
 void IMModel::IMListSave()

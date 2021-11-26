@@ -33,10 +33,10 @@
 using namespace Dtk::Widget;
 namespace dcc_fcitx_configtool {
 namespace widgets {
-class Fcitx_KeyLabel : public DFrame
+class FcitxKeyLabel : public DFrame
 {
 public:
-    Fcitx_KeyLabel(QString text, QWidget *parent = nullptr)
+    FcitxKeyLabel(QString text, QWidget *parent = nullptr)
         : DFrame(parent)
     {
         label = new DLabel(text);

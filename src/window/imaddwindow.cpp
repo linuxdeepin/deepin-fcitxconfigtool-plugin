@@ -25,11 +25,12 @@
 #include "immodel/immodel.h"
 #include "widgets/titlelabel.h"
 #include "widgets/buttontuple.h"
-
 #include <DCommandLinkButton>
 #include <DSearchEdit>
 #include <DFontSizeManager>
 #include <QProcess>
+#include <QTimer>
+
 using namespace dcc_fcitx_configtool::widgets;
 
 IMAddWindow::IMAddWindow(QWidget *parent)
@@ -58,7 +59,7 @@ void IMAddWindow::initUI()
 
     //添加输入法标题
     QHBoxLayout *hlayout = new QHBoxLayout(this);
-    Fcitx_TitleLabel *title = new Fcitx_TitleLabel(tr("Add Input Method"), this);
+    FcitxTitleLabel *title = new FcitxTitleLabel(tr("Add Input Method"), this);
     DFontSizeManager::instance()->bind(title, DFontSizeManager::T3, QFont::DemiBold); // 设置label字体
     hlayout->addItem(new QSpacerItem(20, 20, QSizePolicy::Expanding, QSizePolicy::Minimum));
     hlayout->addWidget(title);
@@ -85,7 +86,7 @@ void IMAddWindow::initUI()
     hlayout3->addSpacing(10);
 
     //添加 取消按钮
-    m_buttonTuple = new Fcitx_ButtonTuple(Fcitx_ButtonTuple::Save);
+    m_buttonTuple = new FcitxButtonTuple(FcitxButtonTuple::Save);
     m_buttonTuple->rightButton()->setText(tr("Add"));
     m_buttonTuple->rightButton()->setAccessibleName(tr("Add"));
     m_buttonTuple->leftButton()->setText(tr("Cancel"));
@@ -119,12 +120,17 @@ void IMAddWindow::initConnect()
 
 void IMAddWindow::updateUI()
 {
+    QTimer::singleShot(1, this, [&]() {
+        m_availWidget->onUpdateUI();
+        m_availWidget->clearItemStatus();
+
+    });
+
     m_buttonTuple->rightButton()->setEnabled(false);
     m_buttonTuple->leftButton()->setDefault(true);
     if (!m_searchLEdit->text().isEmpty()) {
         m_searchLEdit->clear();
     }
-    m_availWidget->clearItemStatus();
 }
 
 void IMAddWindow::onAddIM()
@@ -135,5 +141,6 @@ void IMAddWindow::onAddIM()
 
 void IMAddWindow::onOpenStore()
 {
-    QProcess::startDetached("deepin-app-store");
+    QProcess::startDetached("sh -c deepin-app-store");
+    QProcess::startDetached("sh -c deepin-home-appstore-client");
 }

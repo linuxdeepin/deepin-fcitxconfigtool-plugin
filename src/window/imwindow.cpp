@@ -38,42 +38,42 @@
 QAccessibleInterface *accessibleFactory(const QString &classname, QObject *object)
 {
     QAccessibleInterface *interface = nullptr;
-
+#ifndef USE_GOOGLETEST
     if (object && object->isWidgetType()) {
-        if (classname == "QLabel")
-            interface = new AccessibleLabel(qobject_cast<QLabel *>(object));
+//        if (classname == "QLabel")
+//            interface = new AccessibleLabel(qobject_cast<QLabel *>(object));
 
-        if (classname == "QPushButton")
-            interface = new AccessiblePButton(qobject_cast<QPushButton *>(object));
+//        if (classname == "QPushButton")
+//            interface = new AccessiblePButton(qobject_cast<QPushButton *>(object));
 
-        if (classname == "QToolButton")
-            interface = new AccessibleTButton(qobject_cast<QToolButton *>(object));
+//        if (classname == "QToolButton")
+//            interface = new AccessibleTButton(qobject_cast<QToolButton *>(object));
 
-        if (classname == "QComboBox")
-            interface = new AccessibleComboBox(qobject_cast<QComboBox *>(object));
+//        if (classname == "QComboBox")
+//            interface = new AccessibleComboBox(qobject_cast<QComboBox *>(object));
 
-        if (classname == "Fcitx_KeyLabelWidget")
-            interface = new AccessibleKeyLabelWidget(qobject_cast<Fcitx_KeyLabelWidget *>(object));
+//        if (classname == "FcitxKeyLabelWidget")
+//            interface = new AccessibleKeyLabelWidget(qobject_cast<FcitxKeyLabelWidget *>(object));
 
-        if (classname == "Fcitx_KeySettingsItem")
-            interface = new AccessibleKeySettingsItem(qobject_cast<Fcitx_KeySettingsItem *>(object));
+//        if (classname == "FcitxKeySettingsItem")
+//            interface = new AccessibleKeySettingsItem(qobject_cast<FcitxKeySettingsItem *>(object));
 
-        if (classname == "Fcitx_ComBoboxSettingsItem")
-            interface = new AccessibleComBoboxSettingsItem(qobject_cast<Fcitx_ComBoboxSettingsItem *>(object));
+//        if (classname == "FcitxComBoboxSettingsItem")
+//            interface = new AccessibleComBoboxSettingsItem(qobject_cast<FcitxComBoboxSettingsItem *>(object));
 
-        if (classname == "DFloatingButton")
-            interface = new AccessibleDFloatingButton(qobject_cast<DFloatingButton *>(object));
+//        if (classname == "DFloatingButton")
+//            interface = new AccessibleDFloatingButton(qobject_cast<DFloatingButton *>(object));
 
-        if (classname == "DSearchEdit")
-            interface = new AccessibleDSearchEdit(qobject_cast<DSearchEdit *>(object));
+//        if (classname == "DSearchEdit")
+//            interface = new AccessibleDSearchEdit(qobject_cast<DSearchEdit *>(object));
 
-        if (classname == "DCommandLinkButton")
-            interface = new AccessibleDCommandLinkButton(qobject_cast<DCommandLinkButton *>(object));
+//        if (classname == "DCommandLinkButton")
+//            interface = new AccessibleDCommandLinkButton(qobject_cast<DCommandLinkButton *>(object));
 
-        if (classname == "Fcitx_TitleLabel")
-            interface = new AccessibleTitleLabel(qobject_cast<Fcitx_TitleLabel *>(object));
+//        if (classname == "FcitxTitleLabel")
+//            interface = new AccessibleTitleLabel(qobject_cast<FcitxTitleLabel *>(object));
     }
-
+#endif
     return interface;
 }
 
@@ -134,19 +134,19 @@ void IMWindow::initUI()
 
 void IMWindow::initConnect()
 {
-    auto func = [=]() {
+    auto func = [ = ]() {
         m_stackedWidget->setCurrentIndex(PopIMSettingWindow);
         m_settingWindow->updateUI();
     };
     connect(m_addWindow, &IMAddWindow::popSettingsWindow, func);
     connect(m_shortcutKeyWindow, &ShortcutKeyWindow::popSettingsWindow, func);
 
-    connect(m_settingWindow, &IMSettingWindow::popIMAddWindow, [=]() {
+    connect(m_settingWindow, &IMSettingWindow::popIMAddWindow, [ = ]() {
         m_stackedWidget->setCurrentIndex(PopIMAddWindow);
         m_addWindow->updateUI();
     });
 
-    connect(m_settingWindow, &IMSettingWindow::popShortKeyListWindow, [=](const QString &curName, const QStringList &list, QString &name) {
+    connect(m_settingWindow, &IMSettingWindow::popShortKeyListWindow, [ = ](const QString & curName, const QStringList & list, QString & name) {
         QString tmpString;
         for (const QString &key : list) {
             if (key != list.last()) {

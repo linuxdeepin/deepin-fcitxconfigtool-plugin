@@ -22,13 +22,14 @@
 #define AVAILWIDGET_H
 
 #include <QWidget>
-#include <QVBoxLayout>
 #include <fcitxqtinputmethoditem.h>
 namespace dcc_fcitx_configtool {
 namespace widgets {
-class Fcitx_SettingsGroup;
+class FcitxSettingsGroup;
 } // namespace widgets
 } // namespace dcc_fcitx_configtool
+class QVBoxLayout;
+
 QString languageName(const QString &langCode);
 
 class AvailWidget : public QWidget
@@ -37,21 +38,55 @@ class AvailWidget : public QWidget
 public:
     explicit AvailWidget(QWidget *parent = nullptr);
     ~AvailWidget();
-    void clearItemStatus(); //清除item选中状态
-    const FcitxQtInputMethodItem &getSeleteIm() const { return m_selectItem; } //获取选中item
+
+    /**
+     *  清除item选中状态
+     **/
+    void clearItemStatus();
+    /**
+     *  获取选中item
+     **/
+    const FcitxQtInputMethodItem &getSeleteIm() const { return m_selectItem; }
+
 public slots:
-    void onSearchIM(const QString &str); //搜索输入法
-    void onUpdateUI(FcitxQtInputMethodItemList); //更新界面
+    /**
+     *  搜索输入法
+     * @param const QString&
+     **/
+    void onSearchIM(const QString &);
+    /**
+     *  更新界面
+     * @param FcitxQtInputMethodItemList
+     **/
+    void onUpdateUI(FcitxQtInputMethodItemList);
+    /**
+     *  更新界面
+     **/
+    void onUpdateUI();
 signals:
-    void seleteIM(bool); //选中状态信号 true 选中 false 未选中
+    /**
+     *  选中状态信号
+     * @param true 选中 false 未选中
+     **/
+    void seleteIM(bool);
 
 private:
-    void initUI(); //初始化界面
-    void initConnect(); //初始化信号槽
-    void clearItemStatusAndFilter(dcc_fcitx_configtool::widgets::Fcitx_SettingsGroup *group, const bool &falg = false); //清除选中 清除过滤
+    /**
+     *  初始化界面
+     **/
+    void initUI();
+    /**
+     *  初始化信号槽
+     **/
+    void initConnect();
+    /**
+     *  清除选中,清除过滤
+     **/
+    void clearItemStatusAndFilter(dcc_fcitx_configtool::widgets::FcitxSettingsGroup *group, const bool &falg = false);
+
 private:
-    dcc_fcitx_configtool::widgets::Fcitx_SettingsGroup *m_allIMGroup {nullptr}; //可用输入法列表界面
-    dcc_fcitx_configtool::widgets::Fcitx_SettingsGroup *m_searchIMGroup {nullptr}; //搜索输入法列表界面
+    dcc_fcitx_configtool::widgets::FcitxSettingsGroup *m_allIMGroup {nullptr};//可用输入法列表界面
+    dcc_fcitx_configtool::widgets::FcitxSettingsGroup *m_searchIMGroup {nullptr};//搜索输入法列表界面
     FcitxQtInputMethodItem m_selectItem; //选中输入法
     FcitxQtInputMethodItemList m_allAvaiIMlList; //可用输入法列表
     QString m_searchStr; //当前搜索字符串

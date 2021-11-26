@@ -23,10 +23,11 @@
 
 #include <QVBoxLayout>
 #include <QWidget>
+#include <QProcess>
 #include <fcitxqtinputmethoditem.h>
 namespace dcc_fcitx_configtool {
 namespace widgets {
-class Fcitx_ButtonTuple;
+class FcitxButtonTuple;
 } // namespace widgets
 } // namespace dcc_fcitx_configtool
 
@@ -60,7 +61,7 @@ private:
     Dtk::Widget::DSearchEdit *m_searchLEdit {nullptr}; //搜索框
     AvailWidget *m_availWidget {nullptr}; //可用输入法列表窗口
     Dtk::Widget::DCommandLinkButton *m_storeBtn {nullptr}; //应用商店按钮
-    dcc_fcitx_configtool::widgets::Fcitx_ButtonTuple *m_buttonTuple {nullptr}; //取消/添加按钮
+    dcc_fcitx_configtool::widgets::FcitxButtonTuple *m_buttonTuple {nullptr}; //取消/添加按钮
     QVBoxLayout *m_mainLayout;
 };
 

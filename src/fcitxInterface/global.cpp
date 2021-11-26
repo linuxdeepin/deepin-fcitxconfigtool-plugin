@@ -61,8 +61,8 @@ Global::~Global()
     QHash<QString, FcitxConfigFileDesc *>::iterator iter;
 
     for (iter = m_hash->begin();
-         iter != m_hash->end();
-         iter++) {
+            iter != m_hash->end();
+            iter++) {
         FcitxConfigFreeConfigFileDesc(iter.value());
     }
 
@@ -127,14 +127,15 @@ QString Global::testWrapper(const QString &path) const
 {
     char *qtguiwrapper[] = {
         fcitx_utils_get_fcitx_path_with_filename("libdir", "fcitx/libexec/fcitx-qt5-gui-wrapper"),
-        fcitx_utils_get_fcitx_path_with_filename("libdir", "fcitx/libexec/fcitx-qt-gui-wrapper")};
+        fcitx_utils_get_fcitx_path_with_filename("libdir", "fcitx/libexec/fcitx-qt-gui-wrapper")
+    };
     QString wrapper;
     for (int i = 0; i < FCITX_ARRAY_SIZE(qtguiwrapper); i++) {
         if (qtguiwrapper[i]) {
             QStringList args;
             args << QLatin1String("--test");
             args << path;
-            int exit_status = QProcess::execute(QString::fromLocal8Bit(qtguiwrapper[i]), args);
+            int exit_status = QProcess::execute("sh -c " + QString::fromLocal8Bit(qtguiwrapper[i]), args);
             if (exit_status == 0) {
                 wrapper = QString::fromLatin1(qtguiwrapper[i]);
                 break;

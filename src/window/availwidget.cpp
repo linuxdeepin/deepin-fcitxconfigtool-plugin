@@ -77,8 +77,6 @@ AvailWidget::AvailWidget(QWidget *parent)
     : QWidget(parent)
 {
     initUI();
-    onUpdateUI(IMModel::instance()->getAvailIMList());
-    initConnect();
 }
 
 AvailWidget::~AvailWidget()
@@ -97,15 +95,15 @@ void AvailWidget::initUI()
     m_mainLayout->setMargin(0);
     m_mainLayout->setSpacing(0);
     //滑动窗口
-    Fcitx_ContentWidget *scrollArea = new Fcitx_ContentWidget(this);
+    FcitxContentWidget *scrollArea = new FcitxContentWidget(this);
     QWidget *scrollAreaWidgetContents = new QWidget(scrollArea);
     QVBoxLayout *scrollAreaLayout = new QVBoxLayout(scrollAreaWidgetContents);
     scrollAreaLayout->setSpacing(0);
     scrollArea->setContent(scrollAreaWidgetContents);
     scrollAreaWidgetContents->setLayout(scrollAreaLayout);
     //搜索输入法列表 可用输入法列表
-    m_allIMGroup = new Fcitx_SettingsGroup;
-    m_searchIMGroup = new Fcitx_SettingsGroup;
+    m_allIMGroup = new FcitxSettingsGroup;
+    m_searchIMGroup = new FcitxSettingsGroup;
     //控件添加至滑动窗口内
     scrollAreaLayout->addWidget(m_allIMGroup);
     scrollAreaLayout->addSpacing(10);
@@ -117,7 +115,13 @@ void AvailWidget::initUI()
 
 void AvailWidget::initConnect()
 {
-    connect(IMModel::instance(), &IMModel::availIMListChanged, this, &AvailWidget::onUpdateUI);
+    connect(IMModel::instance(), SIGNAL(availIMListChanged), this, SLOT(onUpdateUI));
+}
+
+void AvailWidget::onUpdateUI()
+{
+    initConnect();
+    onUpdateUI(IMModel::instance()->getAvailIMList());
 }
 
 void AvailWidget::onUpdateUI(FcitxQtInputMethodItemList IMlist)
@@ -173,9 +177,9 @@ void AvailWidget::onUpdateUI(FcitxQtInputMethodItemList IMlist)
     }
     //fcitx原有逻辑 不需要修改 __end
 
-    auto createIMSttings = [=](Fcitx_SettingsGroup *group, const FcitxQtInputMethodItem &imItem) {
-        Fcitx_IMSettingsItem *item = new Fcitx_IMSettingsItem();
-        connect(item, &Fcitx_IMSettingsItem::itemClicked, [=](Fcitx_IMSettingsItem *item) {
+    auto createIMSttings = [ = ](FcitxSettingsGroup * group, const FcitxQtInputMethodItem & imItem) {
+        FcitxIMSettingsItem *item = new FcitxIMSettingsItem();
+        connect(item, &FcitxIMSettingsItem::itemClicked, [ = ](FcitxIMSettingsItem * item) {
             m_selectItem = item->m_item;
             emit seleteIM(true);
         });
@@ -186,8 +190,8 @@ void AvailWidget::onUpdateUI(FcitxQtInputMethodItemList IMlist)
             item->setFilterStr(m_searchStr);
         }
         if (imItem.name() == m_selectItem.name()
-            && imItem.langCode() == m_selectItem.langCode()
-            && imItem.uniqueName() == m_selectItem.uniqueName()) {
+                && imItem.langCode() == m_selectItem.langCode()
+                && imItem.uniqueName() == m_selectItem.uniqueName()) {
             item->setItemSelected(true);
             emit seleteIM(true);
         }
@@ -198,11 +202,11 @@ void AvailWidget::onUpdateUI(FcitxQtInputMethodItemList IMlist)
     m_searchIMGroup->clear();
     //添加item
     for (auto it = tmpIM.rbegin(); it != tmpIM.rend(); ++it) {
-        Fcitx_SettingsHead *head = new Fcitx_SettingsHead();
+        FcitxSettingsHead *head = new FcitxSettingsHead();
         head->setEditEnable(false);
         head->setTitle(it->first);
         head->layout()->setContentsMargins(10, 0, 0, 0);
-        m_allIMGroup->appendItem(head, Fcitx_SettingsGroup::NoneBackground);
+        m_allIMGroup->appendItem(head, FcitxSettingsGroup::NoneBackground);
         for (auto it2 = it->second.begin(); it2 != it->second.end(); ++it2) {
             createIMSttings(m_allIMGroup, *it2);
             createIMSttings(m_searchIMGroup, *it2);
@@ -216,14 +220,14 @@ void AvailWidget::clearItemStatus()
     clearItemStatusAndFilter(m_allIMGroup, true);
 }
 
-void AvailWidget::clearItemStatusAndFilter(Fcitx_SettingsGroup *group, const bool &flag)
+void AvailWidget::clearItemStatusAndFilter(FcitxSettingsGroup *group, const bool &flag)
 {
     if (!group) {
         return;
     }
 
     for (int i = 0; i < group->itemCount(); ++i) {
-        Fcitx_IMSettingsItem *item = dynamic_cast<Fcitx_IMSettingsItem *>(group->getItem(i));
+        FcitxIMSettingsItem *item = dynamic_cast<FcitxIMSettingsItem *>(group->getItem(i));
         if (item) {
             item->setItemSelected(false);
             if (flag) {
