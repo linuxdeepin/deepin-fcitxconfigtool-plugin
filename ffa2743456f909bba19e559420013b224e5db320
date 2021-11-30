@@ -36,6 +36,23 @@
     },
     {
       "key": {
+        "uuid": "0cdd203f_e92a68ef",
+        "filename": "src/window/availwidget.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-11-30T07:10:20Z",
+      "side": 1,
+      "message": "\u003e [/tmp/16382562173220.1522528117890778/changeCache/src/window/availwidget.cpp:48]: (style) Local variable languageName shadows outer functio",
+      "revId": "ffa2743456f909bba19e559420013b224e5db320",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f2d5863b_1667b0ae",
         "filename": "src/window/imaddwindow.cpp",
         "patchSetId": 1
