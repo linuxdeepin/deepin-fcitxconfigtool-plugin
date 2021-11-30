@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2c3a92d1_04750697",
+        "filename": "src/window/availwidget.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-11-30T07:10:19Z",
+      "side": 1,
+      "message": "注释行数: 1; 改动行数(修改和新增): 23; 注释率: 4.3%",
+      "revId": "ffa2743456f909bba19e559420013b224e5db320",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e37e1b62_411beafd",
+        "filename": "src/window/availwidget.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-11-30T07:10:19Z",
+      "side": 1,
+      "message": "注释行数: 2; 改动行数(修改和新增): 3; 注释率: 66.7%",
+      "revId": "ffa2743456f909bba19e559420013b224e5db320",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f2d5863b_1667b0ae",
+        "filename": "src/window/imaddwindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-11-30T07:10:19Z",
+      "side": 1,
+      "message": "注释行数: 0; 改动行数(修改和新增): 3; 注释率: 0.0%",
+      "revId": "ffa2743456f909bba19e559420013b224e5db320",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "41cb25ca_f3914109",
+        "filename": "src/window/imaddwindow.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-11-30T07:10:19Z",
+      "side": 1,
+      "message": "注释行数: 0; 改动行数(修改和新增): 2; 注释率: 0.0%",
+      "revId": "ffa2743456f909bba19e559420013b224e5db320",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6549fd0a_6210f063",
+        "filename": "src/window/imwindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-11-30T07:10:19Z",
+      "side": 1,
+      "message": "注释行数: 1; 改动行数(修改和新增): 2; 注释率: 50.0%",
+      "revId": "ffa2743456f909bba19e559420013b224e5db320",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    }
+  ]
+}
