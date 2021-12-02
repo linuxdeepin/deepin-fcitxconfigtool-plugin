@@ -101,6 +101,7 @@ void FcitxSettingsGroup::insertItem(const int index, FcitxSettingsItem *item)
         FcitxIMActivityItem *pItem = dynamic_cast<FcitxIMActivityItem*>(item);
         if(pItem == nullptr) {
             item->addBackground();
+            m_layout->addSpacing(5);
         }
     }
 
@@ -134,7 +135,7 @@ void FcitxSettingsGroup::appendItem(FcitxSettingsItem *item, BackgroundStyle bgS
         //当SettingsItem 被加入　FcitxSettingsGroup　时，为其加入背景
         item->addBackground();
     }
-
+    m_layout->addSpacing(8);
     m_layout->insertWidget(m_layout->count(), item);
     item->installEventFilter(this);
 
@@ -155,10 +156,28 @@ void FcitxSettingsGroup::appendItem(FcitxSettingsItem *item, BackgroundStyle bgS
 
 void FcitxSettingsGroup::removeItem(FcitxSettingsItem *item)
 {
-    if (!item)
+    if (!item) {
         return;
+    }
     m_layout->removeWidget(item);
     item->removeEventFilter(this);
+
+    for (int index = 0; index < itemCount(); index++) {
+        FcitxSettingsItem* item = qobject_cast<FcitxSettingsItem *>(m_layout->itemAt(index)->widget());
+        FcitxIMActivityItem *pItem = dynamic_cast<FcitxIMActivityItem*>(item);
+        if(pItem != nullptr) {
+            if(index == 0) {
+                pItem->setIndex(FcitxIMActivityItem::firstItem);
+                if(itemCount() == 1) {
+                    pItem->setIndex(FcitxIMActivityItem::onlyoneItem);
+                }
+            } else if(index == itemCount() -1){
+                pItem->setIndex(FcitxIMActivityItem::lastItem);
+            } else {
+                pItem->setIndex(FcitxIMActivityItem::otherItem);
+            }
+        }
+    }
 }
 
 int FcitxSettingsGroup::indexOf(FcitxSettingsItem *item)
@@ -196,10 +215,12 @@ void FcitxSettingsGroup::clear()
     for (int i(index); i != count; ++i) {
         QLayoutItem *item = m_layout->takeAt(index);
         QWidget *w = item->widget();
+        if(w != nullptr) {
         w->removeEventFilter(this);
         w->setParent(nullptr);
-        delete item;
         w->deleteLater();
+        }
+        delete item;
     }
 }
 

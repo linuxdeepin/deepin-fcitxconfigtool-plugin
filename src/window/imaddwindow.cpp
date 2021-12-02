@@ -138,8 +138,8 @@ void IMAddWindow::updateUI()
 
 void IMAddWindow::onAddIM()
 {
-//    emit addIM(m_availWidget->getSeleteIm());
-//    emit popSettingsWindow();
+    emit addIM(m_availWidget->getSeleteIm());
+    emit popSettingsWindow();
 }
 
 void IMAddWindow::onOpenStore()
