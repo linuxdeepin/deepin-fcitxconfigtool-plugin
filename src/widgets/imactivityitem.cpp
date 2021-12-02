@@ -102,7 +102,7 @@ void FcitxIMActivityItem::paintEvent(QPaintEvent *event)
     const int radius = 8;
     QRect paintRect = this->rect();
     QPainterPath path;
-    if(m_index == firstItem || m_index == onlyoneItem) {
+    if(m_index == firstItem) {
         path.moveTo(paintRect.bottomRight());
         path.lineTo(paintRect.topRight() + QPoint(0, radius));
         path.arcTo(QRect(QPoint(paintRect.topRight() - QPoint(radius * 2, 0)),
@@ -111,7 +111,7 @@ void FcitxIMActivityItem::paintEvent(QPaintEvent *event)
         path.arcTo(QRect(QPoint(paintRect.topLeft()), QSize(radius * 2, radius * 2)), 90, 90);
         path.lineTo(paintRect.bottomLeft());
         path.lineTo(paintRect.bottomRight());
-    } if(m_index == lastItem || m_index == onlyoneItem) {
+    } if(m_index == lastItem) {
         path.moveTo(paintRect.bottomRight() - QPoint(0, radius));
         path.lineTo(paintRect.topRight());
         path.lineTo(paintRect.topLeft());
@@ -127,6 +127,19 @@ void FcitxIMActivityItem::paintEvent(QPaintEvent *event)
         path.lineTo(paintRect.topLeft());
         path.lineTo(paintRect.bottomLeft());
         path.lineTo(paintRect.bottomRight());
+    } if(m_index == onlyoneItem) {
+        path.moveTo(paintRect.bottomRight() - QPoint(0, radius));
+        path.lineTo(paintRect.topRight() + QPoint(0, radius));
+        path.arcTo(QRect(QPoint(paintRect.topRight() - QPoint(radius * 2, 0)),
+                         QSize(radius * 2, radius * 2)), 0, 90);
+        path.lineTo(paintRect.topLeft() + QPoint(radius, 0));
+        path.arcTo(QRect(QPoint(paintRect.topLeft()), QSize(radius * 2, radius * 2)), 90, 90);
+        path.lineTo(paintRect.bottomLeft() - QPoint(0, radius));
+        path.arcTo(QRect(QPoint(paintRect.bottomLeft() - QPoint(0, radius * 2)),
+                         QSize(radius * 2, radius * 2)), 180, 90);
+        path.lineTo(paintRect.bottomLeft() + QPoint(radius, 0));
+        path.arcTo(QRect(QPoint(paintRect.bottomRight() - QPoint(radius * 2, radius * 2)),
+                         QSize(radius * 2, radius * 2)), 270, 90);
     }
     if(m_isEnter) {
         QColor color = DGuiApplicationHelper::instance()->applicationPalette().light().color();
