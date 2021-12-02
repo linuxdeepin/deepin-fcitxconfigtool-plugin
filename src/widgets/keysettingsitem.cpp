@@ -64,6 +64,7 @@ void FcitxKeyLabelWidget::setKeyId(const QString &id)
 void FcitxKeyLabelWidget::setList(const QStringList &list)
 {
     m_curlist = list;
+    m_curlist.removeDuplicates();
     initLableList(m_curlist);
 }
 
@@ -147,7 +148,7 @@ bool FcitxKeyLabelWidget::eventFilter(QObject *watched, QEvent *event)
                 if (e->key() == Qt::Key_Delete || e->key() == Qt::Key_Backspace) {
                     func(m_curlist, tr("None"));
 
-                } else if (e->key() == Qt::Key_Control || e->key() == Qt::Key_Alt || e->key() == Qt::Key_Shift) {
+                } else if (e->key() == Qt::Key_Control || e->key() == Qt::Key_Alt) {
                     setFocus();
                     func(m_newlist, publisherFunc::getKeyValue(e->key()));
                 } else {
@@ -185,6 +186,7 @@ void FcitxKeyLabelWidget::keyReleaseEvent(QKeyEvent *event)
     if (!m_eidtFlag)
         return;
     if (m_newlist.count() < 2 || !checkNewKey(true)) {
+        m_curlist.removeDuplicates();
         initLableList(m_curlist);
     }
     setShortcutShow(true);
@@ -229,7 +231,6 @@ bool FcitxKeyLabelWidget::checkNewKey(bool isRelease)
 {
     QStringList list {publisherFunc::getKeyValue(Qt::Key_Control),
                       publisherFunc::getKeyValue(Qt::Key_Alt),
-                      publisherFunc::getKeyValue(Qt::Key_Shift),
                       publisherFunc::getKeyValue(Qt::Key_Super_L)};
 
     if (m_newlist.count() == 2) {

@@ -88,7 +88,7 @@ void AvailWidget::initUI()
 
 void AvailWidget::initConnect()
 {
-    connect(IMModel::instance(), SIGNAL(availIMListChanged), this, SLOT(onUpdateUI));
+    connect(IMModel::instance(), SIGNAL(availIMListChanged(FcitxQtInputMethodItemList)), this, SLOT(onUpdateUI(FcitxQtInputMethodItemList)));
 }
 
 void AvailWidget::onUpdateUI()

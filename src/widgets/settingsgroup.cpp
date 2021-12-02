@@ -157,10 +157,28 @@ void FcitxSettingsGroup::appendItem(FcitxSettingsItem *item, BackgroundStyle bgS
 
 void FcitxSettingsGroup::removeItem(FcitxSettingsItem *item)
 {
-    if (!item)
+    if (!item) {
         return;
+    }
     m_layout->removeWidget(item);
     item->removeEventFilter(this);
+
+    for (int index = 0; index < itemCount(); index++) {
+        FcitxSettingsItem* item = qobject_cast<FcitxSettingsItem *>(m_layout->itemAt(index)->widget());
+        FcitxIMActivityItem *pItem = dynamic_cast<FcitxIMActivityItem*>(item);
+        if(pItem != nullptr) {
+            if(index == 0) {
+                pItem->setIndex(FcitxIMActivityItem::firstItem);
+                if(itemCount() == 1) {
+                    pItem->setIndex(FcitxIMActivityItem::onlyoneItem);
+                }
+            } else if(index == itemCount() -1){
+                pItem->setIndex(FcitxIMActivityItem::lastItem);
+            } else {
+                pItem->setIndex(FcitxIMActivityItem::otherItem);
+            }
+        }
+    }
 }
 
 int FcitxSettingsGroup::indexOf(FcitxSettingsItem *item)
@@ -199,9 +217,15 @@ void FcitxSettingsGroup::clear()
         QLayoutItem *item = m_layout->takeAt(index);
         QWidget *w = item->widget();
         if(w != nullptr) {
+<<<<<<< HEAD
             w->removeEventFilter(this);
             w->setParent(nullptr);
             w->deleteLater();
+=======
+        w->removeEventFilter(this);
+        w->setParent(nullptr);
+        w->deleteLater();
+>>>>>>> ac01318... fix: 修改1042上已知的界面显示问题
         }
         delete item;
     }
