@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "cb5becbe_06f1eda6",
+        "filename": "src/widgets/imactivityitem.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-12-03T09:12:47Z",
+      "side": 1,
+      "message": "\u003e [/tmp/16385227650670.7009930219628787/changeCache/src/widgets/imactivityitem.cpp:154]: (style) Variable \u0027color\u0027 is reassigned a value before the old one has been used",
+      "revId": "d27474df8645c203c3a253884c686e70ded0c8d4",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0a53108d_93695372",
         "filename": "src/widgets/keysettingsitem.cpp",
         "patchSetId": 2
