@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "01e84965_14e73cc0",
+        "filename": "src/widgets/imactivityitem.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-12-03T09:10:47Z",
+      "side": 1,
+      "message": "\u003e [/tmp/16385226451690.32488554455495156/changeCache/src/widgets/imactivityitem.cpp:154]: (style) Variable \u0027color\u0027 is reassigned a value before the old one has been used",
+      "revId": "cbee81163d15def4a22f5f0a13c41a85d171f20d",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "be9eceb0_d9a32fe2",
         "filename": "src/widgets/keysettingsitem.cpp",
         "patchSetId": 1
@@ -47,6 +64,23 @@
       "writtenOn": "2021-12-03T09:10:47Z",
       "side": 1,
       "message": "注释行数: 0; 改动行数(修改和新增): 24; 注释率: 0.0%",
+      "revId": "cbee81163d15def4a22f5f0a13c41a85d171f20d",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "43977dec_c57cfe0b",
+        "filename": "src/widgets/settingsgroup.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-12-03T09:10:47Z",
+      "side": 1,
+      "message": "(error) The code contains unhandled character(s) (character code\u003d228). Neither unicode nor extended ascii is supported",
       "revId": "cbee81163d15def4a22f5f0a13c41a85d171f20d",
       "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
       "unresolved": true
