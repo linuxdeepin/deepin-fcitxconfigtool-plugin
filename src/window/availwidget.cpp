@@ -76,7 +76,10 @@ void AvailWidget::initUI()
     scrollAreaWidgetContents->setLayout(scrollAreaLayout);
     //搜索输入法列表 可用输入法列表
     m_allIMGroup = new FcitxSettingsGroup;
+    m_allIMGroup->setSpacing(10);
     m_searchIMGroup = new FcitxSettingsGroup;
+    m_searchIMGroup->setVerticalPolicy();
+    m_searchIMGroup->setSpacing(5);
     //控件添加至滑动窗口内
     scrollAreaLayout->addWidget(m_allIMGroup);
     scrollAreaLayout->addSpacing(10);
