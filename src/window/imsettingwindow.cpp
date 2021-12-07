@@ -110,7 +110,7 @@ void IMSettingWindow::initUI()
 
     //快捷键 切换输入法 切换虚拟键盘 切换至默认输入法
     m_shortcutGroup = new FcitxSettingsGroup();
-    m_shortcutGroup->setSpacing(5);
+    m_shortcutGroup->setSpacing(10);
 
     m_imSwitchCbox = new FcitxComBoboxSettingsItem(tr("Switch input methods"), {"CTRL_SHIFT", "ALT_SHIFT", "CTRL_SUPER", "ALT_SUPER"});
     GSettingWatcher::instance()->bind(GSETTINGS_SHORTCUT_SWITCHIM, m_imSwitchCbox);
@@ -318,7 +318,6 @@ void IMSettingWindow::onCurIMChanged(const FcitxQtInputMethodItemList &list)
         m_IMListGroup->appendItem(tmp);
         tmp->repaint();
     }
-
     m_IMListGroup->adjustSize();
 }
 
@@ -338,7 +337,6 @@ void IMSettingWindow::onItemDelete(const FcitxQtInputMethodItem &item)
     m_IMListGroup->removeItem(it);
     it->deleteLater();
     IMModel::instance()->onDeleteItem(item);
-//    emit availWidgetAdd(item);
 }
 
 //添加按钮点击

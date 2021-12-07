@@ -79,6 +79,7 @@ public:
     void clear();
     QVBoxLayout *getLayout() const { return m_layout; }
     void switchItem(int start, int end);
+    void setVerticalPolicy();
 protected:
     virtual void mouseMoveEvent(QMouseEvent *event) override;
     virtual void mousePressEvent(QMouseEvent *event) override;

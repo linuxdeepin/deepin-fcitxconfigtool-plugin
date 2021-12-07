@@ -47,9 +47,7 @@ FcitxSettingsGroup::FcitxSettingsGroup(QFrame *parent, BackgroundStyle bgStyle)
     , m_layout(new QVBoxLayout)
     , m_headerItem(nullptr)
 {
-
     m_layout->setContentsMargins(0, 0, 0, 0);
-
     QVBoxLayout *vLayout = m_layout;
     if (GroupBackground == bgStyle) {
         vLayout = new QVBoxLayout;
@@ -101,7 +99,7 @@ void FcitxSettingsGroup::insertItem(const int index, FcitxSettingsItem *item)
         FcitxIMActivityItem *pItem = dynamic_cast<FcitxIMActivityItem*>(item);
         if(pItem == nullptr) {
             item->addBackground();
-            m_layout->addSpacing(5);
+            //m_layout->addSpacing(5);
         }
     }
     m_layout->insertWidget(index, item, 1, Qt::AlignVCenter);
@@ -134,7 +132,7 @@ void FcitxSettingsGroup::appendItem(FcitxSettingsItem *item, BackgroundStyle bgS
         //当SettingsItem 被加入　FcitxSettingsGroup　时，为其加入背景
         item->addBackground();
     }
-    m_layout->addSpacing(8);
+    m_layout->addSpacing(5);
     m_layout->insertWidget(m_layout->count(), item, 8, Qt::AlignVCenter);
     item->installEventFilter(this);
 
@@ -252,6 +250,14 @@ void FcitxSettingsGroup::switchItem(int start, int end)
     }
 
     emit switchPosition(mCurrentItem->m_item, end);
+}
+
+void FcitxSettingsGroup::setVerticalPolicy()
+{
+    QSizePolicy policy;
+    policy.setVerticalPolicy(QSizePolicy::Fixed);
+    policy.setHorizontalPolicy(QSizePolicy::Expanding);
+    setSizePolicy(policy);
 }
 
 void FcitxSettingsGroup::mouseMoveEvent(QMouseEvent *event)
