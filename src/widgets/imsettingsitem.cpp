@@ -42,6 +42,7 @@ FcitxIMSettingsItem::FcitxIMSettingsItem(QString str, QFrame *parent)
     QIcon icon = DStyle::standardIcon(QApplication::style(), DStyle::SP_IndicatorChecked);
     m_labelIcon->setPixmap(icon.pixmap(QSize(20, 20)));
     m_labelIcon->setFixedWidth(20);
+    m_labelIcon->hide();
     m_layout->addWidget(m_labelText);
     m_layout->addWidget(m_labelIcon);
     this->setFixedHeight(40);
