@@ -35,11 +35,11 @@ class FcitxConfigPlugin : public QObject, public DCC_NAMESPACE::ModuleInterface
     Q_INTERFACES(DCC_NAMESPACE::ModuleInterface)
 
 public:
-    FcitxConfigPlugin() ;
+    FcitxConfigPlugin();
     ~FcitxConfigPlugin() override;
     void deleteImWindow();
 
-    virtual void preInitialize(bool sync = false);
+    virtual void preInitialize(bool sync = false, DCC_NAMESPACE::FrameProxyInterface::PushType = DCC_NAMESPACE::FrameProxyInterface::PushType::Normal) override;
     virtual void initialize() override;
     virtual const QString name() const override;
     virtual const QString displayName() const override;
@@ -55,7 +55,6 @@ public Q_SLOTS:
 private:
     QTranslator  m_translator;
     IMWindow *m_imWindow;
-
 };
 
 #endif // DEEPINAIASSITANTCONTROLPLUGIN_H

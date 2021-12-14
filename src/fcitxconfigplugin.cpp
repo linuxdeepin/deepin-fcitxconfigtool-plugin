@@ -39,7 +39,7 @@ FcitxConfigPlugin::~FcitxConfigPlugin()
     deleteImWindow();
 }
 
-void FcitxConfigPlugin::preInitialize(bool sync)
+void FcitxConfigPlugin::preInitialize(bool sync, DCC_NAMESPACE::FrameProxyInterface::PushType)
 {
     Q_UNUSED(sync);
     qDebug() << __FUNCTION__;
