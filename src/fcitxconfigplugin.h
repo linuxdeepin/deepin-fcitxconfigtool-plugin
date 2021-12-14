@@ -48,12 +48,12 @@ public:
     virtual QString path() const override;
     virtual QString follow() const override;
     virtual void deactive()override;
-
+    virtual void addChildPageTrans() const override;
 public Q_SLOTS:
     virtual void active() override;
 
 protected:
-    void initSearchData();
+    void initSearchData() override;
 private:
     QTranslator  m_translator;
     IMWindow *m_imWindow;

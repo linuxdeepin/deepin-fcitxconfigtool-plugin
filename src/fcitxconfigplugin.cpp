@@ -64,6 +64,20 @@ void FcitxConfigPlugin::deactive()
     deleteImWindow();
 }
 
+void FcitxConfigPlugin::addChildPageTrans() const
+{
+    if (m_frameProxy != nullptr) {
+        //defapp
+        m_frameProxy->addChildPageTrans("Webpage", tr("Webpage"));
+        m_frameProxy->addChildPageTrans("Mail", tr("Mail"));
+        m_frameProxy->addChildPageTrans("Text", tr("Text"));
+        m_frameProxy->addChildPageTrans("Music", tr("Music"));
+        m_frameProxy->addChildPageTrans("Video", tr("Video"));
+        m_frameProxy->addChildPageTrans("Picture", tr("Picture"));
+        m_frameProxy->addChildPageTrans("Terminal", tr("Terminal"));
+    }
+}
+
 void FcitxConfigPlugin::initialize()
 {
     qDebug() << __FUNCTION__ << QLocale::system().name();
