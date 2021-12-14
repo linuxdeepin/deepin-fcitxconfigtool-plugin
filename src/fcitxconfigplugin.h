@@ -52,6 +52,8 @@ public:
 public Q_SLOTS:
     virtual void active() override;
 
+protected:
+    void initSearchData();
 private:
     QTranslator  m_translator;
     IMWindow *m_imWindow;
