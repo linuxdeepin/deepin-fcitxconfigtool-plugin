@@ -29,6 +29,7 @@
 #include <QLabel>
 #include <QBrush>
 #include <QProcess>
+#include <QPainterPath>
 
 #include "fcitxInterface/global.h"
 #include "settingsgroup.h"
@@ -554,6 +555,7 @@ FcitxCheckBoxSettingsItem::FcitxCheckBoxSettingsItem(FcitxAddon *addon, QWidget 
     QHBoxLayout* horizontalLayout = new QHBoxLayout(this);
     horizontalLayout->setContentsMargins(0, 0, 0, 0);
     QCheckBox *checkbox = new QCheckBox();
+    checkbox->setAccessibleName(addon->name);
     checkbox->setMaximumWidth(20);
     horizontalLayout->addSpacing(10);
     horizontalLayout->addWidget(checkbox, Qt::AlignLeft);
