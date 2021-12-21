@@ -1,3 +1,8 @@
+deepin-fcitxconfigtool-plugin (4.2.41) unstable; urgency=medium
+
+  * 为了龙芯1050集成升一位版本号
+
+ -- Shijie Chen <chenshijie@uniontech.com>  Tue, 21 Dec 2021 15:55:00 +0800
 
 deepin-fcitxconfigtool-plugin (0.1.35) unstable; urgency=medium
 
