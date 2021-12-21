@@ -193,6 +193,7 @@ void AdvancedSettingWidget::createConfigOptionWidget(FcitxConfigGroupDesc* cgdes
 
     case T_Integer: {
         DSpinBox* spinbox = new DSpinBox(this);
+        spinbox->setAccessibleName(name.split('/').last());
         spinbox->setEnabledEmbedStyle(true);
         spinbox->setMinimumWidth(50);
         spinbox->setMaximum(codesc2->constrain.integerConstrain.max);
@@ -207,6 +208,7 @@ void AdvancedSettingWidget::createConfigOptionWidget(FcitxConfigGroupDesc* cgdes
 
     case T_Boolean: {
         DSwitchButton *pSwitchBtn = new DSwitchButton;
+        pSwitchBtn->setAccessibleName(name.split('/').last());
         if(QString(codesc->rawDefaultValue).contains("True")) {
            pSwitchBtn->setChecked(true);
         }
@@ -222,6 +224,7 @@ void AdvancedSettingWidget::createConfigOptionWidget(FcitxConfigGroupDesc* cgdes
         int i;
         FcitxConfigEnum *e = &codesc->configEnum;
         QComboBox* combobox = new QComboBox(this);
+        combobox->setAccessibleName(name.split('/').last());
         combobox->setMinimumWidth(150);
         combobox->setMaximumHeight(48);
         inputWidget = combobox;
@@ -241,6 +244,7 @@ void AdvancedSettingWidget::createConfigOptionWidget(FcitxConfigGroupDesc* cgdes
 
     case T_Hotkey: {
         FcitxHotKeySettingsItem* item = new FcitxHotKeySettingsItem;
+        item->setAccessibleName(name.split('/').last());
         item->setMaximumWidth(150);
         item->enableSingleKey();
         item->setList(QString(codesc->rawDefaultValue).split(' ').first().split('_'));
@@ -314,7 +318,7 @@ QWidget* AdvancedSettingWidget::createglobalSettingsUi()
         HASH_FOREACH(cgdesc, m_cfdesc->groupsDesc, FcitxConfigGroupDesc) {
             arrowButton* grouplabel = new arrowButton();
             grouplabel->setText(QString("%1").arg(QString::fromUtf8(dgettext(m_cfdesc->domain, cgdesc->groupName))));
-
+            grouplabel->setAccessibleName(cgdesc->groupName);
             QFont f;
             f.setPixelSize(17);
             f.setWeight(QFont::DemiBold);
@@ -463,7 +467,7 @@ QWidget* AdvancedSettingWidget::createglobalSettingsUi()
                     } else {
                         hlayout->setContentsMargins(10, 5, 5, 10);
                     }
-                    hlayout->addWidget(label, Qt::AlignVCenter);
+                    hlayout->addWidget(label);
                     hlayout->addWidget(inputWidget, Qt::AlignCenter);
                     pitem->setLayout(hlayout);
                     vlayout->addWidget(pitem);
