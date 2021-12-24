@@ -19,6 +19,74 @@
     },
     {
       "key": {
+        "uuid": "c895b80b_7cf64adc",
+        "filename": "src/widgets/keysettingsitem.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-12-24T05:37:29Z",
+      "side": 1,
+      "message": "\u003e [/tmp/16403242437000.7095252480489986/changeCache/src/widgets/keysettingsitem.cpp:360]: (style) Variable \u0027color\u0027 is reassigned a value before the old one has been used",
+      "revId": "7580887fe2178583d583d146154e478e90541b06",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b879e7ef_4f3f7212",
+        "filename": "src/widgets/keysettingsitem.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 533,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-12-24T05:37:29Z",
+      "side": 1,
+      "message": "\u003e [/tmp/16403242437000.7095252480489986/changeCache/src/widgets/keysettingsitem.cpp:535]: (style) Variable \u0027color\u0027 is reassigned a value before the old one has been used",
+      "revId": "7580887fe2178583d583d146154e478e90541b06",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "07a79bc0_2b0b11ba",
+        "filename": "src/widgets/keysettingsitem.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 630,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-12-24T05:37:29Z",
+      "side": 1,
+      "message": "(style) Condition \u0027!desc\u0027 is always tru",
+      "revId": "7580887fe2178583d583d146154e478e90541b06",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "da0c199c_8bc252ba",
+        "filename": "src/widgets/keysettingsitem.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 730,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-12-24T05:37:29Z",
+      "side": 1,
+      "message": "\u003e [/tmp/16403242437000.7095252480489986/changeCache/src/widgets/keysettingsitem.cpp:732]: (style) Variable \u0027color\u0027 is reassigned a value before the old one has been used",
+      "revId": "7580887fe2178583d583d146154e478e90541b06",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cb46c8dd_99ca57a0",
         "filename": "src/widgets/keysettingsitem.h",
         "patchSetId": 1
@@ -36,6 +104,40 @@
     },
     {
       "key": {
+        "uuid": "f0b49d64_f84e2afe",
+        "filename": "src/widgets/keysettingsitem.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-12-24T05:37:29Z",
+      "side": 1,
+      "message": "(style) Class \u0027FcitxGlobalSettingsItem\u0027 has a constructor with 1 argument that is not explicit",
+      "revId": "7580887fe2178583d583d146154e478e90541b06",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "46d55b3d_46ecf967",
+        "filename": "src/widgets/keysettingsitem.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-12-24T05:37:29Z",
+      "side": 1,
+      "message": "(style) Class \u0027PushLable\u0027 has a constructor with 1 argument that is not explicit",
+      "revId": "7580887fe2178583d583d146154e478e90541b06",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "717be978_a5deb6a5",
         "filename": "src/window/advancedsettingwidget.cpp",
         "patchSetId": 1
@@ -47,6 +149,40 @@
       "writtenOn": "2021-12-24T05:37:26Z",
       "side": 1,
       "message": "注释行数: 0; 改动行数(修改和新增): 14; 注释率: 0.0%",
+      "revId": "7580887fe2178583d583d146154e478e90541b06",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "84f4c335_785b640a",
+        "filename": "src/window/advancedsettingwidget.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-12-24T05:37:29Z",
+      "side": 1,
+      "message": "\u003e [/tmp/16403242437000.7095252480489986/changeCache/src/window/advancedsettingwidget.cpp:451]: (style) Local variable f shadows outer variabl",
+      "revId": "7580887fe2178583d583d146154e478e90541b06",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6b8b6291_d8ad986f",
+        "filename": "src/window/advancedsettingwidget.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 522,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-12-24T05:37:29Z",
+      "side": 1,
+      "message": "\u003e [/tmp/16403242437000.7095252480489986/changeCache/src/window/advancedsettingwidget.cpp:529]: (style) Local variable item shadows outer variabl",
       "revId": "7580887fe2178583d583d146154e478e90541b06",
       "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
       "unresolved": true
