@@ -34,6 +34,9 @@
 #include <fcitx-config/hotkey.h>
 #include <fcitx/addon.h>
 
+//self
+#include "fcitxInterface/dummyconfig.h"
+
 class QCheckBox;
 class QVBoxLayout;
 class QStandardItemModel;
@@ -45,9 +48,7 @@ namespace widgets {
 class FcitxCheckBoxSettingsItem;
 }
 }
-namespace Fcitx
-{
-class DummyConfig;
+namespace Fcitx {
 class Global;
 class AddonSelector;
 
@@ -66,21 +67,20 @@ class AdvancedSettingWidget : public QWidget
     };
 
 public:
-    explicit AdvancedSettingWidget(QWidget* parent = nullptr);
+    explicit AdvancedSettingWidget(QWidget *parent = nullptr);
     virtual ~AdvancedSettingWidget();
-    DummyConfig* config() { return m_config; }
 private:
     /**
      *@brief 创建全局设置界面
      *@return 全局设置界面指针
      */
-    QWidget* createglobalSettingsUi();
+    QWidget *createglobalSettingsUi();
 
     /**
      *@brief 创建附加组件界面
      *@return 附加组件界面指针
      */
-    QWidget* createAddOnsUi();
+    QWidget *createAddOnsUi();
 
     /**
      *@brief 创建界面元素
@@ -90,7 +90,7 @@ private:
     /**
      *@brief 创建界面元素
      */
-    void createConfigOptionWidget(FcitxConfigGroupDesc* cgdesc, FcitxConfigOptionDesc* codesc, QString& label, QString& tooltip, QWidget*& inputWidget, void*& newarg);
+    void createConfigOptionWidget(FcitxConfigGroupDesc *cgdesc, FcitxConfigOptionDesc *codesc, QString &label, QString &tooltip, QWidget *&inputWidget, void *&newarg);
 
     /**
      *@brief 读取配置文件
@@ -102,6 +102,12 @@ private:
      *@brief 界面设置项改变，发送重新加载消息
      */
     void sendReloadMessage();
+
+    /**
+     *@brief 加载配置文件，并刷新界面
+     */
+    void loadFile();
+
 private slots:
     /**
      *@brief 界面风格改变
@@ -110,33 +116,34 @@ private slots:
 
 private:
     QHash<QString, FcitxConfigFileDesc *> *m_hash;
-    struct _FcitxConfigFileDesc* m_cfdesc;
+    struct _FcitxConfigFileDesc *m_cfdesc;
     QString m_prefix;
     QString m_name;
     QString m_addonName;
-    QVBoxLayout* m_globalSettingsLayout;
-    QVBoxLayout* m_addOnsLayout;
-    QWidget* m_widget {nullptr};
-    QWidget* m_fullWidget {nullptr};
-    DummyConfig* m_config {nullptr};
+    QVBoxLayout *m_globalSettingsLayout;
+    QVBoxLayout *m_addOnsLayout;
+    QWidget *m_widget {nullptr};
+    QWidget *m_fullWidget {nullptr};
+    DummyConfig m_config;
     UIType m_simpleUiType;
     UIType m_fullUiType;
-    QMap<QString, void*> m_argsMap;
-    UT_array* m_addons;
-    AddonSelector* m_addonSelector;
+    QMap<QString, void *> m_argsMap;
+    UT_array *m_addons;
+    AddonSelector *m_addonSelector;
     bool m_isSelfSend {false};
-    QList<dcc_fcitx_configtool::widgets::FcitxCheckBoxSettingsItem*> m_addonsList;
+    QList<dcc_fcitx_configtool::widgets::FcitxCheckBoxSettingsItem *> m_addonsList;
 };
 
 /**
  * @class arrowButton
  * @brief 高级设置界面的箭头按键
  */
-class arrowButton : public QLabel
+class ArrowButton : public QLabel
 {
     Q_OBJECT
+
 public:
-    explicit arrowButton(QWidget *parent = nullptr);
+    explicit ArrowButton(QWidget *parent = nullptr);
 
     /**
      *@brief 设置界面是否隐藏
@@ -146,15 +153,18 @@ public:
     /**
      *@brief 设置文字，现实不全自动加tooltip
      */
-    void setOriginText(const QString& text);
+    void setOriginText(const QString &text);
+
 protected:
     void mousePressEvent(QMouseEvent *ev) override;
     void resizeEvent(QResizeEvent *event) override;
+
 signals:
     /**
      *@brief 按下信号
      */
     void pressed(bool isHidden);
+
 private:
     bool m_hide{false};
     QString m_originText;
