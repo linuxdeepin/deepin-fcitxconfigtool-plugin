@@ -516,11 +516,25 @@ QWidget *AdvancedSettingWidget::createAddOnsUi()
         if (m_addons) {
             for (FcitxAddon* addon = (FcitxAddon *) utarray_front(m_addons);
                     addon != nullptr; addon = (FcitxAddon *) utarray_next(m_addons, addon)) {
+                if(addon->advance) {
+                    continue;
+                }
                 FcitxCheckBoxSettingsItem *item =new FcitxCheckBoxSettingsItem(addon, area);
                 item->addBackground();
                 item->setMinimumWidth(200);
                 layout->addWidget(item);
                 layout->addSpacing(5);
+                m_addonsList.append(item);
+                connect(item, &FcitxCheckBoxSettingsItem::onChecked, this, [=]() {
+                    for (auto item: m_addonsList) {
+                        item->setEnabled(false);
+                        QProcess p;
+                        p.startDetached("sh -c \"fcitx -r\"");
+                        QTimer::singleShot(6000, this, [=](){
+                            item->setEnabled(true);
+                        });
+                    }
+                });
             }
         }
     }

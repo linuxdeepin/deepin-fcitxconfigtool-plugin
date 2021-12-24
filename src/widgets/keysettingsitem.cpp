@@ -568,9 +568,10 @@ FcitxCheckBoxSettingsItem::FcitxCheckBoxSettingsItem(FcitxAddon *addon, QWidget 
         if (fp) {
             fprintf(fp, "[Addon]\nEnabled=%s\n", addon->bEnabled ? "True" : "False");
             fclose(fp);
-            if(Fcitx::Global::instance()->inputMethodProxy() != nullptr) {
-                Fcitx::Global::instance()->inputMethodProxy()->ReloadConfig();
-            }
+//            if(Fcitx::Global::instance()->inputMethodProxy() != nullptr) {
+//                Fcitx::Global::instance()->inputMethodProxy()->ReloadConfig();
+//            }
+            emit onChecked();
         }
     });
 

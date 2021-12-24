@@ -23,6 +23,7 @@
 
 #include <QWidget>
 #include <fcitxqtinputmethoditem.h>
+
 namespace dcc_fcitx_configtool {
 namespace widgets {
 class FcitxSettingsGroup;

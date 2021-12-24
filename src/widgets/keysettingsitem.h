@@ -179,8 +179,12 @@ class FcitxCheckBoxSettingsItem : public FcitxSettingsItem
 public:
     FcitxCheckBoxSettingsItem(FcitxAddon* addon, QWidget *parent = nullptr);
     virtual ~FcitxCheckBoxSettingsItem() override;
+signals:
+    void onChecked();
+
 private:
     FcitxConfigFileDesc *getConfigDesc(char *filename);
+
 private:
     ConfigDescSet* m_configDescSet;
 };

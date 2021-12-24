@@ -40,12 +40,17 @@ class QStandardItemModel;
 struct _FcitxConfigFileDesc;
 
 class QTabWidget;
-
+namespace dcc_fcitx_configtool {
+namespace widgets {
+class FcitxCheckBoxSettingsItem;
+}
+}
 namespace Fcitx
 {
 class DummyConfig;
 class Global;
 class AddonSelector;
+
 /**
  * @class AdvancedSettingWidget
  * @brief 高级设置界面
@@ -120,6 +125,7 @@ private:
     UT_array* m_addons;
     AddonSelector* m_addonSelector;
     bool m_isSelfSend {false};
+    QList<dcc_fcitx_configtool::widgets::FcitxCheckBoxSettingsItem*> m_addonsList;
 };
 
 /**

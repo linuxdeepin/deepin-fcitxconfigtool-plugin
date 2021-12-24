@@ -129,7 +129,10 @@ void AvailWidget::onUpdateUI(FcitxQtInputMethodItemList IMlist)
     Q_FOREACH (const FcitxQtInputMethodItem &im, CurIMlist) {
         useLanguage.append(languageName(im.langCode()));
     }
-
+    if(useLanguage.isEmpty()) {
+        QString lang = QString(getenv("LANG")).split('_').first();
+        useLanguage.append(languageName(lang));
+    }
     //fcitx原有逻辑 不需要修改 __begin
     QMap<QString, int> languageMap;
     QList<QPair<QString, FcitxQtInputMethodItemList>> filteredIMEntryList;
@@ -188,6 +191,7 @@ void AvailWidget::onUpdateUI(FcitxQtInputMethodItemList IMlist)
 
     for (auto it = tmpIM.rbegin(); it != tmpIM.rend(); ++it) {
         if(!useLanguage.contains(it->first)){
+            qDebug() << it->first;
            continue;
         }
         FcitxSettingsHead *head = new FcitxSettingsHead();
@@ -203,6 +207,7 @@ void AvailWidget::onUpdateUI(FcitxQtInputMethodItemList IMlist)
     //添加item
     for (auto it = tmpIM.rbegin(); it != tmpIM.rend(); ++it) {
         if(useLanguage.contains(it->first)){
+           qDebug() << it->first;
            continue;
         }
         FcitxSettingsHead *head = new FcitxSettingsHead();
