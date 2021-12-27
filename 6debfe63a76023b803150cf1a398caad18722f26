@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "d7410ea6_16771e00",
+        "filename": "src/fcitxInterface/dummyconfig.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-12-27T06:25:31Z",
+      "side": 1,
+      "message": "(warning) Member variable \u0027DummyConfig::m_cfdesc\u0027 is not initialized in the constructor",
+      "revId": "6debfe63a76023b803150cf1a398caad18722f26",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9479b623_ffb01b1e",
         "filename": "src/fcitxInterface/dummyconfig.h",
         "patchSetId": 2
@@ -47,6 +64,40 @@
       "writtenOn": "2021-12-27T06:25:30Z",
       "side": 1,
       "message": "注释行数: 0; 改动行数(修改和新增): 114; 注释率: 0.0%",
+      "revId": "6debfe63a76023b803150cf1a398caad18722f26",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "77baa42f_70abfe3a",
+        "filename": "src/window/advancedsettingwidget.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-12-27T06:25:31Z",
+      "side": 1,
+      "message": "\u003e [/tmp/16405863284070.7245150621965396/changeCache/src/window/advancedsettingwidget.cpp:432]: (style) Local variable f shadows outer variabl",
+      "revId": "6debfe63a76023b803150cf1a398caad18722f26",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a3f0c390_2045ec10",
+        "filename": "src/window/advancedsettingwidget.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 503,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-12-27T06:25:31Z",
+      "side": 1,
+      "message": "\u003e [/tmp/16405863284070.7245150621965396/changeCache/src/window/advancedsettingwidget.cpp:510]: (style) Local variable item shadows outer variabl",
       "revId": "6debfe63a76023b803150cf1a398caad18722f26",
       "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
       "unresolved": true
