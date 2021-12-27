@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3e4ece5d_7a36e544",
+        "filename": "src/fcitxInterface/dummyconfig.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-12-27T06:25:30Z",
+      "side": 1,
+      "message": "注释行数: 0; 改动行数(修改和新增): 28; 注释率: 0.0%",
+      "revId": "6debfe63a76023b803150cf1a398caad18722f26",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9479b623_ffb01b1e",
+        "filename": "src/fcitxInterface/dummyconfig.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-12-27T06:25:30Z",
+      "side": 1,
+      "message": "注释行数: 16; 改动行数(修改和新增): 26; 注释率: 61.5%",
+      "revId": "6debfe63a76023b803150cf1a398caad18722f26",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "35f3d230_4fc2270e",
+        "filename": "src/window/advancedsettingwidget.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-12-27T06:25:30Z",
+      "side": 1,
+      "message": "注释行数: 0; 改动行数(修改和新增): 114; 注释率: 0.0%",
+      "revId": "6debfe63a76023b803150cf1a398caad18722f26",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "49d02a56_cd7e875e",
+        "filename": "src/window/advancedsettingwidget.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-12-27T06:25:30Z",
+      "side": 1,
+      "message": "注释行数: 4; 改动行数(修改和新增): 24; 注释率: 16.7%",
+      "revId": "6debfe63a76023b803150cf1a398caad18722f26",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    }
+  ]
+}
