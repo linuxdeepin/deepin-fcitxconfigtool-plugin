@@ -507,11 +507,12 @@ QWidget *AdvancedSettingWidget::createAddOnsUi()
                 layout->addSpacing(5);
                 m_addonsList.append(item);
                 connect(item, &FcitxCheckBoxSettingsItem::onChecked, this, [ = ]() {
+                    QProcess p;
+                    p.startDetached("sh -c \"fcitx -r\"");
+                    p.waitForFinished();
                     for (auto item : m_addonsList) {
                         item->setEnabled(false);
-                        QProcess p;
-                        p.startDetached("sh -c \"fcitx -r\"");
-                        QTimer::singleShot(6000, this, [ = ]() {
+                        QTimer::singleShot(2000, this, [ = ]() {
                             item->setEnabled(true);
                         });
                     }
