@@ -76,6 +76,7 @@ TEST_F(ut_availwidget, getSeleteIm)
 TEST_F(ut_availwidget, onSearchIM)
 {
     AvailWidget availWidget;
+    availWidget.onSearchIM("");
     availWidget.onSearchIM("fcitx-pinyin");
     availWidget.onSearchIM("fcitx-keyboard-us");
     availWidget.onSearchIM("fcitx-keyboard-cn");
@@ -109,6 +110,7 @@ TEST_F(ut_availwidget, removeSeleteIm)
     item.setEnabled(false);
     availWidget.removeSeleteIm(item);
 }
+
 TEST_F(ut_availwidget, addSeleteIm)
 {
     AvailWidget availWidget;
@@ -120,12 +122,14 @@ TEST_F(ut_availwidget, addSeleteIm)
     item.setEnabled(false);
     availWidget.addSeleteIm(item);
 }
+
 TEST_F(ut_availwidget, seleteIM)
 {
     AvailWidget availWidget;
     availWidget.seleteIM(true);
     availWidget.seleteIM(false);
 }
+
 TEST_F(ut_availwidget, initUI)
 {
     AvailWidget availWidget;

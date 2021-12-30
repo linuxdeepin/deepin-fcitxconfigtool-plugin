@@ -171,3 +171,11 @@ TEST_F(ut_immodel, equals)
 //    item2.setUniqueName("pinyin");
 //    EXPECT_TRUE(item1 == item2);
 }
+
+TEST_F(ut_immodel, IMListSave)
+{
+    IMModel *immodel = IMModel::instance();
+    immodel->IMListSave();
+}
+
+
