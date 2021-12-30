@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e89a8b57_c4190507",
+        "filename": "tests/windows/imconfig/ut_immodel.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-12-30T03:06:04Z",
+      "side": 1,
+      "message": "注释行数: 0; 改动行数(修改和新增): 5; 注释率: 0.0%",
+      "revId": "5dec33da7474a61fbbae109a9d300075cbc390a0",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd6b34eb_d971f046",
+        "filename": "tests/windows/ut_advancedsettingwidget.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-12-30T03:06:04Z",
+      "side": 1,
+      "message": "注释行数: 23; 改动行数(修改和新增): 74; 注释率: 31.1%",
+      "revId": "5dec33da7474a61fbbae109a9d300075cbc390a0",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8594a4aa_f404da3a",
+        "filename": "tests/windows/ut_availwidget.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-12-30T03:06:04Z",
+      "side": 1,
+      "message": "注释行数: 0; 改动行数(修改和新增): 1; 注释率: 0.0%",
+      "revId": "5dec33da7474a61fbbae109a9d300075cbc390a0",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "862193f9_0b3c7173",
+        "filename": "tests/windows/ut_gsettingwatcher.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-12-30T03:06:04Z",
+      "side": 1,
+      "message": "注释行数: 20; 改动行数(修改和新增): 94; 注释率: 21.3%",
+      "revId": "5dec33da7474a61fbbae109a9d300075cbc390a0",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    }
+  ]
+}
