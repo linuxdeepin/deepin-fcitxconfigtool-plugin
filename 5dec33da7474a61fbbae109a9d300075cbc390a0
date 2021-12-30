@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "f5fdb3d1_57617e68",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-12-30T03:06:04Z",
+      "side": 1,
+      "message": "缺少Log信息",
+      "revId": "5dec33da7474a61fbbae109a9d300075cbc390a0",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e89a8b57_c4190507",
         "filename": "tests/windows/imconfig/ut_immodel.cpp",
         "patchSetId": 1
