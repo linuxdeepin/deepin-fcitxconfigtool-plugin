@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "8fa7997c_97cf0018",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000856
+      },
+      "writtenOn": "2021-12-30T03:11:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "74c145bd_82c14d79",
+      "revId": "1a53214424a78ade55721f5a506c73f08dec26fa",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e4c1be2b_c4b33ce3",
         "filename": "tests/windows/imconfig/ut_immodel.cpp",
         "patchSetId": 2
