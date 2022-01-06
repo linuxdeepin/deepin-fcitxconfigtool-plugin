@@ -249,6 +249,7 @@ bool FcitxKeyLabelWidget::checkNewKey(bool isRelease)
 {
     QStringList list {publisherFunc::getKeyValue(Qt::Key_Control),
                       publisherFunc::getKeyValue(Qt::Key_Alt),
+                      publisherFunc::getKeyValue(Qt::Key_Shift),
                       publisherFunc::getKeyValue(Qt::Key_Super_L)};
 
     if (m_newlist.count() == 2) {

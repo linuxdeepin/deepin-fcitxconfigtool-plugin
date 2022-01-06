@@ -48,6 +48,10 @@ public:
     virtual QString path() const override;
     virtual QString follow() const override;
     virtual void deactive()override;
+    virtual void addChildPageTrans() const override;
+
+protected:
+    void initSearchData() override;
 
 public Q_SLOTS:
     virtual void active() override;

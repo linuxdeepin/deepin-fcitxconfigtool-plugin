@@ -62,6 +62,39 @@ void FcitxConfigPlugin::deactive()
     deleteImWindow();
 }
 
+void FcitxConfigPlugin::addChildPageTrans() const
+{
+    if (m_frameProxy != nullptr) {
+        //defapp
+        m_frameProxy->addChildPageTrans("Webpage", tr("Webpage"));
+        m_frameProxy->addChildPageTrans("Mail", tr("Mail"));
+        m_frameProxy->addChildPageTrans("Text", tr("Text"));
+        m_frameProxy->addChildPageTrans("Music", tr("Music"));
+        m_frameProxy->addChildPageTrans("Video", tr("Video"));
+        m_frameProxy->addChildPageTrans("Picture", tr("Picture"));
+        m_frameProxy->addChildPageTrans("Terminal", tr("Terminal"));
+    }
+}
+
+void FcitxConfigPlugin::initSearchData()
+{
+    QString module = tr("Keyboard and Language");
+    #ifdef QT_DEBUG
+        module = "键盘和语言";
+    #endif
+
+        auto func_process_all = [ = ]() {
+            m_frameProxy->setWidgetVisible(module, tr("Input Methods"), true);
+            m_frameProxy->setDetailVisible(module, tr("Input Methods"), tr("Manage Input Methods"), true);
+            m_frameProxy->setDetailVisible(module, tr("Input Methods"), tr("Switch input methods"), true);
+            m_frameProxy->setDetailVisible(module, tr("Input Methods"), tr("Switch to the first input method"), true);
+            m_frameProxy->setDetailVisible(module, tr("Input Methods"), tr("Advanced Settings"), true);
+            m_frameProxy->updateSearchData(module);
+        };
+
+        func_process_all();
+}
+
 void FcitxConfigPlugin::initialize()
 {
     qDebug() << __FUNCTION__ << QLocale::system().name();
