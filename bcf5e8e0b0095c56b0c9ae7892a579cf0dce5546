@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "461df099_3b308290",
+        "filename": "src/fcitxconfigplugin.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2022-01-07T06:15:37Z",
+      "side": 1,
+      "message": "\u003e [/tmp/16415361347230.6494859076707956/changeCache/src/fcitxconfigplugin.cpp:77]: (style) Variable \u0027module\u0027 is reassigned a value before the old one has been used",
+      "revId": "bcf5e8e0b0095c56b0c9ae7892a579cf0dce5546",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "822ad0e9_7b3ab781",
         "filename": "src/fcitxconfigplugin.h",
         "patchSetId": 3
@@ -47,6 +64,74 @@
       "writtenOn": "2022-01-07T06:15:36Z",
       "side": 1,
       "message": "注释行数: 0; 改动行数(修改和新增): 1; 注释率: 0.0%",
+      "revId": "bcf5e8e0b0095c56b0c9ae7892a579cf0dce5546",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c8a0e867_850544b1",
+        "filename": "src/widgets/keysettingsitem.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2022-01-07T06:15:37Z",
+      "side": 1,
+      "message": "\u003e [/tmp/16415361347230.6494859076707956/changeCache/src/widgets/keysettingsitem.cpp:361]: (style) Variable \u0027color\u0027 is reassigned a value before the old one has been used",
+      "revId": "bcf5e8e0b0095c56b0c9ae7892a579cf0dce5546",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "adc31860_93ff0366",
+        "filename": "src/widgets/keysettingsitem.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 534,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2022-01-07T06:15:37Z",
+      "side": 1,
+      "message": "\u003e [/tmp/16415361347230.6494859076707956/changeCache/src/widgets/keysettingsitem.cpp:536]: (style) Variable \u0027color\u0027 is reassigned a value before the old one has been used",
+      "revId": "bcf5e8e0b0095c56b0c9ae7892a579cf0dce5546",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "61cc2a04_470dc1a9",
+        "filename": "src/widgets/keysettingsitem.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 631,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2022-01-07T06:15:37Z",
+      "side": 1,
+      "message": "(style) Condition \u0027!desc\u0027 is always tru",
+      "revId": "bcf5e8e0b0095c56b0c9ae7892a579cf0dce5546",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "543dc3c6_80a46490",
+        "filename": "src/widgets/keysettingsitem.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 731,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2022-01-07T06:15:37Z",
+      "side": 1,
+      "message": "\u003e [/tmp/16415361347230.6494859076707956/changeCache/src/widgets/keysettingsitem.cpp:733]: (style) Variable \u0027color\u0027 is reassigned a value before the old one has been used",
       "revId": "bcf5e8e0b0095c56b0c9ae7892a579cf0dce5546",
       "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
       "unresolved": true
