@@ -122,6 +122,9 @@ void IMSettingWindow::initUI()
     GSettingWatcher::instance()->bind(GSETTINGS_SHORTCUT_RESTORE, m_resetBtn);
     DFontSizeManager::instance()->bind(m_resetBtn, DFontSizeManager::T8, QFont::Normal);
     m_resetBtn->setAccessibleName(tr("Restore Defaults"));
+    //下面两行注释,和第三行文案有关联是控制中心搜索规范快捷键规范.不可以修改,不可以移动位置,下面三行要在一起
+    //~ contents_path /keyboard/Manage Input Methods
+    //~ child_page Manage Input Methods
     m_advSetKey = new QPushButton(tr("Advanced Settings"));
     GSettingWatcher::instance()->bind(GSETTINGS_ADVANCE_SETTING, m_advSetKey);
     m_advSetKey->setAccessibleName("Advanced Settings");

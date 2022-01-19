@@ -4,17 +4,17 @@
 <context>
     <name>Fcitx::AdvancedSettingWidget</name>
     <message>
-        <location filename="../src/window/advancedsettingwidget.cpp" line="105"/>
+        <location filename="../src/window/advancedsettingwidget.cpp" line="104"/>
         <source>Global Config</source>
         <translation>Formësim Global</translation>
     </message>
     <message>
-        <location filename="../src/window/advancedsettingwidget.cpp" line="108"/>
+        <location filename="../src/window/advancedsettingwidget.cpp" line="107"/>
         <source>Add-ons</source>
         <translation>Shtesa</translation>
     </message>
     <message>
-        <location filename="../src/window/advancedsettingwidget.cpp" line="247"/>
+        <location filename="../src/window/advancedsettingwidget.cpp" line="240"/>
         <source>None</source>
         <translation>Asnjë</translation>
     </message>
@@ -22,11 +22,42 @@
 <context>
     <name>FcitxConfigPlugin</name>
     <message>
+        <location filename="../src/fcitxconfigplugin.cpp" line="69"/>
+        <location filename="../src/fcitxconfigplugin.cpp" line="81"/>
         <location filename="../src/fcitxconfigplugin.cpp" line="82"/>
-        <location filename="../src/fcitxconfigplugin.cpp" line="90"/>
+        <location filename="../src/fcitxconfigplugin.cpp" line="83"/>
+        <location filename="../src/fcitxconfigplugin.cpp" line="84"/>
+        <location filename="../src/fcitxconfigplugin.cpp" line="85"/>
+        <location filename="../src/fcitxconfigplugin.cpp" line="109"/>
+        <location filename="../src/fcitxconfigplugin.cpp" line="117"/>
         <source>Input Methods</source>
         <translation>Metoda Dhëniesh</translation>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/fcitxconfigplugin.cpp" line="75"/>
+        <source>Keyboard and Language</source>
+        <translation>Tastierë dhe Gjuhë</translation>
+    </message>
+    <message>
+        <location filename="../src/fcitxconfigplugin.cpp" line="82"/>
+        <source>Manage Input Methods</source>
+        <translation>Administroni Metoda Dhënieje</translation>
+    </message>
+    <message>
+        <location filename="../src/fcitxconfigplugin.cpp" line="83"/>
+        <source>Switch input methods</source>
+        <translation>Ndërroni metoda dhënieje</translation>
+    </message>
+    <message>
+        <location filename="../src/fcitxconfigplugin.cpp" line="84"/>
+        <source>Switch to the first input method</source>
+        <translation>Kalo te metoda e parë e dhënieve</translation>
+    </message>
+    <message>
+        <location filename="../src/fcitxconfigplugin.cpp" line="85"/>
+        <source>Advanced Settings</source>
+        <translation>Rregullime të Mëtejshme</translation>
     </message>
 </context>
 <context>
@@ -35,7 +66,7 @@
         <location filename="../src/widgets/settingshead.cpp" line="51"/>
         <location filename="../src/widgets/settingshead.cpp" line="135"/>
         <source>Edit</source>
-        <translation>Përpunim</translation>
+        <translation>Përpunojeni</translation>
     </message>
     <message>
         <location filename="../src/widgets/settingshead.cpp" line="137"/>
@@ -53,7 +84,7 @@
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="70"/>
         <source>Search</source>
-        <translation>Kërkim</translation>
+        <translation>Kërko</translation>
     </message>
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="79"/>
@@ -64,7 +95,7 @@
         <location filename="../src/window/imaddwindow.cpp" line="85"/>
         <location filename="../src/window/imaddwindow.cpp" line="86"/>
         <source>Add</source>
-        <translation>Shto</translation>
+        <translation>Shtoje</translation>
     </message>
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="87"/>
@@ -76,18 +107,18 @@
 <context>
     <name>IMSettingWindow</name>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="116"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="115"/>
         <source>Switch input methods</source>
         <translation>Ndërroni metoda dhënieje</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="121"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="119"/>
         <source>Switch to the first input method</source>
         <translation>Kalo te metoda e parë e dhënieve</translation>
     </message>
     <message>
+        <location filename="../src/window/imsettingwindow.cpp" line="121"/>
         <location filename="../src/window/imsettingwindow.cpp" line="124"/>
-        <location filename="../src/window/imsettingwindow.cpp" line="127"/>
         <source>Restore Defaults</source>
         <translation>Rikthe Parazgjedhjet</translation>
     </message>
@@ -95,6 +126,8 @@
         <location filename="../src/window/imsettingwindow.cpp" line="128"/>
         <source>Advanced Settings</source>
         <translation>Rregullime të Mëtejshme</translation>
+        <extra-child_page>Manage Input Methods</extra-child_page>
+        <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="138"/>
@@ -114,16 +147,16 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../src/window/advancedsettingwidget.cpp" line="554"/>
-        <location filename="../src/window/advancedsettingwidget.cpp" line="615"/>
+        <location filename="../src/window/advancedsettingwidget.cpp" line="602"/>
+        <location filename="../src/window/advancedsettingwidget.cpp" line="654"/>
         <source>None</source>
-        <translation type="unfinished">Asnjë</translation>
+        <translation>Asnjë</translation>
     </message>
 </context>
 <context>
     <name>dcc_fcitx_configtool::widgets::FcitxCheckBoxSettingsItem</name>
     <message>
-        <location filename="../src/widgets/keysettingsitem.cpp" line="450"/>
+        <location filename="../src/widgets/keysettingsitem.cpp" line="596"/>
         <source>Configure</source>
         <translation>Formësojeni</translation>
     </message>
@@ -131,13 +164,13 @@
 <context>
     <name>dcc_fcitx_configtool::widgets::FcitxKeyLabelWidget</name>
     <message>
-        <location filename="../src/widgets/keysettingsitem.cpp" line="46"/>
-        <location filename="../src/widgets/keysettingsitem.cpp" line="165"/>
+        <location filename="../src/widgets/keysettingsitem.cpp" line="47"/>
+        <location filename="../src/widgets/keysettingsitem.cpp" line="166"/>
         <source>None</source>
         <translation>Asnjë</translation>
     </message>
     <message>
-        <location filename="../src/widgets/keysettingsitem.cpp" line="52"/>
+        <location filename="../src/widgets/keysettingsitem.cpp" line="53"/>
         <source>Enter a new shortcut</source>
         <translation>Jepni një shkurtore të re</translation>
     </message>
