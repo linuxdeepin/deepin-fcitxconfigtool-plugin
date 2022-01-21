@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="en">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="en">
 <context>
     <name>Fcitx::AdvancedSettingWidget</name>
     <message>
@@ -14,7 +12,7 @@
         <translation>Add-ons</translation>
     </message>
     <message>
-        <location filename="../src/window/advancedsettingwidget.cpp" line="240"/>
+        <location filename="../src/window/advancedsettingwidget.cpp" line="239"/>
         <source>None</source>
         <translation>None</translation>
     </message>
@@ -147,8 +145,8 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../src/window/advancedsettingwidget.cpp" line="602"/>
-        <location filename="../src/window/advancedsettingwidget.cpp" line="654"/>
+        <location filename="../src/window/advancedsettingwidget.cpp" line="601"/>
+        <location filename="../src/window/advancedsettingwidget.cpp" line="653"/>
         <source>None</source>
         <translation>None</translation>
     </message>
