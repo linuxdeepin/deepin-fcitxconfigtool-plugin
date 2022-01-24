@@ -510,12 +510,14 @@ QWidget *AdvancedSettingWidget::createAddOnsUi()
                     QProcess p;
                     p.startDetached("sh -c \"fcitx -r\"");
                     p.waitForFinished();
-                    for (auto item : m_addonsList) {
-                        item->setEnabled(false);
+                    //for (auto item : m_addonsList) {
+                        //item->setEnabled(false);
+                        area->setEnabled(false);
                         QTimer::singleShot(2000, this, [ = ]() {
-                            item->setEnabled(true);
+                            //item->setEnabled(true);
+                            area->setEnabled(true);
                         });
-                    }
+                    //}
                 });
             }
         }

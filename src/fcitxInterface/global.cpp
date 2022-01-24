@@ -47,13 +47,15 @@ void Global::deInit()
 Global::Global()
     : m_hash(new QHash<QString, FcitxConfigFileDesc *>)
     , m_connection(new FcitxQtConnection(this))
-    , m_inputmethod(0)
-    , m_keyboard(0)
+    , m_inputmethod(nullptr)
+    , m_keyboard(nullptr)
+    , m_timer(new QTimer)
 {
     connect(m_connection, SIGNAL(connected()), this, SLOT(connected()));
     connect(m_connection, SIGNAL(disconnected()), this, SLOT(disconnected()));
 
     m_connection->startConnection();
+    m_timer->setSingleShot(true);
 }
 
 Global::~Global()
@@ -71,6 +73,10 @@ Global::~Global()
 
 void Global::connected()
 {
+    if(m_timer->isActive()) {
+        m_timer->stop();
+        return;
+    }
     if (m_inputmethod)
         delete m_inputmethod;
 
@@ -93,20 +99,23 @@ void Global::connected()
     m_inputmethod->setTimeout(3000);
     m_keyboard->setTimeout(3000);
 #endif
-
+    qDebug() << "connected";
     emit connectStatusChanged(true);
 }
 
 void Global::disconnected()
 {
-    if (m_inputmethod)
-        delete m_inputmethod;
-    m_inputmethod = 0;
-    if (m_keyboard)
-        delete m_keyboard;
-    m_keyboard = 0;
-
-    emit connectStatusChanged(false);
+    m_timer->start(2000);
+    connect(m_timer, &QTimer::timeout, this, [=]() {
+        if (m_inputmethod)
+            delete m_inputmethod;
+        m_inputmethod = 0;
+        if (m_keyboard)
+            delete m_keyboard;
+        m_keyboard = 0;
+        qDebug() << "disconnected";
+        emit connectStatusChanged(false);
+    });
 }
 
 FcitxConfigFileDesc *Global::GetConfigDesc(const QString &name)
