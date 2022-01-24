@@ -96,8 +96,8 @@ void AvailWidget::initConnect()
 
 void AvailWidget::onUpdateUI()
 {
-    initConnect();
     onUpdateUI(IMModel::instance()->getAvailIMList());
+    initConnect();
 }
 
 void AvailWidget::onUpdateUI(FcitxQtInputMethodItemList IMlist)
@@ -191,7 +191,6 @@ void AvailWidget::onUpdateUI(FcitxQtInputMethodItemList IMlist)
 
     for (auto it = tmpIM.rbegin(); it != tmpIM.rend(); ++it) {
         if(!useLanguage.contains(it->first)){
-            qDebug() << it->first;
            continue;
         }
         FcitxSettingsHead *head = new FcitxSettingsHead();
@@ -203,11 +202,11 @@ void AvailWidget::onUpdateUI(FcitxQtInputMethodItemList IMlist)
             createIMSttings(m_allIMGroup, *it2);
             createIMSttings(m_searchIMGroup, *it2);
         }
+        break;
     }
     //添加item
     for (auto it = tmpIM.rbegin(); it != tmpIM.rend(); ++it) {
         if(useLanguage.contains(it->first)){
-           qDebug() << it->first;
            continue;
         }
         FcitxSettingsHead *head = new FcitxSettingsHead();
@@ -220,6 +219,7 @@ void AvailWidget::onUpdateUI(FcitxQtInputMethodItemList IMlist)
             createIMSttings(m_searchIMGroup, *it2);
         }
     }
+    disconnect(IMModel::instance(), SIGNAL(availIMListChanged(FcitxQtInputMethodItemList)), this, SLOT(onUpdateUI(FcitxQtInputMethodItemList)));
 }
 
 void AvailWidget::clearItemStatus()

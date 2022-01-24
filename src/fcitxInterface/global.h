@@ -22,6 +22,7 @@
 
 // Qt
 #include <QHash>
+#include <QTimer>
 
 // Fcitx
 #include <fcitx-config/fcitx-config.h>
@@ -60,6 +61,7 @@ private:
     FcitxQtInputMethodProxy *m_inputmethod;
     FcitxQtKeyboardProxy *m_keyboard;
     static Global *inst;
+    QTimer *m_timer;
 };
 
 } // namespace Fcitx

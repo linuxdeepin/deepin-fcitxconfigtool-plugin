@@ -35,7 +35,7 @@ FcitxTitleLabel::FcitxTitleLabel(QWidget *parent, Qt::WindowFlags f)
     tf.setWeight(QFont::Medium);
     setFont(tf);
 
-    DFontSizeManager::instance()->bind(this, DFontSizeManager::T5);
+    //DFontSizeManager::instance()->bind(this, DFontSizeManager::T5);
 }
 
 FcitxTitleLabel::FcitxTitleLabel(const QString &text, QWidget *parent, Qt::WindowFlags f)
