@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="en_US">
+<TS version="2.1" language="en_US">
 <context>
     <name>Fcitx::AdvancedSettingWidget</name>
     <message>
@@ -126,22 +126,30 @@
         <location filename="../src/window/imsettingwindow.cpp" line="128"/>
         <source>Advanced Settings</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
         <extra-child_page>Manage Input Methods</extra-child_page>
+        <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="138"/>
         <source>Manage Input Methods</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
         <extra-child_page>Manage Input Methods</extra-child_page>
+        <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="148"/>
         <source>Shortcuts</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
         <extra-child_page>Manage Input Methods</extra-child_page>
+        <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/window/imsettingwindow.cpp" line="165"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="166"/>
+        <source>Add Input Method</source>
+        <translation type="unfinished"></translation>
+        <extra-child_page>Manage Input Methods</extra-child_page>
+        <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
 </context>
 <context>

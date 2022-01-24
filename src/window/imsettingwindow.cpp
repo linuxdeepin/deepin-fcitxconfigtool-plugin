@@ -159,6 +159,11 @@ void IMSettingWindow::initUI()
 
     //添加界面按钮
     m_addIMBtn = new DFloatingButton(DStyle::SP_IncreaseElement, this);
+    //下面两行注释,和第三行文案有关联是控制中心搜索规范快捷键规范.不可以修改,不可以移动位置,下面三行要在一起
+    //~ contents_path /keyboard/Manage Input Methods
+    //~ child_page Manage Input Methods
+    m_addIMBtn->setToolTip(tr("Add Input Method"));
+    m_addIMBtn->setAccessibleName(tr("Add Input Method"));
     m_addIMBtn->setMaximumHeight(50);
     GSettingWatcher::instance()->bind(GSETTINGS_ADD_IM, m_addIMBtn);
     QHBoxLayout *headLayout = new QHBoxLayout(this);

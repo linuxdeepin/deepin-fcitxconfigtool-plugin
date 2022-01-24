@@ -143,6 +143,14 @@
         <extra-child_page>Manage Input Methods</extra-child_page>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
+    <message>
+        <location filename="../src/window/imsettingwindow.cpp" line="165"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="166"/>
+        <source>Add Input Method</source>
+        <translation type="unfinished">كىرگۈزگۈچ قوشۇش</translation>
+        <extra-child_page>Manage Input Methods</extra-child_page>
+        <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
+    </message>
 </context>
 <context>
     <name>QObject</name>
