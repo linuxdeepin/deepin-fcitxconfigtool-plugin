@@ -14,7 +14,7 @@
         <translation>Doplňky</translation>
     </message>
     <message>
-        <location filename="../src/window/advancedsettingwidget.cpp" line="240"/>
+        <location filename="../src/window/advancedsettingwidget.cpp" line="239"/>
         <source>None</source>
         <translation>Žádné</translation>
     </message>
@@ -155,8 +155,8 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../src/window/advancedsettingwidget.cpp" line="602"/>
-        <location filename="../src/window/advancedsettingwidget.cpp" line="654"/>
+        <location filename="../src/window/advancedsettingwidget.cpp" line="601"/>
+        <location filename="../src/window/advancedsettingwidget.cpp" line="653"/>
         <source>None</source>
         <translation>Žádná</translation>
     </message>
