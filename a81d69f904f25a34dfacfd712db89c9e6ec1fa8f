@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "6b946438_419d06cc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2022-02-10T05:10:26Z",
+      "side": 1,
+      "message": "缺少详细信息或详细信息上方缺少空行",
+      "revId": "a81d69f904f25a34dfacfd712db89c9e6ec1fa8f",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0d714b38_dbc2de6d",
         "filename": "src/fcitxconfigplugin.cpp",
         "patchSetId": 1
