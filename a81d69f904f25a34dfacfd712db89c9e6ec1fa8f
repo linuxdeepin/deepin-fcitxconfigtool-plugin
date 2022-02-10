@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "c46dcd5e_0625f808",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000358
+      },
+      "writtenOn": "2022-02-10T05:17:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b946438_419d06cc",
+      "revId": "a81d69f904f25a34dfacfd712db89c9e6ec1fa8f",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0d714b38_dbc2de6d",
         "filename": "src/fcitxconfigplugin.cpp",
         "patchSetId": 1
