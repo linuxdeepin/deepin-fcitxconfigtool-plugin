@@ -4,11 +4,75 @@
 <context>
     <name>FcitxConfigPlugin</name>
     <message>
-        <location filename="../src/fcitxconfigplugin.cpp" line="79"/>
-        <location filename="../src/fcitxconfigplugin.cpp" line="87"/>
+        <location filename="../src/fcitxconfigplugin.cpp" line="71"/>
+        <source>Webpage</source>
+        <translation>网页</translation>
+    </message>
+    <message>
+        <location filename="../src/fcitxconfigplugin.cpp" line="72"/>
+        <source>Mail</source>
+        <translation>邮件</translation>
+    </message>
+    <message>
+        <location filename="../src/fcitxconfigplugin.cpp" line="73"/>
+        <source>Text</source>
+        <translation>文本</translation>
+    </message>
+    <message>
+        <location filename="../src/fcitxconfigplugin.cpp" line="74"/>
+        <source>Music</source>
+        <translation>音乐</translation>
+    </message>
+    <message>
+        <location filename="../src/fcitxconfigplugin.cpp" line="75"/>
+        <source>Video</source>
+        <translation>视频</translation>
+    </message>
+    <message>
+        <location filename="../src/fcitxconfigplugin.cpp" line="76"/>
+        <source>Picture</source>
+        <translation>图片</translation>
+    </message>
+    <message>
+        <location filename="../src/fcitxconfigplugin.cpp" line="77"/>
+        <source>Terminal</source>
+        <translation>终端</translation>
+    </message>
+    <message>
+        <location filename="../src/fcitxconfigplugin.cpp" line="95"/>
+        <source>Keyboard and Language</source>
+        <translation>键盘和语言</translation>
+    </message>
+    <message>
+        <location filename="../src/fcitxconfigplugin.cpp" line="101"/>
+        <location filename="../src/fcitxconfigplugin.cpp" line="102"/>
+        <location filename="../src/fcitxconfigplugin.cpp" line="103"/>
+        <location filename="../src/fcitxconfigplugin.cpp" line="104"/>
+        <location filename="../src/fcitxconfigplugin.cpp" line="105"/>
+        <location filename="../src/fcitxconfigplugin.cpp" line="122"/>
         <source>Input Methods</source>
         <translation>输入法</translation>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/fcitxconfigplugin.cpp" line="102"/>
+        <source>Manage Input Methods</source>
+        <translation>输入法管理</translation>
+    </message>
+    <message>
+        <location filename="../src/fcitxconfigplugin.cpp" line="103"/>
+        <source>Switch input methods</source>
+        <translation>切换输入法</translation>
+    </message>
+    <message>
+        <location filename="../src/fcitxconfigplugin.cpp" line="104"/>
+        <source>Switch to the first input method</source>
+        <translation>切换至首位输入法</translation>
+    </message>
+    <message>
+        <location filename="../src/fcitxconfigplugin.cpp" line="105"/>
+        <source>Advanced Settings</source>
+        <translation>高级设置</translation>
     </message>
 </context>
 <context>
@@ -57,13 +121,13 @@
         <location filename="../src/window/imaddwindow.cpp" line="84"/>
         <location filename="../src/window/imaddwindow.cpp" line="85"/>
         <source>Add</source>
-        <translation>添 加</translation>
+        <translation>添加</translation>
     </message>
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="86"/>
         <location filename="../src/window/imaddwindow.cpp" line="87"/>
         <source>Cancel</source>
-        <translation>取 消</translation>
+        <translation>取消</translation>
     </message>
 </context>
 <context>
@@ -91,7 +155,7 @@
     </message>
     <message>
         <source>System</source>
-        <translation type="vanished">系统管理</translation>
+        <translation type="vanished">系统</translation>
     </message>
     <message>
         <source>Application</source>
@@ -102,32 +166,42 @@
         <translation type="vanished">输入法</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="115"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="116"/>
         <source>Switch to the first input method</source>
         <translation>切换至首位输入法</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="116"/>
-        <location filename="../src/window/imsettingwindow.cpp" line="118"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="117"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="119"/>
         <source>Restore Defaults</source>
         <translation>恢复默认</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="119"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="124"/>
         <source>Advanced Settings</source>
         <translation>高级设置</translation>
+        <extra-child_page>Manage Input Methods</extra-child_page>
+        <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="128"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="133"/>
         <source>Manage Input Methods</source>
         <translation>输入法管理</translation>
         <extra-child_page>Manage Input Methods</extra-child_page>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="138"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="143"/>
         <source>Shortcuts</source>
         <translation>快捷键</translation>
+        <extra-child_page>Manage Input Methods</extra-child_page>
+        <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/window/imsettingwindow.cpp" line="159"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="160"/>
+        <source>Add Input Method</source>
+        <translation type="unfinished">添加输入法</translation>
         <extra-child_page>Manage Input Methods</extra-child_page>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
@@ -147,7 +221,7 @@
     <name>ShortcutKeyWindow</name>
     <message>
         <source>Cancel</source>
-        <translation type="vanished">取 消</translation>
+        <translation type="vanished">取消</translation>
     </message>
     <message>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
@@ -158,7 +232,7 @@
     <name>dcc_fcitx_configtool::widgets::FcitxKeyLabelWidget</name>
     <message>
         <location filename="../src/widgets/keysettingsitem.cpp" line="38"/>
-        <location filename="../src/widgets/keysettingsitem.cpp" line="148"/>
+        <location filename="../src/widgets/keysettingsitem.cpp" line="149"/>
         <source>None</source>
         <translation>无</translation>
     </message>

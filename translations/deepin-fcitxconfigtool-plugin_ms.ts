@@ -4,11 +4,75 @@
 <context>
     <name>FcitxConfigPlugin</name>
     <message>
-        <location filename="../src/fcitxconfigplugin.cpp" line="79"/>
-        <location filename="../src/fcitxconfigplugin.cpp" line="87"/>
+        <location filename="../src/fcitxconfigplugin.cpp" line="71"/>
+        <source>Webpage</source>
+        <translation>Laman Sesawang</translation>
+    </message>
+    <message>
+        <location filename="../src/fcitxconfigplugin.cpp" line="72"/>
+        <source>Mail</source>
+        <translation>Mel</translation>
+    </message>
+    <message>
+        <location filename="../src/fcitxconfigplugin.cpp" line="73"/>
+        <source>Text</source>
+        <translation>Teks</translation>
+    </message>
+    <message>
+        <location filename="../src/fcitxconfigplugin.cpp" line="74"/>
+        <source>Music</source>
+        <translation>Muzik</translation>
+    </message>
+    <message>
+        <location filename="../src/fcitxconfigplugin.cpp" line="75"/>
+        <source>Video</source>
+        <translation>Video</translation>
+    </message>
+    <message>
+        <location filename="../src/fcitxconfigplugin.cpp" line="76"/>
+        <source>Picture</source>
+        <translation>Gambar</translation>
+    </message>
+    <message>
+        <location filename="../src/fcitxconfigplugin.cpp" line="77"/>
+        <source>Terminal</source>
+        <translation>Terminal</translation>
+    </message>
+    <message>
+        <location filename="../src/fcitxconfigplugin.cpp" line="95"/>
+        <source>Keyboard and Language</source>
+        <translation>Papan Kekunci dan Bahasa</translation>
+    </message>
+    <message>
+        <location filename="../src/fcitxconfigplugin.cpp" line="101"/>
+        <location filename="../src/fcitxconfigplugin.cpp" line="102"/>
+        <location filename="../src/fcitxconfigplugin.cpp" line="103"/>
+        <location filename="../src/fcitxconfigplugin.cpp" line="104"/>
+        <location filename="../src/fcitxconfigplugin.cpp" line="105"/>
+        <location filename="../src/fcitxconfigplugin.cpp" line="122"/>
         <source>Input Methods</source>
         <translation>Kaedah Input</translation>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/fcitxconfigplugin.cpp" line="102"/>
+        <source>Manage Input Methods</source>
+        <translation>Urus Kaedah Input</translation>
+    </message>
+    <message>
+        <location filename="../src/fcitxconfigplugin.cpp" line="103"/>
+        <source>Switch input methods</source>
+        <translation>Tukar kaedah input</translation>
+    </message>
+    <message>
+        <location filename="../src/fcitxconfigplugin.cpp" line="104"/>
+        <source>Switch to the first input method</source>
+        <translation>Tukar ke kaedah input pertama</translation>
+    </message>
+    <message>
+        <location filename="../src/fcitxconfigplugin.cpp" line="105"/>
+        <source>Advanced Settings</source>
+        <translation>Tetapan lanjutan</translation>
     </message>
 </context>
 <context>
@@ -102,32 +166,42 @@
         <translation type="vanished">Kaedah Input</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="115"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="116"/>
         <source>Switch to the first input method</source>
         <translation>Tukar ke kaedah input pertama</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="116"/>
-        <location filename="../src/window/imsettingwindow.cpp" line="118"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="117"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="119"/>
         <source>Restore Defaults</source>
         <translation>Pulih ke Lalai</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="119"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="124"/>
         <source>Advanced Settings</source>
         <translation>Tetapan lanjutan</translation>
+        <extra-child_page>Manage Input Methods</extra-child_page>
+        <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="128"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="133"/>
         <source>Manage Input Methods</source>
         <translation>Urus Kaedah Input</translation>
         <extra-child_page>Manage Input Methods</extra-child_page>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="138"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="143"/>
         <source>Shortcuts</source>
         <translation>Pintasan</translation>
+        <extra-child_page>Manage Input Methods</extra-child_page>
+        <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/window/imsettingwindow.cpp" line="159"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="160"/>
+        <source>Add Input Method</source>
+        <translation type="unfinished">Tambah Kaedah Input</translation>
         <extra-child_page>Manage Input Methods</extra-child_page>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
@@ -158,7 +232,7 @@
     <name>dcc_fcitx_configtool::widgets::FcitxKeyLabelWidget</name>
     <message>
         <location filename="../src/widgets/keysettingsitem.cpp" line="38"/>
-        <location filename="../src/widgets/keysettingsitem.cpp" line="148"/>
+        <location filename="../src/widgets/keysettingsitem.cpp" line="149"/>
         <source>None</source>
         <translation>Tiada</translation>
     </message>
