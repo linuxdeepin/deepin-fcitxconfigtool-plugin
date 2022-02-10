@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "32d0adc2_40a835a7",
+        "filename": "src/fcitxconfigplugin.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2022-02-10T06:11:27Z",
+      "side": 1,
+      "message": "注释行数: 2; 改动行数(修改和新增): 5; 注释率: 40.0%",
+      "revId": "e32e3f5505a505213ca62ae0e0f7c4b0566551c3",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8319bc19_29a4c396",
+        "filename": "src/window/imsettingwindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2022-02-10T06:11:27Z",
+      "side": 1,
+      "message": "注释行数: 7; 改动行数(修改和新增): 11; 注释率: 63.6%",
+      "revId": "e32e3f5505a505213ca62ae0e0f7c4b0566551c3",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    }
+  ]
+}
