@@ -4,11 +4,75 @@
 <context>
     <name>FcitxConfigPlugin</name>
     <message>
-        <location filename="../src/fcitxconfigplugin.cpp" line="79"/>
-        <location filename="../src/fcitxconfigplugin.cpp" line="87"/>
+        <location filename="../src/fcitxconfigplugin.cpp" line="71"/>
+        <source>Webpage</source>
+        <translation>Page Web</translation>
+    </message>
+    <message>
+        <location filename="../src/fcitxconfigplugin.cpp" line="72"/>
+        <source>Mail</source>
+        <translation>Courrier</translation>
+    </message>
+    <message>
+        <location filename="../src/fcitxconfigplugin.cpp" line="73"/>
+        <source>Text</source>
+        <translation>Texte</translation>
+    </message>
+    <message>
+        <location filename="../src/fcitxconfigplugin.cpp" line="74"/>
+        <source>Music</source>
+        <translation>Musique</translation>
+    </message>
+    <message>
+        <location filename="../src/fcitxconfigplugin.cpp" line="75"/>
+        <source>Video</source>
+        <translation>Vidéo</translation>
+    </message>
+    <message>
+        <location filename="../src/fcitxconfigplugin.cpp" line="76"/>
+        <source>Picture</source>
+        <translation>Image</translation>
+    </message>
+    <message>
+        <location filename="../src/fcitxconfigplugin.cpp" line="77"/>
+        <source>Terminal</source>
+        <translation>Terminal</translation>
+    </message>
+    <message>
+        <location filename="../src/fcitxconfigplugin.cpp" line="99"/>
+        <source>Keyboard and Language</source>
+        <translation>Clavier et langue</translation>
+    </message>
+    <message>
+        <location filename="../src/fcitxconfigplugin.cpp" line="103"/>
+        <location filename="../src/fcitxconfigplugin.cpp" line="104"/>
+        <location filename="../src/fcitxconfigplugin.cpp" line="105"/>
+        <location filename="../src/fcitxconfigplugin.cpp" line="106"/>
+        <location filename="../src/fcitxconfigplugin.cpp" line="107"/>
+        <location filename="../src/fcitxconfigplugin.cpp" line="124"/>
         <source>Input Methods</source>
         <translation>Méthodes de saisie</translation>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/fcitxconfigplugin.cpp" line="104"/>
+        <source>Manage Input Methods</source>
+        <translation>Gérer les méthodes de saisie</translation>
+    </message>
+    <message>
+        <location filename="../src/fcitxconfigplugin.cpp" line="105"/>
+        <source>Switch input methods</source>
+        <translation>Changer de méthode de saisie</translation>
+    </message>
+    <message>
+        <location filename="../src/fcitxconfigplugin.cpp" line="106"/>
+        <source>Switch to the first input method</source>
+        <translation>Changer pour la première méthode de saisie</translation>
+    </message>
+    <message>
+        <location filename="../src/fcitxconfigplugin.cpp" line="107"/>
+        <source>Advanced Settings</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -17,12 +81,12 @@
         <location filename="../src/widgets/settingshead.cpp" line="48"/>
         <location filename="../src/widgets/settingshead.cpp" line="114"/>
         <source>Edit</source>
-        <translation type="unfinished">Éditer</translation>
+        <translation>Éditer</translation>
     </message>
     <message>
         <location filename="../src/widgets/settingshead.cpp" line="116"/>
         <source>Done</source>
-        <translation type="unfinished">Terminé</translation>
+        <translation>Terminé</translation>
     </message>
 </context>
 <context>
@@ -102,32 +166,42 @@
         <translation type="vanished">Méthode de saisie</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="115"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="116"/>
         <source>Switch to the first input method</source>
         <translation>Changer pour la première méthode de saisie</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="116"/>
-        <location filename="../src/window/imsettingwindow.cpp" line="118"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="117"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="119"/>
         <source>Restore Defaults</source>
-        <translation type="unfinished"></translation>
+        <translation>Réinitialiser</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="119"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="124"/>
         <source>Advanced Settings</source>
         <translation type="unfinished"></translation>
+        <extra-child_page>Manage Input Methods</extra-child_page>
+        <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="128"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="133"/>
         <source>Manage Input Methods</source>
         <translation>Gérer les méthodes de saisie</translation>
         <extra-child_page>Manage Input Methods</extra-child_page>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="138"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="143"/>
         <source>Shortcuts</source>
         <translation>Raccourcis</translation>
+        <extra-child_page>Manage Input Methods</extra-child_page>
+        <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/window/imsettingwindow.cpp" line="159"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="160"/>
+        <source>Add Input Method</source>
+        <translation>Ajouter une méthode de saisie</translation>
         <extra-child_page>Manage Input Methods</extra-child_page>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
@@ -151,21 +225,21 @@
     </message>
     <message>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation type="vanished">Ce raccourci entre en conflit avec %1, cliquez sur Ajouter pour rendre ce raccourci effectif immédiatement</translation>
+        <translation type="vanished">Ce raccourci est en conflit avec %1, cliquez sur Ajouter pour rendre ce raccourci effectif immédiatement</translation>
     </message>
 </context>
 <context>
     <name>dcc_fcitx_configtool::widgets::FcitxKeyLabelWidget</name>
     <message>
         <location filename="../src/widgets/keysettingsitem.cpp" line="38"/>
-        <location filename="../src/widgets/keysettingsitem.cpp" line="148"/>
+        <location filename="../src/widgets/keysettingsitem.cpp" line="149"/>
         <source>None</source>
-        <translation type="unfinished">Aucun</translation>
+        <translation>Aucun</translation>
     </message>
     <message>
         <location filename="../src/widgets/keysettingsitem.cpp" line="44"/>
         <source>Enter a new shortcut</source>
-        <translation type="unfinished">Entrez un nouveau raccourci</translation>
+        <translation>Entrez un nouveau raccourci</translation>
     </message>
 </context>
 <context>

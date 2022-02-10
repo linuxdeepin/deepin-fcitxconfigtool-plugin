@@ -92,9 +92,11 @@ void FcitxConfigPlugin::active()
 
 void FcitxConfigPlugin::initSearchData()
 {
-    QString module = tr("Keyboard and Language");
+    QString module;
     #ifdef QT_DEBUG
         module = "键盘和语言";
+    #else
+        module = tr("Keyboard and Language");
     #endif
 
         auto func_process_all = [ = ]() {
@@ -117,9 +119,8 @@ const QString FcitxConfigPlugin::name() const
 //这个注释和翻译和使用控制台启动有关
 const QString FcitxConfigPlugin::displayName() const
 {
-    //下面一行注释,和第二行文案有关联是控制中心搜索规范快捷键规范.不可以修改,不可以移动位置,下面三行要在一起
-    //~ contents_path /keyboard/Input Methods
-    //~ child_page Input Methods
+    //下面两行注释,和第三行文案有关联是控制中心搜索规范快捷键规范.不可以修改,不可以移动位置,下面三行要在一起
+    //~ contents_path /keyboard/Manage Input Methods
     return tr("Input Methods");
 }
 
