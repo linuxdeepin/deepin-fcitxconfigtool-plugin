@@ -36,6 +36,23 @@
     },
     {
       "key": {
+        "uuid": "a7ec8b43_1cf80498",
+        "filename": "src/fcitxconfigplugin.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2022-02-10T05:14:31Z",
+      "side": 1,
+      "message": "\u003e [/tmp/16444700690010.2701902363450255/changeCache/src/fcitxconfigplugin.cpp:97]: (style) Variable \u0027module\u0027 is reassigned a value before the old one has been used",
+      "revId": "933345b05cf560dfafaf896efc74991ea2773352",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e3a0291f_d2dd0f11",
         "filename": "src/window/imsettingwindow.cpp",
         "patchSetId": 2
