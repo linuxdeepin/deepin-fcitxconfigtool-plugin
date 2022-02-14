@@ -168,7 +168,6 @@ void AdvancedSettingWidget::createConfigOptionWidget(FcitxConfigGroupDesc *cgdes
 {
     FcitxConfigOptionDesc2 *codesc2 = (FcitxConfigOptionDesc2 *) codesc;
 
-    QString strrrr = codesc->shownInDeepin;
     QString name(QString("%1/%2").arg(cgdesc->groupName).arg(codesc->optionName));
     if (m_argsMap.contains(name)) {
     }
@@ -422,8 +421,8 @@ QWidget *AdvancedSettingWidget::createglobalSettingsUi()
                 QString s, tooltip;
                 QWidget *inputWidget = nullptr;
                 void *argument = nullptr;
-                QString shownInDeepin = codesc->shownInDeepin;
-                if (shownInDeepin.contains("True")) {
+                FcitxConfigOptionDesc2 *codesc2 = (FcitxConfigOptionDesc2 *) codesc;
+                if (codesc2->shownInDeepin) {
                     createConfigOptionWidget(cgdesc, codesc, s, tooltip, inputWidget, argument);
                 }
                 if (inputWidget) {
