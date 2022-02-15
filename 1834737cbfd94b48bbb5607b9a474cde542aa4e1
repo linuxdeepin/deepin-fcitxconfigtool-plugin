@@ -16,6 +16,40 @@
       "revId": "1834737cbfd94b48bbb5607b9a474cde542aa4e1",
       "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bae5de71_459dabd4",
+        "filename": "src/window/advancedsettingwidget.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2022-02-15T03:25:40Z",
+      "side": 1,
+      "message": "\u003e [/tmp/16448955382810.6244763684994794/changeCache/src/window/advancedsettingwidget.cpp:431]: (style) Local variable f shadows outer variabl",
+      "revId": "1834737cbfd94b48bbb5607b9a474cde542aa4e1",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "463f88ba_931879ad",
+        "filename": "src/window/advancedsettingwidget.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 502,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2022-02-15T03:25:40Z",
+      "side": 1,
+      "message": "\u003e [/tmp/16448955382810.6244763684994794/changeCache/src/window/advancedsettingwidget.cpp:512]: (style) Local variable item shadows outer variabl",
+      "revId": "1834737cbfd94b48bbb5607b9a474cde542aa4e1",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
     }
   ]
 }
