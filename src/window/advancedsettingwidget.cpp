@@ -130,6 +130,7 @@ void AdvancedSettingWidget::setupConfigUi()
     addOnsWidget->setLayout(m_addOnsLayout);
     stackLayout->addWidget(globalSettingsWidget);
     stackLayout->addWidget(addOnsWidget);
+    layout->addSpacing(10);
     layout->addLayout(stackLayout);
     connect(btnGlobalSettings, &DButtonBoxButton::clicked, this, [ = ]() {
         stackLayout->setCurrentIndex(0);
@@ -187,6 +188,7 @@ void AdvancedSettingWidget::createConfigOptionWidget(FcitxConfigGroupDesc *cgdes
         spinbox->setAccessibleName(name.split('/').last());
         spinbox->setEnabledEmbedStyle(true);
         spinbox->setMinimumWidth(50);
+        spinbox->setMaximumHeight(48);
         spinbox->setMaximum(codesc2->constrain.integerConstrain.max);
         spinbox->setMinimum(codesc2->constrain.integerConstrain.min);
         inputWidget = spinbox;
@@ -439,10 +441,10 @@ QWidget *AdvancedSettingWidget::createglobalSettingsUi()
                     FcitxGlobalSettingsItem *pitem = new FcitxGlobalSettingsItem;
                     itemList.append(pitem);
                     pitem->setMinimumWidth(100);
-                    pitem->setMaximumHeight(46);
                     QHBoxLayout *hlayout = new QHBoxLayout;
                     if (codesc->type == T_Hotkey) {
-                        label->setAlignment(Qt::AlignBottom);
+                        pitem->setMaximumHeight(46);
+                        label->setAlignment(Qt::AlignVCenter);
                         hlayout->setContentsMargins(10, 0, 0, 10);
                     } else {
                         hlayout->setContentsMargins(10, 5, 5, 10);

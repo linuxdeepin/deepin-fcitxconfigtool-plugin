@@ -700,7 +700,7 @@ void FcitxGlobalSettingsItem::paintEvent(QPaintEvent *event)
     const int radius = 8;
     QRect paintRect = this->rect();
     QPainterPath path;
-    if(m_index == firstItem || m_index == onlyoneItem) {
+    if(m_index == firstItem) {
         path.moveTo(paintRect.bottomRight());
         path.lineTo(paintRect.topRight() + QPoint(0, radius));
         path.arcTo(QRect(QPoint(paintRect.topRight() - QPoint(radius * 2, 0)),
@@ -709,7 +709,7 @@ void FcitxGlobalSettingsItem::paintEvent(QPaintEvent *event)
         path.arcTo(QRect(QPoint(paintRect.topLeft()), QSize(radius * 2, radius * 2)), 90, 90);
         path.lineTo(paintRect.bottomLeft());
         path.lineTo(paintRect.bottomRight());
-    } if(m_index == lastItem || m_index == onlyoneItem) {
+    } if(m_index == lastItem) {
         path.moveTo(paintRect.bottomRight() - QPoint(0, radius));
         path.lineTo(paintRect.topRight());
         path.lineTo(paintRect.topLeft());
