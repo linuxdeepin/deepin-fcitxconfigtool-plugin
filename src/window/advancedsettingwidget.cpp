@@ -423,7 +423,7 @@ QWidget *AdvancedSettingWidget::createglobalSettingsUi()
                 QString s, tooltip;
                 QWidget *inputWidget = nullptr;
                 void *argument = nullptr;
-                FcitxConfigOptionDesc2 *codesc2 = (FcitxConfigOptionDesc2 *) codesc;
+                FcitxConfigOptionDesc *codesc2 = (FcitxConfigOptionDesc *) codesc;
                 if (codesc2->shownInDeepin) {
                     createConfigOptionWidget(cgdesc, codesc, s, tooltip, inputWidget, argument);
                 }
