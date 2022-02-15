@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "c3b7838d_b6da8070",
+        "filename": "src/fcitxInterface/global.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2022-02-15T03:38:02Z",
+      "side": 1,
+      "message": "(performance) Prefer prefix ++/-- operators for non-primitive types",
+      "revId": "e58b7102c91e82875d5dbe132a831abc274d29bd",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "87965224_90f17180",
         "filename": "src/fcitxInterface/global.h",
         "patchSetId": 1
@@ -64,6 +81,23 @@
       "writtenOn": "2022-02-15T03:38:01Z",
       "side": 1,
       "message": "注释行数: 4; 改动行数(修改和新增): 6; 注释率: 66.7%",
+      "revId": "e58b7102c91e82875d5dbe132a831abc274d29bd",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dad0e851_406335df",
+        "filename": "src/window/advancedsettingwidget.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2022-02-15T03:38:02Z",
+      "side": 1,
+      "message": "\u003e [/tmp/16448962792240.740436960235191/changeCache/src/window/advancedsettingwidget.cpp:431]: (style) Local variable f shadows outer variabl",
       "revId": "e58b7102c91e82875d5dbe132a831abc274d29bd",
       "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
       "unresolved": true
