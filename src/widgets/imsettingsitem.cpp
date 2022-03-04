@@ -66,8 +66,10 @@ void FcitxIMSettingsItem::setFilterStr(QString str)
           || m_item.uniqueName().indexOf(str, Qt::CaseInsensitive) != -1
           || m_item.langCode().indexOf(str, Qt::CaseInsensitive) != -1)) {
         this->hide();
+        this->setVisible(false);
     } else {
         this->show();
+        this->setVisible(true);
     }
 }
 

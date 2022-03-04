@@ -69,7 +69,9 @@ void AvailWidget::initUI()
     m_mainLayout->setSpacing(0);
     //滑动窗口
     FcitxContentWidget *scrollArea = new FcitxContentWidget(this);
+    scrollArea->setAccessibleName("scrollArea");
     QWidget *scrollAreaWidgetContents = new QWidget(scrollArea);
+    scrollAreaWidgetContents->setAccessibleName("scrollAreaWidgetContents");
     QVBoxLayout *scrollAreaLayout = new QVBoxLayout(scrollAreaWidgetContents);
     scrollAreaLayout->setSpacing(0);
     scrollArea->setContent(scrollAreaWidgetContents);
@@ -77,7 +79,9 @@ void AvailWidget::initUI()
     //搜索输入法列表 可用输入法列表
     m_allIMGroup = new FcitxSettingsGroup;
     m_allIMGroup->setSpacing(10);
+    m_allIMGroup->setAccessibleName("allIMGroup");
     m_searchIMGroup = new FcitxSettingsGroup;
+    m_searchIMGroup->setAccessibleName("searchIMGroup");
     m_searchIMGroup->setVerticalPolicy();
     m_searchIMGroup->setSpacing(5);
     //控件添加至滑动窗口内
@@ -85,6 +89,7 @@ void AvailWidget::initUI()
     scrollAreaLayout->addSpacing(10);
     scrollAreaLayout->addWidget(m_searchIMGroup);
     scrollAreaLayout->addStretch();
+    scrollAreaLayout->setObjectName("scrollAreaLayout");
     //添加至主界面内
     m_mainLayout->addWidget(scrollArea);
 }
@@ -271,11 +276,15 @@ void AvailWidget::onSearchIM(const QString &str)
 
     if (m_searchStr.isEmpty()) {
         m_allIMGroup->show();
+        m_allIMGroup->setVisible(true);
         m_searchIMGroup->hide();
+        m_searchIMGroup->setVisible(false);
         clearItemStatusAndFilter(m_allIMGroup, false);
     } else {
         m_searchIMGroup->show();
+        m_searchIMGroup->setVisible(true);
         m_allIMGroup->hide();
+        m_allIMGroup->setVisible(false);
         clearItemStatusAndFilter(m_searchIMGroup, true);
     }
 }
