@@ -84,9 +84,9 @@ void IMAddWindow::initUI()
     //添加 取消按钮
     m_buttonTuple = new FcitxButtonTuple(FcitxButtonTuple::Save);
     m_buttonTuple->rightButton()->setText(tr("Add"));
-    m_buttonTuple->rightButton()->setAccessibleName(tr("Add"));
+    m_buttonTuple->rightButton()->setAccessibleName("AddBtn");
     m_buttonTuple->leftButton()->setText(tr("Cancel"));
-    m_buttonTuple->leftButton()->setAccessibleName(tr("Cancel"));
+    m_buttonTuple->leftButton()->setAccessibleName("CancelBtn");
     QHBoxLayout *hlayout4 = new QHBoxLayout(this);
     hlayout4->addSpacing(10);
     hlayout4->addWidget(m_buttonTuple, 0, Qt::AlignBottom);
