@@ -67,6 +67,23 @@
       "revId": "e218f5a60a136fc9e2a05397fe635797d296c263",
       "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b16ff56f_cf48ae62",
+        "filename": "src/window/imwindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2022-03-04T08:52:27Z",
+      "side": 1,
+      "message": "(style) Consider using std::accumulate algorithm instead of a raw loop",
+      "revId": "e218f5a60a136fc9e2a05397fe635797d296c263",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
     }
   ]
 }
