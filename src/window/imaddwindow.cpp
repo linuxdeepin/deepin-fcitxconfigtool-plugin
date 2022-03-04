@@ -73,6 +73,7 @@ void IMAddWindow::initUI()
     hlayout2->addSpacing(10);
     //可用输入法列表
     m_availWidget = new AvailWidget(this);
+    m_availWidget->setAccessibleName("availWidget");
     //应用商店按钮
     QHBoxLayout *hlayout3 = new QHBoxLayout(this);
     hlayout3->addStretch();

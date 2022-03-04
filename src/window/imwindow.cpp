@@ -118,6 +118,7 @@ void IMWindow::initUI()
     m_settingWindow = new IMSettingWindow(this);
     connect(m_settingWindow, &IMSettingWindow::requestNextPage, this, &IMWindow::requestNextPage);
     m_addWindow = new IMAddWindow(this);
+    m_addWindow->setAccessibleName("addWindow");
     m_stackedWidget->addWidget(m_settingWindow);
     m_stackedWidget->addWidget(m_addWindow);
     m_stackedWidget->setCurrentIndex(0);
