@@ -163,7 +163,7 @@ void IMSettingWindow::initUI()
     //~ contents_path /keyboard/Manage Input Methods
     //~ child_page Manage Input Methods
     m_addIMBtn->setToolTip(tr("Add Input Method"));
-    m_addIMBtn->setAccessibleName(tr("Add Input Method"));
+    m_addIMBtn->setAccessibleName("AddInputMethod");
     m_addIMBtn->setMaximumHeight(50);
     GSettingWatcher::instance()->bind(GSETTINGS_ADD_IM, m_addIMBtn);
     QHBoxLayout *headLayout = new QHBoxLayout(this);
