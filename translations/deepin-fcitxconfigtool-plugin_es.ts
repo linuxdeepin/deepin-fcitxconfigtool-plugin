@@ -14,7 +14,7 @@
         <translation>Complementos</translation>
     </message>
     <message>
-        <location filename="../src/window/advancedsettingwidget.cpp" line="239"/>
+        <location filename="../src/window/advancedsettingwidget.cpp" line="241"/>
         <source>None</source>
         <translation>Ninguno</translation>
     </message>
@@ -87,19 +87,19 @@
         <translation>Buscar</translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="79"/>
+        <location filename="../src/window/imaddwindow.cpp" line="80"/>
         <source>Find more in App Store</source>
         <translation>Buscar más en la Tienda</translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="85"/>
         <location filename="../src/window/imaddwindow.cpp" line="86"/>
+        <location filename="../src/window/imaddwindow.cpp" line="87"/>
         <source>Add</source>
         <translation>Añadir</translation>
     </message>
     <message>
-        <location filename="../src/window/imaddwindow.cpp" line="87"/>
         <location filename="../src/window/imaddwindow.cpp" line="88"/>
+        <location filename="../src/window/imaddwindow.cpp" line="89"/>
         <source>Cancel</source>
         <translation>Cancelar</translation>
     </message>
@@ -155,8 +155,8 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../src/window/advancedsettingwidget.cpp" line="601"/>
-        <location filename="../src/window/advancedsettingwidget.cpp" line="653"/>
+        <location filename="../src/window/advancedsettingwidget.cpp" line="606"/>
+        <location filename="../src/window/advancedsettingwidget.cpp" line="658"/>
         <source>None</source>
         <translation>Ninguno</translation>
     </message>

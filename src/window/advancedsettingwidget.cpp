@@ -423,8 +423,9 @@ QWidget *AdvancedSettingWidget::createglobalSettingsUi()
                 QString s, tooltip;
                 QWidget *inputWidget = nullptr;
                 void *argument = nullptr;
-                QString shownInDeepin = codesc->shownInDeepin;
-                if (shownInDeepin.contains("True")) {
+                FcitxConfigOptionDesc2 *codesc2 = (FcitxConfigOptionDesc2 *) codesc;
+                boolean shownInDeepin = codesc2->shownInDeepin;
+                if (shownInDeepin) {
                     createConfigOptionWidget(cgdesc, codesc, s, tooltip, inputWidget, argument);
                 }
                 if (inputWidget) {
