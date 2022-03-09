@@ -20,8 +20,8 @@ make -j4
 ./tests/deepin-fcitxconfigtool-plugin_test > asan_deepin-fcitxconfigtool-plugin.log 2>&1
 ######################
 cd -
-echo "Uos123!!" | sudo -S cp ./build/asan.log.* ./build-ut/asan_deepin-fcitxconfigtool-plugin.log
-echo "Uos123!!" | sudo -S chmod 744 ./build-ut/asan_deepin-fcitxconfigtool-plugin.log
+echo "Uos123!!" | sudo -S mv ./build/asan.log.* ./build-ut/interlog-deepin-fcitxconfigtool-plugin.log
+echo "Uos123!!" | sudo -S chmod 777 ./build-ut/asan_deepin-fcitxconfigtool-plugin.log
 
 # UT for index.html and ut-report.txt
 cd tests
