@@ -93,13 +93,11 @@
     </message>
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="86"/>
-        <location filename="../src/window/imaddwindow.cpp" line="87"/>
         <source>Add</source>
         <translation>Додати</translation>
     </message>
     <message>
         <location filename="../src/window/imaddwindow.cpp" line="88"/>
-        <location filename="../src/window/imaddwindow.cpp" line="89"/>
         <source>Cancel</source>
         <translation>Скасувати</translation>
     </message>
@@ -145,7 +143,6 @@
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="165"/>
-        <location filename="../src/window/imsettingwindow.cpp" line="166"/>
         <source>Add Input Method</source>
         <translation type="unfinished">Додати спосіб введення</translation>
         <extra-child_page>Manage Input Methods</extra-child_page>
