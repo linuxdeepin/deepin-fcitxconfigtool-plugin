@@ -30,7 +30,9 @@ class DFloatingButton;
 
 } // namespace Widget
 } // namespace Dtk
-
+namespace Fcitx {
+class AdvancedSettingWidget;
+}
 class IMSettingWindow : public QWidget
 {
     Q_OBJECT
@@ -68,6 +70,7 @@ private:
     Dtk::Widget::DCommandLinkButton* m_resetBtn {nullptr}; //重置输入法（快捷键）
     Dtk::Widget::DFloatingButton *m_addIMBtn {nullptr}; //添加输入法
     QVBoxLayout *m_mainLayout;
+    Fcitx::AdvancedSettingWidget* m_advancedSettingWidget;
 };
 
 #endif // IMSETTINGWINDOW_H

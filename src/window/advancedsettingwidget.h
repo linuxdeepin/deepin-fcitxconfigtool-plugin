@@ -23,9 +23,10 @@
 
 class QCheckBox;
 class QVBoxLayout;
+class QGSettings;
 class QStandardItemModel;
 struct _FcitxConfigFileDesc;
-
+class QHBoxLayout;
 class QTabWidget;
 namespace dcc_fcitx_configtool {
 namespace widgets {
@@ -92,6 +93,16 @@ private:
      */
     void loadFile();
 
+    /**
+     *@brief 将界面控件绑定到gsetting设置
+     */
+    void bindGsettings(const QString &gsettingsName, QLayout *layout);
+
+    /**
+     *@brief 将界面控件绑定到gsetting设置
+     */
+    void bindGsettings(const QString &gsettingsName, QWidget *w);
+
 private slots:
     /**
      *@brief 界面风格改变
@@ -116,6 +127,7 @@ private:
     AddonSelector *m_addonSelector;
     bool m_isSelfSend {false};
     QList<dcc_fcitx_configtool::widgets::FcitxCheckBoxSettingsItem *> m_addonsList;
+    QGSettings *m_gsetting;
 };
 
 /**

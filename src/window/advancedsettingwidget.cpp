@@ -63,6 +63,7 @@ AdvancedSettingWidget::AdvancedSettingWidget(QWidget *parent)
     , m_addOnsLayout(new QVBoxLayout)
     , m_simpleUiType(CW_NoShow)
     , m_fullUiType(CW_NoShow)
+    , m_gsetting(new QGSettings("com.deepin.fcitx-config", QByteArray(), this))
 {
     getConfigDesc("config.desc");
     setupConfigUi();
@@ -146,6 +147,153 @@ void AdvancedSettingWidget::setupConfigUi()
 
 AdvancedSettingWidget::~AdvancedSettingWidget()
 {
+}
+
+QWidget *AdvancedSettingWidget::createglobalSettingsUi()
+{
+    int row = 0;
+    VerticalScrollArea *scrollarea = new VerticalScrollArea;
+    scrollarea->setFrameStyle(QFrame::NoFrame);
+    scrollarea->setWidgetResizable(true);
+
+    QWidget *form = new QWidget;
+    QVBoxLayout *vgLayout = new QVBoxLayout;
+    vgLayout->setContentsMargins(20, 0, 20, 0);
+    scrollarea->setWidget(form);
+    form->setLayout(vgLayout);
+
+    do {
+        if (!m_cfdesc)
+            break;
+
+        if (!m_config.isValid())
+            break;
+
+        HASH_FOREACH(cgdesc, m_cfdesc->groupsDesc, FcitxConfigGroupDesc) {
+            ArrowButton *grouplabel = new ArrowButton();
+            grouplabel->setText(QString("%1").arg(QString::fromUtf8(dgettext(m_cfdesc->domain, cgdesc->groupName))));
+            grouplabel->setAccessibleName(cgdesc->groupName);
+            QFont f;
+            f.setPixelSize(17);
+            f.setWeight(QFont::DemiBold);
+            grouplabel->setFont(f);
+            ArrowButton *button = new ArrowButton();
+            QPixmap pmap = QIcon::fromTheme("dm_arrow").pixmap(QSize(12, 8));
+            button->setPixmap(pmap);
+            button->setMaximumWidth(30);
+            QHBoxLayout *hglayout = new QHBoxLayout;
+
+
+            hglayout->addSpacing(10);
+            hglayout->addWidget(grouplabel);
+            hglayout->addWidget(button, Qt::AlignRight);
+            vgLayout->addLayout(hglayout);
+            QWidget *content = new QWidget;
+            QSizePolicy policy;
+            policy.setVerticalPolicy(QSizePolicy::Fixed);
+            policy.setHorizontalPolicy(QSizePolicy::Expanding);
+            content->setSizePolicy(policy);
+            QVBoxLayout *vlayout = new QVBoxLayout;
+            vlayout->setContentsMargins(0, 0, 0, 0);
+            content->setLayout(vlayout);
+            content->setHidden(true);
+            connect(grouplabel, &ArrowButton::pressed, this, [ = ](bool isHidden) {
+                content->setHidden(isHidden);
+                button->setContentHidden(!isHidden);
+                QMatrix matrix;
+                if (!isHidden) {
+                    matrix.rotate(180);
+                } else {
+                    matrix.rotate(0);
+                }
+                button->setPixmap(pmap.transformed(matrix, Qt::SmoothTransformation));
+            });
+            connect(button, &ArrowButton::pressed, this, [ = ](bool isHidden) {
+                content->setHidden(isHidden);
+                grouplabel->setContentHidden(!isHidden);
+                QMatrix matrix;
+                if (!isHidden) {
+                    matrix.rotate(180);
+                } else {
+                    matrix.rotate(0);
+                }
+                button->setPixmap(pmap.transformed(matrix, Qt::SmoothTransformation));
+            });
+            vgLayout->addWidget(content, Qt::AlignLeft);
+            vgLayout->addSpacing(7);
+            QList<FcitxGlobalSettingsItem *> itemList;
+            HASH_FOREACH(codesc, cgdesc->optionsDesc, FcitxConfigOptionDesc) {
+                QString s, tooltip;
+                QWidget *inputWidget = nullptr;
+                void *argument = nullptr;
+                FcitxConfigOptionDesc2 *codesc2 = (FcitxConfigOptionDesc2 *) codesc;
+                boolean shownInDeepin = codesc2->shownInDeepin;
+                if (shownInDeepin) {
+                    createConfigOptionWidget(cgdesc, codesc, s, tooltip, inputWidget, argument);
+                }
+                if (inputWidget) {
+                    ArrowButton *label = new ArrowButton;
+                    label->setOriginText(s);
+                    QFont f;
+                    f.setPixelSize(13);
+                    //f.setWeight(QFont::DemiBold);
+                    label->setFont(f);
+                    label->setMinimumWidth(100);
+                    if (!tooltip.isEmpty()) {
+                        label->setToolTip(tooltip);
+                    }
+                    FcitxGlobalSettingsItem *pitem = new FcitxGlobalSettingsItem;
+                    itemList.append(pitem);
+                    pitem->setMinimumWidth(100);
+                    QHBoxLayout *hlayout = new QHBoxLayout;
+                    if (codesc->type == T_Hotkey) {
+                        pitem->setMaximumHeight(46);
+                        label->setAlignment(Qt::AlignVCenter);
+                        hlayout->setContentsMargins(10, 0, 0, 10);
+                    } else {
+                        hlayout->setContentsMargins(10, 5, 5, 10);
+                    }
+                    hlayout->addWidget(label);
+                    hlayout->addWidget(inputWidget, Qt::AlignCenter);
+                    pitem->setLayout(hlayout);
+                    vlayout->addWidget(pitem);
+                    vlayout->addSpacing(-5);
+                    if (argument) {
+                        m_config.bind(cgdesc->groupName, codesc->optionName, SyncFilterFunc, argument);
+                    }
+                    row++;
+                }
+            }
+            itemList.first()->setIndex(0);
+            itemList.last()->setIndex(-1);
+            if (QString(cgdesc->groupName) == "Hotkey") {
+                bindGsettings(GSETTINGS_GLOBALCONFIG_SHORTCUT, hglayout);
+                bindGsettings(GSETTINGS_GLOBALCONFIG_SHORTCUT, content);
+            } else if (QString(cgdesc->groupName) == "Program") {
+                bindGsettings(GSETTINGS_GLOBALCONFIG_PROGRAM, hglayout);
+                bindGsettings(GSETTINGS_GLOBALCONFIG_PROGRAM, content);
+            } else if (QString(cgdesc->groupName) == "Output") {
+                bindGsettings(GSETTINGS_GLOBALCONFIG_OUTPUT, hglayout);
+                bindGsettings(GSETTINGS_GLOBALCONFIG_OUTPUT, content);
+            } else if (QString(cgdesc->groupName) == "Appearance") {
+                bindGsettings(GSETTINGS_GLOBALCONFIG_APPEARANCE, hglayout);
+                bindGsettings(GSETTINGS_GLOBALCONFIG_APPEARANCE, content);
+            }
+        }
+    } while (0);
+
+
+    //QSpacerItem* verticalSpacer = new QSpacerItem(20, 10);
+
+//    if (row >= 2) {
+//        QSpacerItem* horizontalSpacer = new QSpacerItem(20, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
+//        vgLayout->addItem(horizontalSpacer);
+//    }
+
+    vgLayout->addSpacing(10);
+    vgLayout->addStretch();
+    bindGsettings(GSETTINGS_ADVANCESETTING_GLOBALCONFIG, form);
+    return scrollarea;
 }
 
 void AdvancedSettingWidget::createConfigOptionWidget(FcitxConfigGroupDesc *cgdesc, FcitxConfigOptionDesc *codesc, QString &label,
@@ -261,207 +409,6 @@ void AdvancedSettingWidget::createConfigOptionWidget(FcitxConfigGroupDesc *cgdes
     }
 }
 
-QWidget *AdvancedSettingWidget::createglobalSettingsUi()
-{
-    int row = 0;
-    VerticalScrollArea *scrollarea = new VerticalScrollArea;
-    scrollarea->setFrameStyle(QFrame::NoFrame);
-    scrollarea->setWidgetResizable(true);
-
-    QWidget *form = new QWidget;
-    QVBoxLayout *vgLayout = new QVBoxLayout;
-    vgLayout->setContentsMargins(20, 0, 20, 0);
-    scrollarea->setWidget(form);
-    form->setLayout(vgLayout);
-
-    do {
-        if (!m_cfdesc)
-            break;
-
-        if (!m_config.isValid())
-            break;
-
-        HASH_FOREACH(cgdesc, m_cfdesc->groupsDesc, FcitxConfigGroupDesc) {
-            ArrowButton *grouplabel = new ArrowButton();
-            grouplabel->setText(QString("%1").arg(QString::fromUtf8(dgettext(m_cfdesc->domain, cgdesc->groupName))));
-            grouplabel->setAccessibleName(cgdesc->groupName);
-            QFont f;
-            f.setPixelSize(17);
-            f.setWeight(QFont::DemiBold);
-            grouplabel->setFont(f);
-            ArrowButton *button = new ArrowButton();
-            QPixmap pmap = QIcon::fromTheme("dm_arrow").pixmap(QSize(12, 8));
-            button->setPixmap(pmap);
-            button->setMaximumWidth(30);
-            QHBoxLayout *hglayout = new QHBoxLayout;
-            QGSettings *gsetting = new QGSettings("com.deepin.fcitx-config", QByteArray(), this);
-            if (QString(cgdesc->groupName) == "Hotkey") {
-                QString value = gsetting->get(GSETTINGS_GLOBALCONFIG_SHORTCUT).toString();
-                if ("Enabled" == value) {
-                    grouplabel->setEnabled(true);
-                    button->setEnabled(true);
-                } else if ("Disabled" == value) {
-                    grouplabel->setEnabled(false);
-                    button->setEnabled(false);
-                }
-                grouplabel->setVisible("Hidden" != value);
-                button->setVisible("Hidden" != value);
-
-                GSettingWatcher::instance()->bind(GSETTINGS_GLOBALCONFIG_SHORTCUT, grouplabel);
-                GSettingWatcher::instance()->bind(GSETTINGS_GLOBALCONFIG_SHORTCUT, button);
-            } else if (QString(cgdesc->groupName) == "Program") {
-                QString value = gsetting->get(GSETTINGS_GLOBALCONFIG_PROGRAM).toString();
-                if ("Enabled" == value) {
-                    grouplabel->setEnabled(true);
-                    button->setEnabled(true);
-                } else if ("Disabled" == value) {
-                    grouplabel->setEnabled(false);
-                    button->setEnabled(false);
-                }
-                grouplabel->setVisible("Hidden" != value);
-                button->setVisible("Hidden" != value);
-
-                GSettingWatcher::instance()->bind(GSETTINGS_GLOBALCONFIG_PROGRAM, grouplabel);
-                GSettingWatcher::instance()->bind(GSETTINGS_GLOBALCONFIG_PROGRAM, button);
-            } else if (QString(cgdesc->groupName) == "Output") {
-                QString value = gsetting->get(GSETTINGS_GLOBALCONFIG_OUTPUT).toString();
-                if ("Enabled" == value) {
-                    grouplabel->setEnabled(true);
-                    button->setEnabled(true);
-                } else if ("Disabled" == value) {
-                    grouplabel->setEnabled(false);
-                    button->setEnabled(false);
-                }
-                grouplabel->setVisible("Hidden" != value);
-                button->setVisible("Hidden" != value);
-
-                GSettingWatcher::instance()->bind(GSETTINGS_GLOBALCONFIG_OUTPUT, grouplabel);
-                GSettingWatcher::instance()->bind(GSETTINGS_GLOBALCONFIG_OUTPUT, button);
-            } else if (QString(cgdesc->groupName) == "Appearance") {
-                QString value = gsetting->get(GSETTINGS_GLOBALCONFIG_APPEARANCE).toString();
-                if ("Enabled" == value) {
-                    grouplabel->setEnabled(true);
-                    button->setEnabled(true);
-                } else if ("Disabled" == value) {
-                    grouplabel->setEnabled(false);
-                    button->setEnabled(false);
-                }
-                grouplabel->setVisible("Hidden" != value);
-                button->setVisible("Hidden" != value);
-
-                GSettingWatcher::instance()->bind(GSETTINGS_GLOBALCONFIG_APPEARANCE, grouplabel);
-                GSettingWatcher::instance()->bind(GSETTINGS_GLOBALCONFIG_APPEARANCE, button);
-            }
-            QString value = gsetting->get(GSETTINGS_ADVANCESETTING_GLOBALCONFIG).toString();
-            if ("Enabled" == value) {
-                grouplabel->setEnabled(true);
-                button->setEnabled(true);
-            } else if ("Disabled" == value) {
-                grouplabel->setEnabled(false);
-                button->setEnabled(false);
-            }
-            grouplabel->setVisible("Hidden" != value);
-            button->setVisible("Hidden" != value);
-            GSettingWatcher::instance()->bind(GSETTINGS_ADVANCESETTING_GLOBALCONFIG, grouplabel);
-            GSettingWatcher::instance()->bind(GSETTINGS_ADVANCESETTING_GLOBALCONFIG, button);
-
-            hglayout->addSpacing(10);
-            hglayout->addWidget(grouplabel);
-            hglayout->addWidget(button, Qt::AlignRight);
-            vgLayout->addLayout(hglayout);
-            QWidget *content = new QWidget;
-            QSizePolicy policy;
-            policy.setVerticalPolicy(QSizePolicy::Fixed);
-            policy.setHorizontalPolicy(QSizePolicy::Expanding);
-            content->setSizePolicy(policy);
-            QVBoxLayout *vlayout = new QVBoxLayout;
-            vlayout->setContentsMargins(0, 0, 0, 0);
-            content->setLayout(vlayout);
-            content->setHidden(true);
-            connect(grouplabel, &ArrowButton::pressed, this, [ = ](bool isHidden) {
-                content->setHidden(isHidden);
-                button->setContentHidden(!isHidden);
-                QMatrix matrix;
-                if (!isHidden) {
-                    matrix.rotate(180);
-                } else {
-                    matrix.rotate(0);
-                }
-                button->setPixmap(pmap.transformed(matrix, Qt::SmoothTransformation));
-            });
-            connect(button, &ArrowButton::pressed, this, [ = ](bool isHidden) {
-                content->setHidden(isHidden);
-                grouplabel->setContentHidden(!isHidden);
-                QMatrix matrix;
-                if (!isHidden) {
-                    matrix.rotate(180);
-                } else {
-                    matrix.rotate(0);
-                }
-                button->setPixmap(pmap.transformed(matrix, Qt::SmoothTransformation));
-            });
-            vgLayout->addWidget(content, Qt::AlignLeft);
-            vgLayout->addSpacing(7);
-            QList<FcitxGlobalSettingsItem *> itemList;
-            HASH_FOREACH(codesc, cgdesc->optionsDesc, FcitxConfigOptionDesc) {
-                QString s, tooltip;
-                QWidget *inputWidget = nullptr;
-                void *argument = nullptr;
-                FcitxConfigOptionDesc2 *codesc2 = (FcitxConfigOptionDesc2 *) codesc;
-                boolean shownInDeepin = codesc2->shownInDeepin;
-                if (shownInDeepin) {
-                    createConfigOptionWidget(cgdesc, codesc, s, tooltip, inputWidget, argument);
-                }
-                if (inputWidget) {
-                    ArrowButton *label = new ArrowButton;
-                    label->setOriginText(s);
-                    QFont f;
-                    f.setPixelSize(13);
-                    //f.setWeight(QFont::DemiBold);
-                    label->setFont(f);
-                    label->setMinimumWidth(100);
-                    if (!tooltip.isEmpty()) {
-                        label->setToolTip(tooltip);
-                    }
-                    FcitxGlobalSettingsItem *pitem = new FcitxGlobalSettingsItem;
-                    itemList.append(pitem);
-                    pitem->setMinimumWidth(100);
-                    QHBoxLayout *hlayout = new QHBoxLayout;
-                    if (codesc->type == T_Hotkey) {
-                        pitem->setMaximumHeight(46);
-                        label->setAlignment(Qt::AlignVCenter);
-                        hlayout->setContentsMargins(10, 0, 0, 10);
-                    } else {
-                        hlayout->setContentsMargins(10, 5, 5, 10);
-                    }
-                    hlayout->addWidget(label);
-                    hlayout->addWidget(inputWidget, Qt::AlignCenter);
-                    pitem->setLayout(hlayout);
-                    vlayout->addWidget(pitem);
-                    vlayout->addSpacing(-5);
-                    if (argument) {
-                        m_config.bind(cgdesc->groupName, codesc->optionName, SyncFilterFunc, argument);
-                    }
-                    row++;
-                }
-            }
-            itemList.first()->setIndex(0);
-            itemList.last()->setIndex(-1);
-        }
-    } while (0);
-
-
-    //QSpacerItem* verticalSpacer = new QSpacerItem(20, 10);
-
-//    if (row >= 2) {
-//        QSpacerItem* horizontalSpacer = new QSpacerItem(20, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
-//        vgLayout->addItem(horizontalSpacer);
-//    }
-
-    vgLayout->addSpacing(10);
-    vgLayout->addStretch();
-    return scrollarea;
-}
 
 QWidget *AdvancedSettingWidget::createAddOnsUi()
 {
@@ -496,14 +443,10 @@ QWidget *AdvancedSettingWidget::createAddOnsUi()
                     QProcess p;
                     p.startDetached("sh -c \"fcitx -r\"");
                     p.waitForFinished();
-                    //for (auto item : m_addonsList) {
-                        //item->setEnabled(false);
                         area->setEnabled(false);
                         QTimer::singleShot(2000, this, [ = ]() {
-                            //item->setEnabled(true);
                             area->setEnabled(true);
                         });
-                    //}
                 });
             }
         }
@@ -539,6 +482,40 @@ void AdvancedSettingWidget::sendReloadMessage()
     QTimer::singleShot(200, this, [ = ]() {
         m_isSelfSend = false;
     });
+}
+
+void AdvancedSettingWidget::bindGsettings(const QString &gsettingsName, QLayout *layout)
+{
+    QString value = m_gsetting->get(gsettingsName).toString();
+
+    for(int i = 0; i < layout->count(); i++) {
+        QWidget *w = layout->itemAt(i)->widget();
+        if(w) {
+            w->setEnabled("Enabled" == value);
+            w->setVisible("Hidden" != value);
+            GSettingWatcher::instance()->bind(gsettingsName, w);
+            continue;
+        }
+        QLayout *lay = layout->itemAt(i)->layout();
+        if(lay) {
+            for(int j = 0; j < lay->count(); j++) {
+                QWidget *ww = lay->itemAt(j)->widget();
+                if(ww) {
+                    ww->setEnabled("Enabled" == value);
+                    ww->setVisible("Hidden" != value);
+                    GSettingWatcher::instance()->bind(gsettingsName, ww);
+                }
+            }
+        }
+    }
+}
+
+void AdvancedSettingWidget::bindGsettings(const QString &gsettingsName, QWidget *w)
+{
+    QString value = m_gsetting->get(gsettingsName).toString();
+    w->setEnabled("Enabled" == value);
+    w->setVisible("Hidden" != value);
+    GSettingWatcher::instance()->bind(gsettingsName, w);
 }
 
 void AdvancedSettingWidget::onPalettetypechanged()
