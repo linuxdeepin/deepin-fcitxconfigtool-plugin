@@ -264,8 +264,10 @@ QWidget *AdvancedSettingWidget::createglobalSettingsUi()
                     row++;
                 }
             }
-            itemList.first()->setIndex(0);
-            itemList.last()->setIndex(-1);
+            if(!itemList.isEmpty()) {
+                itemList.first()->setIndex(0);
+                itemList.last()->setIndex(-1);
+            }
             if (QString(cgdesc->groupName) == "Hotkey") {
                 bindGsettings(GSETTINGS_GLOBALCONFIG_SHORTCUT, hglayout);
                 bindGsettings(GSETTINGS_GLOBALCONFIG_SHORTCUT, content);

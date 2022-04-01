@@ -31,7 +31,6 @@ using namespace Fcitx;
 using namespace dcc_fcitx_configtool::widgets;
 IMSettingWindow::IMSettingWindow(QWidget *parent)
     : QWidget(parent)
-    , m_advancedSettingWidget(new AdvancedSettingWidget)
 {
     initUI();
     initConnect();
@@ -208,8 +207,9 @@ void IMSettingWindow::initConnect()
     });
 
     connect(m_advSetKey, &QAbstractButton::clicked, [ = ]() {
-        m_advancedSettingWidget->show();
-        emit requestNextPage(m_advancedSettingWidget);
+        AdvancedSettingWidget *advancedSettingWidget = new AdvancedSettingWidget;
+        advancedSettingWidget->show();
+        emit requestNextPage(advancedSettingWidget);
     });
     connect(IMModel::instance(), &IMModel::curIMListChanaged, this, &IMSettingWindow::onCurIMChanged);
     connect(m_addIMBtn, &DFloatingButton::clicked, this, &IMSettingWindow::onAddBtnCilcked);
