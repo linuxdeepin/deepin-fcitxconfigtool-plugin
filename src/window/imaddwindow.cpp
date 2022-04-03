@@ -153,6 +153,6 @@ void IMAddWindow::onOpenStore()
     DDBusSender().service("com.home.appstore.client")
             .interface("com.home.appstore.client")
             .path("/com/home/appstore/client")
-            .method("newInstence")
-            .call();
+            .method("com.home.appstore.client.openBusinessUri")
+            .call("searchApp/输入法");
 }
