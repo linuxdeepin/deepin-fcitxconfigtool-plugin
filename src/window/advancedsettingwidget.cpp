@@ -196,12 +196,12 @@ QWidget *AdvancedSettingWidget::createglobalSettingsUi()
             QVBoxLayout *vlayout = new QVBoxLayout;
             vlayout->setContentsMargins(0, 0, 0, 0);
             content->setLayout(vlayout);
-            content->setHidden(true);
+            //content->setHidden(true);
             connect(grouplabel, &ArrowButton::pressed, this, [ = ](bool isHidden) {
                 content->setHidden(isHidden);
                 button->setContentHidden(!isHidden);
                 QMatrix matrix;
-                if (!isHidden) {
+                if (isHidden) {
                     matrix.rotate(180);
                 } else {
                     matrix.rotate(0);
@@ -212,7 +212,7 @@ QWidget *AdvancedSettingWidget::createglobalSettingsUi()
                 content->setHidden(isHidden);
                 grouplabel->setContentHidden(!isHidden);
                 QMatrix matrix;
-                if (!isHidden) {
+                if (isHidden) {
                     matrix.rotate(180);
                 } else {
                     matrix.rotate(0);

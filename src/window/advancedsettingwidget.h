@@ -162,7 +162,7 @@ signals:
     void pressed(bool isHidden);
 
 private:
-    bool m_hide{false};
+    bool m_hide{true};
     QString m_originText;
 };
 
