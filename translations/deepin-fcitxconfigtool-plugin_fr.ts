@@ -4,17 +4,17 @@
 <context>
     <name>Fcitx::AdvancedSettingWidget</name>
     <message>
-        <location filename="../src/window/advancedsettingwidget.cpp" line="104"/>
+        <location filename="../src/window/advancedsettingwidget.cpp" line="105"/>
         <source>Global Config</source>
-        <translation type="unfinished"></translation>
+        <translation>Configuration globale</translation>
     </message>
     <message>
-        <location filename="../src/window/advancedsettingwidget.cpp" line="107"/>
+        <location filename="../src/window/advancedsettingwidget.cpp" line="108"/>
         <source>Add-ons</source>
         <translation>Modules complémentaires</translation>
     </message>
     <message>
-        <location filename="../src/window/advancedsettingwidget.cpp" line="241"/>
+        <location filename="../src/window/advancedsettingwidget.cpp" line="391"/>
         <source>None</source>
         <translation>Aucun</translation>
     </message>
@@ -57,7 +57,7 @@
     <message>
         <location filename="../src/fcitxconfigplugin.cpp" line="85"/>
         <source>Advanced Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Paramètres avancés</translation>
     </message>
 </context>
 <context>
@@ -106,45 +106,45 @@
     <name>IMSettingWindow</name>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="115"/>
-        <source>Switch input methods</source>
-        <translation>Changer de méthode de saisie</translation>
+        <source>Scroll between input methods</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="119"/>
-        <source>Switch to the first input method</source>
-        <translation>Changer pour la première méthode de saisie</translation>
+        <source>Switch between the current/first input method</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="121"/>
-        <location filename="../src/window/imsettingwindow.cpp" line="124"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="122"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="125"/>
         <source>Restore Defaults</source>
         <translation>Réinitialiser</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="128"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="129"/>
         <source>Advanced Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Paramètres avancés</translation>
         <extra-child_page>Manage Input Methods</extra-child_page>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="138"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="139"/>
         <source>Manage Input Methods</source>
         <translation>Gérer les méthodes de saisie</translation>
         <extra-child_page>Manage Input Methods</extra-child_page>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="148"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="149"/>
         <source>Shortcuts</source>
         <translation>Raccourcis</translation>
         <extra-child_page>Manage Input Methods</extra-child_page>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="165"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="166"/>
         <source>Add Input Method</source>
-        <translation type="unfinished">Ajouter une méthode de saisie</translation>
+        <translation>Ajouter une méthode de saisie</translation>
         <extra-child_page>Manage Input Methods</extra-child_page>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
@@ -152,8 +152,8 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../src/window/advancedsettingwidget.cpp" line="606"/>
-        <location filename="../src/window/advancedsettingwidget.cpp" line="658"/>
+        <location filename="../src/window/advancedsettingwidget.cpp" line="585"/>
+        <location filename="../src/window/advancedsettingwidget.cpp" line="637"/>
         <source>None</source>
         <translation>Aucun</translation>
     </message>
@@ -161,9 +161,9 @@
 <context>
     <name>dcc_fcitx_configtool::widgets::FcitxCheckBoxSettingsItem</name>
     <message>
-        <location filename="../src/widgets/keysettingsitem.cpp" line="596"/>
+        <location filename="../src/widgets/keysettingsitem.cpp" line="599"/>
         <source>Configure</source>
-        <translation type="unfinished"></translation>
+        <translation>Configurer</translation>
     </message>
 </context>
 <context>

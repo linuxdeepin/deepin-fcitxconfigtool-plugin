@@ -4,17 +4,17 @@
 <context>
     <name>Fcitx::AdvancedSettingWidget</name>
     <message>
-        <location filename="../src/window/advancedsettingwidget.cpp" line="104"/>
+        <location filename="../src/window/advancedsettingwidget.cpp" line="105"/>
         <source>Global Config</source>
         <translation>Global Config</translation>
     </message>
     <message>
-        <location filename="../src/window/advancedsettingwidget.cpp" line="107"/>
+        <location filename="../src/window/advancedsettingwidget.cpp" line="108"/>
         <source>Add-ons</source>
         <translation>Add-ons</translation>
     </message>
     <message>
-        <location filename="../src/window/advancedsettingwidget.cpp" line="241"/>
+        <location filename="../src/window/advancedsettingwidget.cpp" line="391"/>
         <source>None</source>
         <translation>None</translation>
     </message>
@@ -106,45 +106,45 @@
     <name>IMSettingWindow</name>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="115"/>
-        <source>Switch input methods</source>
-        <translation>Switch input methods</translation>
+        <source>Scroll between input methods</source>
+        <translation>Scroll between input methods</translation>
     </message>
     <message>
         <location filename="../src/window/imsettingwindow.cpp" line="119"/>
-        <source>Switch to the first input method</source>
-        <translation>Switch to the first input method</translation>
+        <source>Switch between the current/first input method</source>
+        <translation>Switch between the current/first input method</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="121"/>
-        <location filename="../src/window/imsettingwindow.cpp" line="124"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="122"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="125"/>
         <source>Restore Defaults</source>
         <translation>Restore Defaults</translation>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="128"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="129"/>
         <source>Advanced Settings</source>
         <translation>Advanced Settings</translation>
         <extra-child_page>Manage Input Methods</extra-child_page>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="138"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="139"/>
         <source>Manage Input Methods</source>
         <translation>Manage Input Methods</translation>
         <extra-child_page>Manage Input Methods</extra-child_page>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="148"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="149"/>
         <source>Shortcuts</source>
         <translation>Shortcuts</translation>
         <extra-child_page>Manage Input Methods</extra-child_page>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/window/imsettingwindow.cpp" line="165"/>
+        <location filename="../src/window/imsettingwindow.cpp" line="166"/>
         <source>Add Input Method</source>
-        <translation type="unfinished">Add Input Method</translation>
+        <translation>Add Input Method</translation>
         <extra-child_page>Manage Input Methods</extra-child_page>
         <extra-contents_path>/keyboard/Manage Input Methods</extra-contents_path>
     </message>
@@ -152,8 +152,8 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../src/window/advancedsettingwidget.cpp" line="606"/>
-        <location filename="../src/window/advancedsettingwidget.cpp" line="658"/>
+        <location filename="../src/window/advancedsettingwidget.cpp" line="585"/>
+        <location filename="../src/window/advancedsettingwidget.cpp" line="637"/>
         <source>None</source>
         <translation>None</translation>
     </message>
@@ -161,7 +161,7 @@
 <context>
     <name>dcc_fcitx_configtool::widgets::FcitxCheckBoxSettingsItem</name>
     <message>
-        <location filename="../src/widgets/keysettingsitem.cpp" line="596"/>
+        <location filename="../src/widgets/keysettingsitem.cpp" line="599"/>
         <source>Configure</source>
         <translation>Configure</translation>
     </message>

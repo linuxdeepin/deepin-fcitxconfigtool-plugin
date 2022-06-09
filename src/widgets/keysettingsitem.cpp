@@ -216,7 +216,7 @@ void FcitxKeyLabelWidget::setShortcutShow(bool flag)
             label->show();
         }
         setMaximumWidth(w);
-
+        setFocus();
     } else {
         for (FcitxKeyLabel *label : m_list) {
             label->hide();
@@ -227,7 +227,7 @@ void FcitxKeyLabelWidget::setShortcutShow(bool flag)
         m_keyEdit->clear();
         setMaximumWidth(9999);
     }
-    update();
+    //update();
 }
 
 bool FcitxKeyLabelWidget::checkNewKey(bool isRelease)
@@ -306,6 +306,8 @@ FcitxKeySettingsItem::FcitxKeySettingsItem(const QString &text, const QStringLis
     setFixedHeight(48);
     setAccessibleName(text);
     setLayout(m_hLayout);
+    setTabOrder(m_keyWidget, m_label);
+    m_label->setFocusPolicy(Qt::TabFocus);
     connect(m_keyWidget, &FcitxKeyLabelWidget::editedFinish, this, &FcitxKeySettingsItem::editedFinish);
     connect(m_keyWidget, &FcitxKeyLabelWidget::shortCutError, this, &FcitxKeySettingsItem::doShortCutError);
 }
@@ -418,6 +420,7 @@ FcitxHotKeySettingsItem::FcitxHotKeySettingsItem(const QString &text, const QStr
     setFixedHeight(48);
     setAccessibleName(text);
     setLayout(m_hLayout);
+    setTabOrder(m_keyWidget, m_label);
     connect(m_keyWidget, &FcitxKeyLabelWidget::editedFinish, this, &FcitxHotKeySettingsItem::editedFinish);
     connect(m_keyWidget, &FcitxKeyLabelWidget::shortCutError, this, &FcitxHotKeySettingsItem::doShortCutError);
 }

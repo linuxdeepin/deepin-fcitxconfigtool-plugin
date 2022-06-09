@@ -97,11 +97,12 @@ void IMSettingWindow::initUI()
     m_shortcutGroup = new FcitxSettingsGroup();
     m_shortcutGroup->setSpacing(10);
 
-    m_imSwitchCbox = new FcitxComBoboxSettingsItem(tr("Switch input methods"), {"CTRL_SHIFT", "ALT_SHIFT", "CTRL_SUPER", "ALT_SUPER"});
+    m_imSwitchCbox = new FcitxComBoboxSettingsItem(tr("Scroll between input methods"), {"CTRL_SHIFT", "ALT_SHIFT", "CTRL_SUPER", "ALT_SUPER"});
     GSettingWatcher::instance()->bind(GSETTINGS_SHORTCUT_SWITCHIM, m_imSwitchCbox);
     m_imSwitchCbox->comboBox()->setAccessibleName("Switch input methods");
 
-    m_defaultIMKey = new FcitxKeySettingsItem(tr("Switch to the first input method"));
+    m_defaultIMKey = new FcitxKeySettingsItem(tr("Switch between the current/first input method"));
+
     GSettingWatcher::instance()->bind(GSETTINGS_SHORTCUT_SWITCHTOFIRST, m_defaultIMKey);
     m_resetBtn = new DCommandLinkButton(tr("Restore Defaults"), this);
     GSettingWatcher::instance()->bind(GSETTINGS_SHORTCUT_RESTORE, m_resetBtn);
@@ -163,7 +164,8 @@ void IMSettingWindow::initUI()
     //subLayout->addSpacing(17);
     //subLayout->addStretch();
     subLayout->addLayout(headLayout);
-
+    setTabOrder(m_imSwitchCbox, m_defaultIMKey);
+    setTabOrder(m_defaultIMKey, m_addIMBtn);
     readConfig();
 }
 
