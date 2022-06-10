@@ -62,7 +62,7 @@ sudo dpkg -i *.deb
 
 #### 参与贡献
 
-1.  cssplay
+1.  csslayer
 2.  liuwenhao
 3.  chenshijie
 4.  zhaoyue
