@@ -23,8 +23,10 @@
 #include "publisher/publisherdef.h"
 #include "widgets/imactivityitem.h"
 #include "imconfig.h"
+#include "widgets/utils.h"
 #include <QApplication>
 #include <QProcess>
+#include <com_deepin_daemon_inputdevice_keyboard.h>
 
 using namespace Fcitx;
 using namespace Dtk::Widget;
@@ -135,6 +137,7 @@ void IMModel::onAddIMItem(FcitxQtInputMethodItem item)
     m_curIMList.insert(1, item);
     IMListSave();
     emit curIMListChanaged(m_curIMList);
+    modifySystemLayout(item, true);
     QTimer::singleShot(200, this, SLOT(addIMItem()));
 
 }
@@ -150,6 +153,7 @@ void IMModel::onDeleteItem(FcitxQtInputMethodItem item)
     item.setEnabled(false);
     m_availeIMList.append(item);
     IMListSave();
+    modifySystemLayout(item, false);
 }
 
 void IMModel::onItemUp(FcitxQtInputMethodItem item)
@@ -213,5 +217,39 @@ void IMModel::IMListSave()
                 Global::instance()->inputMethodProxy()->ReloadConfig();
             }
         }
+    }
+}
+
+// add or delete system layout
+void IMModel::modifySystemLayout(FcitxQtInputMethodItem item, bool add)
+{
+    if (!dcc_fcitx_configtool::IsCommunitySystem) return;
+    QString fcitxUniqueName = "fcitx-keyboard-";
+    QString uniqueName = item.uniqueName();
+    __Keyboard keyboard("com.deepin.daemon.InputDevices",
+            "/com/deepin/daemon/InputDevice/Keyboard",
+            QDBusConnection::sessionBus());
+
+    QString layout;
+    if (uniqueName.startsWith(fcitxUniqueName)) {
+        layout = uniqueName.replace(fcitxUniqueName, "");
+        int splitLoc = layout.indexOf('-');
+        if (splitLoc > 0) {
+            layout =  layout.replace(splitLoc,1,';');
+        } else {
+            layout = layout.append(';');
+        }
+    } else {
+        if (0 == QString::compare("zh_CN", item.langCode())) {
+            layout = "cn;";
+        } else {
+            layout = item.langCode();
+            layout = layout.append(';');
+        }
+    }
+    if (add) {
+        keyboard.AddUserLayout(layout);
+    } else {
+        keyboard.DeleteUserLayout(layout);
     }
 }

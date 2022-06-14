@@ -2,6 +2,13 @@
 cmake_minimum_required(VERSION 3.7)
 project(deepin-fcitxconfigtool-plugin)
 
+# 环境设置
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
+set(CMAKE_AUTOMOC ON)#moc 预编译包含QObject文件，生成xx_moc.h cpp
+set(CMAKE_AUTORCC ON)#开启rcc 编译资源文件qrc
+set(CMAKE_AUTOUIC ON)#开启uic 编译转换*.ui文件生存设计界面对应的.h .cpp文件
+set(CMAKE_CXX_STANDARD 14)
+
 #加载子目录
 add_subdirectory(src)
 add_subdirectory(tests)

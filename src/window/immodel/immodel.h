@@ -72,6 +72,7 @@ signals:
 
 private:
     void IMListSave(); //保存输入法列表至fcitx
+    void modifySystemLayout(FcitxQtInputMethodItem item, bool add);
 
 private:
     static IMModel *m_ins;
