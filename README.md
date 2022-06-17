@@ -1,5 +1,3 @@
-ol-plugin 
-
 deepin-fcitxconfigtool-plugin 
 
 dde控制中心输入法管理插件，目前做了基于fcitx4输入法框架的适配。
