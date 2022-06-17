@@ -147,12 +147,10 @@ void IMAddWindow::onAddIM()
 
 void IMAddWindow::onOpenStore()
 {
-//    QProcess::startDetached("sh -c deepin-app-store");
-//    QProcess::startDetached("sh -c deepin-home-appstore-client");
-
     DDBusSender().service("com.home.appstore.client")
             .interface("com.home.appstore.client")
             .path("/com/home/appstore/client")
             .method("com.home.appstore.client.openBusinessUri")
-            .call("searchApp/输入法");
+            .arg(QString("searchApp/输入法"))
+            .call();
 }
