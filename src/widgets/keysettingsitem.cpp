@@ -34,6 +34,7 @@ FcitxKeyLabelWidget::FcitxKeyLabelWidget(QStringList list, QWidget *p)
     m_keyEdit = new QLineEdit(this);
     m_keyEdit->installEventFilter(this);
     m_keyEdit->setReadOnly(true);
+    m_keyEdit->setFixedWidth(150);
     m_keyEdit->hide();
     m_keyEdit->setPlaceholderText(tr("Enter a new shortcut"));
     m_mainLayout = new QHBoxLayout(this);
@@ -413,9 +414,9 @@ FcitxHotKeySettingsItem::FcitxHotKeySettingsItem(const QString &text, const QStr
     m_keyWidget = new FcitxKeyLabelWidget(list, parent);
     m_hLayout = new QHBoxLayout(this);
     m_hLayout->setContentsMargins(10, 0, 10, 0);
-    m_hLayout->addWidget(m_label);
+    //m_hLayout->addWidget(m_label);
     m_hLayout->addWidget(m_keyWidget);
-    m_hLayout->setAlignment(m_label, Qt::AlignLeft);
+    //m_hLayout->setAlignment(m_label, Qt::AlignLeft);
     m_hLayout->addWidget(m_keyWidget, 0, Qt::AlignVCenter | Qt::AlignRight);
     setFixedHeight(48);
     setAccessibleName(text);

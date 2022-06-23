@@ -368,7 +368,7 @@ void AdvancedSettingWidget::createConfigOptionWidget(FcitxConfigGroupDesc *cgdes
     case T_Hotkey: {
         FcitxHotKeySettingsItem *item = new FcitxHotKeySettingsItem;
         item->setAccessibleName(name.split('/').last());
-        item->setMaximumWidth(150);
+        item->setMaximumWidth(170);
         item->enableSingleKey();
         item->setList(QString(codesc->rawDefaultValue).split(' ').first().split('_'));
         if (QString(codesc->rawDefaultValue).isEmpty()) {
