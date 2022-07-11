@@ -27,6 +27,7 @@
 #include <DSwitchButton>
 #include <KLocalizedString>
 #include <DSpinBox>
+#include <DComboBox>
 // system
 #include <libintl.h>
 
@@ -322,7 +323,7 @@ void AdvancedSettingWidget::createConfigOptionWidget(FcitxConfigGroupDesc *cgdes
         spinbox->setAccessibleName(name.split('/').last());
         spinbox->setEnabledEmbedStyle(true);
         spinbox->setMinimumWidth(50);
-        spinbox->setMaximumHeight(48);
+        spinbox->setMinimumHeight(45);
         spinbox->setMaximum(codesc2->constrain.integerConstrain.max);
         spinbox->setMinimum(codesc2->constrain.integerConstrain.min);
         inputWidget = spinbox;
@@ -348,7 +349,8 @@ void AdvancedSettingWidget::createConfigOptionWidget(FcitxConfigGroupDesc *cgdes
     case T_Enum: {
         int i;
         FcitxConfigEnum *e = &codesc->configEnum;
-        QComboBox *combobox = new QComboBox(this);
+        DComboBox *combobox = new DComboBox(this);
+        combobox->setForegroundRole(DPalette::Foreground);
         combobox->setAccessibleName(name.split('/').last());
         combobox->setMinimumWidth(150);
         combobox->setMaximumHeight(48);
@@ -557,7 +559,7 @@ void SyncFilterFunc(FcitxGenericConfig *gconfig, FcitxConfigGroup *group, FcitxC
         }
         case T_Enum: {
             int index = *(int *) value;
-            QComboBox *combobox = static_cast<QComboBox *>(arg);
+            DComboBox *combobox = static_cast<DComboBox *>(arg);
             combobox->setCurrentIndex(index);
             break;
         }
@@ -608,7 +610,7 @@ void SyncFilterFunc(FcitxGenericConfig *gconfig, FcitxConfigGroup *group, FcitxC
             break;
         }
         case T_Enum: {
-            QComboBox *combobox = static_cast<QComboBox *>(arg);
+            DComboBox *combobox = static_cast<DComboBox *>(arg);
             int *index = static_cast<int *>(value);
             *index = combobox->currentIndex();
             break;
