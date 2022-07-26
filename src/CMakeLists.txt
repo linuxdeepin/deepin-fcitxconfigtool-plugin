@@ -148,6 +148,19 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
         ${GSETTINGS_LIBRARIES}
         )
 
+
+add_executable(fcitx-helper
+        ${CMAKE_CURRENT_SOURCE_DIR}/fcitxHelper/main.cpp
+        )
+
+#target_include_directories(fcitx-helper PUBLIC
+#        ${Qt5Core_INCLUDE_DIRS}
+#        )
+
+target_link_libraries(fcitx-helper
+        Qt5::Core
+        )
+
 # Install settings
 if (CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
     set(CMAKE_INSTALL_PREFIX /usr)
@@ -155,6 +168,9 @@ endif ()
 
 # 设置执行 make install 时哪个目标应该被 install 到哪个位置
 install(TARGETS ${PROJECT_NAME} LIBRARY DESTINATION /lib/dde-control-center/modules)
+
+install(TARGETS fcitx-helper DESTINATION /usr/bin/)
+install(FILES fcitxHelper/fcitx-helper.desktop DESTINATION /etc/xdg/autostart/)
 
 # 安装 .qm 文件
 install(FILES ${DTNG_QM_FILES} DESTINATION share/${PROJECT_NAME}/translations)
