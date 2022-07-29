@@ -45,7 +45,7 @@ int main(int argc, char *argv[])
 {
     QCoreApplication app(argc, argv);
     QTimer timer;
-    timer.start(1000);
+    timer.start(4000);
     QObject::connect(&timer, &QTimer::timeout, [=]{
         QString output, error;
         exeCommand("which", QStringList() << PROCESS_NAME, output, error);
