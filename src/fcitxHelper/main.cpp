@@ -39,27 +39,31 @@ bool exeCommand(const QString &cmd, const QStringList &args, QString &output, QS
     return false;
 }
 
-const static QString PROCESS_NAME = "fcitx";
+const static QString PROCESS_NAME = "/usr/bin/fcitx-autostart";
 
 int main(int argc, char *argv[])
 {
     QCoreApplication app(argc, argv);
     QTimer timer;
-    timer.start(4000);
+    static int count = 0;
+    timer.start(500);
     QObject::connect(&timer, &QTimer::timeout, [=]{
+        count++;
         QString output, error;
+        exeCommand("pidof", QStringList() << "startdde", output, error);
+        if (output.isEmpty()) {
+            exit(0);
+        }
+
         exeCommand("which", QStringList() << PROCESS_NAME, output, error);
         if (output.isEmpty()) {
             return;
         }
 
-        output.clear();
-        error.clear();
-        exeCommand("pidof", QStringList() << PROCESS_NAME, output, error);
-        if (output.isEmpty()) {
+        //4秒检查一次fcitx是否在运行
+        if (count >= 8) {
             QProcess process;
             process.setProgram(PROCESS_NAME);
-            process.setArguments(QStringList() << "-d" << "2");
             process.startDetached();
         }
     });
