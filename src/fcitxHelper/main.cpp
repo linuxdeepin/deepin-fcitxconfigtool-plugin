@@ -20,6 +20,9 @@
 #include <QCoreApplication>
 #include <QTimer>
 #include <QProcess>
+#include <signal.h>
+
+
 
 bool exeCommand(const QString &cmd, const QStringList &args, QString &output, QString &err)
 {
@@ -39,29 +42,34 @@ bool exeCommand(const QString &cmd, const QStringList &args, QString &output, QS
     return false;
 }
 
+
+void signal_callback_handler(int signum, siginfo_t *siginfo, void *context) {
+    Q_UNUSED(context)
+    if (signum == SIGTERM && (long)siginfo->si_pid == 1) {
+        QString output, error;
+        exeCommand("pidof fcitx | xargs kill -9", QStringList(), output, error);
+        exit(signum);
+    }
+}
+
 const static QString PROCESS_NAME = "/usr/bin/fcitx-autostart";
 
 int main(int argc, char *argv[])
 {
     QCoreApplication app(argc, argv);
+
+    //进城被init杀死，视为关机
+    struct sigaction act;
+    memset(&act, 0, sizeof(act));
+    act.sa_sigaction = &signal_callback_handler;
+    act.sa_flags = SA_SIGINFO;
+    sigaction(SIGTERM, &act, NULL);
     QTimer timer;
-    static int count = 0;
-    timer.start(500);
+    timer.start(4000);
     QObject::connect(&timer, &QTimer::timeout, [=]{
-        count++;
         QString output, error;
-        exeCommand("pidof", QStringList() << "startdde", output, error);
+        exeCommand("pidof", QStringList() << "fcitx", output, error);
         if (output.isEmpty()) {
-            exit(0);
-        }
-
-        exeCommand("which", QStringList() << PROCESS_NAME, output, error);
-        if (output.isEmpty()) {
-            return;
-        }
-
-        //4秒检查一次fcitx是否在运行
-        if (count >= 8) {
             QProcess process;
             process.setProgram(PROCESS_NAME);
             process.startDetached();
