@@ -1,14 +1,7 @@
-# - Try to find the XKBFILE libraries
-# Once done this will define
-#
-#  XKBFILE_FOUND - system has XKBFILE
-#  XKBFILE_INCLUDE_DIR - the XKBFILE include directory
-#  XKBFILE_LIBRARIES - XKBFILE library
-#
 # Copyright (c) 2012 CSSlayer <wengxt@gmail.com>
+# SPDX-FileCopyrightText: 2022 UnionTech Software Technology Co., Ltd.
 #
-# Redistribution and use is allowed according to the terms of the BSD license.
-# For details see the accompanying COPYING-CMAKE-SCRIPTS file.
+# SPDX-License-Identifier: GPL-3.0-or-later
 
 if(XKBFILE_INCLUDE_DIR AND XKBFILE_LIBRARIES)
     # Already in cache, be silent

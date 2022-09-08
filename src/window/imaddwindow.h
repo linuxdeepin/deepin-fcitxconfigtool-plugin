@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2022 UnionTech Software Technology Co., Ltd.
+//
+// SPDX-License-Identifier: GPL-3.0-or-later
+
 ﻿/*
 * Copyright (C) 2021 ~ 2021 Deepin Technology Co., Ltd.
 *
