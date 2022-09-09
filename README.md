@@ -28,6 +28,8 @@ sudo dpkg -i *.deb
 Any usage issues can ask for help via
 * [WiKi](https://wiki.deepin.org)
 * [Forum](https://bbs.deepin.org)
+* [Developer Center](https://github.com/linuxdeepin/developer-center/issues)
+* [Matrix](https://matrix.to/#/#deepin-community:matrix.org)
 
 
 ## Getting involved
@@ -35,11 +37,6 @@ Any usage issues can ask for help via
 We encourage you to report issues and contribute changes
 - [Contribution guide for developers](https://github.com/linuxdeepin/developer-center/wiki/Contribution-Guidelines-for-Developers-en) (English)
 
-## Getting involved
-
-We encourage you to report issues and contribute changes
-
-- [**Contribution guide for developers**](https://github.com/linuxdeepin/developer-center/wiki/Contribution-Guidelines-for-Developers-en)
 
 ## License
 
