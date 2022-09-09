@@ -5,7 +5,7 @@ Source: https://github.com/linuxdeepin/deepin-fcitxconfigtool-plugin
 
 
 # README
-Files: README.md README_zh_CN.md
+Files: README.md README.zh_CN.md
 Copyright: UnionTech Software Technology Co., Ltd.
 License: CC-BY-4.0
 
@@ -37,5 +37,10 @@ License: CC0-1.0
 
 # debian rpm
 Files: debian/* rpm/*
+Copyright: None
+License: CC0-1.0
+
+# other
+Files: output/result.txt
 Copyright: None
 License: CC0-1.0
