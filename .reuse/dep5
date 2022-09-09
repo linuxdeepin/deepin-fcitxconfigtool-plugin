@@ -39,8 +39,3 @@ License: CC0-1.0
 Files: debian/* rpm/*
 Copyright: None
 License: CC0-1.0
-
-# other
-Files: output/result.txt
-Copyright: None
-License: CC0-1.0
