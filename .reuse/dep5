@@ -6,7 +6,7 @@ Source: https://github.com/linuxdeepin/deepin-fcitxconfigtool-plugin
 
 # README
 Files: README.md README_zh_CN.md
-Copyright: None
+Copyright: UnionTech Software Technology Co., Ltd.
 License: CC-BY-4.0
 
 # cmake file

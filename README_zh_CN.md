@@ -37,5 +37,5 @@ sudo dpkg -i *.deb
 - [开发者代码贡献指南](https://github.com/linuxdeepin/developer-center/wiki/Contribution-Guidelines-for-Developers)
 
 ## 开源许可证
-改项目在GPL-3.0-or-later]下发布。
+该项目在GPL-3.0-or-later下发布。
 
