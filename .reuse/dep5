@@ -25,10 +25,15 @@ Files: translations/*.ts translations/translations.qrc
 Copyright: UnionTech Software Technology Co., Ltd.
 License: CC0-1.0
 
-#config
+# config
 Files: src/api.json com.deepin.fcitx-config.gschema.xml
 Copyright: UnionTech Software Technology Co., Ltd.
 License: CC0-1.0
+
+# kcm-fcitx source
+Files: src/fcitxInterface/global.* src/fcitxInterface/dummyconfig.*  src/fcitxInterface/verticalscrollarea.*
+Copyright: CSSlayer
+License: GPL-2.0-or-later
 
 # gitignore
 Files: .gitignore .github/* .tx/*

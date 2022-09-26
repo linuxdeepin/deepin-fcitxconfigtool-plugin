@@ -40,4 +40,4 @@ We encourage you to report issues and contribute changes
 
 ## License
 
-This project is licensed under GPLv3 or any later version.
+This project is licensed under GPL-3.0-or-later.
