@@ -44,3 +44,9 @@ License: CC0-1.0
 Files: debian/* rpm/*
 Copyright: None
 License: CC0-1.0
+
+# fcitxHelper
+Files: src/fcitxHelper/*
+Copyright: CSSlayer
+License: GPL-2.0-or-later
+
