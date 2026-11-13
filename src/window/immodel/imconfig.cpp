@@ -125,6 +125,37 @@ bool IMConfig::checkShortKey(const QString &keyStr, QString &configName)
     return true;
 }
 
+bool IMConfig::checkFcitxHotKeyConflict(const QString &keyStr, const QString &excludeOption, QString &conflictName)
+{
+    QString content = publisherFunc::readFile(prefix + "/.config/fcitx/config");
+    if (content.isEmpty())
+        return true;
+
+    foreach (QString line, content.split("\n")) {
+        line = line.trimmed();
+        if (line.isEmpty() || line.startsWith('#') || line.startsWith('['))
+            continue;
+
+        auto parts = line.split('=');
+        if (parts.count() != 2)
+            continue;
+
+        QString optionKey = parts[0].trimmed();
+        QString optionValue = parts[1].trimmed().toUpper();
+
+        if (optionKey == excludeOption)
+            continue;
+
+        if (optionValue == keyStr) {
+            conflictName = optionKey;
+            return false;
+        }
+    }
+
+    conflictName = nullptr;
+    return true;
+}
+
 bool IMConfig::setIMvalue(const QString &key, const QString &value)
 {
     return  setConfigFile(prefix + "/.config/fcitx/config", key, value);
