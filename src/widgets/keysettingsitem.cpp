@@ -258,6 +258,11 @@ bool FcitxKeyLabelWidget::checkNewKey(bool isRelease)
                         emit shortCutError(m_newlist, configName);
                         return false;
                     }
+                    QString fcitxConflictName;
+                    if (m_curlist != tmpList && !IMConfig::checkFcitxHotKeyConflict(tmpList.join("_"), m_id, fcitxConflictName)) {
+                        emit shortCutError(m_newlist, fcitxConflictName);
+                        return false;
+                    }
                     setList(m_newlist);
                     focusNextChild();
                     emit editedFinish();
@@ -279,6 +284,11 @@ bool FcitxKeyLabelWidget::checkNewKey(bool isRelease)
         QString configName;
         if (m_curlist != tmpList && !IMConfig::checkShortKey(m_newlist, configName)) {
             emit shortCutError(m_newlist, configName);
+            return false;
+        }
+        QString fcitxConflictName;
+        if (m_curlist != tmpList && !IMConfig::checkFcitxHotKeyConflict(tmpList.join("_"), m_id, fcitxConflictName)) {
+            emit shortCutError(m_newlist, fcitxConflictName);
             return false;
         }
         setList(m_newlist);

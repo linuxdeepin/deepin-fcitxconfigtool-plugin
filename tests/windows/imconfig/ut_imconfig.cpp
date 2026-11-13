@@ -51,3 +51,13 @@ TEST_F(ut_imconfig, checkShortKey)
     QString temp = "C";
     imconfig.checkShortKey(tempSList, temp);
 }
+
+TEST_F(ut_imconfig, checkFcitxHotKeyConflict)
+{
+    IMConfig imconfig;
+    QString conflictName;
+    // When ~/.config/fcitx/config does not exist or has no conflict,
+    // the method returns true (no conflict).
+    bool result = imconfig.checkFcitxHotKeyConflict("CTRL_O", "TriggerKey", conflictName);
+    Q_UNUSED(result)
+}
