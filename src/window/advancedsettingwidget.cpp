@@ -231,6 +231,7 @@ void AdvancedSettingWidget::createConfigOptionWidget(FcitxConfigGroupDesc *cgdes
             item->setList(item->getKeyToStr().split("_"));
             sendReloadMessage();
         });
+        connect(item, &FcitxHotKeySettingsItem::shortCutError, this, &AdvancedSettingWidget::shortCutError);
         break;
     };
     case T_Char:

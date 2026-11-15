@@ -185,6 +185,7 @@ void IMSettingWindow::initConnect()
         reloadFcitx(IMConfig::setDefaultIMKey(m_defaultIMKey->getKeyToStr()));
         m_defaultIMKey->setList(m_defaultIMKey->getKeyToStr().split("_"));
     });
+    connect(m_defaultIMKey, &FcitxKeySettingsItem::shortCutError, this, &IMSettingWindow::popShortKeyListWindow);
 
     onReloadConnect();
 

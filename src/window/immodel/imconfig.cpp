@@ -121,6 +121,22 @@ bool IMConfig::checkShortKey(const QString &keyStr, QString &configName)
         configName = map.find(keyStr).value().name;
         return false;
     }
+
+    QString fcitxConfigContent = publisherFunc::readFile(prefix + "/.config/fcitx/config");
+    if (!fcitxConfigContent.isEmpty()) {
+        foreach (QString line, fcitxConfigContent.split("\n")) {
+            if (!line.contains("=") || line.trimmed().startsWith("#"))
+                continue;
+            QStringList parts = line.split("=");
+            if (parts.count() != 2)
+                continue;
+            if (parts[1].trimmed().toUpper() == keyStr) {
+                configName = parts[0].trimmed();
+                return false;
+            }
+        }
+    }
+
     configName = nullptr;
     return true;
 }

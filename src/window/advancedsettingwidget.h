@@ -92,6 +92,9 @@ private:
      */
     void loadFile();
 
+signals:
+    void shortCutError(const QString &curName, const QStringList &list, QString &name);
+
 private slots:
     /**
      *@brief 界面风格改变
